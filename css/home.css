@@ -1,0 +1,54 @@
+/*重置默认滚动当前状态背景色*/
+.mui-slider-indicator .mui-indicator {
+	background: #fff;
+}
+.mui-slider-indicator .mui-active.mui-indicator {
+	background: #ff6724;
+	border: none;
+}
+
+.top-mui-slider .mui-slider-item a img {
+	height: 180px;
+}
+
+.information-box .txtScroll-top {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+		
+.information-box .txtScroll-top .bd {
+	padding: 5px 15px;
+}
+
+.information-box .txtScroll-top .infoList li {
+	height: 24px;
+	line-height: 24px;
+}
+
+.information-box .txtScroll-top .infoList li .date {
+	float: right;
+	color: #999;
+}
+
+/*行情-滚动*/
+.data-slider .mui-slider .mui-slider-group {
+	height: 123px;
+}
+.data-list {
+	list-style: none;
+	float: left;
+	width: 30%;
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	margin: 5px 1% 0 2%;
+}
+.data-list:last-child {
+	margin-right: 0;
+}
+.data-list dt,
+.data-list dd {
+	margin: 0;
+	padding: 0;
+}
+
