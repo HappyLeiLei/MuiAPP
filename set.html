@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>设置</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/zhuyemian.css" type="text/css" />
+		<link rel="stylesheet" href=" css/mui.min.css">
+		<link rel="stylesheet" href="css/mui.imageviewer.app.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+				font-size: 14px;
+				font-family: "黑体";
+			}
+			
+			.mui-views,
+			.mui-view,
+			.mui-pages,
+			.mui-page,
+			.mui-page-content {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -12px;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #efeff4;
+			}
+			
+			.mui-pages {
+				top: 46px;
+				height: auto;
+			}
+			
+			.mui-page.mui-transitioning {
+				-webkit-transition: -webkit-transform 300ms ease;
+				transition: transform 300ms ease;
+			}
+			
+			.mui-page-shadow {
+				background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+				background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+			}
+			
+			.mui-navbar-inner.mui-transitioning,
+			.mui-navbar-inner .mui-transitioning {
+				-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+				transition: opacity 300ms ease, transform 300ms ease;
+			}
+			
+			.mui-page {
+				display: none;
+			}
+			
+			.mui-pages .mui-page {
+				display: block;
+			}
+			
+			.mui-page .mui-table-view:last-child {
+				margin-bottom: 30px;
+			}
+			
+			#feedback .mui-table-view:last-child {
+				margin-bottom: 0px;
+			}
+			
+			#feedback .mui-table-view:first-child {
+				margin-top: 0px;
+			}
+			/*问题反馈在setting页面单独的css==end*/
+			/*中間樣式*/
+			
+			.mui-table-view-cell {
+				height: 50px;
+			}
+			
+			.mui-page .mui-table-view:first-child {
+				margin-top: 72px;
+			}
+			.mui-scroll {
+			    height: 172px;
+			    background: #f7f7f7;}
+			.mui-bar .mui-btn-link {
+    			color: #999;}
+    		.mui-bar-nav {
+    			top: 25px;box-shadow:none}
+    		.mui-bar .mui-title{
+    				color: #4D4D4D;
+             }
+    .mui-table-view-cell:after {
+    	border-top: 2px solid #f5f5f5;
+    	background-color: white;
+    	height: 0;
+    	right: 15px;
+    }
+    .mui-table-view li:last-child:after{
+    	border-top: 0;
+    }
+    </style>
+	</head>
+
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar"></div>
+				<div class="mui-pages"></div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div id="setting" class="mui-page">
+			<!--页面标题栏开始-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+				<h1 class="mui-center mui-title">设置</h1>
+			</div>
+			<!--页面标题栏结束-->
+			<!--页面主内容区开始-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-chevron">
+							<li class="mui-table-view-cell ">
+								<a href="#notifications" class="mui-navigate-right">账号信息</a>
+							</li>
+							<li class="mui-table-view-cell ">
+								<a href="#privacy" class="mui-navigate-right">账号安全</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--页面主内容区结束-->
+		</div>
+		<!--单页面结束-->
+		<!--账号信息-->
+		<div id="notifications" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+				<h1 class="mui-center mui-title">账号信息</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">会员id<span class='mui-pull-right' id="cid"></span></li>
+							<li class="mui-table-view-cell mui-media">公司名称<span class='mui-pull-right' id="cname"></span></li>
+							<li class="mui-table-view-cell mui-media">手机号<span class='mui-pull-right' id="Mobile"></span></li>
+							<li class="mui-table-view-cell mui-media">所在地<span class='mui-pull-right' id="are"></span></li>
+							<li class="mui-table-view-cell mui-media">联系人<span class='mui-pull-right' id="connection"></span></li>
+							<li class="mui-table-view-cell mui-media">营业执照号码<span class='mui-pull-right' id="cnumber"></span></li>
+							<li id="li_cp" class="mui-table-view-cell mui-media">营业执照扫描件<span class='mui-pull-right' id="cpage"></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--账号信息-->
+		<!--账号安全-->
+		<div id="privacy" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon-left-nav"></span></button>
+				<h1 class="mui-center mui-title">账号安全</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">会员id<span class='mui-pull-right' id="cid"></span></li>
+							<li class="mui-table-view-cell mui-media">公司名称<span class='mui-pull-right' id="cname"></span></li>
+							<li class="mui-table-view-cell mui-media">修改登录密码（请前往网站修改）</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--账号安全-->
+		<div id="alert-tips" class="mui-popup mui-popup-in" style="display: none;"><span>网络错误</span></div>
+
+		<script type="text/javascript" src="js/mui.min.js "></script>
+		<script type="text/javascript" src="js/mui.view.js "></script>
+		<script type="text/javascript" src="js/mui.zoom.js"></script>
+		<script type="text/javascript" src="js/mui.previewimage.withheader.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/constant.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false, // 预加载详情页
+				preloadPages: [{
+					/*我的*/
+					id: LS_P_MAIN_MY,
+					url: LS_P_MAIN_MY
+				}]
+			});
+			mui.plusReady(function() {
+				ShowUserInfo();
+				window.addEventListener('my_set_showUser', function(event) {
+					ShowUserInfo();
+				});
+				mui('.mui-table-view').off('tap', 'li');
+				document.getElementById("li_cp").addEventListener('tap', function(e) {
+					/*console.info("[" + LS_P_MY_SET + " li_cp] Listener target:" + e.target.id);
+					console.info("[" + LS_P_MY_SET + " li_cp] Listener currentTarget:" + e.currentTarget.id);*/
+					if(e.target === e.currentTarget) {
+						var imgCp = document.getElementById("img_cp");
+						/*console.info("[" + LS_P_MY_SET + " li_cp] imgCp:" + imgCp);*/
+						if(imgCp) {
+							mui.trigger(imgCp, 'tap');
+						}
+					}
+
+				}, false);
+				/*预览*/
+				mui.previewImage({
+					header: '<span class="mui-icon mui-icon-left-nav mui-pull-left mui-preview-header-close"></span><span class="mui-preview-indicator mui-title"></span>'
+				});
+			});
+
+			function ShowUserInfo() {
+				$("#notifications #cid").text("");
+				$("#notifications #cname").text("");
+				$("#notifications #Mobile").text("");
+				$("#notifications #are").text("");
+				$("#notifications #connection").text("");
+				$("#notifications #cnumber").text("");
+				$("#notifications #cpage").html("");
+				$("#privacy #cid").text("");
+				$("#privacy #cname").text("");
+				var wd = plus.nativeUI.showWaiting();
+				jQuery(function() {
+					//获取后台
+					$.ajax({
+						type: "get",
+						url: C_URL + C_M_ALLMESSAGE,
+						async: true,
+						data: {
+							login_token: localStorage.getItem(LS_TOKEN) /*取出token*/
+						},
+						success: function(data) {
+							wd.close();
+							$("#notifications #cid").text(data.username);
+							$("#notifications #cname").text(data.name);
+							$("#notifications #Mobile").text(data.mobile);
+							$("#notifications #are").text(data.szD); //registerAddress
+							$("#notifications #connection").text(data.contactname);
+							if(data.businessLiness != null) $("#notifications #cnumber").text(data.businessLiness);
+							else $("#notifications #cnumber").text("");
+							if(data.linessImage != null && trim(data.linessImage).length > 0) {
+								$("#notifications #cpage").html('<img src="' + C_IMG_URL + data.linessImage + '" data-preview-src="" data-preview-group="1" id="img_cp" />');
+							}
+							$("#privacy #cid").text(data.username);
+							$("#privacy #cname").text(data.name);
+						},
+						error: function() {
+							wd.close();
+							$(".alert-tips").show();
+							setTimeout(function() {
+								$(".alert-tips").hide();
+							}, 2000);
+						}
+					});
+				});
+			}
+			//初始化单页的区域滚动
+			mui('.mui-scroll-wrapper').scroll();
+			var viewApi = mui('#app').view({
+				defaultPage: '#setting'
+			});
+			var view = viewApi.view;
+			(function($) {
+				//处理view的后退与webview后退
+				var oldBack = $.back;
+				$.back = function() {
+					if(viewApi.canBack()) { //如果view可以后退，则执行view的后退
+						/*console.info("["+LS_P_MY_SET+" Back] view back");*/
+						viewApi.back();
+					} else { //执行webview后退
+						/*console.info("["+LS_P_MY_SET+" Back] webview back:");*/
+						oldBack();
+					}
+				};
+				//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+				//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+				view.addEventListener('pageBeforeShow', function(e) {});
+				view.addEventListener('pageShow', function(e) {});
+				view.addEventListener('pageBeforeBack', function(e) {});
+				view.addEventListener('pageBack', function(e) {});
+			})(mui);
+		</script>
+
+	</body>
+
+</html>

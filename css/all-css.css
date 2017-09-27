@@ -1,0 +1,125 @@
+/*顶部增加45像素DIV*/
+			.qyn-top{
+				width: 100%;
+				height: 25px;
+				position: fixed;
+				top: 0;
+				z-index: 9999;
+			}
+			/*顶部增加45像素DIV*/
+			/*底部样式*/
+			.footer_fixed{
+			 bottom: 0;
+		    display: table;
+		    width: 100%;
+		    height: 50px;
+		    padding: 0;
+		    table-layout: fixed;
+		    border-top:1px solid #dedede;
+		    border-bottom: 0;
+		    position: fixed;
+		    z-index: 10;
+		    right: 0;
+		    left: 0;
+		    background-color: #ffffff;
+            backface-visibility: hidden;
+			}
+.footer_fixed .mui-tab-item {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+}
+
+.footer_fixed .mui-tab-item .mui-icon {
+    top: 3px;
+    width: 100%;
+    height: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.footer_fixed .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    font-family: Muiicons;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+.footer_fixed .mui-tab-item .mui-icon~.mui-tab-label {
+    font-size: 10px;
+    line-height: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mui-bar {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 0;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,.85);
+    box-shadow: 0 0 1px rgba(0,0,0,.85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+			.aa{
+				font-size:12px;
+				}
+				
+
+		.mui-pull-right button {
+			padding: 5px 10px 2px!important;
+		}	
+		/*.mui-bar{
+			background: #FFFFFF;
+		}*/
+		.mui-title{color: #4D4D4D;}
+        body .mui-icon img {
+				width: 20px;
+				height:20px;
+			}
+			body .mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label{
+				font-size: 10px;
+				line-height: 15px;
+				color: #999999;
+			}
+		
+@media screen and (max-width: 375px){
+	
+		.detail-title-item-01 {
+			display:block;
+			float: left;
+			margin-left: 0!important;
+			}
+	
+｝	
+｝/*   @media 375 end   */
+	
+@media screen and (max-width: 320px) {
+		.dateDiv,
+		.sellerCompany,
+		.goodsDetail,
+		.goodsCount,
+		.expireTime,
+		.font12 {
+			font-size:12px;
+			}
+			
+｝/*   @media 320 end   */
+			

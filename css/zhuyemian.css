@@ -1,0 +1,186 @@
+               body .mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+								    font-size: 15px;
+								}
+		/*底导航*/					
+							
+								 	
+								/*商城和我的导航*/	
+					
+					    /*被选中样式*/
+					 body #tabbar-with-sliderSegmentedControl .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+						 color: #ffffff;
+						  border-bottom: 3px solid #ffffff;
+			             
+							}
+							/*导航左边小图标*/
+						body  #topleft{
+					   	  	    top: 1%;
+					   			position: absolute;
+					    	    background: #e6c4a0;
+							    color: #f3932d;
+							    border-radius: 15%;
+							    margin: 5% 0% 15% 0%;
+							    font-size: 8px; 
+							    height: 17px;
+							    width: 48px;
+							    line-height: 1.5;
+					    }
+					    /*集市*/
+					body #buyshop {
+					    position: relative;
+					    bottom: auto;
+					    background: #f7f7f7; padding: 4% 10% 1% 0%;
+					    }
+					    /*选择样式*/
+				body .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+					    color: #eab47b;
+					    border-bottom: 3px solid #eda85f;
+					    font-size: 18px;
+					} 
+					/*集市导航左边样式*/
+				body #tabbar-with-buyshop #topleft {
+						    background: #f3932d;
+						    color: #ffffff;
+						}
+						/*行情*/
+				body #newpages {
+					    position: relative;
+					    bottom: auto;
+					    background: #f7f7f7; padding: 4% 10% 1% 0%;
+					    text-align: center;
+					    }
+				body	#tabbar-with-newpages  .mui-slider-indicator .mui-icon {
+							    border: 0px solid #ddd;
+							    color: #000000;
+							}
+				body	#tabbar-with-newpages .mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+						   /*width: 60%;*/
+						}
+						#img-bg-my {
+							width: 100%;
+							height: 100%;
+							margin: 0;
+							top: 0px;
+						    left: 0px;
+						    right: 0px;
+						    bottom: 0px;}
+						body	#tabbar-with-personuser #status{
+								position: absolute;
+							    border-radius: 10px;
+							    padding: 0% 4%;
+							    font-size: 0.1%;
+							    float: left;
+							    height: 15px;
+							    line-height: 15px;
+							    margin-top: 8px;
+							}
+							/*我的*/
+						body #tabbar-with-personuser #personuser{
+								color: #ffffff;
+							}
+						body #quetlogin{
+							    border: 1px solid #ff6724;
+							    color: #FF6724;
+							    border-radius: 8px;
+							    text-align: center;
+							}
+						body .alert-tips{
+								  background: black;
+								   text-align: center;
+								   border-radius: 15px;
+									 font-size: 12px;
+									 border: 1px solid #999999;
+									display: inline-block;
+									color: #FFFFFF;
+									line-height: 70px;
+									 position: fixed;
+									width: 200px;
+									z-index: 111111111111;							   
+							}
+							.mui-table-view{
+								color: #4d4d4d;
+							}
+						body #a,#b{
+											    display: inline-block;
+							   					 float: left;
+							   					 width: 50%;
+										}
+										.mui-popup-inner {
+							    border-radius: 13px 13px 13px 13px;
+							}
+						body #shengji{
+							    background: #fb7050;
+						       padding: 3% 20%;
+							    border-radius:10px;
+							    color: #ffd4c2;
+						}	
+					body .mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+								    font-size: 13px;
+								}
+					body	body .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+							    color: #ffffff;
+							    border-bottom: 3px solid #ffffff;
+							    font-size: 15px;
+							}
+					body .mui-slider-indicator.mui-segmented-control {
+					    position: relative;
+					    bottom: auto;
+					    background: rgba(241, 130, 12, 0.86); padding: 4% 10% 1% 0%;}
+					 body #topleft{
+					   	  	    top: 2%;
+					   			position: fixed;
+					    	    background: #e6c4a0;
+							    color: #f3932d;
+							    border-radius: 15%;
+							    margin: 5% 0% 15% 0%;
+							    font-size: 8px; 
+							    height: 17px;
+							    width: 48px;
+							    line-height: 1.5;
+					    }
+					 body   .mui-bar-tab .mui-tab-item {
+							    font-size: 10px;
+							    height: 49px;
+							}
+
+			body #alertversion .mui-popup-inner {
+				    border-radius: 13px 13px 13px 13px;
+				}
+				.mui-control-content {
+				    background: #ffffff;
+				}
+				.list-order ul {
+					    padding: 0%;
+    					margin: -4% 0%;
+				}
+				.list-order td{
+				        display: inline-block;
+				    color: #4D4D4D;
+				    width: 20%;
+					padding: 12px 0px;
+				    font-size: 15px;
+				    border-bottom: 1px solid #F7F7F7;
+				    text-align: center;
+				    line-height: 1.1;
+				}
+				.list-order #neirong td{
+				    color: #FF6724;
+				}
+				.list-order #neirong tr:hover td{
+				    color: #2AC845;
+				}.list-order #neirong tr:hover td:first-of-type{
+				    color: #4D4D4D;
+				}
+				.list-order #neirong td:first-of-type{
+				    color: #4D4D4D;
+				}
+				#alert-tips{
+					background: #2f2727;
+				    font-size: 18px;
+				    color: #FFFFFF;
+				    line-height: 50px;
+					top: 80%;
+				}
+				table{
+					width: 100%;
+				}

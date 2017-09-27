@@ -1,0 +1,484 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>确认下单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/mui.imageviewer.app.css" />
+		<link rel="stylesheet" href="css/all-css.css" />
+	</head>
+	<style>
+		body {
+			font-size: 14px;
+			font-family: "黑体";
+			background: #FFFFFF;
+		}
+		.mui-btn:enabled:active{
+				color: #fff !important;
+				border: 1px solid #ff6724;
+				background: #FF6724;
+			}
+		.mui-bar-nav~.mui-content {
+    padding-top: 69px;
+}
+		.mui-bar-nav{
+	     top: 20px;
+		 box-shadow: none;
+         border-bottom: 1px solid #e8e8e8;
+		}
+		.mui-bar-nav a {
+    color: #595959;
+}
+		.mui-content{
+			background: none;
+		}
+	.confirm-img {
+	background: #FFFFFF;
+    padding: 20px 40px;
+   /* border-top: 1px solid #EFEFEF;*/
+    /*height: 80px;*/
+    width: 100%;
+	}
+	.bgcol{
+		background: #efeff4;
+		height: 10px;
+	}
+		.ware-text,
+		.upload-text {
+			width: 25%;
+			color: #FF6724;
+			display: inline-block;
+			text-align: center;
+		}
+		
+		.upload-text {
+			color: #999999;
+		}
+		
+		.prodoct-title {
+			background: #FFFFFF;
+			padding: 15px 10px;
+			font-size: 14px;
+			line-height: 14px;
+			color: #4D4D4D;
+		}
+		
+		.product-item,
+		.prodoct-bottom {
+			padding-left: 10px;
+			padding-right: 10px;
+			color: #4D4D4D;
+			background: #F9F9F9;
+		}
+		
+		.prodoct-bottom {
+			background: #FFFFFF;
+			height: 50px;
+		}
+		
+		.dashed {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border-bottom: 1px dashed #E7E7E7;
+		}
+		
+		.prodoct-bottom .dashed {
+			height: 50px;
+		}
+		
+		.product-item .dashed .pad-right {
+			padding-right: 5%;
+			display: inline-block;
+		}
+		
+		.product-set {
+			padding: 10px 10px;
+			color: #4D4D4D;
+			line-height: 24px;
+			background: #F9F9F9;
+		}
+		
+		.product-set .product-weight,
+		.product-set .product-weight2 {
+			width: 50%;
+			display: inline-block;
+		}
+		
+		.product-set .product-weight {
+			float: left;
+		}
+		
+		.product-set .product-weight2 {
+			float: right;
+		}
+		
+		.red {
+			color: red;
+			font-size: 14px;
+		}
+		
+		input[type=number] {
+			border: 0;
+			width: 40%;
+			height: 20px;
+			line-height: 20px;
+			text-align: right;
+			font-size: 14px;
+			padding: 0;
+		}
+		
+		.product-order {
+			margin-left: 2px;
+			background: #f4f5f9;
+			font-size: 12px;
+			padding: 3px;
+			border-radius: 3px;
+			color: #999999;
+		}
+		
+		.btn-chose {
+			background: #fff;
+			padding: 15px 10px 10px;
+			height: 60px;
+		}
+		/*.btn-pay {
+			color: #FF6724 !important;
+			border: 1px solid #FF6724;
+			background: #FFFFFF;
+		}
+		
+		.btn-pay:hover,
+		.btn-pay:visited,
+		.btn-pay:enabled:active {
+			color: #FFFFFF !important;
+			background-color: #FF6724;
+		}*/
+		
+	.orange {
+	color: #FF6724 !important;
+    border: 1px solid #ff6724;
+    padding-left: 8px;
+    height: 30px;
+    line-height: 15px;
+    width: 100px;
+	}
+		
+		.total {
+			width: 100%;
+			background: #FFFFFF;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			height: 48px;
+			line-height: 48px;
+			border-top: 1px solid #E7E7E7;
+		}
+		
+		.btn-sub {
+			border: 1px solid #FF6724;
+			line-height: 14px;
+			color: #FFFFFF;
+			background-color: #FF6724;
+			width: 110px;
+			height: 48px;
+			border-radius: 0;
+		}
+		
+		.btn-sub:hover,
+		.btn-sub:visited,
+		.btn-sub:enabled:active {
+			color: #FFFFFF;
+			background-color: #FF6724;
+		}
+		.qyn-top{
+				background-color: #F5F5F5 !important;
+			}
+			.bor_top_dashed{
+			/*	display: inline-block;*/
+				border-top: 1px dashed #E7E7E7;
+				padding-top: 10px;
+				margin-top: 10px;
+				height: 34px;
+
+			}
+			.bor_top_dashed .tt_img img{
+				line-height: 14px;
+			    width: 12px;
+			    vertical-align: top;
+			    padding-top: 6px;
+				
+			}
+			.bor_top_dashed .tt_txt{
+				display:inline-block;
+				font-size: 12px;
+				line-height: 12px;
+				color: #999999;
+
+			}
+	</style>
+
+	<body>
+		<!--顶部增加DIV-->
+		<div class="qyn-top"></div>
+		<header class="mui-bar mui-bar-nav" style="background: #F5F5F5;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">确认下单</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" style="height: calc(100% - 49px);">
+			<div class="mui-scroll">
+				<!-- 进度图片 -->
+				<div class="confirm-img">
+					<img style="width: calc(100%);" src="images/order_scheduleX3.png" />
+					<div style="line-height: 14px;">
+						<span class="ware-text">拍下商品</span><span class="ware-text">确认下单</span><span class="upload-text">上传凭证</span><span class="upload-text">完成</span>
+					</div>
+				</div>
+				<div class="bgcol"></div>
+				<!-- 商品信息 -->
+				<div class="prodoct-title">商品信息</div>
+				<div class="product-item" id="div_goods_title"></div>
+				<div class="product-set">
+					<div>
+						<span class="product-weight">重量:<span id="sp_weight"></span>吨</span>
+						<span class="product-weight2">起订量:<span id="sp_minCount"></span>吨</span>
+					</div>
+					<div><span>单价:</span><span class="red"><span id="sp_goodsPrice"></span>元/吨</span>
+					</div>
+					<div class="bor_top_dashed">
+					<span class="tt_img"><img src="images/tipX2.png"/ ></span>
+					<span class="tt_txt">提示：价格为基准价+升贴水+加工费</span>
+				</div>
+				</div>
+
+				<div class="prodoct-bottom">
+				    <div class="dashed" style="width: 100%;">
+						<span style="width: 20%;"><span>采购重量</span><span>(<span class="product-order">起订</span><span style="color: #999;"><span id="sp_minCo"></span>吨</span>)</span></span>
+					<input id="txt_count" type="number" class="mui-input-clear gray01 product-input " style="text-align: right; width: 53%;">
+					<span class="mui-pull-right gray02" style="width: 5%; text-align: right;">吨</span>
+					</div>
+				</div>
+				<div class="btn-chose">
+					<button id="btn_select_all" type="button" class="mui-btn mui-btn-warning mui-btn-outlined orange btn-pay mui-pull-right">选择整单重量</button>
+				</div>
+			</div>
+		</div>
+		<div class="total mui-bar-footer">
+			<span class="mui-pull-right">
+				<span>合计:</span><span class="red"><span style="font-family:Arial;">&yen;</span><span id="sp_totalPrice"></span></span>
+			<span><button id="btn_receipt" type="button" class="mui-btn mui-btn-warning btn-sub">确认下单</button></span>
+			</span>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/constant.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			var oid = "0",
+				fUrl = "";
+			var IsAluminum = false;
+			mui.init({
+				swipeBack: false, // 预加载详情页
+				preloadPages: [{
+					id: LS_P_MAIN_MARKET,
+					url: LS_P_MAIN_MARKET
+				}, {
+					id: LS_P_MAIN_MALL,
+					url: LS_P_MAIN_MALL
+				}, {
+					id: LS_P_SUBMIT_ORDER_SUCCESS,
+					url: LS_P_SUBMIT_ORDER_SUCCESS
+				}]
+			});
+
+			function initPage() {
+				document.getElementById("div_goods_title").innerHTML = "";
+				document.getElementById("sp_weight").innerHTML = "";
+				document.getElementById("sp_minCount").innerHTML = "";
+				document.getElementById("sp_goodsPrice").innerHTML = "";
+				document.getElementById("sp_minCo").innerHTML = "";
+				document.getElementById("txt_count").value = "";
+				document.getElementById("sp_totalPrice").innerText = "0";
+				document.getElementById("txt_count").addEventListener('input', function() {
+					this.value = trim(this.value);
+					this.value = LimiDigital(this.value);
+				}, false);
+				document.getElementById("txt_count").addEventListener('blur', function(e) {
+					this.value = parseFloat(this.value);
+					CalcTotalPrice();
+				}, false);
+				document.getElementById("btn_select_all").addEventListener('tap', function() {
+					document.getElementById("txt_count").value = document.getElementById("sp_weight").innerText;
+					CalcTotalPrice();
+				}, false);
+				document.getElementById("btn_receipt").removeAttribute("disabled");
+
+			}
+
+			/*mui.ready(function() {
+					initPage();
+					mui('.mui-scroll-wrapper').scroll();
+					//GDTG2017050560090464
+					//GDTG2017051269449913
+					oid = "GDLG2017052348164515";
+					localStorage.setItem(LS_TOKEN, "eyJpdiI6IjA0TnNMZ25ZMzdIM3FGUm9cLzhPY1RRPT0iLCJ2YWx1ZSI6IjhGRWNOR1NcL0QwRHhRMTQ0OW1HTDd5eEQrXC9FUE5hM1wvSkVpaVA0N3dnMmM9IiwibWFjIjoiZGIxZDIyMjFhMmUwMGJjMWFlZmIwOTQ4MWY4NDMwZjU0NGMzMWExM2I0Y2VlNzZiZDFjY2FhMTg4M2I1MjE2ZSJ9");
+					showdata(oid);
+			});*/
+
+			mui.plusReady(function() {
+				//plus.screen.lockOrientation("portrait-primary");
+				initPage();
+				mui('.mui-scroll-wrapper').scroll();
+				window.addEventListener('goods_order', function(event) {
+					oid = event.detail.id || "0";
+					fUrl = event.detail.fromUrl || LS_P_MAIN_MARKET;
+					initPage();
+					showdata(oid);
+				}, false);
+
+				document.getElementById("btn_receipt").addEventListener('tap', function(e) {
+					var self = this;
+					if(trim(document.getElementById("txt_count").value).length == 0) {
+						ShowToast("您没有填写采购重量");
+					} else {
+						var minCount = parseFloat(document.getElementById("sp_minCount").innerText) || 0;
+						var goodsCount = parseFloat(document.getElementById("sp_weight").innerText) || 0;
+						var buyCount = parseFloat(document.getElementById("txt_count").value) || 0;
+						if(buyCount === 0) {
+							ShowToast("采购重量填写错误");
+						} else if(buyCount < minCount) {
+							ShowToast("采购重量不能少于起订量");
+						} else if(IsAluminum && buyCount % 32 !== 0) {
+							ShowToast("铝杆的采购重量必须为32吨的整数倍")
+						} else if(buyCount > goodsCount) {
+							ShowToast("采购重量不能超过整单重量")
+						} else {
+							self.setAttribute("disabled", "disabled");
+							var wd = plus.nativeUI.showWaiting();
+							jQuery.ajax({
+								type: "POST",
+								contentType: "application/x-www-form-urlencoded; charset=utf-8",
+								url: C_URL + C_M_GOODS_SUBMIT_ORDER,
+								data: {
+									"login_token": localStorage.getItem(LS_TOKEN),
+									"goodsId": oid,
+									"weight": document.getElementById("txt_count").value,
+									"countprice": document.getElementById("sp_totalPrice").innerText
+								},
+								dataType: "json",
+								timeout: C_TIMEOUT,
+								success: function(response) {
+									wd.close();
+									/*console.info("[" + LS_P_SUBMIT_ORDER + "] btn_receipt response:" + response);
+									for(p in response) {
+										console.info("[" + LS_P_SUBMIT_ORDER + "] btn_receipt response." + p + " is:" + response[p]);
+									}*/
+									if(response != null && response.status === true) {
+										/*获取订单ID，跳转至下单成功页面*/
+										OpenPage(LS_P_SUBMIT_ORDER_SUCCESS, "submit_order_success", {
+											"id": response.data.orderId,
+											"fromUrl": fUrl
+										});
+									} else {
+										if(response.msg.indexOf("重量") >= 0 || response.msg.indexOf("商品总计") >= 0) ShowToast(response.msg);
+										else ShowToast(MSG_SUBMIT_ORDER_ERROR);
+										self.removeAttribute("disabled");
+									}
+								},
+								error: function(xhr, type, errorThrown) {
+									wd.close();
+									ShowToast(MSG_DATA_ERROR);
+									self.removeAttribute("disabled");
+								}
+							});
+						}
+					}
+				}, false);
+
+				//绘制顶部图标
+				cWebView = plus.webview.currentWebview();
+				//开启回弹
+				cWebView.setStyle({
+					bounce: "vertical",
+					bounceBackground: "#efeff4"
+				});
+			});
+
+			function CalcTotalPrice() {
+				var price = 0,
+					count = 0,
+					total = 0;
+				if(document.getElementById("sp_goodsPrice").innerText.length > 0) {
+					price = parseFloat(document.getElementById("sp_goodsPrice").innerText);
+				}
+				if(trim(document.getElementById("txt_count").value).length > 0) {
+					count = parseFloat(document.getElementById("txt_count").value);
+				} else {
+					ShowToast("您没有填写采购重量");
+				}
+				total = RoundFormat((price * count), 2);
+				document.getElementById("sp_totalPrice").innerText = total;
+			}
+
+			function showdata(id) {
+				/*console.info("[" + LS_P_SUBMIT_ORDER + "] showdata goodsId:" + id);
+				console.info("[" + LS_P_SUBMIT_ORDER + "] showdata login_token:" + localStorage.getItem(LS_TOKEN));*/
+				CheckLoginToken({
+					fromUrl: LS_P_MY_ORDER_LIST
+				});
+				var wd = plus.nativeUI.showWaiting();
+				jQuery.ajax({
+					url: C_URL + C_M_GOODS_DETAIL,
+					data: {
+						"goodsId": id,
+						"login_token": localStorage.getItem(LS_TOKEN)
+					},
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					dataType: "json",
+					timeout: C_TIMEOUT,
+					type: 'GET',
+					success: function(result) {
+						var item = result || {};
+						if(item.name != null && item.name.indexOf("铝杆") >= 0) IsAluminum = true;
+						else IsAluminum = false;
+						var templateHtml = '<div class="dashed"><span class="pad-right">' + item.name2 + '</span>';
+						if(item.goodsSkuDetail != null && item.goodsSkuDetail.length > 0) {
+							mui.each(item.goodsSkuDetail, function(idx, obj) {
+								if(obj.key.indexOf("直径") === -1) {
+									if(obj.key.indexOf("交货地") === -1) {
+										if(obj.key.indexOf("发货地") === -1) {
+											templateHtml += '<span class="pad-right">' + obj.value + '</span>';
+										} else {
+											templateHtml += '<span class="pad-right">发货地:' + obj.value + '</span>';
+										}
+									} else {
+										templateHtml += '<span class="pad-right">交货地:' + obj.value + '</span>';
+									}
+								} else {
+									templateHtml += '<span class="pad-right">φ' + obj.value + '</span>';
+								}
+							});
+						}
+						templateHtml += '</div>';
+						document.getElementById("div_goods_title").innerHTML = templateHtml;
+						document.getElementById("sp_weight").innerText = RoundFormat(item.goodsCount, 5);
+						document.getElementById("sp_minCount").innerText = RoundFormat(item.minimum, 5);
+						document.getElementById("sp_goodsPrice").innerText = RoundFormat(item.goodsPrice, 2);
+						document.getElementById("sp_minCo").innerText = item.minimum;
+						document.getElementById("txt_count").value = item.minimum;
+						CalcTotalPrice();
+						wd.close();
+					},
+					error: function(xhr, type, errorThrown) {
+						wd.close();
+						ShowToast(MSG_DATA_ERROR);
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

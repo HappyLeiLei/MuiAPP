@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.css">
+		<title></title>
+		<style>
+			.mui-popup {
+				width: 100.1%;
+				height: 99.9%;
+				border-radius: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-popup mui-popup-in" id="MobileVersion1" style="display: none;">
+			<img src="images/guid_1080X1920_1.jpg" class="guidImage1" style="width: 100%;height: 100%;display: block;" />
+			<img src="images/guid_1080X1920_2.jpg" class="guidImage2" style="width: 100%;height: 100%;display: none;" />
+			<img src="images/guid_1080X1920_3.jpg" class="guidImage3" style="width: 100%;height: 100%;display: none;" />
+		</div>
+		<div class="mui-popup mui-popup-in" id="MobileVersion2" style="display: none;">
+			<img src="images/guid_1200X1920_1.png" class="guidImage1" style="width: 100%;height: 100%;display: block;" />
+			<img src="images/guid_1200X1920_2.png" class="guidImage2" style="width: 100%;height: 100%;display: none;" />
+			<img src="images/guid_1200X1920_3.png" class="guidImage3" style="width: 100%;height: 100%;display: none;" />
+		</div>
+		<div class="mui-popup mui-popup-in" id="MobileVersion3" style="display: none;">
+			<img src="images/guid_600X800_1.png" class="guidImage1" style="width: 100%;height: 100%;display: block;" />
+			<img src="images/guid_600X800_2.png" class="guidImage2" style="width: 100%;height: 100%;display: none;" />
+			<img src="images/guid_600X800_3.png" class="guidImage3" style="width: 100%;height: 100%;display: none;" />
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/constant.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script charset="UTF-8" type="text/javascript">
+		mui.init({
+			swipeBack: false,
+			// 预加载详情页
+			preloadPages: [{
+				/*主界面*/
+				id: LS_P_MAIN,
+				url: LS_P_MAIN
+			}]
+		});
+		//	引导页
+		mui.plusReady(function() {
+			//plus.screen.lockOrientation("portrait-primary");
+			plus.navigator.closeSplashscreen();
+			var imgs = document.getElementsByClassName("guidImage3");
+			for(var i = 0; i < imgs.length; i++)
+				imgs[i].addEventListener("tap", function() {
+					//存入标记
+					plus.storage.setItem(LS_LAUNCH_FLAG, "true");
+					OpenPage(LS_P_MAIN);
+				});
+		});
+		//	返回之前入口页
+		mui.back = function() {};
+		jQuery(function() {
+			jQuery(".guidImage1").click(function() {
+				/*console.info("[" + LS_P_GUID + " .guidImage1] click");*/
+				jQuery(".guidImage2").css("display", "block");
+				jQuery(this).hide();
+			});
+			jQuery(".guidImage2").click(function() {
+				/*console.info("[" + LS_P_GUID + " .guidImage2] click");*/
+				jQuery(".guidImage3").css("display", "block");
+				jQuery(this).hide();
+			});
+		});
+		withvalue = document.body.clientWidth;
+		heighvalue = screen.height;
+		//		heighvalue= window.screen.availHeight;
+		var widthRate = withvalue / heighvalue;
+		if(widthRate >= 0.55 && widthRate < 0.625) {
+			/*1080X1920 0.5625*/
+			$("#MobileVersion1").show();
+		} else if(widthRate >= 0.625 && widthRate < 0.75) {
+			/*1200X1920 0.625*/
+			$("#MobileVersion2").show();
+		} else {
+			/*600X800 0.75*/
+			$("#MobileVersion3").show();
+		}
+	</script>
+
+</html>

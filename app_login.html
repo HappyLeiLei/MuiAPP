@@ -1,0 +1,485 @@
+<!--<!DOCTYPE html>-->
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">-->
+<html>
+
+	<head>
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>登录</title>
+		<link rel="stylesheet" href="css/all-css.css" type="text/css" />
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.css">
+
+		<style>
+			body {
+				background-color: #ffffff;
+				font-family: "黑体";
+				font-size: 16px;
+			}
+			/*输入框提示信息样式*/
+			
+			input::-webkit-input-placeholder,
+			textarea::-webkit-input-placeholder {
+				text-align: left;
+				color: #4D4D4D;
+				font-family: "黑体";
+			}
+			
+			input:-moz-placeholder,
+			textarea:-moz-placeholder {
+				text-align: left;
+				color: #4D4D4D;
+				font-family: "黑体";
+			}
+			
+			input::-moz-placeholder,
+			textarea::-moz-placeholder {
+				text-align: left;
+				color: #4D4D4D;
+				font-family: "黑体";
+			}
+			
+			input:-ms-input-placeholder,
+			textarea:-ms-input-placeholder {
+				text-align: left;
+				color: #4D4D4D;
+				font-family: "黑体";
+			}
+			/*输入框提示信息样式end*/
+			
+			.mui-input-group {
+				position: relative;
+				padding: 0% 2% 6% 1%;
+				border: 0;
+				background-color: #fff;
+			}
+			
+			.mui-btn-danger {
+				padding: 9px 40%;
+				border-radius: 20px;
+				margin: 4% 4%;
+			}
+			
+			b a:first-of-type {
+				margin-left: 3%;
+				display: inline-block;
+			}
+			
+			b a:last-of-type {
+				margin-right: 3%;
+				display: inline-block;
+			}
+			
+			.mui-input-row {
+				margin: 0px 25px;
+				border-bottom: 1px solid #E7E7E7;
+			}
+			
+			.image {
+				display: block;
+				margin-top: 15%;
+				margin-left: 25%;
+				margin-bottom: 10%;
+			}
+			
+			.box {
+				margin: 71% 15%;
+				position: absolute;
+				width: 236px;
+				z-index: 1;
+				height: 134px;
+				border: 1px solid #999999;
+				display: inline-block;
+				border-radius: 3%;
+				overflow: hidden;
+				background: #ffffff;
+			}
+			
+			.confirm {
+				color: black;
+				display: inline-block;
+				margin-left: 136px;
+				float: left;
+				width: 128px;
+				position: absolute;
+				top: 65%;
+				border: 1px solid #999999;
+				padding: 5% 17%;
+			}
+			
+			.blank {
+				text-align: center;
+			}
+			
+			.quete {
+				display: inline-block;
+				float: left;
+				position: absolute;
+				top: 65%;
+				border: 1px solid #999999;
+				padding: 5% 19%;
+			}
+			
+			p {
+				color: #000000;
+				margin: 10px 54px 40px 54px;
+			}
+			
+			p b {
+				font-weight: 800;
+			}
+			
+			#alert {
+				display: none;
+			}
+			
+			.all-box {
+				position: absolute;
+				z-index: -1;
+				width: 100%;
+				height: 100%;
+				display: inline-block;
+				float: left;
+				clear: all;
+				opacity: .5;
+			}
+			
+			#error-alert-box {
+				width: 100%;
+				height: 0px;
+				margin-top: 315px;
+				position: fixed;
+				z-index: 1111;
+			}
+			
+			#passwalert1,
+			#passwalert3,
+			#passwalert4,
+			#passwalert5 {
+				position: absolute;
+				filter: Alpha(Opacity=80);
+				opacity: 0.8;
+				/* for IE */
+				background-color: rgba(0, 0, 0, 0.8);
+				/*for FF*/
+				color: #FFFFFF;
+				line-height: 76px;
+				width: 236px;
+				height: 76px;
+				text-align: center;
+				border: 1px solid #999999;
+				border-radius: 10px;
+				font-size: 14px;
+				display: none;
+			}
+			
+			#eyes {
+				font-size: 20px;
+				position: absolute;
+				z-index: 1;
+				top: 10px;
+				right: 2px;
+				width: 6%;
+				height: 45%;
+				text-align: center;
+				color: #999;
+				background: url(images/logineye.png)no-repeat center;
+				background-size: 90%;
+				border: none;
+			}
+			
+			.fonts {
+				color: #999999;
+				font-family: "黑体";
+			}
+			
+			input:-webkit-autofill,
+			textarea:-webkit-autofill,
+			select:-webkit-autofill {
+				background-color: #FFFFFF;
+				background-image: none;
+				color: rgb(0, 0, 0);
+			}
+			
+			.organe-back {
+				color: #fff;
+				border: 1px solid #ff6724;
+				background-color: #ff6724;
+				font-size: 16px;
+				height: 44px;
+				padding: 9px 40%;
+				border-radius: 20px;
+				margin: 30px 4% 35px 4%;
+			}
+			
+			.zhuce {
+				color: #4d4d4d;
+			}
+			
+			a {
+				font-family: "黑体";
+				font-size: 16px;
+				font-weight: normal;
+			}
+			
+			.organe-back:enabled:active {
+				color: #fff;
+				border: 1px solid #ff6724;
+				background-color: #ff6724;
+				font-size: 16px;
+				height: 44px;
+			}
+			
+			.bg {
+				width: 50%;
+				margin: 0 auto;
+				margin-top: 73px;
+				margin-bottom: 77px;
+			}
+			
+			.bg img {
+				width: 100%;
+			}
+			
+			.mui-input-row label {
+				margin: 0px;
+				width: 50px;
+				padding: 15px 0 15px;
+			}
+			
+			body .mui-input-row input {
+				float: left;
+				padding-left: 0;
+				border: 0;
+			}
+			
+			.qyn-top {
+				color: #000;
+				background: #fff;
+			}
+			
+			.mui-popup {
+				width: 281px;
+			}
+			
+			.mui-popup-inner {
+				padding: 12%;
+				height: 107px;
+			}
+			
+			#user_name,
+			#password {
+				height: 47px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--顶部增加DIV-->
+		<div class="qyn-top"></div>
+		<!--顶部增加DIV-->
+		<div id="error-alert-box">
+			<div class="passwalert1" id="passwalert1">您输入的账号或密码有误</div>
+			<div class="passwalert3" id="passwalert3">您输入的账号或密码有误</div>
+			<div class="passwalert4" id="passwalert4">网络服务异常</div>
+			<div id="passwalert5" class="passwalert5">您输入的账号或密码有误</div>
+		</div>
+		<script>
+			var boxlength = document.getElementById("error-alert-box").clientWidth;
+			i = (boxlength - 236) / 2;
+			document.getElementById("passwalert1").setAttribute('style', 'margin-left:' + i + 'px;');
+			document.getElementById("passwalert3").setAttribute('style', 'margin-left:' + i + 'px;');
+			document.getElementById("passwalert4").setAttribute('style', 'margin-left:' + i + 'px;');
+			document.getElementById("passwalert5").setAttribute('style', 'margin-left:' + i + 'px;');
+		</script>
+		<div class="back" style="margin-top: 30px;margin-left: 7px;font-size: 30px;color: #999;" />&times;</div>
+		<div class="bg"><img src="images/logo1.png" /></div>
+		<div class="mui-input-row">
+			<label class="fonts">账号</label>
+			<input type="text" class="mui-input-clear" placeholder="手机/会员Id" id="user_name">
+		</div>
+		<div class="mui-input-row">
+			<label class="fonts">密码</label>
+			<input type="password" placeholder="请输入密码" id="password">
+			<button id="eyes" type="button"></button>
+		</div>
+		<script>
+			var pwdEl = document.getElementById("password");
+			document.getElementById("eyes").addEventListener('touchstart', function() {
+				pwdEl.type = 'text';
+			});
+			document.getElementById("eyes").addEventListener('touchend', function() {
+				pwdEl.type = 'password';
+			});
+		</script>
+		<div id="loginbutton" style="width: 100%; text-align: center;"><button type="button" class="mui-btn organe-back">登录</button></div>
+		<a href="#" id="gotozhuce" class="zhuce" style="float: left; margin-left: 25px;">手机快速注册</a>
+		<a href="#alert" id="forgetp" class="zhuce" style="float: right;margin-right: 25px;">忘记密码？</a>
+		<!--<button id="confirmBtn" type="button" class="mui-btn mui-btn-blue mui-btn-outlined">确认消息框</button>-->
+
+		<div class="mui-popup mui-popup-in" id="alert" style="display: none;">
+			<div class="mui-popup-inner">
+				<div class="mui-popup-text">
+					<p class="pone" style="margin: 0;font-size: 20px;">忘记密码？ 请联系客服</p>
+					<p class="ptwo" style="margin: 0;font-size: 16px;margin-top: 10px;">客服电话 022-59060860</p>
+				</div>
+			</div>
+			<div class="mui-popup-buttons" style="height: 44px;">
+				<span class="mui-popup-button" id="quet">取消</span>
+				<span class="mui-popup-button mui-popup-button-bold"><a  href="tel://022-59060860 ">确认</a></span>
+			</div>
+		</div>
+		<div class="mui-popup-backdrop mui-active" id="backgroun" style="display: none;"></div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/constant.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript">
+		mui.init({
+			swipeBack: false,
+			//预加载详情页
+			preloadPages: [{
+				/*主界面*/
+				id: LS_P_MAIN,
+				url: LS_P_MAIN
+			}, {
+				/*51集市*/
+				id: LS_P_MAIN_MALL,
+				url: LS_P_MAIN_MALL
+			}, {
+				/*行情*/
+				id: LS_P_MAIN_PRICE,
+				url: LS_P_MAIN_PRICE
+			}, {
+				/*我的*/
+				id: LS_P_MAIN_MY,
+				url: LS_P_MAIN_MY
+			}, {
+				/*设置*/
+				id: LS_P_MY_SET,
+				url: LS_P_MY_SET
+			}, {
+				/*订单列表*/
+				id: LS_P_MY_ORDER_LIST,
+				url: LS_P_MY_ORDER_LIST
+			}]
+		});
+		//定义跳转页
+		var fUrl = LS_P_MAIN_MY;
+		mui.plusReady(function() {
+			//plus.screen.lockOrientation("portrait-primary");
+			window.addEventListener('auto_login', function(event) {
+				/*console.info("[" + LS_P_LOGIN + "] listener auto_login:" + event.detail.fromUrl);*/
+				fUrl = event.detail.fromUrl || LS_P_MAIN;
+			});
+
+			var oldBack = mui.back;
+			mui.back = function() {
+				if(!localStorage.getItem(LS_TOKEN)) {
+					fUrl = LS_P_MAIN;
+				}
+				if(fUrl === LS_P_MAIN_MY) {
+					OpenPage(fUrl, "my_check_login");
+				} else if(fUrl === LS_P_MY_ORDER_LIST) {
+					OpenPage(LS_P_MY_ORDER_LIST, "order_showlist", {
+						orderStatus: S_ORDER_ALL
+					});
+				} else OpenPage(fUrl);
+				//oldBack();
+			};
+
+			jQuery(function() {
+				$("#alert").hide();
+				$(".mui-popup-buttons").hide();
+				$("#backgroun").hide();
+				$("#forgetp").click(function() {
+					$("#alert").show();
+					$(".mui-popup-buttons").show();
+					$("#backgroun").show();
+				});
+				$("#quet").click(function() {
+					$("#alert").hide();
+					$("#backgroun").hide();
+					$("#backgroun").hide();
+				});
+				//登录判断
+				$("#loginbutton").click(function() {
+					//登录名为空或者少于6位
+					if($("#user_name").val() == '') {
+						$(".passwalert1").css("display", "block");
+						setTimeout(function() {
+							$(".passwalert1").css("display", "none");
+						}, 1000);
+						//密码为空或者少于6位
+					} else if($("#password").val().length > 16 || $("#password").val().length < 6) {
+						$(".passwalert3").css("display", "block");
+						setTimeout(function() {
+							$(".passwalert3").css("display", "none");
+						}, 1000);
+					} else {
+						var wd = plus.nativeUI.showWaiting();
+						$.ajax({
+							type: "post",
+							url: C_URL + C_M_LOGIN,
+							async: true,
+							data: {
+								user_name: $("#user_name").val(),
+								password: $("#password").val()
+							},
+							error: function() {
+								$(".passwalert4").css("display", "block");
+								setTimeout(function() {
+									$(".passwalert4").css("display", "none");
+								}, 1000);
+							},
+							success: function(data) {
+								wd.close();
+								if(data.message == 5) {
+									/*console.info("[" + LS_P_LOGIN + "] data.token:" + data.token);*/
+									localStorage.setItem(LS_TOKEN, data.token); //存储token
+									if(fUrl === LS_P_MAIN_MY) {
+										OpenPage(fUrl, "my_check_login");
+									} else if(fUrl === LS_P_MY_ORDER_LIST) {
+										/*console.info("[" + LS_P_LOGIN + "] login go url:" + fUrl);*/
+										OpenPage(LS_P_MY_ORDER_LIST, "order_showlist", {
+											orderStatus: S_ORDER_ALL
+										});
+									} else OpenPage(fUrl);
+								} else {
+									$(".passwalert5").css("display", "block"); /*您输入账号或密码有误*/
+									setTimeout(function() {
+										$(".passwalert5").css("display", "none");
+									}, 1000);
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								wd.close();
+								/*var info = "[" + LS_P_LOGIN + "] login error:";
+								for(p in xhr) {
+									info += "\n\txhr." + p + " is:" + xhr[p];
+								}
+								console.info(info);*/
+								localStorage.removeItem(LS_TOKEN);
+								ShowToast(MSG_DATA_ERROR);
+							}
+						});
+					}
+				});
+				//登录判断end
+				$(".back").click(function() {
+					OpenPage(LS_P_MAIN);
+				});
+				//点击我的订单跳转							
+			    $("#gotozhuce").click(function() {
+				    OpenPage(LS_P_ZHUECE);
+			    });
+				
+			});
+		});
+	</script>
+
+</html>

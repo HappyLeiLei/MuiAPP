@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>付款</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/mui.imageviewer.app.css" />
+		<link rel="stylesheet" href="css/all-css.css" />
+		<style>
+			body {
+				font-size: 14px;
+				font-family: "黑体";
+				position: relative;
+				line-height: 14px;
+				background: #fff;
+			}
+			
+			.order-state {
+				height: 50px;
+				background: #FFFFFF;
+				border-bottom: 1px solid #e7e7e7;
+				padding-left: 10px;
+				font-size: 14px;
+				line-height: 50px;
+				margin-bottom: 10px;
+				word-wrap: break-word;
+				white-space: normal;
+			}
+			
+			.orange {
+				color: #FF6724;
+			}
+			
+			#orderStatus {
+				float: right;
+				padding-right: 10px;
+			}
+			
+			.order-main {
+				background: #FFFFFF;
+				/*border-top: 1px solid #e7e7e7;*/
+				border-bottom: 1px solid #E7E7E7;
+				padding-bottom: 10px;
+				margin-bottom: 10px;
+			}
+			
+			.order-main-item {
+				padding-top: 10px;
+				margin-left: 10px;
+				margin-right: 10px;
+				line-height: none;
+			}
+			
+			.gray {
+				color: #999999;
+				width: 23%;
+				float: left;
+			}
+			
+			.gray-right {
+				width: 77%;
+				float: right;
+				color: #4d4d4d;
+			}
+			
+			.gray-right img {
+				width: 30%;
+				height: 30%;
+				margin-right: 10px;
+			}
+			
+			.upload-img img {
+				width: 30%;
+				height: 30%;
+				margin-right: 10px;
+			}
+			
+			.upload-img {
+				width: 70px;
+				height: 70px;
+				border: 1px solid #E7E7E7;
+				float: left;
+				color: #4d4d4d;
+				background: url(images/uplode_bg.png);
+			}
+			
+			.orderItem-solid {
+				border-bottom: 1px dashed #E7E7E7;
+				padding-bottom: 10px;
+			}
+			
+			.order-Supplier {
+				height: 36px;
+				line-height: 40px;
+				background: #FFFFFF;
+				border-bottom: 1px dashed #e7e7e7;
+				font-size: 14px;
+				color: #4D4D4D;
+				margin: 0 10px;
+			}
+			
+			.btn-copy {
+				float: right;
+				width: 64px;
+				height: 26px;
+				line-height: 14px;
+				margin-top: 5px;
+				margin-right: 0;
+				margin-bottom: 5px;
+			}
+			
+			.btn-sub {
+				border: 1px solid #FF6724;
+				line-height: 14px;
+				color: #FFFFFF;
+				background-color: #FF6724;
+			}
+			
+			.btn-sub:hover,
+			.btn-sub:visited,
+			.btn-sub:enabled:active {
+				color: #FFFFFF;
+				background-color: #FF6724;
+			}
+			
+			.mui-btn-block {
+				margin-bottom: 0;
+			}
+			
+			.order-main-voucher {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				/*width: 100%;*/
+				border-bottom: 1px dashed #E7E7E7;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+			
+			.order-main-voucherpay {
+				padding-top: 10px;
+				/*width: 100%;*/
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+			
+			#goodsOriginalPrice {
+				text-decoration: line-through;
+				color: #999;
+			}
+			
+			.detail-title-item {
+				margin-left: 10px;
+			}
+			
+			/* 20170608 */
+			.qyn-top{
+				background-color: #f5f5f5;
+				z-index: 999999;
+			}
+			.mui-bar {
+				background-color: #f5f5f5;
+			}
+			.mui-bar-nav {
+				top:25px;
+				border: none;
+				box-shadow: none!important;
+				border-bottom: solid 1px #dedede;
+			}
+			.mui-bar-nav a {
+				color: #595959;
+			}
+			.mui-btn-block {
+		 		width: 95%;
+		 		margin: 0 auto 10px;
+			}
+			.mui-bar-nav~.mui-content {
+				padding-top: 69px;
+			}
+			.mui-bar-nav~.mui-content .mui-slider.mui-fullscreen {
+				top: 29px;
+			}			
+		</style>
+	</head>
+
+	<body>
+        <div class="qyn-top"></div>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="title" class="mui-title">付款</h1>
+		</header>
+		<div class="mui-content">
+			<!-- 供应商 -->
+			<div class="order-main">
+				<div class="order-Supplier"><span>供应商账户信息</span><span><button id="btn_copy"  class="mui-btn mui-btn-outlined btn-copy">复制</button></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">开户名称:</span><span id="supplier_accountName" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">开户行:</span><span id="supplier_depositBank" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">银行账号:</span><span id="supplier_bankAccount" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">付款金额:</span><span style="color: #4d4d4d;">&yen;</span><span id="supplier_totalPrice" style="color: #4d4d4d;"></span></div>
+			</div>
+			<!-- 凭证 -->
+			<div class="order-main">
+				<div class="order-Supplier"><span>上传凭证</span><span style="color: #999;">（每种凭证最多上传5张图片）</span></div>
+
+				<div class="order-main-voucher mui-clearfix" style="vertical-align: middle;">
+					<span class="gray" style="color: #4D4D4D; width:23%; float: left; display: block;">合同</span>
+					<span id="span_contract" class="custom-media-list" style="width:76%;float: right; text-align: left;"></span>
+				</div>
+
+				<div class="order-main-voucherpay mui-clearfix">
+					<span class="gray" style="color: #4D4D4D; width:23%; float: left; display: block;">付款凭证</span>
+					<span id="span_payment" class="custom-media-list" style="width:76%;float: right; text-align: left;"></span>
+				</div>
+			</div>
+			<!-- 订单信息 -->
+			<div class="order-main" style="margin-bottom: 0; border-bottom: 0;">
+				<div class="order-main-item mui-clearfix"><span class="gray">订单号:</span><span id="orderId" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">下单时间:</span><span id="createTime" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix "><span class="gray orderItem-solid">卖方:</span><span id="sellerCompanyName" class="gray-right orderItem-solid"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">商品信息:</span><span id="goodsDetail" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">单价:</span><span class="gray-right"><span id="goodsPrice"></span><span style="color: #4d4d4d;">元/吨</span></span></div>
+				<div id="div_originalPrice" class="order-main-item mui-clearfix"><span class="gray">&nbsp;</span><span id="goodsOriginalPrice" style="font-size: 12px;"></span><span style="font-size:12px;color: #a0a0a0;text-decoration:line-through;">元/吨</span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">重量:</span><span class="gray-right"><span id="goodsCount"></span><span>吨</span></span>
+				</div>
+				<div class="order-main-item mui-clearfix"><span class="gray">总价:</span><span class="gray-right"><span style="font-family:Arial;">&yen;</span><span id="totalFee"></span></span>
+				</div>
+			</div>
+			<!--確認-->
+			<div style="background: #fff; padding-top: 10px;">
+				<button id="btn_payment" type="button" class="mui-btn mui-btn-warning mui-btn-block btn-sub">确认</button>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.zoom.js"></script>
+		<script type="text/javascript" src="js/mui.previewimage.withheader.js"></script>
+		<script type="text/javascript" src="js/md5.min.js"></script>
+		<script type="text/javascript" src="js/media_components.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/constant.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/utils-orders.js"></script>
+		<script type="text/javascript">
+			var oid = "0",
+				fUrl = "",
+				oStatus = "";
+			mui.init({
+				swipeBack: false,
+				// 预加载详情页
+				preloadPages: [{
+					id: LS_P_MY_ORDER_DETAIL,
+					url: LS_P_MY_ORDER_DETAIL
+				}, {
+					id: LS_P_MY_ORDER_INVOICE,
+					url: LS_P_MY_ORDER_INVOICE
+				}, {
+					id: LS_P_MY_ORDER_RECEIPT,
+					url: LS_P_MY_ORDER_RECEIPT
+				}, {
+					id: LS_P_MY_ORDER_LIST,
+					url: LS_P_MY_ORDER_LIST
+				}]
+			});
+
+			function initPage() {
+
+				document.getElementById("orderId").innerText = "";
+				document.getElementById("createTime").innerText = "";
+				document.getElementById("sellerCompanyName").innerText = "";
+				document.getElementById("goodsDetail").innerText = "";
+				document.getElementById("goodsPrice").innerText = "";
+				document.getElementById("div_originalPrice").style.display = "none";
+				document.getElementById("goodsCount").innerText = "";
+				document.getElementById("totalFee").innerText = "0";
+
+				document.getElementById("supplier_accountName").innerText = "";
+				document.getElementById("supplier_depositBank").innerText = "";
+				document.getElementById("supplier_bankAccount").innerText = "";
+				document.getElementById("supplier_totalPrice").innerText = "";
+
+				document.getElementById("span_contract").innerText = "";
+				document.getElementById("span_payment").innerText = "";
+				document.getElementById("btn_payment").removeAttribute("disabled");
+
+			}
+
+			/*mui.ready(function() {
+				//XTG2017042178777881 已付款
+				//XLG2017042160466153 已取消
+				initPage();
+				oid = "XTG2017042178777881";
+				showdata(oid);
+			});*/
+
+			mui.plusReady(function() {
+				//plus.screen.lockOrientation("portrait-primary");
+				initPage();
+
+				window.addEventListener('order_showinfo', function(event) {
+					oid = event.detail.id || "0";
+					fUrl = event.detail.fromUrl || LS_P_MY_ORDER_LIST;
+					oStatus = event.detail.orderStatus || S_ORDER_ALL;
+					initPage();
+
+					mui('.custom-media-list').imageListInit({
+						size: [5, 5],
+						previewGroup: ["contract", "payment"],
+						multiple: true
+					});
+					/*console.info("[" + LS_P_MY_ORDER_PAYMENT + "] order_showinfo oid:" + oid);
+					console.info("[" + LS_P_MY_ORDER_PAYMENT + "] order_showinfo fUrl:" + fUrl);
+					console.info("[" + LS_P_MY_ORDER_PAYMENT + "] order_showinfo oStatus:" + oStatus);*/
+					showdata(oid);
+				});
+
+				document.getElementById("btn_copy").addEventListener("tap", function(e) {
+					var copyStr = "开户名称：" + document.getElementById("supplier_accountName").innerText + ";" +
+						"开户行：" + document.getElementById("supplier_depositBank").innerText + ";" +
+						"银行账号：" + document.getElementById("supplier_bankAccount").innerText + ";";
+					copyToClip(copyStr);
+					ShowToast(MSG_COPY_SUCCESS, {
+						verticalAlign: 'center',
+						duration: 'long'
+					});
+				});
+
+				document.getElementById("btn_payment").addEventListener('tap', function(e) {
+					var self = this;
+					if(mui("#span_contract img").length == 0) {
+						ShowToast("您没有上传合同");
+					} else if(mui("#span_payment img").length == 0) {
+						ShowToast("您没有上传付款凭证");
+					} else {
+						self.setAttribute("disabled", "disabled");
+						var wd = plus.nativeUI.showWaiting();
+						try {
+							var task = plus.uploader.createUpload(C_URL + C_M_ORDER_DOPAYMENT, {
+								method: "POST",
+								timeout: C_LONG_TIMEOUT
+							}, function(t, sta) {
+								wd.close();
+								try {
+									if(sta == 200) {
+										self.removeAttribute("disabled");
+										var result = JSON.parse(t.responseText);
+										/*console.info("[" + LS_P_MY_ORDER_PAYMENT + "] result:" + result);
+										for(p in result) {
+											console.info("[" + LS_P_MY_ORDER_PAYMENT + "] result." + p + " is:" + result[p]);
+										}*/
+										if(result && result.status) {
+											ShowToast(result.msg);
+											if(fUrl === LS_P_MY_ORDER_DETAIL) { //详情页
+												OpenPage(LS_P_MY_ORDER_DETAIL, "order_showinfo", {
+													"id": oid
+												});
+											} else { //列表页
+												OpenPage(LS_P_MY_ORDER_LIST, "order_showlist", {
+													"id": oid,
+													"orderStatus": oStatus
+												});
+											}
+										} else {
+											self.removeAttribute("disabled");
+											ShowToast(result.msg);
+										}
+									} else {
+										self.removeAttribute("disabled");
+										ShowToast(t);
+									}
+								} catch(ex) {
+									self.removeAttribute("disabled");
+									ShowToast(MSG_NET_LINK_ERROR)
+								}
+							});
+
+							task.addData("orderId", oid);
+							//task.addData("receivedPayment", "2024");
+							task.addData("login_token", localStorage.getItem(LS_TOKEN));
+							mui.each(mui("#span_contract img"), function(idx, elem) {
+								task.addFile(elem.src, {
+									key: "contractImg[" + idx + "]"
+								});
+							});
+							mui.each(mui("#span_payment img"), function(idx, elem) {
+								task.addFile(elem.src, {
+									key: "paymentImg[" + idx + "]"
+								});
+							});
+
+							task.start();
+						} catch(e) {
+							wd.close();
+							self.removeAttribute("disabled");
+							ShowToast(MSG_NET_LINK_ERROR)
+						}
+
+					}
+				});
+
+				//绘制顶部图标
+				cWebView = plus.webview.currentWebview();
+				//开启回弹
+				cWebView.setStyle({
+					bounce: "vertical",
+					bounceBackground: "#efeff4"
+				});
+
+			});
+
+			function showdata(id) {
+				CheckLoginToken({
+					fromUrl: LS_P_MY_ORDER_LIST
+				});
+				var wd = plus.nativeUI.showWaiting();
+				/*console.info("[" + LS_P_MY_ORDER_PAYMENT + "] showdata begin ajax");*/
+				jQuery.ajax({
+					url: C_URL + C_M_ORDER_DETAIL,
+					data: {
+						"orderId": id,
+						"login_token": localStorage.getItem(LS_TOKEN)
+					},
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					dataType: "json",
+					timeout: C_LONG_TIMEOUT,
+					type: 'GET',
+					success: function(result) {
+						/*console.info("[" + LS_P_MY_ORDER_PAYMENT + "] showdata result:" + result);
+						for(p in result) {
+							console.info("[" + LS_P_MY_ORDER_PAYMENT + "] showdata result." + p + " is:" + result[p]);
+						}*/
+						var item = result || {};
+
+						document.getElementById("orderId").innerText = item.orderId;
+						document.getElementById("createTime").innerText = item.createTimeStr;
+						document.getElementById("sellerCompanyName").innerText = item.sellerCompanyName;
+						var templateHtml = '<span>' + item.name + '</span>';
+						if(item.goodsSku != null && item.goodsSku.length > 0) {
+							mui.each(item.goodsSku, function(idx, obj) {
+								if(obj.key.indexOf("直径") === -1) {
+									if(obj.key.indexOf("交货地") === -1) {
+										if(obj.key.indexOf("发货地") === -1) {
+											templateHtml += '<span class="detail-title-item">' + obj.value + '</span>';
+										} else {
+											templateHtml += '<span class="detail-title-item">发货地:' + obj.value + '</span>';
+										}
+									} else {
+										templateHtml += '<span class="detail-title-item">交货地:' + obj.value + '</span>';
+									}
+								} else {
+									templateHtml += '<span class="detail-title-item">φ' + obj.value + '</span>';
+								}
+							});
+						}
+						document.getElementById("goodsDetail").innerHTML = templateHtml;
+						document.getElementById("goodsPrice").innerText = item.goodsPrice;
+						if(item.goodsOriginalPrice) {
+							document.getElementById("div_originalPrice").style.display = "block";
+							document.getElementById("goodsOriginalPrice").innerText = RoundFormat(item.goodsOriginalPrice, 2);
+						} else {
+							document.getElementById("div_originalPrice").style.display = "none";
+						}
+						document.getElementById("goodsCount").innerText = item.goodsCount;
+						if(typeof item.totalFee === "number") {
+							document.getElementById("totalFee").innerText = RoundFormat(item.totalFee, 2);
+							document.getElementById("supplier_totalPrice").innerText = RoundFormat(item.totalFee, 2);
+						}
+
+						if(item.supplierInfo != null && item.supplierInfo.length > 0) {
+							mui.each(item.supplierInfo, function(idx, sInfo) {
+								if(sInfo.disabled === 1 && sInfo.isDefault === 1) {
+									document.getElementById("supplier_accountName").innerText = sInfo.accountname;
+									document.getElementById("supplier_depositBank").innerText = sInfo.depositbank;
+									document.getElementById("supplier_bankAccount").innerText = sInfo.bankaccount;
+								}
+							});
+
+						}
+
+						wd.close();
+
+					},
+					error: function(xhr, type, errorThrown) {
+						wd.close();
+						/*console.info("[" + LS_P_MY_ORDER_PAYMENT + "] showdata error:" + xhr);
+						for(p in xhr) {
+							console.info("[" + LS_P_MY_ORDER_PAYMENT + "] error xhr." + p + " is:" + xhr[p]);
+						}*/
+						ShowToast(MSG_DATA_ERROR);
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

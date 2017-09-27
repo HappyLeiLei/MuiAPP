@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/all-css.css" />
+		<title>行情</title>
+		<style>
+			/*底导航里图片*/
+
+			.mui-fullscreen .mui-segmented-control~.mui-slider-group{
+				top:67px;				
+			}
+			.mui-scroll{
+				background: #F5F5F5;
+			}
+			/*底导航里图片*/
+			/*行情页*/
+			/*所以字体大小*/
+			
+			body .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+				border-bottom: 2px solid #F5F5F5;
+				font-size: 18px;
+				color: #4D4D4D;
+				padding: 0;
+			}
+			/*选中的样式*/
+			
+			body .mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #ff6724;
+				border-bottom: 2px solid #ff6724;
+				font-size: 18px;
+				padding: 0;
+			}
+			/*行情头*/
+			
+			body #newpages {
+				position: relative;
+				bottom: auto;
+				background: #f7f7f7;
+				padding: 4% 10% 1% 0%;
+				text-align: center;
+			}
+			/*左边回撤按钮*/
+			
+			body #tabbar-with-newpages .mui-slider-indicator .mui-icon {
+				border: 0px solid #ddd;
+				color: #000000;
+			}
+			/*行情头*/
+			/*内容*/
+			
+			.footer_fixed .mui-tab-item.mui-active {
+				color: #929292 !important;
+			}
+			
+			.mui-control-content table {
+				width: 100%;
+			}
+			
+			.mui-control-content ul {
+				padding: 0%;
+				margin: 0% 0%;
+			}
+			
+			.mui-control-content td {
+				display: inline-block;
+				color: #4D4D4D;
+				width: 20%;
+				padding: 12px 0px;
+				font-size: 15px;
+				border-bottom: 1px solid #F7F7F7;
+				text-align: center;
+				line-height: 1.1;
+			}
+			
+			.mui-control-content li:last-of-type td {
+				color: #FF6724;
+			}
+			
+			.mui-control-content li:last-of-type tr:hover td {
+				color: #2AC845;
+			}
+			
+			.mui-control-content li:last-of-type td:first-of-type {
+				color: #4D4D4D;
+			}
+			
+			.mui-control-content li:last-of-type:hover td:first-of-type {
+				color: #4D4D4D;
+			}
+			
+
+			
+			#sp_back {
+				border: 0 none;
+			}
+			
+			.red-price {
+				color: #FF3131;
+				font-size: 14px;
+			}
+			
+			.black-price {
+				color: #4D4D4D;
+				font-size: 14px;
+			}
+			/*内容*/
+			
+			.top-price {
+				width: 100%;
+				background: #F9F9F9;
+				height: 44px;
+				line-height: 44px;
+			}
+			
+			.top-price-width,
+			.top-price-width0 {
+				width: 19.7%;
+				display: inline-block;
+				text-align: center;
+			}
+			
+			.top-price-width0 {
+				width: 20%;
+			}
+			
+			.price-main {
+				margin: 10px;
+				height: 50px;
+				line-height: 40px;
+				border-bottom: 1px solid #F5F5F5;
+			}
+			
+			.green-price {
+				color: #66AB1C;
+				font-size: 14px;
+			}
+			/*行情页*/
+			body .qyn-top{
+				background: #F5F5F5;
+			}
+			.mui-content{
+				background: #f5f5f5;
+			}
+            #cc_copper{
+            	border-top: 1px solid #DEDEDE;
+            }
+            #cc_aluminum{
+            	border-top: 1px solid #DEDEDE;
+            }
+		</style>
+	</head>
+
+	<body>
+		<!--顶部增加DIV-->
+		<div class="qyn-top"></div>
+		<!--底导航-->
+		<div class="footer_fixed">
+			<a id="main_market" class="mui-tab-item" href="index.html">
+				<span class="mui-icon"><img src="images/Group.png" iSort="0" /></span>
+				<span class="mui-tab-label">51集市</span>
+			</a>
+			<a id="main_mall" class="mui-tab-item" href="main-mall.html">
+				<span class="mui-icon"><img src="images/Group14.png" iSort="1" /></span>
+				<span class="mui-tab-label">51商城</span>
+			</a>
+			<a id="main_price" class="mui-tab-item nav-select" href="main-price.html">
+				<span class="mui-icon"><img src="images/Group19.png" iSort="2" /></span>
+				<span class="mui-tab-label">行情</span>
+			</a>
+			<a id="main_my" class="mui-tab-item" href="main-my.html">
+				<span class="mui-icon"><img src="images/Group16.png" iSort="3" /></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</div>
+		<!--底导航-->
+
+		<div class="mui-content mui-scroll-wrapper">
+
+			<!--行情-->
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="segmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative" style="height: 40px; margin-top: 25px;">
+					<div class="mui-scroll" style="width: 100%;">
+						<span id="sp_back" class="mui-icon mui-icon-left-nav mui-pull-left" style="color: #4D4D4D;"></span>
+						<a id="sc_copper" class="mui-control-item mui-active" href="#cc_copper" style="width: 20%; margin-right: 10%; margin-left: -10%;">沪铜</a>
+						<a id="sc_aluminum" class="mui-control-item" href="#cc_aluminum" style="width: 20%;">沪铝</a>
+					</div>
+
+				</div>
+				<div class="mui-slider-group">
+					<div id="cc_copper" class="mui-slider-item mui-control-content mui-active">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<!--<li>
+										<div class="black-price top-price">
+											<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>
+										</div>
+									</li>
+									<li class="price-main">
+										<span class="black-price" style="width: 20%;display:inline-block">沪铜1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="cc_aluminum" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<!--<li>
+										<div class="black-price top-price">
+											<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>
+										</div>
+									</li>
+									<li class="price-main">
+										<div>
+											<span class="black-price" style="width: 20%; display:inline-block">沪铝1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>
+										</div>
+									</li>
+									<li class="price-main">
+										<div>
+											<span class="black-price" style="width: 20%; display:inline-block">沪铝1611</span><span class="green-price" style="width: 80%; "><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>
+										</div>
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop "></div>
+		</div>
+
+		<script type="text/javascript " src="js/mui.min.js "></script>
+		<script type="text/javascript " src="js/mui.pullToRefresh.js "></script>
+		<script type="text/javascript " src="js/mui.pullToRefresh.material.js "></script>
+		<script type="text/javascript " src="js/jquery-1.11.1.min.js "></script>
+		<script type="text/javascript " src="js/json2.min.js "></script>
+		<script type="text/javascript " src="js/constant.js "></script>
+		<script type="text/javascript " src="js/common.js "></script>
+
+		<script type="text/javascript" charset="utf-8">
+			var dataDivId = ["cc_copper", "cc_aluminum"];
+			var priceType = ["cu", "al"];
+			var cWebView;
+			var tabIdx = 0;
+			var timerID;
+			mui.init({
+				swipeBack: false,
+				// 预加载详情页
+				preloadPages: [{
+					/*主界面*/
+					id: LS_P_MAIN,
+					url: LS_P_MAIN
+				}, {
+					/*51商城*/
+					id: LS_P_MAIN_MALL,
+					url: LS_P_MAIN_MALL
+				}, {
+					/*我的*/
+					id: LS_P_MAIN_MY,
+					url: LS_P_MAIN_MY
+				}]
+			});
+			/*<!--判断行情页-->*/
+
+			function initPage() {
+
+				//阻尼系数
+				var deceleration = mui.os.ios ? 0.003 : 0.0009;
+				mui('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration: deceleration
+				});
+				//循环初始化所有下拉刷新，上拉加载。
+				tabIdx = 0;
+				/*mui.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+					mui(pullRefreshEl).pullToRefresh({
+						down: {
+							callback: function() {
+								var self = this;
+								var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+								if(tip) {
+									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE; //MSG_DATA_PULL_LOAD;
+									//tip.style.display = "block";
+									setTimeout(function() {
+										tip.style.display = "none";
+									}, C_TIME_WAIT);
+								}
+								ShowData();
+								self.endPullDownToRefresh();
+								self.refresh(true);
+							}
+						},
+						up: {
+							callback: function() {
+								var self = this;
+								self.endPullUpToRefresh(true);
+								var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+								if(tip) {
+									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
+									setTimeout(function() {
+										tip.style.display = "none";
+									}, C_TIME_WAIT);
+								}
+							}
+						}
+					});
+				});*/
+				//监听左右拖动事件
+				document.getElementById('slider').addEventListener('slide', function(e) {
+					tabIdx = e.detail.slideNumber;
+					//ShowData();
+					ReloadAutoData();
+				});
+				//监听选项卡点击事件
+				document.getElementById('sc_copper').addEventListener('tap', function(e) {
+					tabIdx = 0;
+					//ShowData();
+					ReloadAutoData();
+				});
+				document.getElementById('sc_aluminum').addEventListener('tap', function(e) {
+					tabIdx = 1;
+					//ShowData();
+					ReloadAutoData();
+				});
+
+				document.getElementById("sp_back").addEventListener('tap', function(e) {
+					mui.back();
+				});
+
+				//选项卡点击事件
+				mui('.footer_fixed ').on('tap', 'a', function(e) {
+					var targetTab = this.getAttribute('href');
+					if(targetTab != LS_P_MAIN_PRICE) {
+						if(targetTab === LS_P_MAIN_MY)
+							OpenPage(targetTab, "my_check_login");
+						else
+							OpenPage(targetTab);
+					}
+
+				}, false);
+
+			}
+
+//			mui.ready(function() {
+//					initPage();
+//					AutoLoadData();
+//			});
+
+			mui.plusReady(function() {
+				//plus.navigator.getStatusbarHeight();//获取状态栏高度
+				//plus.screen.lockOrientation("portrait-primary ");
+				initPage();
+				window.addEventListener('price_showlist', function(event) {
+					tabIdx = event.detail.priceTypeIdx || 0;
+					if(tabIdx !== 1) tabIdx = 0;
+					SelectSlider(tabIdx);
+					ReloadAutoData();
+				});
+				AutoLoadData();
+				//绘制顶部图标
+				cWebView = plus.webview.currentWebview();
+				//开启回弹
+				cWebView.setStyle({
+					bounce: "vertical",
+					bounceBackground: "#efeff4"
+				});
+			});
+
+			function SelectSlider(idx) {
+				var gallery = mui('.mui-slider');
+				gallery.slider().gotoItem(idx);
+			}
+
+			function AutoLoadData() {
+				ShowData();
+				timerID = setTimeout(AutoLoadData, 2000);
+			}
+			
+			function ReloadAutoData(){
+				if(timerID) clearTimeout(timerID);
+				AutoLoadData();
+			}
+
+			/*刷新页面，初始化排序和*/
+			function ShowData() {
+				var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+				if(tip) {
+					tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
+					//setTimeout(function() {
+					tip.style.display = "none";
+					//}, C_TIME_WAIT);
+				}
+
+				//var wd = plus.nativeUI.showWaiting();
+				jQuery.ajax({
+					type: "GET",
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url: C_URL + C_M_LAST_PRICE,
+					data: {
+						"type": priceType[tabIdx]
+					},
+					dataType: "json",
+					timeout: C_TIMEOUT,
+					success: function(response) {
+//						console.log(response);
+						/*var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+						if(tip) {
+							tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
+							setTimeout(function() {
+								tip.style.display = "none";
+							}, C_TIME_WAIT);
+						}*/
+						bindData(response, dataDivId[tabIdx]);
+					},
+					error: function(xhr, type, errorThrown) {
+						//ShowToast(MSG_DATA_ERROR);
+					}
+				});
+			}
+
+			function bindData(response, targetID) {
+				if(response != null) {
+					var dataList = response.data || [];
+//					console.log(dataList.length);
+					if(dataList.length > 0 && dataList[0].CIRCLENO != null) {
+						if((tabIdx === 0 && dataList[0].CIRCLENO.indexOf("CU") >= 0) ||
+							(tabIdx === 1 && dataList[0].CIRCLENO.indexOf("AL") >= 0)) {
+								
+							var table = document.body.querySelector('#' + targetID + ' ul');
+							table.innerHTML = '';
+							var templateHtml = '';
+							templateHtml += '<li>';
+							templateHtml += '<div class="black-price top-price">';
+							templateHtml += '<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>';
+							templateHtml += '</div>';
+							templateHtml += '</li>';
+							table.innerHTML = templateHtml;
+							mui.each(dataList, function(index, item) {
+								var li = document.createElement('li');
+								li.className = 'price-main';
+
+								templateHtml = '';
+								templateHtml += '<span class="black-price" style="width: 20%; display:inline-block">' + item.CIRCLENO.replace("CU", "沪铜").replace("AL", "沪铝") + '</span>';
+								var upDown = parseInt(item.UPORDOWN);
+								if(upDown === 0) templateHtml += '<span class="black-price" style="width: 80%;">';
+								else if(upDown > 0) templateHtml += '<span class="red-price" style="width: 80%;">';
+								else templateHtml += '<span class="green-price"  style="width: 80%;">';
+								templateHtml += '<span class="top-price-width0">' + parseInt(item.CONTPRICE) + '</span>';
+								templateHtml += '<span class="top-price-width0">' + (upDown > 0 ? '+' : '') + upDown + '</span>';
+								templateHtml += '<span class="top-price-width0">' + parseInt(item.BUYERPRICE) + '</span>';
+								templateHtml += '<span class="top-price-width0">' + parseInt(item.SELLERPRICE) + '</span>';
+								templateHtml += '</span>';
+								li.innerHTML = templateHtml;
+
+								table.appendChild(li);
+							});
+						}
+					}
+				}
+			}
+
+			/*<!--判断行情页-->*/
+		</script>
+
+	</body>
+
+</html>

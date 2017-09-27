@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<title>51有色</title>
+		<style>
+			body {
+				background: #ffffff;
+				color: #ffffff;
+			}
+			
+			body img {
+				width: 80%;
+				margin: 8%;
+				margin-top: 59%;
+				;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="images/logo2.png" />
+
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/json2.min.js"></script>
+		<script type="text/javascript" src="js/constant.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/utils.js"></script>
+		<script type="text/javascript" charset="utf-8">
+		var launchFlag = "false";
+		var times = 0;
+			//mui初始化
+			mui.init({
+				swipeBack: false,
+				//// 预加载详情页
+				//preloadPages: [{
+				//	/*主界面*/
+				//	id: LS_P_MAIN,
+				//	url: LS_P_MAIN
+				//}]
+			});
+			mui.plusReady(function() {
+				//plus.screen.lockOrientation("portrait-primary");
+				//启动判断有无标识,然后选择引导页
+				//获取标记
+				launchFlag = plus.storage.getItem(LS_LAUNCH_FLAG);
+				GuidPage();
+
+			});
+
+			function GuidPage() {
+				/*console.info("["+LS_P_GUID+" GuidPage] now"+(new Date()) + ";netstatus:"+checkNet());*/
+				if(checkNet() || times > 20) {
+					if(launchFlag === "true") {
+						mui.openWindow({
+							url: LS_P_MAIN,
+							id: LS_P_MAIN
+//							url: LS_P_ADVERT,//广告页面
+//							id: LS_P_ADVERT
+						});
+					} else {
+						mui.openWindow({
+							url: LS_P_GUID,
+							id: LS_P_GUID
+						});
+					}
+				} else {
+					times++;
+					if(times === 15) ShowToast(MSG_NET_ERROR);
+					setTimeout(GuidPage, 500);
+				}
+			}
+		</script>
+	</body>
+
+</html>

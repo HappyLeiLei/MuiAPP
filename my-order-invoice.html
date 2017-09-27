@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>上传发票</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/mui.imageviewer.app.css" />
+		<link rel="stylesheet" href="css/all-css.css" />
+
+		<style>
+			body {
+				font-size: 14px;
+				font-family: "黑体";
+				line-height: 14px;
+			}
+			/*top高度调整*/
+			
+			.qyn-top {
+				background-color: #f5f5f5;
+				z-index: 999999;
+			}
+			
+			.mui-bar {
+				background-color: #f5f5f5;
+			}
+			
+			.mui-bar-nav {
+				top: 25px;
+				box-shadow: none;
+				border-bottom: 1px solid #e8e8e8;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				padding-top: 69px;
+			}
+			
+			.order-state {
+				height: 50px;
+				background: #FFFFFF;
+				border-bottom: 1px solid #e7e7e7;
+				padding-left: 10px;
+				font-size: 14px;
+				line-height: 50px;
+				margin-bottom: 10px;
+				word-wrap: break-word;
+				white-space: normal;
+			}
+			
+			.orange {
+				color: #FF6724;
+			}
+			
+			#orderStatus {
+				float: right;
+				padding-right: 10px;
+			}
+			
+			.order-main {
+				background: #FFFFFF;
+				/*border-top: 1px solid #e7e7e7;*/
+				border-bottom: 1px solid #E7E7E7;
+				padding-bottom: 10px;
+				margin-bottom: 10px;
+				padding-left: 10px;
+			}
+			
+			.order-main-item {
+				padding-top: 15px;
+				/*padding-left: 10px;*/
+				padding-right: 10px;
+				/*width: 100%;*/
+				/*border-bottom: 1px solid #000000;*/
+			}
+			
+			.gray {
+				color: #999999;
+				width: 23%;
+				float: left;
+			}
+			
+			.gray-right {
+				width: 77%;
+				float: right;
+				color: #4d4d4d;
+			}
+			
+			.gray01 {
+				width: 80%;
+				float: left;
+				color: #999999;
+			}
+			
+			.gray02 {
+				/*width: 20%;*/
+				float: right;
+				line-height: 40px;
+				color: #4d4d4d;
+			}
+			
+			.gray-right img {
+				width: 30%;
+				height: 30%;
+				margin-right: 10px;
+			}
+			
+			.upload-img img {
+				width: 30%;
+				height: 30%;
+				margin-right: 10px;
+			}
+			
+			.upload-img {
+				width: 70px;
+				height: 70px;
+				border: 1px solid #E7E7E7;
+				float: left;
+				color: #4d4d4d;
+				background: url(images/uplode_bg.png);
+			}
+			
+			.orderItem-solid {
+				border-bottom: 1px dashed #E7E7E7;
+				padding-bottom: 10px;
+			}
+			
+			.order-Supplier {
+				height: 40px;
+				background: #FFFFFF;
+				border-bottom: 1px dashed #e7e7e7;
+				font-size: 14px;
+				line-height: 40px;
+				color: #4D4D4D;
+				/*margin-left: 10px;*/
+				margin-right: 10px;
+			}
+			
+			.btn-copy {
+				float: right;
+				width: 64px;
+				height: 26px;
+				line-height: 14px;
+				margin-top: 5px;
+				margin-right: 0;
+				margin-bottom: 5px;
+			}
+			
+			.btn-sub {
+				border: 1px solid #FF6724;
+				line-height: 14px;
+				color: #FFFFFF;
+				background-color: #FF6724;
+			}
+			
+			.btn-sub:hover,
+			.btn-sub:visited,
+			.btn-sub:enabled:active {
+				color: #FFFFFF;
+				background-color: #FF6724;
+			}
+			
+			.mui-btn-block {
+				width: 95%;
+				margin: 0 auto 10px;
+			}
+			
+			.order-main-voucher {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				width: 100%;
+				border-bottom: 1px dashed #E7E7E7;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+			
+			.order-main-voucherpay {
+				padding-top: 10px;
+				width: 100%;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+			
+			input[type=number] {
+				width: 80%;
+				border: #fff;
+				margin-bottom: 0;
+			}
+			
+			.solid {
+				border-bottom: 1px solid #E7E7E7;
+				/*margin-left: 10px;*/
+				margin-right: 10px;
+			}
+			
+			#goodsOriginalPrice {
+				text-decoration: line-through;
+				color: #999;
+			}
+			
+			.detail-title-item {
+				margin-left: 10px;
+			}
+			
+			input[type=number] {
+				padding: 10px 15px 10px 0px;
+				font-size: 14px;
+			}
+			
+			.mui-bar-nav a {
+				color: #595959;
+			}
+			
+			.qyn-top {
+				background-color: #f5f5f5;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="qyn-top"></div>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="title" class="mui-title">上传发票</h1>
+		</header>
+		<div class="mui-content">
+			<!-- 凭证 -->
+			<div class="order-main">
+				<div class="order-Supplier"><span>上传发票</span><span style="color: #999;">（最多上传5张图片）</span></div>
+				<div id="" class="order-main-item mui-clearfix">
+					<span id="span_invoice" class="custom-media-list"></span>
+				</div>
+			</div>
+			
+			<!-- 订单信息 -->
+			<div class="order-main">
+				<div class="order-main-item mui-clearfix"><span class="gray">订单号:</span><span id="orderId" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">下单时间:</span><span id="createTime" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix "><span class="gray orderItem-solid">卖方:</span><span id="sellerCompanyName" class="gray-right orderItem-solid"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">商品信息:</span><span id="goodsDetail" class="gray-right"></span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">单价:</span><span class="gray-right"><span id="goodsPrice"></span><span style="color: #4d4d4d;">元/吨</span></span>
+				</div>
+				<div id="div_originalPrice" class="order-main-item mui-clearfix"><span class="gray">&nbsp;</span><span id="goodsOriginalPrice" style="font-size: 12px;"></span><span style="font-size:12px;color: #a0a0a0;text-decoration:line-through;">元/吨</span></div>
+				<div class="order-main-item mui-clearfix"><span class="gray">重量:</span><span class="gray-right"><span id="goodsCount"></span><span style="color: #4d4d4d;">吨</span></span>
+				</div>
+				<div class="order-main-item mui-clearfix"><span class="gray">总价:</span><span class="gray-right"><span style="font-family:Arial;">&yen;</span><span id="totalFee"></span></span>
+				</div>
+			</div>
+			<!--確認-->
+			<div>
+				<button id="btn_invoice" type="button" class="mui-btn mui-btn-warning mui-btn-block btn-sub">确认</button>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.zoom.js"></script>
+		<script type="text/javascript" src="js/mui.previewimage.withheader.js"></script>
+		<script type="text/javascript" src="js/md5.min.js"></script>
+		<script type="text/javascript" src="js/media_components.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/constant.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/utils-orders.js"></script>
+		<script type="text/javascript">
+			var oid = "0",
+				fUrl = "",
+				oStatus = "";
+			var noReceipt = true;
+			mui.init({
+				swipeBack: false,
+				// 预加载详情页
+				preloadPages: [{
+					id: LS_P_MY_ORDER_DETAIL,
+					url: LS_P_MY_ORDER_DETAIL
+				}, {
+					id: LS_P_MY_ORDER_PAYMENT,
+					url: LS_P_MY_ORDER_PAYMENT
+				}, {
+					id: LS_P_MY_ORDER_INVOICE,
+					url: LS_P_MY_ORDER_INVOICE
+				}, {
+					id: LS_P_MY_ORDER_LIST,
+					url: LS_P_MY_ORDER_LIST
+				}]
+			});
+
+			function initPage() {
+
+				document.getElementById("orderId").innerHTML = "";
+				document.getElementById("createTime").innerHTML = "";
+				document.getElementById("sellerCompanyName").innerHTML = "";
+				document.getElementById("goodsDetail").innerHTML = "";
+				document.getElementById("goodsPrice").innerHTML = "";
+				document.getElementById("div_originalPrice").style.display = "none";
+				document.getElementById("goodsCount").innerText = "";
+				document.getElementById("totalFee").innerText = "0";
+
+				document.getElementById("span_invoice").innerHTML = "";
+				document.getElementById("btn_invoice").removeAttribute("disabled");
+			}
+
+			/*mui.ready(function() {
+				//XTG2017042178777881 已付款
+				//XLG2017042160466153 已取消
+				initPage();
+				//window.addEventListener('order_showinfo', function(event) {
+				var id = "XTG2017051266877152";
+				showdata(id);
+				localStorage.setItem(LS_TOKEN,"eyJpdiI6ImJKZGc3VWRKNDZQc1wvcVNaVHZLd3BRPT0iLCJ2YWx1ZSI6Ijg2VjRXcFVGRzljVzd3N0NJMW1QVG5ma082VWJudGRyWXRJbmF4aklmUzA9IiwibWFjIjoiZjkxNWMwY2Y1OWVmNTNmYzc3ZTM2YzUwOWZiYjQ2NDI3MmFiZGFhNmJlODZkNjYxZmQxNjZmYWNlNTg2ZjJlYyJ9");
+				//});
+			});*/
+
+			mui.plusReady(function() {
+				//plus.screen.lockOrientation("portrait-primary");
+				initPage();
+
+				window.addEventListener('order_showinfo', function(event) {
+					oid = event.detail.id || "0";
+					fUrl = event.detail.fromUrl || LS_P_MY_ORDER_LIST;
+					oStatus = event.detail.orderStatus || S_ORDER_ALL;
+					initPage();
+
+					showdata(oid);
+				});
+
+				document.getElementById("btn_invoice").addEventListener('tap', function(e) {
+					var self = this;
+					if(mui("#span_invoice img").length == 0) {
+						ShowToast("您没有上传发票");
+					} else {
+						self.setAttribute("disabled", "disabled");
+						var wd = plus.nativeUI.showWaiting();
+						try {
+							var task = plus.uploader.createUpload(C_URL + C_M_ORDER_UPLOAD_INVOICE, {
+								method: "POST",
+								timeout: C_LONG_TIMEOUT
+							}, function(t, sta) {
+								wd.close();
+								/*console.info("[" + LS_P_MY_ORDER_INVOICE + " upload] sta:" + sta);
+								console.info("[" + LS_P_MY_ORDER_INVOICE + " upload] t:" + t);
+								for(p in t) {
+									console.info("[" + LS_P_MY_ORDER_INVOICE + " upload] t."+p+" is:" + t[p]);
+								}*/
+								try {
+									if(sta == 200) {
+										var result = JSON.parse(t.responseText);
+										/*console.info("[" + LS_P_MY_ORDER_INVOICE + " upload] responseText:" + t.responseText);
+										for(p in result) {
+											console.info("[" + LS_P_MY_ORDER_INVOICE + " upload] result." + p + " is:" + result[p]);
+										}*/
+										if(result && result.status) {
+											ShowToast(result.msg);
+											if(fUrl === LS_P_MY_ORDER_DETAIL) { //详情页
+												OpenPage(LS_P_MY_ORDER_DETAIL, "order_showinfo", {
+													"id": oid
+												});
+											} else { //列表页
+												OpenPage(LS_P_MY_ORDER_LIST, "order_showlist", {
+													"orderStatus": oStatus
+												});
+											}
+										} else {
+											self.removeAttribute("disabled");
+											ShowToast(result.msg);
+										}
+									} else {
+										/*console.info("[" + LS_P_MY_ORDER_INVOICE + " upload] sta not 200:" + sta);*/
+										self.removeAttribute("disabled");
+										ShowToast(MSG_NET_LINK_ERROR);
+									}
+								} catch(ex) {
+									/*console.info("[" + LS_P_MY_ORDER_INVOICE + " upload] sta error:" + ex);*/
+									self.removeAttribute("disabled");
+									ShowToast(MSG_NET_LINK_ERROR);
+								}
+							});
+
+							task.addData("orderId", oid);
+							task.addData("login_token", localStorage.getItem(LS_TOKEN));
+							if(noReceipt) {
+								mui.each(mui("#span_invoice img"), function(idx, elem) {
+									task.addFile(elem.src, {
+										key: "invoiceImg[" + idx + "]"
+									});
+								});
+							}
+
+							task.start();
+						} catch(e) {
+							wd.close();
+							/*console.info("[" + LS_P_MY_ORDER_INVOICE + " upload] error:" + e);*/
+							self.removeAttribute("disabled");
+							ShowToast(MSG_NET_LINK_ERROR);
+						}
+
+					}
+				});
+
+				//绘制顶部图标
+				cWebView = plus.webview.currentWebview();
+				//开启回弹
+				cWebView.setStyle({
+					bounce: "vertical",
+					bounceBackground: "#efeff4"
+				});
+
+			});
+
+			function showdata(id) {
+				CheckLoginToken({
+					fromUrl: LS_P_MY_ORDER_LIST
+				});
+				var wd = plus.nativeUI.showWaiting();
+				jQuery.ajax({
+					url: C_URL + C_M_ORDER_DETAIL,
+					data: {
+						"orderId": id,
+						"login_token": localStorage.getItem(LS_TOKEN)
+					},
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					dataType: "json",
+					timeout: C_LONG_TIMEOUT,
+					type: 'GET',
+					success: function(result) {
+						var item = result || {};
+						/*console.info("[" + LS_P_MY_ORDER_INVOICE + "] order.orderStatus:" + item.orderStatus);
+						console.info("[" + LS_P_MY_ORDER_INVOICE + "] order.successStatus:" + item.successStatus);
+						console.info("[" + LS_P_MY_ORDER_INVOICE + "] order.alreadyShippedStatus:" + item.alreadyShippedStatus);
+						console.info("[" + LS_P_MY_ORDER_INVOICE + "] order.receivedGoodsStatus:" + item.receivedGoodsStatus);
+						console.info("[" + LS_P_MY_ORDER_INVOICE + "] order.StatusCN:" + ChangeStatusToCN(item.orderStatus, item.successStatus, item.alreadyShippedStatus));
+						
+						console.info("[" + LS_P_MY_ORDER_INVOICE + "] orderId:" + id);
+						console.info("[" + LS_P_MY_ORDER_INVOICE + "] login_token:" + localStorage.getItem(LS_TOKEN));*/
+
+						document.getElementById("orderId").innerText = item.orderId;
+						document.getElementById("createTime").innerText = item.createTimeStr;
+						document.getElementById("sellerCompanyName").innerText = item.sellerCompanyName;
+						var templateHtml = '<span>' + item.name + '</span>';
+						if(item.goodsSku != null && item.goodsSku.length > 0) {
+							mui.each(item.goodsSku, function(idx, obj) {
+								if(obj.key.indexOf("直径") === -1) {
+									if(obj.key.indexOf("交货地") === -1) {
+										if(obj.key.indexOf("发货地") === -1) {
+											templateHtml += '<span class="detail-title-item">' + obj.value + '</span>';
+										} else {
+											templateHtml += '<span class="detail-title-item">发货地:' + obj.value + '</span>';
+										}
+									} else {
+										templateHtml += '<span class="detail-title-item">交货地:' + obj.value + '</span>';
+									}
+								} else {
+									templateHtml += '<span class="detail-title-item">φ' + obj.value + '</span>';
+								}
+							});
+						}
+						document.getElementById("goodsDetail").innerHTML = templateHtml;
+						document.getElementById("goodsPrice").innerText = RoundFormat(item.goodsPrice, 2);
+						if(item.goodsOriginalPrice) {
+							document.getElementById("div_originalPrice").style.display = "block";
+							document.getElementById("goodsOriginalPrice").innerText = RoundFormat(item.goodsOriginalPrice, 2);
+						} else {
+							document.getElementById("div_originalPrice").style.display = "none";
+						}
+						document.getElementById("goodsCount").innerText = item.goodsCount;
+						if(typeof item.totalFee === "number")
+							document.getElementById("totalFee").innerText = RoundFormat(item.totalFee, 2);
+
+						//发票
+						if(item.invoiceImg != null && item.invoiceImg.length > 0) {
+							noReceipt = false;
+							if(typeof item.invoiceImg === "string") {
+								document.getElementById("span_invoice").innerHTML = '<span><img src="' + C_IMG_URL + item.invoiceImg + '" data-preview-src="" data-preview-group="invoice" style="width: 65px; height: 65px; border-radius: 4px; margin-right:10px;" /></span>';
+							} else {
+								var imgStr = "";
+								for(var i = 0; i < item.invoiceImg.length; i++) {
+									imgStr += '<span><img src="' + C_IMG_URL + item.invoiceImg[i] + '" data-preview-src="" data-preview-group="invoice" style="width: 65px; height: 65px; border-radius: 4px; margin-right:10px;" /></span>';
+								}
+								document.getElementById("span_invoice").innerHTML = imgStr;
+							}
+							/*预览*/
+							mui.previewImage({
+								header: '<span class="mui-icon mui-icon-left-nav mui-pull-left mui-preview-header-close"></span><span class="mui-preview-indicator mui-title"></span>'
+							});
+						} else {
+							noReceipt = true;
+							mui('.custom-media-list').imageListInit({
+								size: [5],
+								previewGroup: ["invoice"],
+								multiple: true
+							});
+						}
+
+						wd.close();
+
+					},
+					error: function(xhr, type, errorThrown) {
+						wd.close();
+						ShowToast(MSG_DATA_ERROR);
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

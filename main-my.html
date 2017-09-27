@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/zhuyemian.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/mui.css">
+		<link rel="stylesheet" href="css/all-css.css">
+		<title>我的</title>
+		<style>
+
+			/*底导航里图片*/
+			
+			body {
+				background-color: #F4F5F9;
+				color: #ffffff;
+				font-size: 14px;
+				font-family: "黑体";
+			}
+			.mui-btn:enabled:active{
+				color: #fff !important;
+				border: 1px solid #ff6724;
+				background: #FF6724;
+			}
+			.status {
+				color: #FFFFFF !important;
+				opacity: 1 !important;
+				background-color: rgba(136, 136, 136, 0.15);
+			}
+			
+			.mui-control-content {
+				background-color: #F4F5F9;
+			}
+			
+			.mui-table-view {
+				margin-top: 10px;
+				margin-bottom: -20px;
+			}
+			.mui-table-view-cell:first-child{
+				padding:15px 15px 10px 15px;
+			}
+			.mui-table-view-cell:nth-child(2){
+				height:46px;
+			}
+			.mui-table-view-cell:after {
+				right: 15px;
+				left: 15px;
+				background-color:#f5f5f5;
+			}
+			
+			.orange-block {
+				color: #FF6724;
+				border: 1px solid #ff6724;
+				margin-left: 10px;
+				margin-right: 10px;
+				padding-left: 15px;
+				padding-right: 15px;
+				height: 44px;
+				line-height: 14px;
+				width: calc(100% - 20px);
+				background-color: #FFFFFF;
+			}
+			body .mui-table-view-cell:first-child {
+			    padding: 15px 15px 10px 15px;
+			    height: 46px;
+			}
+			/*.mui-table-view-cell > a:not(.mui-btn) {
+			    margin: -15px -20px;}*/
+			.qyn-top {
+				background: #fc5a29;
+			}
+			.mui-content{
+				background: #F4F5F9;
+			}
+			body #a, #b{
+				margin-top: -6px;
+			}
+	.mui-table-view:before,.mui-table-view:after{
+     height: 0; 
+    }
+    .mui-navigate-right:after, .mui-push-right:after{
+    	top: 25px;
+    }
+</style>
+	</head>
+
+	<body>
+		<div class="qyn-top"></div>
+		<!--底导航-->
+		<div class="footer_fixed">
+			<a id="main_market" class="mui-tab-item" href="index.html">
+				<span class="mui-icon"><img src="images/Group.png" iSort="0" /></span>
+				<span class="mui-tab-label">51集市</span>
+			</a>
+			<a id="main_mall" class="mui-tab-item" href="main-mall.html">
+				<span class="mui-icon"><img src="images/Group14.png" iSort="1" /></span>
+				<span class="mui-tab-label">51商城</span>
+			</a>
+			<a id="main_price" class="mui-tab-item" href="main-price.html">
+				<span class="mui-icon"><img src="images/Group9.png" iSort="2" /></span>
+				<span class="mui-tab-label">行情</span>
+			</a>
+			<a id="main_my" class="mui-tab-item nav-select" href="main-my.html">
+				<span class="mui-icon"><img src="images/Group17.png" iSort="3" /></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</div>
+		<!--底导航-->
+		<div class="mui-content" style="margin-top: 25px;">
+
+			<!--我的-->
+			<div id="tabbar-with-personuser" class="mui-control-content  mui-active" style="height: 95px;">
+				<div id="personuser" style="padding: 0;margin: 0;line-height: 0;" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<!--<div class="image"><img src="images/elephentlogox2.png"/></div>-->
+					<img id="img-bg-my" src="images/withelephent.png" />
+					<div class="title" style="height: 31px;margin-top: -60px;margin-left: 17.5%;">
+						<p style="color: #ffffff;text-align: left;"></p>
+						<div id="status" class="status" style="font-size: 12px;">v1 普通会员</div>
+					</div>
+				</div>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a id="order" class="mui-navigate-right">我的订单 <span style="float: right;margin-right: 13px;color: #999;font-size: 12px;line-height: 1.5;">查看全部订单</span></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<!--<a id="a"><img src="images/ing.png" style="width:14px;">&nbsp;进行中</a>
+						<a id="b"><img src="images/done.png" style="width:14px;">&nbsp;交易完成</a>
+						-->
+						<a id="a" style="line-height: 15px;"><span style="background: url(images/ing.png) no-repeat left 2px top; background-size: 12px; padding-left: 20px; font-size: 12px; display: inline-block; line-height: 14px;">进行中</span></a>
+						<a id="b" style="line-height: 15px;"><span style="background: url(images/done.png) no-repeat left 2px top; background-size: 12px; padding-left: 20px; font-size: 12px; display: inline-block; line-height: 14px;">交易完成</span></a>
+					</li>
+				</ul>
+				<ul class="mui-table-view" style="height: 50px;margin-top: 30px;">
+					<li class="mui-table-view-cell">
+						<a id="a_set" class="mui-navigate-right">设置</a>
+					</li>
+				</ul>
+				<!--我的-->
+
+			</div>
+
+			<!--退出阴影框-->
+			<!--退出登录-->
+			<div class="mui-popup mui-popup-in" id="alert" style="display: none;">
+				<div class="mui-popup-inner">
+					<div class="mui-popup-text">确定退出吗？</div>
+				</div>
+				<div class="mui-popup-buttons">
+					<span class="mui-popup-button" id="quet" style="color: #000000;">取消</span>
+					<span id="comfirm" class="mui-popup-button mui-popup-button-bold"><a style="color: #000000;">确认</a></span>
+				</div>
+			</div>
+			<div class="mui-popup-backdrop mui-active" id="backgroun" style="display: none;">
+			</div>
+			<!--退出阴影框-->
+
+			<div id="li_quit_btn" style="position: absolute; width: 100%; bottom: 80px;">
+				<button id="quetlogin" type="button" class="mui-btn mui-btn-warning orange-block">退出登录</button>
+			</div>
+		</div>
+
+	</body>
+
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/constant.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+		mui.init({
+			swipeBack: false,
+			// 预加载详情页
+			preloadPages: [{
+				/*主界面*/
+				id: LS_P_MY_ORDER_LIST,
+				url: LS_P_MY_ORDER_LIST
+			}, {
+				/*主界面*/
+				id: LS_P_MAIN,
+				url: LS_P_MAIN
+			}, {
+				/*51商城*/
+				id: LS_P_MAIN_MALL,
+				url: LS_P_MAIN_MALL
+			}, {
+				/*行情*/
+				id: LS_P_MAIN_PRICE,
+				url: LS_P_MAIN_PRICE
+			}, {
+				/*设置*/
+				id: LS_P_MY_SET,
+				url: LS_P_MY_SET
+			}, {
+				/*设置*/
+				id: LS_P_LOGIN,
+				url: LS_P_LOGIN
+			}]
+		});
+
+		//jQuery("#status").text('v1 普通会员');
+		//当设备准备完成时
+		mui.plusReady(function() {
+			//plus.screen.lockOrientation("portrait-primary");
+			//	监听
+			window.addEventListener('my_check_login', function(event) {
+				/*console.info("[" + LS_P_MAIN_MY + "] listener my_check_login");*/
+				if(!localStorage.getItem(LS_TOKEN)) {
+					document.getElementById("li_quit_btn").style.display = "none";
+					OpenPage(LS_P_LOGIN, "auto_login", {
+						"fromUrl": LS_P_MAIN_MY
+					});
+				} else {
+					document.getElementById("li_quit_btn").style.display = "block";
+					//打开获取信息
+					var wd = plus.nativeUI.showWaiting();
+					/*console.info("[" + LS_P_MAIN_MY + "] get user");
+					console.info("[" + LS_P_MAIN_MY + "] user token:" + localStorage.getItem(LS_TOKEN));*/
+					jQuery.ajax({
+						url: C_URL + C_M_ALLMESSAGE,
+						data: {
+							"login_token": localStorage.getItem(LS_TOKEN)
+						},
+						contentType: "application/x-www-form-urlencoded; charset=utf-8",
+						dataType: "json",
+						timeout: C_LONG_TIMEOUT,
+						type: 'GET',
+						success: function(data) {
+							wd.close();
+							if(typeof data === "string") {
+								localStorage.removeItem(LS_TOKEN);
+								document.getElementById("li_quit_btn").style.display = "none";
+								OpenPage(LS_P_LOGIN, "auto_login", {
+									"fromUrl": LS_P_MAIN_MY
+								});
+							} else {
+								/*console.info("[" + LS_P_MAIN_MY + "] get user info data:" + JSON.stringify(data));
+								for(p in data) {
+									console.info("[" + LS_P_MAIN_MY + "] get user info data." + p + " is:" + data[p]);
+								}*/
+								//公司名
+								jQuery(".title p").text(data.name);
+							}
+						},
+						error: function(xhr) {
+							/*for(p in xhr) {
+								console.info("[" + LS_P_MAIN_MY + "] get user error xhr." + p + " is:" + xhr[p]);
+							}*/
+							wd.close();
+							ShowToast(MSG_DATA_ERROR);
+						}
+					});
+				}
+			}, false);
+
+			document.getElementById("a_set").addEventListener('tap', function() {
+				OpenPage(LS_P_MY_SET, "my_set_showUser");
+			}, false);
+		});
+
+		//选项卡点击事件
+		mui('.footer_fixed').on('tap', 'a', function(e) {
+			var targetTab = this.getAttribute('href');
+			if(targetTab != LS_P_MAIN_MY) {
+				OpenPage(targetTab);
+			}
+
+		}, false);
+
+		jQuery(function() {
+			//判断本地是否有token，有即登录
+			/*console.info("[" + LS_P_MAIN_MY + "] token:" + localStorage.getItem(LS_TOKEN));*/
+
+			// 点击退出确定按钮			
+			jQuery("#comfirm").click(function() {
+				localStorage.removeItem(LS_TOKEN); //删除token
+				jQuery("#alert").hide();
+				jQuery("#backgroun").hide();
+				jQuery("#li_quit_btn").hide();
+				OpenPage(LS_P_MAIN);
+			});
+			//	点击退出登录按钮
+			jQuery("#quetlogin").click(function() {
+				jQuery("#alert").show();
+				jQuery("#backgroun").show();
+			});
+			jQuery("#quet").click(function() {
+				jQuery("#alert").hide();
+				jQuery("#backgroun").hide();
+			});
+			//点击我的订单跳转							
+			jQuery("#order").click(function() {
+				OpenPage(LS_P_MY_ORDER_LIST, "order_showlist", {
+					orderStatus: S_ORDER_ALL
+				});
+			});
+			//点击交易完成				
+			jQuery("#b").click(function() {
+				OpenPage(LS_P_MY_ORDER_LIST, "order_showlist", {
+					orderStatus: S_ORDER_FINISHED
+				});
+			});
+			//点击进行中
+			jQuery("#a").click(function() {
+				OpenPage(LS_P_MY_ORDER_LIST, "order_showlist", {
+					orderStatus: S_ORDER_ING
+				});
+			});
+		});
+	</script>
+
+</html>

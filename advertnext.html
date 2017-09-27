@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<title>51有色</title>
+		<style>
+
+			iframe{
+				zoom:5%
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="height: 50px;color: #000000;margin-top: 20px;">我是iframe的头部</div>
+		<div>
+			<iframe src=http://www.51youse.cn/html/jixiang/ id=iframepage frameborder=0 scrolling=no marginheight=0 marginwidth=0 ></iframe>
+		</div>
+		
+		</body>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<!--<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '4706084',
+        container: s,
+        size: '20,20',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+		<script src="http://dup.baidustatic.com/js/om.js"></script>-->
+	
+	
+<script type="text/javascript" language="javascript">   
+$("#iframepage").load(function () {
+    var mainheight = $(this).contents().find("body").height() + 30;
+    $(this).height(mainheight);
+}); 
+</script>
+</html>

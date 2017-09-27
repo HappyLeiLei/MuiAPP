@@ -1,0 +1,217 @@
+{
+	"kaijiye.html": {
+		"resources": [
+			"js/utils.js",
+			"js/common.js",
+			"js/json2.min.js",
+			"js/jquery-1.11.1.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/logo2.png",
+			"js/constant.js"
+		],
+		"refer": [
+			"guid.html",
+			"index.html",
+			"advert.html"
+		]
+	},
+	"main-price.html": {
+		"resources": [
+			"images/Group19.png",
+			"js/mui.pullToRefresh.js",
+			"js/json2.min.js",
+			"js/mui.pullToRefresh.material.js",
+			"images/Group.png",
+			"css/all-css.css",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"images/Group14.png"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"images/Group9.png",
+			"css/index-with-mall-popovers.css",
+			"js/mui.pullToRefresh.js",
+			"images/filter.png",
+			"images/Group16.png",
+			"js/json2.min.js",
+			"js/mui.pullToRefresh.material.js",
+			"fonts/mui.ttf",
+			"js/constant.js",
+			"images/triangle_priceX3.png",
+			"images/Group14.png",
+			"images/icon-jiao.png",
+			"js/utils.js",
+			"js/utils-orders.js",
+			"js/common.js",
+			"images/version.png",
+			"css/all-css.css",
+			"js/jquery-1.11.1.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"images/Group20.png",
+			"images/duigou.png",
+			"js/demo_pullRefresh_multi_skin.js",
+			"js/pulltorefresh.skin.default.js",
+			"images/elephant.png",
+			"images/nowifi.png",
+			"images/btn-bg.png"
+		],
+		"refer": [
+			"main-price.html",
+			"main-mall.html",
+			"main-my.html",
+			"submit-order.html",
+			"app_login.html"
+		]
+	},
+	"main-mall.html": {
+		"resources": [
+			"js/utils.js",
+			"js/utils-orders.js",
+			"js/mui.pullToRefresh.js",
+			"css/index-with-mall-popovers.css",
+			"js/json2.min.js",
+			"js/mui.pullToRefresh.material.js",
+			"images/Group18.png",
+			"images/Group.png",
+			"css/all-css.css",
+			"css/mui.min.css",
+			"js/pulltorefresh.skin.default.js",
+			"js/demo_pullRefresh_multi_skin.js",
+			"images/Group9.png",
+			"images/filter.png",
+			"images/Group16.png",
+			"images/triangle_priceX3.png",
+			"images/icon-jiao.png",
+			"images/duigou.png"
+		]
+	},
+	"main-my.html": {
+		"resources": [
+			"images/Group17.png",
+			"images/withelephent.png",
+			"css/zhuyemian.css",
+			"images/ing.png",
+			"images/done.png",
+			"js/jquery-1.11.1.min.js",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"set.html",
+			"my-order-list.html"
+		]
+	},
+	"submit-order.html": {
+		"resources": [
+			"images/order_scheduleX3.png",
+			"css/mui.min.css",
+			"css/mui.imageviewer.app.css",
+			"images/tipX2.png"
+		]
+	},
+	"app_login.html": {
+		"resources": [
+			"js/common.js",
+			"images/logo1.png",
+			"css/all-css.css",
+			"js/jquery-1.11.1.min.js",
+			"js/mui.min.js",
+			"css/mui.css",
+			"js/constant.js",
+			"images/logineye.png"
+		],
+		"refer": [
+			"set.html",
+			"my-order-list.html"
+		]
+	},
+	"guid.html": {
+		"resources": [
+			"images/guid_1080X1920_3.jpg",
+			"images/guid_1200X1920_2.png",
+			"images/guid_600X800_1.png",
+			"images/guid_1200X1920_3.png",
+			"images/guid_600X800_3.png",
+			"images/guid_1200X1920_1.png",
+			"images/guid_1080X1920_1.jpg",
+			"css/mui.css",
+			"images/guid_600X800_2.png",
+			"images/guid_1080X1920_2.jpg"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"set.html": {
+		"resources": [
+			"js/mui.previewimage.withheader.js",
+			"js/mui.zoom.js",
+			"css/zhuyemian.css",
+			"css/mui.imageviewer.app.css",
+			"js/mui.view.js",
+			"css/mui.min.css"
+		]
+	},
+	"my-order-list.html": {
+		"resources": [
+			"js/mui.pullToRefresh.js",
+			"js/mui.picker.min.js",
+			"js/json2.min.js",
+			"js/mui.pullToRefresh.material.js",
+			"js/constant.js",
+			"js/utils.js",
+			"js/utils-orders.js",
+			"js/common.js",
+			"css/all-css.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.1.min.js",
+			"css/mui.min.css",
+			"css/mui.picker.min.css"
+		]
+	},
+	"test.html": {
+		"resources": [
+			"images/Group9.png",
+			"css/index-with-mall-popovers.css",
+			"images/filter.png",
+			"images/Group16.png",
+			"js/json2.min.js",
+			"js/demo_pullRefresh_multi_skin.js",
+			"fonts/mui.ttf",
+			"js/constant.js",
+			"images/triangle_priceX3.png",
+			"images/Group14.png",
+			"images/icon-jiao.png",
+			"js/utils.js",
+			"js/utils-orders.js",
+			"js/pulltorefresh.skin.default.js",
+			"js/common.js",
+			"images/version.png",
+			"css/all-css.css",
+			"js/mui.min.js",
+			"js/jquery-1.11.1.min.js",
+			"css/mui.min.css",
+			"images/Group20.png",
+			"images/duigou.png",
+			"images/elephant.png"
+		],
+		"refer": [
+			"main-price.html",
+			"main-mall.html",
+			"main-my.html",
+			"submit-order.html",
+			"app_login.html"
+		]
+	},
+	"advert.html": {
+		"resources": [
+			"images/advert111.jpg"
+		],
+		"refer": [
+			"test.html"
+		]
+	}
+}

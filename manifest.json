@@ -1,0 +1,771 @@
+{
+	"@platforms": [
+		"android",
+		"iPhone"
+	],
+	"id": "com51youseapp",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "51有色",/*应用名称，程序桌面图标名称*/
+	"version": {
+		"name": "2.5.1",/*应用版本名称*/
+		"code": "1006"
+	},
+	"description": "",/*应用描述信息*/
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "kaijiye.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"developer": {
+		"name": "",/*开发者名称*/
+		"email": "",/*开发者邮箱地址*/
+		"url": "http://www.51youse.com"
+	},
+	"permissions": {
+
+
+		"Cache": {
+			"description": "管理应用缓存"
+		},
+		"Camera": {
+			"description": "访问摄像头"
+		},
+		"Console": {
+			"description": "跟踪调试输出日志"
+		},
+
+		"Device": {
+			"description": "访问设备信息"
+		},
+
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"File": {
+			"description": "访问本地文件系统"
+		},
+
+
+		"Invocation": {
+			"description": "使用Native.js能力"
+		},
+
+		"Orientation": {
+			"description": "访问方向感应器"
+		},
+
+		"Storage": {
+			"description": "管理应用本地数据"
+		},
+
+		"Uploader": {
+			"description": "管理文件上传任务"
+		},
+		"Runtime": {
+			"description": "访问运行期环境"
+		},
+		"XMLHttpRequest": {
+			"description": "跨域网络访问"
+		},
+		"Zip": {
+			"description": "文件压缩与解压缩"
+		},
+		"Barcode": {
+			"description": "管理二维码扫描插件"
+		},
+
+
+		"Webview": {
+			"description": "窗口管理"
+		},
+		"NativeUI": {
+			"description": "原生UI控件"
+		},
+		"Navigator": {
+			"description": "浏览器信息"
+		},
+		"NativeObj": {
+			"description": "原生对象"
+		},
+		"Gallery": {}
+	},
+	"plus": {
+        "statusbar": {
+            "immersed": true
+        },
+		"splashscreen": {
+			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": false,
+			"delay": "0"
+		},
+		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"distribute": {
+			"apple": {
+				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+				"mobileprovision": "",/*iOS应用打包配置文件*/
+				"password": "",/*iOS应用打包个人证书导入密码*/
+				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+				"devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+				"frameworks": []
+			},
+			"google": {
+				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "",/*Android应用打包使用的密钥库文件*/
+				"password": "",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"permissions": [
+					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+					"<uses-feature android:name=\"android.hardware.camera\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+					"<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+					"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>",
+					"<uses-permission android:name=\"android.permission.CAMERA\"/>"
+				]
+			},
+			"orientation": [
+				"portrait-primary"
+			],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"icons": {
+				"ios": {
+					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+					"auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					"iphone": {
+						"normal": "unpackage/res/icons/57x57.png",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "unpackage/res/icons/114x114.png",/*iPhone高分屏程序图标，分辨率：114x114*/
+						"retina7": "unpackage/res/icons/120x120.png",/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "unpackage/res/icons/29x29.png", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "unpackage/res/icons/58x58.png", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png",
+						"retina8": "unpackage/res/icons/180x180.png",
+						"settings-retina8": "unpackage/res/icons/87x87.png"
+					},
+					"ipad": {
+						"normal": "unpackage/res/icons/72x72.png", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "unpackage/res/icons/144x144.png", /*iPad高分屏程序图标，分辨率：144x144*/
+						"normal7": "unpackage/res/icons/76x76.png", /*iPad iOS7程序图标，分辨率：76x76*/
+						"retina7": "unpackage/res/icons/152x152.png", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "unpackage/res/icons/50x50.png", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "unpackage/res/icons/100x100.png", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						"spotlight-normal7": "unpackage/res/icons/40x40.png",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png",/*iPad设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png"
+					}
+				},
+				"android": {
+					"mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "unpackage/res/icons/144x144.png",
+					"xxxhdpi": "unpackage/res/icons/192x192.png"
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {
+						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
+						"retina35": "D:/source/HBuilderSource/P17009/Icon/开机页/640X960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": "D:/source/HBuilderSource/P17009/Icon/开机页/iphone5 640X1136.png",
+						"retina55": "D:/source/HBuilderSource/P17009/Icon/开机页/iphone6p 1242X2208.png",
+						"retina47": "D:/source/HBuilderSource/P17009/Icon/开机页/iphone6 750x1334.png"
+					},
+					"ipad": {
+						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
+						"portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
+						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+						"landscape-retina7": ""
+					}
+				},
+				"android": {
+					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "D:/source/HBuilderSource/P17009/Icon/开机页/480x762.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "D:/source/HBuilderSource/P17009/Icon/开机页/720X1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "D:/source/HBuilderSource/P17009/Icon/开机页/1080X1882.png"
+				}
+			},
+			"debug": false
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"my-order-detail.html": {
+				"href": "my-order-detail.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/mui.imageviewer.app.css",
+					"js/mui.min.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.withheader.js",
+					"js/jquery-1.11.1.min.js",
+					"js/constant.js",
+					"js/common.js",
+					"js/utils-orders.js",
+					"images/time.png"
+				],
+				"priority": 1,
+				"refer": []
+			},
+			"my-order-list.html": {
+				"href": "my-order-list.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/mui.picker.min.css",
+					"images/shaixuan1.jpg",
+					"js/mui.min.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"js/mui.picker.min.js",
+					"js/jquery-1.11.1.min.js",
+					"js/json2.min.js",
+					"js/constant.js",
+					"js/common.js",
+					"js/utils.js",
+					"js/utils-orders.js",
+					"images/time.png",
+					"images/filter.png",
+					"main-my.html",
+					"images/filter_orange.png",
+					"images/prompt_markX3.png",
+					"css/all-css.css"
+				],
+				"priority": 2,
+				"refer": [
+					"my-order-payment.html",
+					"my-order-receipt.html",
+					"my-order-detail.html"
+				]
+			},
+			"my-order-payment.html": {
+				"href": "my-order-payment.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/mui.imageviewer.app.css",
+					"js/mui.min.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.withheader.js",
+					"js/media_components.js",
+					"js/jquery-1.11.1.min.js",
+					"js/constant.js",
+					"js/common.js",
+					"js/utils-orders.js",
+					"images/uplode_bg.png",
+					"js/md5.min.js",
+					"css/all-css.css"
+				],
+				"priority": 3,
+				"refer": []
+			},
+			"my-order-receipt.html": {
+				"href": "my-order-receipt.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/mui.imageviewer.app.css",
+					"js/mui.min.js",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"js/jquery-1.11.1.min.js",
+					"js/constant.js",
+					"js/common.js",
+					"js/utils-orders.js",
+					"js/media_components.js",
+					"js/md5.min.js",
+					"images/uplode_bg.png",
+					"js/mui.previewimage.withheader.js"
+				],
+				"priority": 5,
+				"refer": []
+			},
+			"51yonghuxieyi.html": {
+				"href": "51yonghuxieyi.html",
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.css",
+					"fonts/mui.ttf",
+					"app_zhuce.html",
+					"js/jquery-1.11.1.min.js",
+					"js/constant.js",
+					"js/common.js",
+					"app_login.html"
+				],
+				"priority": 7,
+				"refer": []
+			},
+			"app_zhuce.html": {
+				"href": "app_zhuce.html",
+				"resources": [
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.css",
+					"fonts/mui.ttf",
+					"js/jquery-1.11.1.min.js",
+					"js/constant.js",
+					"app_login.html",
+					"51yonghuxieyi.html",
+					"images/erroalert.png",
+					"css/all-css.css"
+				],
+				"refer": [
+					"index.html"
+				],
+				"priority": 6
+			},
+			"app_login.html": {
+				"href": "app_login.html",
+				"resources": [
+					"js/mui.min.js",
+					"js/jquery-1.11.1.min.js",
+					"css/all-css.css",
+					"css/mui.css",
+					"fonts/mui.ttf",
+					"js/constant.js",
+					"images/notu.png",
+					"images/1492506204(1).png",
+					"images/1492506237(1).png",
+					"images/logo3.png",
+					"index.html",
+					"app_zhuce.html",
+					"images/logineye.png",
+					"js/common.js",
+					"images/logo1.png"
+				],
+				"refer": [
+					"my-order-detail.html",
+					"my-order-list.html",
+					"my-order-payment.html",
+					"app_login.html",
+					"my-order-receipt.html",
+					"set.html",
+					"main-price.html",
+					"main-mall.html",
+					"main-my.html",
+					"main-market.html"
+				],
+				"priority": 0
+			},
+			"index.html": {
+				"href": "index.html",
+				"resources": [
+					"js/mui.min.js",
+					"js/constant.js",
+					"css/mui.css",
+					"fonts/mui.ttf",
+					"images/success_elephant.png",
+					"js/jquery-1.11.1.min.js",
+					"js/json2.min.js",
+					"images/Group 20.png",
+					"js/utils.js",
+					"images/Group 14.png",
+					"images/1492506204(1).png",
+					"js/common.js",
+					"images/Group 9.png",
+					"css/mui.min.css",
+					"images/logo2.png",
+					"images/Group 16.png",
+					"main-market.html",
+					"images/Group9.png",
+					"images/Group16.png",
+					"main-mall.html",
+					"images/Group20.png",
+					"images/Group14.png",
+					"images/version.png",
+					"images/version_X.png",
+					"images/filter.png",
+					"images/filter_orange.png",
+					"images/btn-bg.png",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"js/utils-orders.js",
+					"images/triangle_down.png",
+					"images/triangle_priceX3.png",
+					"css/all-css.css",
+					"css/index-with-mall.css",
+					"images/icon-jiao.png",
+					"css/index-with-mall-popovers.css",
+					"images/duigou.png",
+					"js/demo_pullRefresh_multi_skin.js",
+					"js/pulltorefresh.skin.default.js",
+					"images/elephant.png",
+					"images/nowifi.png"
+				],
+				"refer": [
+					"app_login.html",
+					"index.html",
+					"main-price.html",
+					"main-my.html",
+					"guid.html",
+					"my-order-receipt.html",
+					"set.html",
+					"my-order-list.html",
+					"my-order-detail.html",
+					"submit-order.html"
+				],
+				"priority": 0
+			},
+			"main-price.html": {
+				"resources": [
+					"zhuyemian1.css",
+					"js/jquery-1.11.1.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.css",
+					"js/constant.js",
+					"js/common.js",
+					"images/Group.png",
+					"images/Group14.png",
+					"images/Group19.png",
+					"images/Group16.png",
+					"css/all-css.css",
+					"css/mui.min.css",
+					"js/mui.pullToRefresh.js",
+					"js/json2.min.js",
+					"js/mui.pullToRefresh.material.js"
+				],
+				"refer": [
+					"my-order-receipt.html",
+					"set.html",
+					"index.html",
+					"main-mall.html",
+					"main-my.html",
+					"my-order-list.html",
+					"main-market.html",
+					"my-order-detail.html",
+					"main-price.html"
+				],
+				"priority": 0
+			},
+			"main-mall.html": {
+				"resources": [
+					"css/zhuyemian.css",
+					"images/Group.png",
+					"css/mui.css",
+					"images/Group 17.png",
+					"js/jquery-1.11.1.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"images/filter.png",
+					"images/filter_orange.png",
+					"images/btn-bg.png",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"js/json2.min.js",
+					"js/constant.js",
+					"js/common.js",
+					"js/utils.js",
+					"js/utils-orders.js",
+					"images/triangle_down.png",
+					"images/Group18.png",
+					"images/Group9.png",
+					"images/Group16.png",
+					"images/triangle_priceX3.png",
+					"css/all-css.css",
+					"css/index-with-mall.css",
+					"css/index-with-mall-popovers.css",
+					"js/pulltorefresh.skin.default.js",
+					"js/demo_pullRefresh_multi_skin.js",
+					"images/icon-jiao.png",
+					"images/duigou.png"
+				],
+				"refer": [
+					"index.html",
+					"main-mall.html",
+					"main-price.html",
+					"main-my.html"
+				],
+				"priority": 0
+			},
+			"main-my.html": {
+				"resources": [
+					"app_login.html",
+					"images/Group 17.png",
+					"css/zhuyemian.css",
+					"js/common.js",
+					"js/jquery-1.11.1.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.css",
+					"js/constant.js",
+					"set.html",
+					"my-order-list.html",
+					"images/ing.png",
+					"images/done.png",
+					"images/elephentlogox2.png",
+					"images/Group.png",
+					"images/Group14.png",
+					"images/Group9.png",
+					"images/Group17.png",
+					"images/withelephent.png",
+					"css/all-css.css"
+				],
+				"refer": [
+					"my-order-receipt.html",
+					"main-price.html",
+					"index.html",
+					"main-mall.html",
+					"main-market.html",
+					"my-order-detail.html",
+					"main-my.html"
+				],
+				"priority": 0
+			},
+			"submit-order.html": {
+				"resources": [
+					"js/media_components.js",
+					"js/md5.min.js",
+					"js/mui.previewimage.withheader.js",
+					"js/mui.zoom.js",
+					"css/mui.imageviewer.app.css",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"js/jquery-1.11.1.min.js",
+					"js/constant.js",
+					"js/common.js",
+					"images/order_scheduleX3.png",
+					"images/tipX2.png",
+					"css/all-css.css"
+				],
+				"refer": [
+					"submit-order-success.html"
+				],
+				"priority": 0
+			},
+			"main-market.html": {
+				"resources": [
+					"images/filter.png",
+					"js/utils-orders.js",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"images/triangle_down.png",
+					"css/mui.picker.min.css",
+					"js/utils.js",
+					"js/common.js",
+					"js/json2.min.js",
+					"js/jquery-1.11.1.min.js",
+					"js/mui.min.js",
+					"js/constant.js",
+					"css/mui.min.css",
+					"images/shaisxuanloudou.png",
+					"images/newright.png",
+					"fonts/mui.ttf",
+					"images/filter_orange.png",
+					"images/triangle_priceX3.png"
+				],
+				"refer": [
+					"submit-order.html",
+					"app_login.html"
+				],
+				"priority": 0
+			},
+			"set.html": {
+				"resources": [
+					"js/mui.view.js",
+					"main-my.html",
+					"js/constant.js",
+					"css/zhuyemian.css",
+					"images/elephentlogox2.png",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"js/mui.previewimage.withheader.js",
+					"js/mui.zoom.js",
+					"css/mui.imageviewer.app.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"guid.html": {
+				"resources": [
+					"zhuyemian1.css",
+					"js/jquery-1.11.1.min.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.css",
+					"js/constant.js",
+					"images/Group 14.png",
+					"images/Group 9.png",
+					"images/Group 20.png",
+					"images/Group 16.png",
+					"images/51maket.png",
+					"images/51mall.png",
+					"images/Group16.png",
+					"images/Group20.png",
+					"images/conformlist.png",
+					"images/Group14.png",
+					"images/newright.png",
+					"main-market.html",
+					"main-mall.html",
+					"images/shaisxuanloudou.png",
+					"js/mui.js",
+					"js/common.js",
+					"images/51mallnew.png",
+					"images/tu4.png",
+					"images/guidimg2.jpg",
+					"images/tu7.png",
+					"images/guidimg3.jpg",
+					"images/guidimg1.jpg",
+					"images/9X16_guid_1.jpg",
+					"images/guid_1080X1920_3.jpg",
+					"images/guid_1200X1920_2.png",
+					"images/guid_600X800_1.png",
+					"images/guid_1200X1920_3.png",
+					"images/guid_600X800_3.png",
+					"images/guid_1200X1920_1.png",
+					"images/guid_1080X1920_1.jpg",
+					"images/guid_600X800_2.png",
+					"images/guid_1080X1920_2.jpg"
+				],
+				"refer": [
+					"my-order-receipt.html",
+					"set.html",
+					"index.html",
+					"my-order-list.html",
+					"my-order-detail.html",
+					"test.html",
+					"kaijiye.html",
+					"main-price.html",
+					"main-my.html"
+				],
+				"priority": 0
+			},
+			"kaijiye.html": {
+				"resources": [
+					"js/utils.js",
+					"js/common.js",
+					"js/json2.min.js",
+					"js/jquery-1.11.1.min.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/logo2.png",
+					"js/constant.js",
+					"fonts/mui.ttf",
+					"images/Group18.png",
+					"images/Group20.png",
+					"images/Group.png",
+					"images/Group14.png",
+					"images/Group16.png",
+					"images/Group19.png",
+					"images/Group17.png",
+					"images/notu.png",
+					"images/Group9.png"
+				],
+				"refer": [
+					"my-order-receipt.html",
+					"set.html",
+					"main-price.html",
+					"index.html",
+					"main-mall.html",
+					"main-my.html",
+					"my-order-list.html",
+					"main-market.html",
+					"my-order-detail.html",
+					"guid.html",
+					"app_zhuce.html",
+					"submit-order-success.html",
+					"submit-order.html",
+					"app_login.html",
+					"my-order-payment.html",
+					"advert.html"
+				],
+				"priority": 0
+			},
+			"submit-order-success.html": {
+				"href": "submit-order-success.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/mui.imageviewer.app.css",
+					"js/mui.min.js",
+					"js/jquery-1.11.1.min.js",
+					"js/constant.js",
+					"js/common.js",
+					"js/utils-orders.js",
+					"images/order_scheduleX3.png",
+					"images/success_elephantX3.png",
+					"css/all-css.css"
+				],
+				"priority": 3,
+				"refer": []
+			},
+			"test.html": {
+				"resources": [
+					"images/Group9.png",
+					"css/index-with-mall-popovers.css",
+					"images/filter.png",
+					"images/Group16.png",
+					"js/json2.min.js",
+					"js/demo_pullRefresh_multi_skin.js",
+					"fonts/mui.ttf",
+					"js/constant.js",
+					"images/triangle_priceX3.png",
+					"images/Group14.png",
+					"images/icon-jiao.png",
+					"js/utils.js",
+					"js/utils-orders.js",
+					"js/pulltorefresh.skin.default.js",
+					"js/common.js",
+					"images/version.png",
+					"css/all-css.css",
+					"js/mui.min.js",
+					"js/jquery-1.11.1.min.js",
+					"css/mui.min.css",
+					"images/Group20.png",
+					"images/duigou.png",
+					"images/elephant.png"
+				],
+				"refer": [
+					"main-price.html",
+					"main-mall.html",
+					"main-my.html",
+					"submit-order.html",
+					"app_login.html"
+				],
+				"priority": 0
+			},
+			"advert.html": {
+				"resources": [
+					"images/advert111.jpg"
+				],
+				"refer": [
+					"test.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"images/shaixuan2.jpg",
+				"js/mui.picker.js",
+				"css/media_components.css",
+				"js/utils-share.js",
+				"images/shuju.png",
+				"images/success_elephantX2.png",
+				"js/mui.poppicker.js",
+				"js/utils-collect.js",
+				"css/mui.picker.all.css",
+				"js/a.js",
+				"css/mui.poppicker.css",
+				"css/mui.imageviewer.css",
+				"css/mui.picker.css",
+				"js/mui.picker.all.js"
+			]
+		}
+	}
+}

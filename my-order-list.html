@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+		<link rel="stylesheet" href="css/all-css.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+				font-size: 14px;
+				font-family: "黑体";
+			}
+			
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 1;
+			}
+			
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			
+			
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			
+			.mui-pull-top-tips .mui-pull-loading {
+				/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+				margin: 0;
+			}
+			
+			
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #FFFFFF;
+				border-bottom: 1 solid #E7E7E7;
+			}
+			
+			.mui-segmented-control-negative.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #ff6724;
+			}
+			
+			.mui-table-view {
+				background-color: #f4f5f9;
+			}
+			
+			.mui-table-view-cell {
+				padding: 0;
+			}
+			
+			.pulltop {
+				margin-top: 10px;
+				border-bottom: 1px solid #E7E7E7;
+				border-top: 1px solid #e7e7e7;
+			}
+			
+			.dateDiv {
+				color: #999;
+				padding: 15px 10px 10px;
+				background-color: #fff;
+			}
+			
+			.orderStatus {
+				color: #ff6724;
+				float: right;
+			}
+			
+ 			.orange {
+				color: #ff6724;
+				border: 1px solid #ff6724;
+				margin-left: 5px;
+/*				margin-top: 30px;
+				padding-left: 15px;
+				padding-right: 15px;
+				height: 26px;
+				line-height: 10px;   */
+				cursor: pointer;
+				   
+			}
+			
+			.organe1 {
+				color: #ff6724;
+			}
+			
+			.sellerCompany,
+			.goodsDetail {
+				color: #4d4d4d;
+				background-color: #f9f9f9;
+				padding: 10px 10px 6px;
+				word-wrap: break-word;
+				white-space: normal;
+			}
+			
+			.goodsDetail .detail-title-item {
+				margin-left: 10px;
+			}
+			
+			.sellerCompany {
+				border-bottom: 1px dashed #e7e7e7;
+				margin:0 10px 0 10px;
+			}
+			
+			.goodsPrice {
+				float: right;
+				text-align: right;
+			}
+			
+			.goodsCount {
+				clear: both;
+				padding: 10px 10px;
+				color: #4d4d4d;
+				border-bottom: 1px dotted #e7e7e7;
+				background-color: #fff;
+				height: 38px;
+			}
+			
+			.expireTime {
+				padding: 12px 10px;
+				color: #999;
+				background-color: #fff;
+				line-height: 30px;
+			}
+			
+			.nobuy {
+				height: 275px;
+				text-align: center;
+				vertical-align: center;
+				padding-top: 60px;
+				color: #4d4d4d;
+				background: #FFFFFF;
+				font-family: "黑体";
+			}
+			
+			.search-in {
+				font-size: 16px;
+				line-height: 11px;
+				height: 14px;
+				margin-top: 15px;
+				margin-left: -55px;
+				padding: 0px 0px 0px 0px;
+				position: absolute;
+			}
+			
+			.search-info,
+			.search-info-two {
+				background-size: 26px 28px;
+				width: 56px;
+				margin-top: -9px;
+				height: 65px;
+				margin-left: -21px;
+				position: absolute;
+			}
+			
+			.search-info {
+				background: url(images/filter.png) no-repeat 0 18px;
+			}
+			
+			.search-info-two {
+				background: url(images/filter_orange.png) no-repeat 0 18px;
+			}
+			
+			.mui-table-view {
+				font-size: 14px;
+			}
+			/*导航条修改开始*/
+			
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {
+				border: 0;
+			}
+			
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				height: 40px;
+				border-bottom: 2px solid #ff6724;
+			}
+			
+			.mui-slider-indicator.mui-segmented-control {
+				position: relative;
+				bottom: auto;
+				height: 41px;
+				line-height: 41px;
+				/*padding-top: 5px;*/
+				border-bottom: 1.5px solid #E7E7E7;
+			}
+			
+			.mui-fullscreen .mui-segmented-control~.mui-slider-group {
+				position: absolute;
+				top: 30px;
+				bottom: 0;
+				width: 100%;
+				height: auto;
+			}
+			
+			.mui-table-view-cell:after {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 15px;
+				height: 1px;
+				content: '';
+				-webkit-transform: scaleY(.5);
+				transform: scaleY(.5);
+				background-color: #fff;
+			}
+			
+			.mui-segmented-control.mui-scroll-wrapper .mui-control-item {
+				padding: 0 15px;
+			}
+			/*导航条修改结束*/
+			/*侧滑导航菜单开始*/
+			
+			.mui-scroll-wrapper {
+				background-color: #fff;
+				font-size: 14px;
+				color: #999;
+			}
+			
+			.orderTime {
+				margin-top: 32px;
+				margin-left: 10px;
+				margin-bottom: 10px;
+			}
+			
+			.Narrow-all {
+				width: 100%;
+				text-align: center;
+				margin-bottom: 20px;
+				height: 40px;
+			}
+			
+			.Narrowfen {
+				background-color: #F5F5F5;
+				margin: 0 10px;
+			}
+			
+			.Narrowbott {
+				border-bottom: 1px solid #f5f5f5;
+				margin: 0 10px;
+				padding-bottom: 15px;
+			}
+			
+			.Narrow-all input[type=text] {
+				height: 25px;
+				width: 45%;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				padding: 10px 5px;
+				font-size: 12px;
+			}
+			
+			.mui-off-canvas-right {
+				width: 90%;
+				background-color: #fff;
+			}
+			
+			aside .mui-draggable {}
+			
+			.mui-bar-footer {
+				text-align: center;
+				width: 100%;
+				position: absolute;
+			}
+			
+			.mui-bar-footer button {
+				float: left;
+			}
+			/*侧滑导航菜单结束*/
+			
+			.chongzhi,
+			.wancheng {
+				/*width: 49.3%;*/
+				height: 44px;
+				border-radius: 0;
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+			}
+			
+			.chongzhi {
+				border-left: 0;
+				border-right: 0;
+				color: #999;
+			}
+			
+			.wancheng {
+				color: #fff;
+				background-color: #FE6F2B;
+				border-top: 1px solid #FE6F2B;
+				border-bottom: 1px solid #FE6F2B;
+			}
+			/*采购商权限*/
+			
+			.nobuy-txt,
+			.nobuy-txt-gray {
+				color: #999999;
+			}
+			
+			.nobuy-txt {
+				margin-top: 10px;
+			}
+			
+			.nobuy-txt-only {
+				color: #000000;
+				font-weight: bold;
+			}
+			
+			/*.orange:hover,
+			.orange:enabled:active {
+				color: #fff;
+				border: 1px solid #ff6724;
+				background: #FF6724;
+			}*/
+			.mui-btn:enabled:active{
+				color: #fff;
+				border: 1px solid #ff6724;
+				background: #FF6724;
+			}
+			
+			.goodsOriginalPrice {
+				text-decoration: line-through;
+				float: right;
+				color: #999;
+				font-size: 12px;
+			}
+			
+			/* 20170606 */
+			.qyn-top{
+				background-color: #f5f5f5;
+ 			   z-index: 999999;
+			}
+			.search-info-bgimg{
+				background-size: 33% auto;
+			}
+			.ico-img {
+				background: url(images/time.png) no-repeat left;
+				width:14px;
+				height:auto;
+			}
+			.mui-bar-nav {
+				top: 25px;
+		    border: none;
+		    box-shadow: none!important;
+		    border-bottom: solid 1px #dedede;
+			}
+			.mui-bar {
+  		  background-color: #f5f5f5;
+}
+			.mui-bar-nav~.mui-content .mui-slider.mui-fullscreen {
+				top: 69px;
+			}
+			.mui-bar-nav a {
+				color: #595959;
+			}
+			
+			.mui-bar-footer button {
+				border: none;
+			}
+			.mui-pull-top-pocket{
+				top: -50px;
+			}
+		</style>
+	</head>
+
+	<body>
+        <div class="qyn-top"></div>
+		<!-- 侧滑导航根容器 -->
+		<div id="Order_offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<!-- 菜单容器 -->
+			<aside id="order_search_canva" class="mui-off-canvas-right">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll font12">
+						<div class="orderTime">下单时间</div>
+						<div class="Narrow-all">
+							<div class="Narrowfen">
+								<span><input type="text" id="txt_begin_date" data-options='{"type":"date"}' class="mui-input-clear Narrow"/></span>
+								<span class="Narrow">-</span>
+								<span><input type="text" id="txt_end_date" data-options='{"type":"date"}' class="mui-input-clear Narrow"/></span>
+							</div>
+							<div class="Narrowbott"></div>
+						</div>
+					</div>
+
+					<div class="mui-bar-footer">
+						<button id="btn_order_resetSearch" type="button" class="mui-btn chongzhi mui-col-xs-6" style="border-top: #f5f5f5 1px solid;">重置</button>
+						<button id="btn_order_search" type="button" class="mui-btn btn-warning wancheng mui-col-xs-6">完成</button>
+					</div>
+
+				</div>
+
+			</aside>
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+				<header class="mui-bar mui-bar-nav">
+					<a id="a_order_list_back" class="mui-icon mui-icon-left-nav mui-pull-left left-arrow-icon"></a>
+					<h1 id="title" class="mui-title">我的订单</h1>
+					<a class="mui-pull-right search" href="#order_search_canva" style="color:#4d4d4d;"><span class="search-in">筛选</span><span id="span_search_icon" class="search-info search-info-bgimg"></span></a>
+				</header>
+				<div class="mui-content mui-scroll-wrapper">
+					<!--<div class="mui-scroll">-->
+					<div id="slider" class="mui-slider mui-fullscreen">
+						<div id="segmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative">
+							<div class="mui-scroll" style="color:#4d4d4d;">
+								<a class="mui-control-item mui-active organe1" href="#cc_allOrders" id="sc_allOrders">全部</a>
+								<a class="mui-control-item" href="#cc_pendingPayment" id="sc_pendingPayment">进行中</a>
+								<a class="mui-control-item" href="#cc_alreadyPaid" id="sc_alreadyPaid">交易完成</a>
+								<a class="mui-control-item" href="#cc_cancelTransaction" id="sc_cancelTransaction">交易取消</a>
+							</div>
+						</div>
+						<div class="mui-slider-group">
+							<div id="cc_allOrders" class="mui-slider-item mui-control-content mui-active">
+								<div class="mui-scroll-wrapper" id="pullrefresh1"> 
+									<div class="mui-scroll">
+										<ul class="mui-table-view" id="listdata1">
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div id="cc_pendingPayment" class="mui-slider-item mui-control-content">
+								<div class="mui-scroll-wrapper" id="pullrefresh2">
+									<div class="mui-scroll">
+										<ul class="mui-table-view" id="listdata2">
+											<!--<div class="mui-loading">
+												<div class="mui-spinner">
+												</div>
+											</div>-->
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div id="cc_alreadyPaid" class="mui-slider-item mui-control-content">
+								<div class="mui-scroll-wrapper" id="pullrefresh3">
+									<div class="mui-scroll">
+										<ul class="mui-table-view" id="listdata3">
+											<!--<div class="mui-loading">
+												<div class="mui-spinner">
+												</div>
+											</div>-->
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div id="cc_cancelTransaction" class="mui-slider-item mui-control-content">
+								<div class="mui-scroll-wrapper" id="pullrefresh4">
+									<div class="mui-scroll">
+										<ul class="mui-table-view" id="listdata4">
+											<!--<div class="mui-loading">
+												<div class="mui-spinner">
+												</div>
+											</div>-->
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<input type="hidden" id="hid_tab_status" />
+					<!--</div>-->
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<!--<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>-->
+		<script type="text/javascript" src="js/mui.picker.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/json2.min.js"></script>
+		<script type="text/javascript" src="js/constant.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/utils.js"></script>
+		<script type="text/javascript" src="js/utils-orders.js"></script>
+		<script type="text/javascript" src="js/pulltorefresh.skin.default.js"></script>
+	    <script type="text/javascript" src="js/demo_pullRefresh_multi_skin.js" ></script>
+		<script type="text/javascript" charset="utf-8">
+			var tabStatus = [S_ORDER_ALL, S_ORDER_ING, S_ORDER_FINISHED, S_ORDER_CANCEL];
+			var cPages = [1, 1, 1, 1];
+			var lastPage = [1, 1, 1, 1];
+			var pBeginDate = ["", "", "", ""];
+			var pEndDate = ["", "", "", ""];
+			var cWebView;
+			var tabIdx = 0;
+			var dataDivId = ["cc_allOrders", "cc_pendingPayment", "cc_alreadyPaid", "cc_cancelTransaction"];
+			mui.init({
+				swipeBack: false, //关闭右滑关闭功能
+				// 预加载详情页
+				preloadPages: [{
+					id: LS_P_MY_ORDER_PAYMENT,
+					url: LS_P_MY_ORDER_PAYMENT
+				}, {
+					id: LS_P_MY_ORDER_RECEIPT,
+					url: LS_P_MY_ORDER_RECEIPT
+				}, {
+					id: LS_P_MY_ORDER_INVOICE,
+					url: LS_P_MY_ORDER_INVOICE
+				}, {
+					id: LS_P_MY_ORDER_DETAIL,
+					url: LS_P_MY_ORDER_DETAIL
+				}, {
+					id: LS_P_LOGIN,
+					url: LS_P_LOGIN
+				}, {
+					id: LS_P_MAIN,
+					url: LS_P_MAIN
+				}],
+				statusBarBackground: '#f7f7f7'
+			});
+
+			function initPage() {
+				//阻尼系数
+				var deceleration = mui.os.ios ? 0.003 : 0.0009;
+				mui('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration: deceleration
+				});
+				//循环初始化所有下拉刷新，上拉加载。
+//				mui.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+//					mui(pullRefreshEl).pullToRefresh({
+//						down: {
+//							callback: function() {
+//								var self = this;
+//								var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+//								if(tip) {
+//									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_PULL_LOAD;
+//									tip.style.display = "block";
+//								}
+//								/*console.info("[" + LS_P_MY_ORDER_LIST + " 692] mui.pull.down");*/
+//								ShowData(true);
+//								self.endPullDownToRefresh();
+//								self.refresh(true);
+//							}
+//						},
+//						up: {
+//							callback: function() {
+//								var self = this;
+//								if(IsEndOfData()) {
+//									self.endPullUpToRefresh(true);
+//									var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+//									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
+//									setTimeout(function() {
+//										tip.style.display = "none";
+//									}, C_TIME_WAIT);
+//								} else {
+//									self.endPullUpToRefresh();
+//									/*console.info("[" + LS_P_MY_ORDER_LIST + " 692] mui.pull.up");*/
+//									ShowData(false);
+//								}
+//							}
+//						}
+//					});
+//				});
+
+				//监听左右拖动事件
+				document.getElementById('slider').addEventListener('slide', function(e) {
+					/*console.info("[" + LS_P_MY_ORDER_LIST + "] 监听左右拖动事件:" + e.detail.slideNumber +
+						"\t\ndocument.getElementById(dataDivId[" + tabIdx + "]).querySelector('.mui-loading'):" + document.getElementById(dataDivId[tabIdx]).querySelector('.mui-loading'));*/
+					tabIdx = e.detail.slideNumber;
+					if(tabIdx < 0 || tabIdx > 3) tabIdx = 0;
+					ChangeFilterOrange();
+					document.getElementById("txt_begin_date").value = pBeginDate[tabIdx];
+					document.getElementById("txt_end_date").value = pEndDate[tabIdx];
+//					if(document.getElementById(dataDivId[tabIdx]).querySelector('.mui-loading')) {
+//						setTimeout(function() {
+//							
+//						}, C_TIME_WAIT);
+//					}
+                    ShowData(true);
+				});
+
+				//监听选项卡点击事件
+				document.getElementById('sc_allOrders').addEventListener('tap', function(e) {
+					tabIdx = 0;
+					TapSegmentController();
+				});
+				document.getElementById('sc_pendingPayment').addEventListener('tap', function(e) {
+					tabIdx = 1;
+					TapSegmentController();
+				});
+				document.getElementById('sc_alreadyPaid').addEventListener('tap', function(e) {
+					tabIdx = 2;
+					TapSegmentController();
+				});
+				document.getElementById('sc_cancelTransaction').addEventListener('tap', function(e) {
+					tabIdx = 3;
+					TapSegmentController();
+				});
+
+				//实现ios平台的侧滑关闭页面；
+				if(mui.os.plus && mui.os.ios) {
+					document.getElementById("Order_offCanvasWrapper").addEventListener('shown', function(e) { //菜单显示完成事件
+						plus.webview.currentWebview().setStyle({
+							'popGesture': 'none'
+						});
+					});
+					document.getElementById("Order_offCanvasWrapper").addEventListener('hidden', function(e) { //菜单关闭完成事件
+						plus.webview.currentWebview().setStyle({
+							'popGesture': 'close'
+						});
+					});
+				}
+
+				document.getElementById('btn_order_resetSearch').addEventListener('tap', function() {
+					document.getElementById("txt_begin_date").value = "";
+					document.getElementById("txt_end_date").value = "";
+					pBeginDate[tabIdx] = "";
+					pEndDate[tabIdx] = "";
+					ChangeFilterOrange();
+					mui("#Order_offCanvasWrapper").offCanvas('close');
+					cPages[tabIdx] = 1;
+					/*console.info("[" + LS_P_MY_ORDER_LIST + " 692] btn_order_resetSearch");*/
+					ShowData(true);
+				});
+
+				document.getElementById('btn_order_search').addEventListener('tap', function() {
+					pBeginDate[tabIdx] = document.getElementById("txt_begin_date").value;
+					pEndDate[tabIdx] = document.getElementById("txt_end_date").value;
+					ChangeFilterOrange();
+					mui("#Order_offCanvasWrapper").offCanvas('close');
+					cPages[tabIdx] = 1;
+					/*console.info("[" + LS_P_MY_ORDER_LIST + " 692] btn_order_search");*/
+					ShowData(true);
+				});
+
+				document.getElementById("txt_begin_date").addEventListener('tap', function() {
+					var optionsJson = document.getElementById("txt_begin_date").getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+					var picker = new mui.DtPicker(options);
+					picker.show(function(rs) {
+						document.getElementById("txt_begin_date").value = rs.value;
+						picker.dispose();
+					});
+				}, false);
+				document.getElementById("txt_end_date").addEventListener('tap', function() {
+					var optionsJson = document.getElementById("txt_end_date").getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+					var picker = new mui.DtPicker(options);
+					picker.show(function(rs) {
+						document.getElementById("txt_end_date").value = rs.value;
+						picker.dispose();
+					});
+				}, false);
+
+				document.getElementById("a_order_list_back").addEventListener('tap', function() {
+					OpenPage(LS_P_MAIN_MY, "my_check_login")
+				}, false);
+
+			}
+
+			function ChangeFilterOrange() {
+				var icon = document.getElementById("span_search_icon");
+				if(trim(pBeginDate[tabIdx]).length > 0 || trim(pEndDate[tabIdx]).length > 0) {
+					icon.classList.remove('search-info');
+					icon.classList.add('search-info-two');
+				} else {
+					icon.classList.remove('search-info-two');
+					icon.classList.add('search-info');
+				}
+			}
+
+			function TapSegmentController() {
+				ChangeFilterOrange();
+				document.getElementById("txt_begin_date").value = pBeginDate[tabIdx];
+				document.getElementById("txt_end_date").value = pEndDate[tabIdx];
+				/*console.info("[" + LS_P_MY_ORDER_LIST + " 664] TapSegmentController");*/
+				ShowData(true);
+			}
+
+			/*mui.ready(function() {
+				initPage();
+				localStorage.setItem(LS_TOKEN, "eyJpdiI6ImQxTEFmTm8yY1RQMGI3TVp5RGpJK1E9PSIsInZhbHVlIjoiV0xIZFJaNmR0UUdlaFRwU3g2RTFENWNIalFvbTFoK1h3UTJTQTgzVFQxbz0iLCJtYWMiOiJiNTc1YjUyZTM5YWMxZTFiN2VhYmU1NGQ3ZmI3YjBlZTliY2U2MmJkNmI3OGI3YTA3OWJmNTk0ODJhOGQ3M2UzIn0=");
+				ShowData(true);
+				demoPullToRefresh.init(PullToRefreshTools.skin.defaults);
+			});*/
+
+			mui.plusReady(function() {
+				//plus.screen.lockOrientation("portrait-primary");
+				//plus.navigator.getStatusbarHeight();//获取状态栏高度
+				/*console.info("[" + LS_P_MY_ORDER_LIST + " 676] mui.plusReady");*/
+				initPage();
+				demoPullToRefresh.init(PullToRefreshTools.skin.defaults);
+
+				window.addEventListener('order_showlist', function(event) {
+					var oStatus = event.detail.orderStatus || S_ORDER_ALL;
+					tabIdx = 0;
+					switch(oStatus) {
+						case S_ORDER_ING:
+							tabIdx = 1;
+							break;
+						case S_ORDER_FINISHED:
+							tabIdx = 2;
+							break;
+						case S_ORDER_CANCEL:
+							tabIdx = 3;
+							break;
+						default:
+							tabIdx = 0;
+							break;
+					}
+					SelectOrderSlider(tabIdx);
+					pBeginDate[tabIdx] = "";
+					pEndDate[tabIdx] = "";
+					/*console.info("[" + LS_P_MY_ORDER_LIST + " 699] Listener order_showlist");*/
+					TapSegmentController();
+				});
+
+				//绘制顶部图标
+				cWebView = plus.webview.currentWebview();
+
+				//开启回弹
+				cWebView.setStyle({
+					bounce: "vertical",
+					bounceBackground: "#efeff4"
+				});
+
+			});
+
+			function IsEndOfData() {
+				var stopFlag = false;
+				if(cPages[tabIdx] > lastPage[tabIdx]) stopFlag = true;
+				else if(cPages[tabIdx] === 1 && lastPage[tabIdx] === 1) stopFlag = true;
+				return stopFlag;
+			}
+
+			function addListTapEventListener() {
+				var targetPage = null;
+				//详情
+				mui('.mui-table-view-cell').off('tap', 'a');
+				mui('.mui-table-view-cell').on('tap', 'a', function(e) {
+					var pagehref = this.getAttribute('href');
+					var data_id = this.getAttribute('data_id');
+					OpenPage(pagehref, "order_showinfo", {
+						"id": data_id
+					});
+
+				});
+
+			}
+
+			//付款
+			function DoPayment(dataID) {
+				OpenPage(LS_P_MY_ORDER_PAYMENT, "order_showinfo", {
+					"id": dataID,
+					"fromUrl": LS_P_MY_ORDER_LIST
+				});
+			}
+
+			//确认收货
+			function DoReceipt(dataID) {
+				OpenPage(LS_P_MY_ORDER_RECEIPT, "order_showinfo", {
+					"id": dataID,
+					"fromUrl": LS_P_MY_ORDER_LIST
+				});
+			}
+
+			//确认收货
+			function DoUploadInovice(dataID) {
+				OpenPage(LS_P_MY_ORDER_INVOICE, "order_showinfo", {
+					"id": dataID,
+					"fromUrl": LS_P_MY_ORDER_LIST
+				});
+			}
+
+			function ShowData(isInitCurrentPage) {
+				CheckLoginToken({
+					"fromUrl": LS_P_MY_ORDER_LIST
+				});
+				if(isInitCurrentPage) cPages[tabIdx] = 1;
+
+//				var wd = plus.nativeUI.showWaiting();
+				/*console.info("[" + LS_P_MY_ORDER_LIST + " ShowData] login_token:" + localStorage.getItem(LS_TOKEN));
+				console.info("[" + LS_P_MY_ORDER_LIST + " ShowData] cPages[" + tabIdx + "]:" + cPages[tabIdx]);
+				console.info("[" + LS_P_MY_ORDER_LIST + " ShowData] lastPage[" + tabIdx + "]:" + lastPage[tabIdx]);
+				console.info("[" + LS_P_MY_ORDER_LIST + " ShowData] cPages[" + tabIdx + "] > lastPage[" + tabIdx + "]:" + (cPages[tabIdx] > lastPage[tabIdx]));*/
+				jQuery.ajax({
+					type: "GET",
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url: C_URL + C_M_ORDERS,
+					data: {
+						"login_token": localStorage.getItem(LS_TOKEN),
+						"orderStatus": tabStatus[tabIdx],
+						"startTime": document.getElementById("txt_begin_date").value,
+						"endTime": document.getElementById("txt_end_date").value,
+						"page": cPages[tabIdx]
+					},
+					dataType: "json",
+					timeout: C_TIMEOUT,
+					success: function(response) {
+//						wd.close();
+						cPages[tabIdx]++;
+						/*for(p in response.paginator) {
+							console.info("[" + LS_P_MY_ORDER_LIST + " ShowData] response.paginator." + p + " is:" + response.paginator[p]);
+						}*/
+						if(response != null && response.paginator != null)
+							lastPage[tabIdx] = response.paginator.last_page;
+						else lastPage[tabIdx] = 1;
+						var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+						if(HaveAuthority(response, dataDivId[tabIdx])) {
+							if(tip) {
+								if(IsEndOfData()) {
+									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
+									setTimeout(function() {
+										tip.style.display = "none";
+									}, C_TIME_WAIT);
+								} else {
+									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_PULL_LOAD;
+									tip.style.display = "block";
+								}
+							}
+							bingData(response, dataDivId[tabIdx], isInitCurrentPage);
+							addListTapEventListener();
+							updateEndTime();
+						}else if(tip){
+							tip.style.display = "none";
+						}
+
+					},
+					error: function(xhr, type, errorThrown) {
+//						wd.close();
+						ShowToast(MSG_DATA_ERROR);
+					}
+				});
+
+			}
+
+			function HaveAuthority(data, targetID) {
+				var hasAuthority = true;
+				if(typeof data === "string") {
+					if(data === "noPower") {
+						var table = document.body.querySelector('#' + targetID + ' ul');
+						table.innerHTML = '<div class="nobuy">' +
+							'<div><img src="images/prompt_markX3.png" style="width:40px;height:40px"></div>' +
+							'<div class="nobuy-txt">对不起，您没有<span class="nobuy-txt-only">采购商权限</span>，请联系客服开通权限！</div>' +
+							'<div><span class="nobuy-txt-gray">客户电话：</span>' + LS_PHONE + '</div>' +
+							'<div style="margin-top:30px"><button type="button" class="mui-btn orange" onclick="DialTel(\'' + LS_PHONE + '\');">立即拨打</button></div>' +
+							'</div>';
+						hasAuthority = false;
+					} else if(data === "requireToken") {
+						localStorage.removeItem(LS_TOKEN);
+						CheckLoginToken({
+							fromUrl: LS_P_MY_ORDER_LIST
+						});
+						hasAuthority = false;
+					}
+				}
+				return hasAuthority;
+			}
+
+			function HaveData(data, table, targetID) {
+				var isdatalength = true;
+				if(data.retData == null || data.retData.length == 0) {
+					switch(targetID) {
+						case "cc_allOrders":
+							table.innerHTML = '<div class="nobuy"><div style="width:17%;margin:46px auto 20px auto;"><img src="images/shoppingCart.png"/></div><span style="color:#999999;font-size:16px;"">您还没有购买商品，</span><a href="#" showPage="GoShop" ><span style="color: #FF6724;">前去购买</span></a></div>';
+							BindNoBuyTap();
+							break;
+						case "cc_pendingPayment":
+							table.innerHTML = '<div class="nobuy"><div style="width:15%;margin:20px auto 20px auto;"><img src="images/orderlogo.png"/></div><span style="color:#999999;font-size:16px;"">您还没有进行中的商品哦，查看</span><a href="#" showPage="SelectOrderSlider(0)" ><span style="color: #FF6724;">全部订单</span></a></div>';
+							BindNoBuyTap();
+							break;
+						case "cc_alreadyPaid":
+							table.innerHTML = '<div class="nobuy"><div style="width:15%;margin:20px auto 20px auto;"><img src="images/orderlogo.png"/></div><span style="color:#999999;font-size:16px;"">您还没有交易完成的商品哦，查看</span><a href="#" showPage="SelectOrderSlider(0)" ><span style="color: #FF6724;">全部订单</span></a></div>';
+							BindNoBuyTap();
+							break;
+						case "cc_cancelTransaction":
+							table.innerHTML = '<div class="nobuy"><div style="width:15%;margin:20px auto 20px auto;"><img src="images/orderlogo.png"/></div><span style="color:#999999;font-size:16px;"">您还没有交易取消的商品哦，查看</span><a href="#" showPage="SelectOrderSlider(0)" ><span style="color: #FF6724;">全部订单</span></a></div>';
+							BindNoBuyTap();
+							break;
+						default:
+							table.innerHTML = '';
+							break;
+					}
+					isdatalength = false;
+				}
+				return isdatalength;
+			}
+
+			function BindNoBuyTap() {
+				mui('.nobuy').off('tap', 'a');
+				mui('.nobuy').on('tap', 'a', function(e) {
+					var pagehref = this.getAttribute('showPage');
+					/*console.info("[" + LS_P_MY_ORDER_LIST + " 860] BindNoBuyTap pagehref:" + pagehref);*/
+					if(pagehref === "GoShop")
+						OpenPage(LS_P_MAIN);
+					else
+						SelectOrderSlider(0);
+
+				});
+			}
+
+			function SelectOrderSlider(idx) {
+				var gallery = mui('.mui-slider');
+				gallery.slider().gotoItem(idx);
+			}
+
+			function bingData(response, targetID, isInitCurrentPage) {
+				var table = document.body.querySelector('#' + targetID + ' ul');
+				if(isInitCurrentPage) table.innerHTML = "";
+				if(HaveData(response, table, targetID)) {
+					//var templateStr = document.getElementById("div_list_template").innerHTML;
+					//table.innerHTML = '';
+					mui.each(response.retData, function(index, item) {
+						var li = document.createElement('li');
+						var business_id = item.business_id || {};
+						li.className = 'mui-table-view-cell pulltop';
+						var totalInt = parseInt(item.totalPrice);
+						var totalDec = ".00";
+						if(item.totalPrice.indexOf('.') > -1) {
+							totalDec = RoundFormat(item.totalPrice.substring(item.totalPrice.indexOf('.')), 2).toString();
+							totalDec = totalDec.substring(totalDec.indexOf("."));
+						}
+						//if(item.goodsPrice)
+						var templateHtml = '';
+						templateHtml = '<div>';
+						templateHtml += '<a href="' + LS_P_MY_ORDER_DETAIL + '" data_id="' + item.orderId + '">';
+						templateHtml += '<div class="dateDiv"><span>' + item.createTime + '</span><span class="orderStatus">' + ChangeStatusToCN(item.orderStatus, item.successStatus, item.alreadyShippedStatus) + '</span></div>';
+						templateHtml += '<div class="sellerCompany"><span style="margin-left:-10px;">' + item.sellerCompanyName + '</span></div>';
+						templateHtml += '<div class="goodsDetail mui-clearfix"><span style="width:70%; float:left; word-wrap: break-word; white-space: normal;">';
+						templateHtml += '<span>' + (item.name.split('-').length > 1 ? item.name.split('-')[1] : item.name) + '</span>';
+						if(item.goodsSku != null && item.goodsSku.length > 0) {
+							mui.each(item.goodsSku, function(idx, obj) {
+								if(obj.key.indexOf("直径") === -1) {
+									if(obj.key.indexOf("交货地") === -1){
+										if(obj.key.indexOf("发货地") === -1) {
+											templateHtml += '<span class="detail-title-item">' + obj.value + '</span>';
+										} else {
+											templateHtml += '<span class="detail-title-item detail-title-item-01">发货地:' + obj.value + '</span>';
+										}
+									} else {
+										templateHtml += '<span class="detail-title-item detail-title-item-01">交货地:' + obj.value + '</span>'
+									};
+								} else {
+									templateHtml += '<span class="detail-title-item">φ' + obj.value + '</span>';
+								}
+							});
+						}
+						templateHtml += '</span><span class="goodsPrice" style="width:30%">' + RoundFormat(item.goodsPrice, 2) + '元/吨</span>';
+						if(item.goodsOriginalPrice) {
+							templateHtml += '<span class="goodsOriginalPrice">' + RoundFormat(item.goodsOriginalPrice, 2) + '元/吨</span>';
+						}
+						templateHtml += '</div>';
+						templateHtml += '<div class="goodsCount"><span class="mui-pull-right" style="margin-left:30px;">总价:<span style="color:red;"><span style="font-family:Arial;">&yen;</span><span>' + totalInt + '</span><span style="font-size:10px">' + totalDec + '</span></span></span><span class="mui-pull-right" style="margin-right:50px；margin-top:10px;">重量:<span>' + item.goodsCount + '</span>吨</span></div>';
+						templateHtml += '</a>';
+						templateHtml += '<div class="expireTime mui-clearfix">';
+						/*console.info("[" + LS_P_MY_ORDER_LIST + "] item.expireTime:" + item.expireTime + ";type is:" + (typeof item.expireTime));
+						console.info("[" + LS_P_MY_ORDER_LIST + "] item.expireTime to Date:" + getDateByStr(item.expireTime));*/
+						if(CanShowExpireTime(getDateByStr(item.expireTime), item.orderStatus)) {
+							templateHtml += '<span class="ico-img"><span style="padding-left:20px;">还剩</span><span class="settime" endtime="' + getDateByStr(item.expireTime).getTime() + '"></span></span>';
+						}
+						templateHtml += '<div class="mui-pull-right">';
+						if(item.orderStatus === "WAIT_BUYER_PAY") {
+							templateHtml += '<button type="button" class="mui-btn orange font12" onclick="DoPayment(\'' + item.orderId + '\');">付款</button>';
+						}
+						/*console.info("[" + LS_P_MY_ORDER_LIST + "] item.orderId:" + item.orderId + ";type is:" + (typeof item.orderId));
+						console.info("[" + LS_P_MY_ORDER_LIST + "] item.orderStatus:" + item.orderStatus + ";type is:" + (typeof item.orderStatus));
+						console.info("[" + LS_P_MY_ORDER_LIST + "] item.successStatus:" + item.successStatus + ";type is:" + (typeof item.successStatus));
+						console.info("[" + LS_P_MY_ORDER_LIST + "] item.alreadyShippedStatus:" + item.alreadyShippedStatus + ";type is:" + (typeof item.alreadyShippedStatus));
+						console.info("[" + LS_P_MY_ORDER_LIST + "] item.receivedGoodsStatus:" + item.receivedGoodsStatus + ";type is:" + (typeof item.receivedGoodsStatus));*/
+						if(item.orderStatus !== "TRADE_CANCELED_TIMEOUT" && item.orderStatus !== "TRADE_CANCELED_ADMIN") {
+							if(item.receivedGoodsStatus == null || item.receivedGoodsStatus === "0") {
+								templateHtml += '<button type="button" class="mui-btn orange font12" onclick="DoReceipt(\'' + item.orderId + '\');">确认收货</button>';
+							}
+							if(item.invoicedStatus == null || item.invoicedStatus === "0") {
+								templateHtml += '<button type="button" class="mui-btn orange font12" onclick="DoUploadInovice(\'' + item.orderId + '\');">上传发票</button>';
+							}
+						}
+						templateHtml += '</div></div>';
+						templateHtml += '</div>';
+						li.innerHTML = templateHtml;
+						table.appendChild(li);
+					});
+				}
+			}
+		</script>
+	</body>
+
+</html>

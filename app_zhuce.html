@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.css">
+		<link rel="stylesheet" href="css/all-css.css" />
+		<title>注册</title>
+		<style>
+			body {
+				font-size: 14px;
+				background: #ffffff;
+			}
+			
+			a {
+				color: #828282;
+			}
+			/*输入框提示信息样式*/
+			
+			.mui-input-group {
+				margin-top: 69px;
+				padding: 0 10px 0 10px;
+			}
+			
+			.mui-input-row label {
+				font-family: "黑体";
+				line-height: 1.9;
+				float: left;
+				width: 24%;
+				padding: 13px 0px;
+				color: #4D4D4D;
+			}
+			
+			.mui-input-row .mui-input-clear {
+				width: 69%;
+				color: #999;
+				height: 50px;
+				float: left;
+			}
+			
+			input::-webkit-input-placeholder,
+			textarea::-webkit-input-placeholder {
+				color: #999;
+				font-size: 12px;
+				text-align: left;
+			}
+			
+			input:-moz-placeholder,
+			textarea:-moz-placeholder {
+				color: #999;
+				font-size: 12px;
+				text-align: left;
+			}
+			
+			input::-moz-placeholder,
+			textarea::-moz-placeholder {
+				color: #999;
+				font-size: 12px;
+				text-align: left;
+			}
+			
+			input:-ms-input-placeholder,
+			textarea:-ms-input-placeholder {
+				color: #999;
+				font-size: 12px;
+				text-align: left;
+			}
+			/*输入框提示信息样式end*/
+			
+			.mui-bar-nav {
+				top: 0;
+				-webkit-box-shadow: 0 1px 6px #ccc;
+				box-shadow: 1 0px 0px #000000;
+			}
+			
+			input[type='button'] {
+				width: 94%;
+				border: none;
+				margin: 4% 10px 2% 10px;
+				background: #E7E7E7;
+				color: #999;
+				height: 44px;
+			}
+			
+			.mui-input-row .btn {
+				position: absolute;
+				text-align: center;
+				line-height: 15px;
+				width: 80px;
+				height: 26px;
+				border: 1px #FF6724 solid;
+				border-radius: 5px;
+				color: #ff6724;
+				background: #FFFFFF;
+				right: 0px;
+				top: 10px;
+				vertical-align: middle;
+				font-size: 12px;
+				padding-left: 8px;
+				margin: 0;
+			}
+			
+			.mui-input-row .btn:enabled:active {
+				color: #FFFFFF;
+				background: #FF6724;
+			}
+			
+			#alert-tip1,
+			#alert-tip11,
+			#alert-tip12,
+			#alert-tip2,
+			#alert-tip3,
+			#alert-tip4,
+			#alert-tip41,
+			#alert-tip5,
+			#alert-tip51 {
+				color: red;
+				top: 25px;
+				left: 23%;
+				display: none;
+				font-size: 12px;
+				font-family: "黑体";
+			}
+			
+			.mui-input-row img {
+				width: 10%;
+			}
+			
+			.mui-input-group:after {
+				background-color: #fff;
+			}
+			
+			.mui-input-group .mui-input-row {
+				height: 50px;
+			}
+			
+			.mui-input-group .mui-input-row:after {
+				left: 0px;
+				background-color: #f5f5f5;
+			}
+			
+			input[type='text'] {
+				height: 50px;
+			}
+			
+			.mui-bar-nav {
+				top: 25px;
+				box-shadow: none;
+				padding: 0px;
+				width: 100%;
+			}
+			
+			.qyn-top {
+				width: 100%;
+				background: #f7f7f7;
+				color: #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="qyn-top"></div>
+		<header class="mui-bar mui-bar-nav">
+			<a id="back" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">手机快速注册</h1>
+		</header>
+		<form class="mui-input-group">
+			<div class="mui-input-row">
+				<label>公司名称</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入公司名称" id="comname">
+				<span id="alert-tip4"><img src="images/erroalert.png" />请填写公司名称</span>
+				<span id="alert-tip41"><img src="images/erroalert.png" />已注册</span>
+			</div>
+			<div class="mui-input-row">
+				<label>手机号</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入手机号" id="Mobile">
+				<span id="alert-tip1"><img src="images/erroalert.png" style="width: 9%;" />您输入的手机号有误</span>
+				<span id="alert-tip11"><img src="images/erroalert.png" style="width: 17%;" />已注册</span>
+				<span id="alert-tip12"><img src="images/erroalert.png" style="width: 6%;"/>请先填入手机号接收验证码</span>
+			</div>
+			<div class="mui-input-row">
+				<label>校验码</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入短信校验码" id="btn_tips">
+				<span id="alert-tip5"><img  src="images/erroalert.png" />请填写验证码</span>
+				<input type="button" class="btn" value="获取校验码">
+				<span id="alert-tip51"><img style="width: 4%;" src="images/erroalert.png"/>请输入正确验证码</span>
+			</div>
+			<div class="mui-input-row">
+				<label>登录密码</label>
+				<input type="password" class="mui-input-clear" placeholder="请输入密码(6-16位数字字母或符号)" id="password">
+				<span id="alert-tip2"><img src="images/erroalert.png"/>您的密码长度不符</span>
+			</div>
+			<div class="mui-input-row">
+				<label>确认密码</label>
+				<input type="password" class="mui-input-clear" placeholder="请再次输入密码" id="confirempassword">
+				<span id="alert-tip3"><img src="images/erroalert.png"/>两次密码不一致</span>
+
+			</div>
+			<div class="mui-input-row">
+				<label>联系人(选填)</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入联系人姓名" id="username">
+			</div>
+		</form>
+		<input id="btn_reg" class="zhuceanniu" type="button" value="立即注册" /><br />
+		<input type="text" style="display: none;" id="alert_buttom"></input>
+		<div style="font-size: 6px;margin-left: 5%;font-size: 12px;color: #4D4D4D;">注册即视为同意
+			<a href="51yonghuxieyi.html" style="color:#FF6724;">《51有色用户注册协议》</a>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/constant.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+
+	<script type="text/javascript">
+		var isValidCom = false;
+		var isValidMobile = false;
+		mui.plusReady(function() {
+			//plus.screen.lockOrientation("portrait-primary");
+		});
+		//document.getElementById("btn_reg").setAttribute("disabled", "disabled");
+		$(function() {
+			localStorage.removeItem("sendmsg");
+			var a = $(this).parent().css("height", "50px");
+			mui.init({
+				swipeBack: false,
+				// 预加载详情页
+				preloadPages: [{
+					/*订单列表页*/
+					id: LS_P_MY_ORDER_LIST,
+					url: LS_P_MY_ORDER_LIST
+				}, {
+					/*主界面*/
+					id: LS_P_MAIN,
+					url: LS_P_MAIN
+				}, {
+					/*51商城*/
+					id: LS_P_MAIN_MALL,
+					url: LS_P_MAIN_MALL
+				}, {
+					/*行情*/
+					id: LS_P_MAIN_PRICE,
+					url: LS_P_MAIN_PRICE
+				}, {
+					/*我的*/
+					id: LS_P_MAIN_MY,
+					url: LS_P_MAIN_MY
+				}]
+			});
+			//			定义跳转页
+			var fUrl = LS_P_MAIN;
+			window.addEventListener('auto_login', function(event) {
+				fUrl = event.detail.fromUrl || LS_P_MAIN;
+			});
+			/*没有填写完成就点击注册时*/
+			$(".zhuceanniu").click(function() {
+				/*公司名称*/
+				if($("#comname").val().length == 0) {
+					$("#alert-tip4").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px"
+					});
+					$("#comname").parent().css("height", "70px");
+					$("#alert-tip1,#alert-tip12,#alert-tip11,#alert-tip2,#alert-tip3,#alert-tip41,#alert-tip5,#alert-tip51").css("display", "none");
+					$("#Mobile,#btn_tips,#password,#confirempassword").parent().css("height", "50px");
+					/*电话号码*/
+				} else if(!checkMobile($("#Mobile").val())) {
+					$("#alert-tip1").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px",
+					});
+					$("#Mobile").parent().css("height", "70px");
+					$("#alert-tip4,#alert-tip12,#alert-tip11,#alert-tip2,#alert-tip3,#alert-tip41,#alert-tip5,#alert-tip51").css({
+						"display": "none",
+						"position": "absolute"
+					});
+					$("#comname,#btn_tips,#password,#confirempassword").parent().css("height", "50px");
+					/*验证码*/
+				} else if($("#btn_tips").val().length == 0) {
+					$("#alert-tip5").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px",
+					});
+					$("#btn_tips").parent().css("height", "70px");
+					$("#alert-tip1,#alert-tip12,#alert-tip11,#alert-tip2,#alert-tip3,#alert-tip4,#alert-tip41,#alert-tip51").css({
+						"display": "none",
+						"position": "absolute"
+					});
+					$("#comname,#Mobile,#password,#confirempassword").parent().css("height", "50px");
+					/*密码*/
+				} else if($("#password").val().length < 6 || $("#password").val().length > 16) {
+					$("#alert-tip2").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px",
+					});
+					$("#password").parent().css("height", "70px");
+					$("#alert-tip1,#alert-tip12,#alert-tip11,#alert-tip5,#alert-tip3,#alert-tip4,#alert-tip41,#alert-tip51").css({
+						"display": "none",
+						"position": "absolute"
+					});
+					$("#comname,#Mobile,#btn_tips,#confirempassword").parent().css("height", "50px");
+					/*确认密码*/
+				} else if($("#confirempassword").val().length == 0 || $("#password").val() != $("#confirempassword").val()) {
+					$("#alert-tip3").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px",
+					});
+					$("#confirempassword").parent().css("height", "70px");
+					/*填写完成就可以注册了*/
+				} else if($("#comname").val().length > 0 && checkMobile($("#Mobile").val()) && ($("#password").val().length > 5 && $("#password").val().length < 17) && ($("#password").val() == $("#confirempassword").val()) && $("#btn_tips").val().length > 0) {
+					$.ajax({
+						type: "post",
+						url: C_URL + C_M_ZHUECE,
+						async: true,
+						data: {
+							company_name: $("#comname").val(),
+							tel: $("#Mobile").val(),
+							dxyz: $("#btn_tips").val(),
+							password: $("#password").val(),
+							linkan: $("#name").val(),
+							passwordAgain: $("#confirempassword").val()
+						},
+						datatype: "text",
+						success: function(data) {
+							if(data.result === 0) {
+								$("#alert_buttom").css("display", "block").val(data.msg);
+							} else if(data.result == 1) {
+								if(data.data.message == "5") {
+									/*console.info("[" + LS_P_ZHUECE + " regist] token:" + data.data.data);*/
+									localStorage.setItem(LS_TOKEN, data.data.data); //存储token
+									$("#alert_buttom").css("display", "block").val("注册成功");
+									OpenPage(fUrl);
+									$("#comname").val('');
+		                            $("#Mobile").val('');
+		                            $("#btn_tips").val('');
+		                            $("#password").val('');
+		                            $("#name").val('');
+		                            $("#confirempassword").val('');
+									$("#alert_buttom").css("display", "none");
+									$(".zhuceanniu").css("background", "#f7f7f7");
+									$(".btn").val("获取验证码").css({
+												"border": "1px solid #FF6724",
+												"color": "#FF6724",
+												"background": "#fff"
+											}).removeAttr("disabled");
+								} else {
+									$("#alert_buttom").val("服务器忙或您的网络连接失败，请稍候再试");
+								}
+							} else {
+								$("#alert_buttom").css("display", "block").val("注册错误");
+							}
+						},
+						error: function() {
+							$("#alert_buttom").val("服务器忙或您的网络连接失败，请稍候再试");
+						}
+					});
+				}
+			});
+
+			/*判断公司名是否已注册*/
+			document.getElementById("comname").addEventListener('blur', function(e) {
+				/*console.info("[" + LS_P_ZHUECE + " comname] mouseout");*/
+				jQuery.ajax({
+					type: "get",
+					url: C_URL + C_M_COMPANY,
+					async: true,
+					data: {
+						company: $("#comname").val()
+					},
+					success: function(data) {
+						/*console.info("[" + LS_P_ZHUECE + " comname mouseout] data.d:" + data.d);*/
+						var con = JSON.parse(data);
+						/*和数据库连判断是否有公司名重复注册*/
+						if( /*data==0*/ con.d == 0) {
+							//alert("公司名已存在");
+							isValidCom = false;
+							localStorage.setItem("comnamenow","false");
+							jQuery("#alert-tip41").css({
+								"display": "block",
+								"position": "absolute",
+								"padding-top": "15px",
+							});
+							jQuery("#comname").parent().css("height", "70px");
+						} else {
+							//alert("未注册");
+							isValidCom = true;
+							localStorage.setItem("comnamenow","true");
+							jQuery("#alert-tip41").css({
+								"display": "none",
+								"position": "absolute"
+							});
+							jQuery("#comname").parent().css("height", "50px");
+						}
+					},
+					error: function() {
+						//alert("11");
+						$("#alert_buttom").val("服务器忙或您的网络连接失败，请稍候再试").css("display", "block");
+					}
+				});
+			}, false);
+
+			document.getElementById("comname").addEventListener('input', function() {
+				$("#alert-tip4").css({
+					"display": "none",
+					"position": "absolute"
+				});
+				$("#alert-tip41").css({
+					"display": "none",
+					"position": "absolute"
+				});
+				isValidCom = true;
+				localStorage.setItem("comnamenow","true");
+				$(this).parent().css("height", "50px");
+			}, false);
+
+			//手机号格式是否正确和是否已将注册
+			document.getElementById("Mobile").addEventListener('blur', function(e) {
+				/*console.info("[" + LS_P_ZHUECE + " mobile] mouseout");*/
+				if(!checkMobile($("#Mobile").val()) && $("#Mobile").val().length != 0) {
+					$("#alert-tip1").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px",
+					});
+					$(this).parent().css("height", "70px");
+				} else if($("#Mobile").val().length == 0) {
+					$("#alert-tip1").css({
+						"display": "none",
+						"position": "absolute"
+					});
+					$("#alert-tip12").css({
+						"display": "none",
+						"position": "absolute"
+					});
+					$("#alert-tip11").css({
+						"display": "none",
+						"position": "absolute"
+					});
+					$(this).parent().css("height", "50px");
+				} else {
+					$.ajax({
+						type: "get",
+						url: C_URL + C_M_MOBILE,
+						async: true,
+						data: {
+							mobile: $("#Mobile").val()
+						},
+						success: function(data) {
+							/*console.info("[" + LS_P_ZHUECE + " mobile mouseout] data.d:" + data.d);*/
+							var result = JSON.parse(data);
+							if(result.d == 0) {
+								//alert("手机号已注册");
+								isValidMobile = false;
+								localStorage.setItem("mobilenow","false");
+								$("#alert-tip11").css({
+									"display": "block",
+									"position": "absolute",
+									"padding-top": "15px",
+								});
+								$("#Mobile").parent().css("height", "70px");
+							} else if(result.d == 1) {
+								isValidMobile = true;
+								localStorage.setItem("mobilenow","true");
+								$("#alert-tip11").css({
+									"display": "none",
+									"position": "absolute"
+								});
+								$("#Mobile").parent().css("height", "50px");
+							} else {
+								//alert("未注册");
+								isValidMobile = false;
+								localStorage.setItem("mobilenow","false");
+								$("#alert-tip11").css({
+									"display": "none",
+									"position": "absolute"
+								});
+								$("#Mobile").parent().css("height", "70px");
+							}
+						},
+						error: function() {
+							//alert("1");
+							$("#alert_buttom").val("服务器忙或您的网络连接失败，请稍候再试");
+						}
+					});
+				}
+			}, false);
+
+			document.getElementById("Mobile").addEventListener('input', function() {
+				$("#alert-tip1").css({
+					"display": "none",
+					"position": "absolute"
+				});
+				isValidMobile = true;
+				localStorage.setItem("mobilenow","true");
+				$("#alert-tip12").css({
+					"display": "none",
+					"position": "absolute"
+				});
+				$("#alert-tip11").css({
+					"display": "none",
+					"position": "absolute"
+				});
+				$("#Mobile").parent().css("height", "50px");
+			}, false);
+
+			//验证码輸入框
+			document.getElementById("btn_tips").addEventListener('blur', function(e) {
+				if($("#btn_tips").val().length == 6 || $("#btn_tips").val().length == 0) {
+					$("#alert-tip51").css("display", "none");
+					$(this).parent().css("height", "50px");
+				} else {
+					$("#alert-tip51").css("display", "block");
+					$(this).parent().css("height", "70px");
+				}
+			}, false);
+
+			document.getElementById("btn_tips").addEventListener('input', function() {
+				$("#alert-tip5").css("display", "none");
+				$("#alert-tip51").css("display", "none");
+				$(this).parent().css("height", "50px");
+			}, false);
+
+			//点击后验证码倒计时并发送验证
+			$('.btn').unbind('click');
+			$('.btn').bind('click', function() {
+				if(!checkMobile($("#Mobile").val()) && $("#Mobile").val().length != 0) {
+					$("#alert-tip1").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px",
+					});
+					$(this).parent().css("height", "70px");
+				} else if($("#Mobile").val().length == 0) {
+					$("#alert-tip1").css({
+						"display": "none",
+						"position": "absolute"
+					});
+					$("#alert-tip12").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px"
+					});
+					$(this).parent().prev().css("height", "70px");
+					$("#alert-tip11").css({
+						"display": "none",
+						"position": "absolute"
+					});
+
+				} else {
+					$.ajax({
+						type: "get",
+						url: C_URL + C_M_MOBILE,
+						async: true,
+						data: {
+							mobile: $("#Mobile").val()
+						},
+						success: function(data) {
+							/*console.info("[" + LS_P_ZHUECE + " mobile mouseout] data.d:" + data.d);*/
+							var result = JSON.parse(data);
+							if(result.d == 0) {
+								localStorage.removeItem("sendmsg");
+								localStorage.setItem("sendmsg", "false");
+								//alert("手机号已注册");
+								isValidMobile = false;
+								localStorage.setItem("mobilenow","false");
+								$("#alert-tip11").css({
+									"display": "block",
+									"position": "absolute",
+									"padding-top": "15px",
+								});
+								$("#Mobile").parent().css("height", "70px");
+							} else if(result.d == 1) {
+								//alert("未注册");
+								localStorage.removeItem("sendmsg");
+								localStorage.setItem("sendmsg", "true");
+								isValidMobile = true;
+								localStorage.setItem("mobilenow","true");
+								$("#alert-tip11").css({
+									"display": "none",
+									"position": "absolute"
+								});
+								$("#Mobile").parent().css("height", "50px");
+								/*必须填写手机号才能点击*/
+								if(checkMobile($("#Mobile").val()) && localStorage.getItem("sendmsg") == "true") {
+									localStorage.removeItem("sendmsg");
+									$(".btn").val(60 + "s").css({
+										"border": "0",
+										"color": "#999999",
+										"background": "#e7e7e7"
+									});
+									$(".btn").val(60 + "s").css({
+										"border": "0",
+										"color": "#999999",
+										"background": "#e7e7e7"
+									}).attr("disabled", "disabled");
+									var i = 60;
+									var timecount = setInterval(function() {
+										if(i > 0) {
+											$(".btn").val(i + "s");
+											i--;
+										} else {
+											$(".btn").val("获取验证码").css({
+												"border": "1px solid #FF6724",
+												"color": "#FF6724",
+												"background": "#fff"
+											}).removeAttr("disabled");
+											clearInterval(timecount);
+										}
+									}, 1000);
+
+									//验证码获取发送
+									$.ajax({
+										type: "post",
+										url: C_URL + C_M_YZM,
+										async: true,
+										data: {
+											tel: $("#Mobile").val(),
+										},
+										success: function(data) {
+											//if(data.message){
+											//alert("验证码发送成功");
+											//}else{
+											//alert("验证码发送失败");
+											//}
+										},
+										error: function() {
+											$("#alert-tip51").css({
+												"display": "none",
+												"position": "absolute"
+											});
+											$("#btn_tips").parent().css("height", "50px");
+										}
+									});
+
+								} else {
+									if($("#alert-tip11").css("display") == "block") {
+
+									} else if($("#alert-tip1").css("display") === "block") {
+										$("#alert-tip12").css({
+											"display": "none",
+											"position": "absolute"
+										});
+									} else {
+										$("#alert-tip12").css({
+											"display": "block",
+											"position": "absolute",
+											"padding-top": "15px",
+										});
+										$("#Mobile").parent().css("height", "70px");
+									}
+								}
+							} else {
+								//alert("未注册");
+								localStorage.removeItem("sendmsg");
+								localStorage.setItem("sendmsg", "false");
+								isValidMobile = false;
+								localStorage.setItem("mobilenow","false");
+								$("#alert-tip11").css({
+									"display": "none",
+									"position": "absolute"
+								});
+								$("#Mobile").parent().css("height", "50px");
+							}
+						},
+						error: function() {
+							//alert("1");
+							$("#alert_buttom").val("服务器忙或您的网络连接失败，请稍候再试");
+						}
+					});
+				}
+			});
+
+			//密码长度是否正确
+			document.getElementById("password").addEventListener('blur', function(e) {
+				if($("#password").val().length >= 6 && $("#password").val().length <= 16 || $("#password").val().length == 0) {
+					$("#alert-tip2").css({
+						"display": "none",
+						"position": "absolute"
+					});
+
+				} else {
+					$("#alert-tip2").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px",
+					});
+					$(this).parent().css("height", "70px");
+				}
+			}, false);
+
+			document.getElementById("password").addEventListener('input', function() {
+				$("#alert-tip2").css({
+					"display": "none",
+					"position": "absolute"
+				});
+				$(this).parent().css("height", "50px");
+			}, false);
+
+			//确认密码
+			document.getElementById("confirempassword").addEventListener('blur', function(e) {
+				if($("#password").val() != $("#confirempassword").val() && $("#confirempassword").val() != 0) {
+					$("#alert-tip3").css({
+						"display": "block",
+						"position": "absolute",
+						"padding-top": "15px",
+					});
+					$(this).parent().css("height", "70px");
+				} else {
+					$("#alert-tip3").css({
+						"display": "none",
+						"position": "absolute"
+					});
+				}
+			}, false);
+
+			document.getElementById("confirempassword").addEventListener('input', function() {
+				$("#alert-tip3").css({
+					"display": "none",
+					"position": "absolute"
+				});
+				$(this).parent().css("height", "50px");
+			}, false);
+
+			//当所有填写正确时注册按钮变红
+			$(".mui-input-group input").keyup(function() {
+				if(localStorage.getItem("mobilenow") && localStorage.getItem("comnamenow") && $("#comname").val().length > 0 && checkMobile($("#Mobile").val()) && ($("#password").val().length > 5 && $("#password").val().length < 17) && ($("#password").val() == $("#confirempassword").val()) && $("#btn_tips").val().length >= 6) {
+					$(".zhuceanniu").css({
+						"background": "#ff6724",
+						"color": "#fff"
+					});
+					
+					//document.getElementById("btn_reg").removeAttribute("disabled");
+				} else {
+					$(".zhuceanniu").css("background", "#f7f7f7");
+					//document.getElementById("btn_reg").setAttribute("disabled", "disabled");
+				}
+			});
+			$("#back").click(function() {
+				OpenPage(LS_P_LOGIN);
+			});
+			
+		});
+	</script>
+
+</html>
