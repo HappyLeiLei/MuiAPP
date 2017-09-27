@@ -43,7 +43,7 @@
 
 .information-box .txtScroll-top .infoList li .date {
   float : right;
-  color : #999;
+  color : #bbb;
 }
 
 /* 首页导航 */
@@ -88,7 +88,7 @@
   float : right;
   font-size : 14px;
   font-weight : normal;
-  color : #ccc;
+  color : #bbb;
 }
 .data-slider .mui-slider .mui-slider-group {
   /* height : 142px; */
