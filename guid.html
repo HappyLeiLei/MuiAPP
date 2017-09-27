@@ -44,8 +44,8 @@
 			// 预加载详情页
 			preloadPages: [{
 				/*主界面*/
-				id: LS_P_MAIN,
-				url: LS_P_MAIN
+				id: LS_P_HOME,
+				url: LS_P_HOME
 			}]
 		});
 		//	引导页
@@ -57,7 +57,7 @@
 				imgs[i].addEventListener("tap", function() {
 					//存入标记
 					plus.storage.setItem(LS_LAUNCH_FLAG, "true");
-					OpenPage(LS_P_MAIN);
+					OpenPage(LS_P_HOME);
 				});
 		});
 		//	返回之前入口页
