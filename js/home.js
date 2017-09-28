@@ -91,7 +91,7 @@ jQuery(".picScroll-top").slide({
 	effect: "topLoop",
 	autoPlay: true,
 	scroll:1,
-	vis: 2,
+	vis: 4,
 	delayTime:1000,
 	interTime:5000
 })
