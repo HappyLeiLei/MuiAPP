@@ -150,3 +150,14 @@
   border-radius : 15px;
 }
 
+/*即时成交*/
+.instant-deal {
+	background: #fff;
+}
+.instant-deal .instant-deal-title {
+  padding : 10px 20px;
+  font-size : 15px;
+  color: #4d4d4d;
+  font-weight : bold;
+  border-bottom : 1px solid #e5e5e5;
+}
