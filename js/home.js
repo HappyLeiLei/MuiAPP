@@ -28,6 +28,32 @@ mui.init({
 	}],
 	statusBarBackground: '#f7f7f7'
 });
+
+//加载swiper图片地址
+jQuery.ajax({
+		type: "GET",
+		url: C_URL+C_M_GET_SWIPER,
+		dataType: "json",
+		timeout: C_TIMEOUT,
+		success: function(response) {
+			console.log(response.length);
+			var bannerhtml = '';
+			mui.each(response, function(idx, item){
+				console.log(idx);
+				if(idx == 0){
+					bannerhtml += '<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src='+item+' /></a></div>';
+				}else{
+					bannerhtml += '<div class="mui-slider-item "><a href="#"><img src='+ item +' /></a></div>';
+				}
+			});
+			$("#bannerslider").html(bannerhtml);
+		
+		},
+		error: function(xhr, type, errorThrown) {
+			
+		}
+	});
+
 //获得slider插件对象
 var gallery = mui('.mui-slider');
 gallery.slider({

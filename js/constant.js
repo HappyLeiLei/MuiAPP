@@ -9,10 +9,10 @@ const C_VERSION = '2.5.1';
 /** APP内部版本号 */
 const C_APP_VER = 2;
 /** URL */
-const C_URL = 'http://123.150.252.54:1002/';//外网测试环境
-const C_IMG_URL = 'http://123.150.252.54:1002';
-//const C_URL = 'http://10.36.2.29/';
-//const C_IMG_URL = 'http://10.36.2.29';
+//const C_URL = 'http://123.150.252.54:1002/';//外网测试环境
+//const C_IMG_URL = 'http://123.150.252.54:1002';
+const C_URL = 'http://10.36.2.29/';
+const C_IMG_URL = 'http://10.36.2.29';
 /*const C_URL = 'http://www.51youse.com/';
 const C_IMG_URL = 'http://www.51youse.com';*/
 /** 图片路径 */
@@ -50,6 +50,7 @@ const C_M_GOODS_LIST_CURRENT = C_MOBILE + '/goods_select';
 const C_M_GOODS_DETAIL = C_MOBILE + '/buyer/goods_detail';
 const C_M_GOODS_SUBMIT_ORDER = C_MOBILE + '/buyer/create_order';
 const C_M_USER_GROUP = C_MOBILE + '/account/user_id_group';
+const C_M_GET_SWIPER = C_MOBILE + '/get_banner';//获取banner图地址
 /*手机app登陆页面*/
 const C_M_LOGIN = C_MOBILE + "/login";
 /*手机注册页面*/
