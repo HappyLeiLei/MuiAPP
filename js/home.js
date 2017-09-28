@@ -67,7 +67,7 @@ jQuery.ajax({
 //获得slider插件对象
 var gallery = mui('.mui-slider');
 gallery.slider({
-	interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+	interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
 });
 //获得slider插件对象
 //			var gallery = mui('.mui-slider');
@@ -79,7 +79,8 @@ jQuery(".information-box .txtScroll-top").slide({
 	autoPage: true,
 	effect: "topLoop",
 	autoPlay: true,
-	vis: 1
+	vis: 1,
+	interTime:4000
 });
 
 //即时成交
@@ -91,7 +92,7 @@ jQuery(".picScroll-top").slide({
 	scroll:1,
 	vis: 4,
 	delayTime:1000,
-	interTime:5000
+	interTime:4000
 })
 
 //选项卡点击事件
