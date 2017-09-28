@@ -50,19 +50,19 @@
 
 		<div class="top-mui-slider">
 			<div class="mui-slider">
-				<div class="mui-slider-group mui-slider-loop" id="bannerslider">
+				<div class="mui-slider-group mui-slider-loop">
 					<!--支持循环，需要重复图片节点-->
 					<div class="mui-slider-item mui-slider-item-duplicate">
 						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0802/20170802024604677.jpg" /></a>
 					</div>
 					<div class="mui-slider-item">
-						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0901/20170901064920556.jpg" /></a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0824/20170824050815636.jpg" /></a>
+						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0926/20170926090203933.jpg" /></a>
 					</div>
 					<div class="mui-slider-item">
 						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0802/20170802024604677.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0926/20170926090203933.jpg" /></a>
 					</div>
 					<div class="mui-slider-item">
 						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0802/20170802024604677.jpg" /></a>
@@ -72,9 +72,8 @@
 						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0926/20170926090203933.jpg" /></a>
 					</div>
 				</div>
-				<div class="mui-slider-indicator" id="bannersliderpoint">
+				<div class="mui-slider-indicator">
 					<div class="mui-indicator mui-active"></div>
-					<div class="mui-indicator"></div>
 					<div class="mui-indicator"></div>
 					<div class="mui-indicator"></div>
 					<div class="mui-indicator"></div>
@@ -240,7 +239,60 @@
 		<script type="text/javascript" src="js/common.js"></script>
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/jquery.SuperSlide.2.1.1.js"></script>
-		<script src="js/home.js"></script>
+		<script type="text/javascript">
+			//初始化
+			mui.init({
+				swipeBack: false, //关闭右滑关闭功能
+				// 预加载详情页
+				preloadPages: [{
+					id: LS_P_LOGIN,
+					url: LS_P_LOGIN
+				}, {
+					id: LS_P_SUBMIT_ORDER,
+					url: LS_P_SUBMIT_ORDER
+				}, {
+					/*51集市*/
+					id: LS_P_MAIN_MALL,
+					url: LS_P_MAIN_MALL
+				}, {
+					/*行情*/
+					id: LS_P_MAIN_PRICE,
+					url: LS_P_MAIN_PRICE
+				}, {
+					/*我的*/
+					id: LS_P_MAIN_MY,
+					url: LS_P_MAIN_MY
+				}],
+				statusBarBackground: '#f7f7f7'
+			});
+			//获得slider插件对象
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+				interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+			//获得slider插件对象
+			//			var gallery = mui('.mui-slider');
+			//			gallery.slider().gotoItem(index); //跳转到第index张图片，index从0开始；
+			jQuery(".txtScroll-top").slide({
+				titCell: ".hd ul",
+				mainCell: ".bd ul",
+				autoPage: true,
+				effect: "top",
+				autoPlay: true,
+				vis: 1
+			});
+			//选项卡点击事件
+	mui('.footer_fixed').on('tap', 'a', function(e) {
+		var targetTab = this.getAttribute('href');
+		if(targetTab != LS_P_MAIN_MARKET) {
+			if(targetTab === LS_P_MAIN_MY)
+				OpenPage(targetTab, "my_check_login");
+			else
+				OpenPage(targetTab);
+		}
+
+	}, false);
+		</script>
 	</body>
 
 </html>
