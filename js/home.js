@@ -38,16 +38,29 @@ jQuery.ajax({
 		success: function(response) {
 			console.log(response.length);
 			var bannerhtml = '';
+			var bannerhtml1 = '';
+			var bannerhtml2 = '';
+			var bannerhtml3 = '';
+			var bannerpoint = '';
 			mui.each(response, function(idx, item){
-				console.log(idx);
 				if(idx == 0){
-					bannerhtml += '<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src='+item+' /></a></div>';
+					bannerhtml1 += '<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src='+item+' /></a></div>';
+					bannerhtml2 += '<div class="mui-slider-item "><a href="#"><img src='+ item +' /></a></div>';
+				}else if(idx+1 == response.length){
+					bannerhtml3 += '<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src='+item+' /></a></div>';
+					bannerhtml2 += '<div class="mui-slider-item "><a href="#"><img src='+ item +' /></a></div>';
 				}else{
-					bannerhtml += '<div class="mui-slider-item "><a href="#"><img src='+ item +' /></a></div>';
+					bannerhtml2 += '<div class="mui-slider-item "><a href="#"><img src='+ item +' /></a></div>';
+				}
+				if(idx == 0){
+					bannerpoint += '<div class="mui-indicator mui-active"></div>';
+				}else{
+					bannerpoint += '<div class="mui-indicator"></div>';
 				}
 			});
+			bannerhtml = bannerhtml3+bannerhtml2+bannerhtml1;
 			$("#bannerslider").html(bannerhtml);
-		
+			$("#bannersliderpoint").html(bannerpoint);
 		},
 		error: function(xhr, type, errorThrown) {
 			
