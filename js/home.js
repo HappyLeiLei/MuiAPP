@@ -35,7 +35,6 @@ jQuery.ajax({
 	dataType: "json",
 	timeout: C_TIMEOUT,
 	success: function(response) {
-		console.log(response.length);
 		var bannerhtml = '';
 		var bannerhtml1 = '';
 		var bannerhtml2 = '';
@@ -50,8 +49,7 @@ jQuery.ajax({
 				bannerhtml2 += '<div class="mui-slider-item "><a href="#"><img src=' + item + ' /></a></div>';
 			} else {
 				bannerhtml2 += '<div class="mui-slider-item "><a href="#"><img src=' + item + ' /></a></div>';
-			}
-			if(idx == 0) {
+			}if(idx == 0) {
 				bannerpoint += '<div class="mui-indicator mui-active"></div>';
 			} else {
 				bannerpoint += '<div class="mui-indicator"></div>';
