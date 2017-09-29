@@ -54,6 +54,27 @@
 	line-height: 24px;
 }
 
+.date-txt {
+	width: auto;
+	float: left;
+	white-space: nowrap;
+	overflow: hidden;
+	height: 24px;
+	position: absolute;
+	left: -90px;
+	top: 24px;
+	animation:textShow 2s ease-out;
+}
+
+@keyframes textShow {
+	0% {
+		left: 10px;
+	}
+	100% {
+		left: -90px;
+	}
+}
+
 .information-box .txtScroll-top .infoList li .date {
 	float: right;
 	color: #bbb;
@@ -182,17 +203,21 @@
 
 
 /*即时成交*/
+
 .instant-deal {
 	background: #fff;
 }
+
 .deal-title {
 	padding-top: 8px;
 }
+
 .deal-title-time,
 .deal-content-note {
 	float: right;
 	color: #bbb;
 }
+
 .deal-content strong {
 	font-size: 18px;
 	color: #FF6724;
@@ -215,11 +240,13 @@
 }
 
 .instant-deal .picScroll-top .bd {
-	padding:0;
+	padding: 0;
 }
+
 .instant-deal .picScroll-top .bd .tempWrap {
 	height: 228px !important;
 }
+
 .instant-deal .picScroll-top .bd ul {
 	overflow: hidden;
 	zoom: 1;

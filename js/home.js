@@ -49,7 +49,8 @@ jQuery.ajax({
 				bannerhtml2 += '<div class="mui-slider-item "><a href="#"><img src=' + item + ' /></a></div>';
 			} else {
 				bannerhtml2 += '<div class="mui-slider-item "><a href="#"><img src=' + item + ' /></a></div>';
-			}if(idx == 0) {
+			}
+			if(idx == 0) {
 				bannerpoint += '<div class="mui-indicator mui-active"></div>';
 			} else {
 				bannerpoint += '<div class="mui-indicator"></div>';
@@ -69,31 +70,46 @@ var gallery = mui('.mui-slider');
 gallery.slider({
 	interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
 });
-//获得slider插件对象
-//			var gallery = mui('.mui-slider');
-//			gallery.slider().gotoItem(index); //跳转到第index张图片，index从0开始；
 
 //快讯滚动
-jQuery(".information-box .txtScroll-top").slide({
-	mainCell: ".bd ul",
-	autoPage: true,
-	effect: "topLoop",
-	autoPlay: true,
-	vis: 1,
-	interTime:4000
-});
-
-//即时成交
-jQuery(".picScroll-top").slide({
-	mainCell: ".bd ul",
-	autoPage: true,
-	effect: "topLoop",
-	autoPlay: true,
-	scroll:1,
-	vis: 4,
-	delayTime:1000,
-	interTime:4000
-})
+//jQuery(".information-box .txtScroll-top").slide({
+//	mainCell: ".bd ul",
+//	autoPage: true,
+//	effect: "topLoop",
+//	autoPlay: true,
+//	vis: 1,
+//	interTime:4000
+//});
+//setInterval(function() {
+	var data_width1 = $(".infoList-items2").width();
+	var li_width = $(".infoList li").width();
+	var data_width = $(".infoList li .date").width()
+	var new_width = li_width - data_width;
+	$(".information-box .txtScroll-top").slide({
+		mainCell: ".bd ul",
+		autoPage: true,
+		effect: "topLoop",
+		autoPlay: true,
+		vis: 1,
+		interTime: 4000
+	});
+	if(data_width1 > new_width) {
+		setTimeout(function() {
+			$('.date-cont').addClass("date-txt");
+		}, 1000);
+	}
+	//即时成交
+	jQuery(".picScroll-top").slide({
+		mainCell: ".bd ul",
+		autoPage: true,
+		effect: "topLoop",
+		autoPlay: true,
+		scroll: 1,
+		vis: 4,
+		delayTime: 1000,
+		interTime: 4000
+	})
+//}, 4000);
 
 //选项卡点击事件
 mui('.footer_fixed').on('tap', 'a', function(e) {
