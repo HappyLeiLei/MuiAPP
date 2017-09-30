@@ -138,10 +138,15 @@ jQuery.ajax({
 			$(".data-list1 .data-title").html(hqdata.name);
 			$(".data-list1 .data-content-jia").html(hqdata.CONTPRICE);
 			$(".data-list1 .upordown span").html("涨跌："+hqdata.UPORDOWN);
+			$(".data-list11 .data-title").html(hqdata.name);
+			$(".data-list11 .data-content-jia").html(hqdata.CONTPRICE);
+			$(".data-list11 .upordown span").html("涨跌："+hqdata.UPORDOWN);
 			if(hqdata.UPORDOWN >= 0){
 				$(".data-list1 .upordown").addClass("up");
+				$(".data-list11 .upordown").addClass("up");
 			}else{
 				$(".data-list1 .upordown").addClass("down");
+				$(".data-list11 .upordown").addClass("down");
 			}
 		},
 		error: function(xhr, type, errorThrown) {
@@ -161,11 +166,42 @@ jQuery.ajax({
 			$(".data-list2 .data-title").html(hqdata.name);
 			$(".data-list2 .data-content-jia").html(hqdata.CONTPRICE);
 			$(".data-list2 .upordown span").html("涨跌："+hqdata.UPORDOWN);
+			$(".data-list12 .data-title").html(hqdata.name);
+			$(".data-list12 .data-content-jia").html(hqdata.CONTPRICE);
+			$(".data-list12 .upordown span").html("涨跌："+hqdata.UPORDOWN);
 			if(hqdata.UPORDOWN >= 0){
 				$(".data-list2 .upordown").addClass("up");
+				$(".data-list12 .upordown").addClass("up");
 			}else{
 				$(".data-list2 .upordown").addClass("down");
+				$(".data-list12 .upordown").addClass("down");
 			}
+		},
+		error: function(xhr, type, errorThrown) {
+		}
+	});
+	//获取最新成交数据
+jQuery.ajax({
+		type: "GET",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		url: C_URL + C_M_GET_NEWWORDER,
+		data: {
+			"type": 'al'
+		},
+		dataType: "json",
+		timeout: C_TIMEOUT,
+		success: function(response) {
+			console.log(response);
+			var listall = '';
+			mui.each(response, function(idx, item) {
+				var aa = item.goodsSku;
+				var bb = aa.split("-");
+//				var cc = bb.split("_");
+				listall += '<li><div class="deal-title"><span class="deal-title-time">'+item.expireTime.substring(0,10) +'</span>'+item.name+idx+' 测试 TR <span>1.35mm</span></div>'+
+				'<div class="deal-content"><span class="deal-content-note">无为 | 1.8吨</span><strong>'+item.SgoodsPrice+'元</strong><span> / 吨</span></div></li>';
+//				console.log(time);
+			});
+			$(".picList").html(listall);
 		},
 		error: function(xhr, type, errorThrown) {
 		}

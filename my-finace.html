@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/mui.min.css"/>
 		<link rel="stylesheet" href="css/all-css.css" />
 		<link rel="stylesheet" href="css/index-with-mall-popovers.css">
 		<link rel="stylesheet" href="css/home.css" />
@@ -26,13 +26,13 @@
 				<span class="mui-icon"><img src="images/Group14.png" iSort="1" /></span>
 				<span class="mui-tab-label">51商城</span>
 			</a>
-			<a id="main_my" class="mui-tab-item" href="main-my.html">
-				<span class="mui-icon"><img src="images/Group16.png" iSort="3" /></span>
-				<span class="mui-tab-label">我的</span>
-			</a>
 			<a id="main_price" class="mui-tab-item" href="main-price.html">
 				<span class="mui-icon"><img src="images/Group9.png" iSort="2" /></span>
 				<span class="mui-tab-label">行情</span>
+			</a>
+			<a id="main_my" class="mui-tab-item" href="main-my.html">
+				<span class="mui-icon"><img src="images/Group16.png" iSort="3" /></span>
+				<span class="mui-tab-label">我的</span>
 			</a>
 			<a id="main_information" class="mui-tab-item" href="main-information.html">
 				<span class="mui-icon"><img src="images/Group16.png" iSort="4" /></span>
@@ -47,13 +47,36 @@
 				<span style="font-weight: normal;" class="mui-popup-button mui-popup-button-bold upgrade"><a id="shengji">立即升级</a></span>
 			</div>
 		</div>
+
 		<div class="top-mui-slider">
 			<div class="mui-slider">
-				<div class="mui-slider-group mui-slider-loop" id="bannerslider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!--支持循环，需要重复图片节点-->
 					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0802/20170802024604677.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0926/20170926090203933.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0802/20170802024604677.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0926/20170926090203933.jpg" /></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0802/20170802024604677.jpg" /></a>
+					</div>
+					<!--支持循环，需要重复图片节点-->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="http://www.51youse.cn/uploadfile/2017/0926/20170926090203933.jpg" /></a>
 					</div>
 				</div>
-				<div class="mui-slider-indicator" id="bannersliderpoint">
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
 				</div>
 			</div>
 		</div>
@@ -63,19 +86,13 @@
 					<div class="txtScroll-top">
 						<div class="bd">
 							<ul class="infoList">
-								<li class="infoList-items1">
-									<div class="date-cont">
-										中国打破了世界软件巨头规则中国打破了世界软件巨头规则中国打<span class="date">2011-11-11</span>
-									</div>
+								<li><span class="date">2011-11-11</span> 中国打破了世界软件巨头规则
 								</li>
-								<li class="infoList-items2"><span class="date">2011-11-11</span>
-									<div class="date-cont">口语：会说中文就能说英语！</div>
+								<li><span class="date">2011-11-11</span> 口语：会说中文就能说英语！
 								</li>
-								<li class="infoList-items3"><span class="date">2011-11-11</span>
-									<div class="date-cont">农场摘菜不如在线学外语好玩</div>
+								<li><span class="date">2011-11-11</span> 农场摘菜不如在线学外语好玩
 								</li>
-								<li class="infoList-items4"><span class="date">2011-11-11</span>
-									<div class="date-cont">数理化老师竟也看学习资料？</div>
+								<li><span class="date">2011-11-11</span> 数理化老师竟也看学习资料？
 								</li>
 							</ul>
 						</div>
@@ -83,20 +100,20 @@
 				</div>
 			</div>
 			<div class="home-nva-box">
-				<a href="index.html" class="home-nav-items home-nav-items1">
+				<a href="##" class="home-nav-items home-nav-items1">
 					<span class="home-nav-icon"><img src="./images/btn-jishi@2x.png" alt="集市"></span>
 					<span class="home-nva-txt">集市</span>
 				</a>
-				<a href="main-mall.html" class="home-nav-items home-nav-items2">
-					<span class="home-nav-icon"><img src="./images/btn-shangcheng@2x.png" alt="商城"></span>
+				<a href="##" class="home-nav-items home-nav-items2">
+					<span class="home-nav-icon"><img src="./images/btn-jixiangjinfu@2x.png" alt="商城"></span>
 					<span class="home-nva-txt">商城</span>
 				</a>
-				<a href="main-information.html" class="home-nav-items home-nav-items3">
-					<span class="home-nav-icon"><img src="./images/btn-zixun@2x.png" alt="资讯"></span>
+				<a href="##" class="home-nav-items home-nav-items3">
+					<span class="home-nav-icon"><img src="./images/btn-shangcheng@2x.png" alt="资讯"></span>
 					<span class="home-nva-txt">资讯</span>
 				</a>
-				<a href="my-finace.html" class="home-nav-items home-nav-items4">
-					<span class="home-nav-icon"><img src="./images/btn-jixiangjinfu@2x.png" alt="吉象金服"></span>
+				<a href="##" class="home-nav-items home-nav-items4">
+					<span class="home-nav-icon"><img src="./images/btn-zixun@2x.png" alt="吉象金服"></span>
 					<span class="home-nva-txt">吉象金服</span>
 				</a>
 			</div>
@@ -105,108 +122,106 @@
 				<h1>最新行情 <span>滑动了解更多行情信息</span></h1>
 				<div class="mui-slider">
 					<div class="mui-slider-group mui-slider-loop">
-						<!--支持循环，需要重复节点4-->
+						<!--支持循环，需要重复图片节点-->
 						<div class="mui-slider-item mui-slider-item-duplicate">
-							<dl class="data-list data-list3">
-								<dt class="data-title">沪铜1710</dt>
-								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">1</dd>
-								<dd class="data-content down upordown"><span>涨跌：-500</span></dd>
-							</dl>
-							<dl class="data-list data-list38">
-								<dt class="data-title">沪铝1710</dt>
-								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">2</dd>
-								<dd class="data-content up upordown"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list39">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">3</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content down"><span>涨跌：-500</span></dd>
 							</dl>
-						</div>
-
-						<div class="mui-slider-item">
-							<dl class="data-list data-list1">
+							<dl class="data-list">
 								<dt class="data-title">长江现货-1#铜9-30</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">4</dd>
-								<dd class="data-content upordown"><span>涨跌：-500</span></dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content up"><span>涨跌：500</span></dd>
 							</dl>
-							<dl class="data-list data-list2">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">5</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list3">
-								<dt class="data-title">沪铝1709</dt>
-								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">6</dd>
+								<dd class="data-content data-content-jia">53230</dd>
 								<dd class="data-content"><span>涨跌：500</span></dd>
 							</dl>
 						</div>
 						<div class="mui-slider-item">
-							<dl class="data-list data-list4">
-								<dt class="data-title">沪铝1709</dt>
+							<dl class="data-list">
+								<dt class="data-title">长江现货-1#铜9-30</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">7</dd>
-								<dd class="data-content"><span>涨跌：500</span></dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content down"><span>涨跌：-500</span></dd>
 							</dl>
-							<dl class="data-list data-list5">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">8</dd>
-								<dd class="data-content"><span>涨跌：500</span></dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content up"><span>涨跌：500</span></dd>
 							</dl>
-							<dl class="data-list data-list6">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">9</dd>
+								<dd class="data-content data-content-jia">53230</dd>
 								<dd class="data-content"><span>涨跌：500</span></dd>
 							</dl>
 						</div>
 						<div class="mui-slider-item">
-							<dl class="data-list data-list7">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">10</dd>
+								<dd class="data-content data-content-jia">53230</dd>
 								<dd class="data-content"><span>涨跌：500</span></dd>
 							</dl>
-							<dl class="data-list data-list8">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">12</dd>
+								<dd class="data-content data-content-jia">53230</dd>
 								<dd class="data-content"><span>涨跌：500</span></dd>
 							</dl>
-							<dl class="data-list data-list9">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">13</dd>
+								<dd class="data-content data-content-jia">53230</dd>
 								<dd class="data-content"><span>涨跌：500</span></dd>
 							</dl>
 						</div>
-
-						<!--支持循环，需要重复节点1-->
+						<div class="mui-slider-item">
+							<dl class="data-list">
+								<dt class="data-title">沪铝1709</dt>
+								<dd class="data-content">最新价</dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content"><span>涨跌：500</span></dd>
+							</dl>
+							<dl class="data-list">
+								<dt class="data-title">沪铝1709</dt>
+								<dd class="data-content">最新价</dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content"><span>涨跌：500</span></dd>
+							</dl>
+							<dl class="data-list">
+								<dt class="data-title">沪铝1709</dt>
+								<dd class="data-content">最新价</dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content"><span>涨跌：500</span></dd>
+							</dl>
+						</div>
+						<!--支持循环，需要重复图片节点-->
 						<div class="mui-slider-item mui-slider-item-duplicate">
-							<dl class="data-list data-list11">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">1</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content"><span>涨跌：500</span></dd>
 							</dl>
-							<dl class="data-list data-list12">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">2</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content"><span>涨跌：500</span></dd>
 							</dl>
-							<dl class="data-list data-list13">
+							<dl class="data-list">
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
-								<dd class="data-content data-content-jia">3</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
+								<dd class="data-content data-content-jia">53230</dd>
+								<dd class="data-content"><span>涨跌：500</span></dd>
 							</dl>
 						</div>
 					</div>
@@ -217,28 +232,6 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="instant-deal">
-				<h1 class="instant-deal-title">即时成交</h1>
-				<div class="picScroll-top">
-					<div class="bd">
-						<ul class="picList">
-							<li class="">
-								<div class="deal-title">
-									<span class="deal-title-time">
-											2017-9-11
-										</span> 1铜杆-铜线 楚江 TR <span>1.35mm</span>
-								</div>
-								<div class="deal-content">
-									<span class="deal-content-note">无为 | 1.8吨</span>
-									<strong>48300元</strong><span> / 吨</span>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
 		</div>
 		</div>
 		<script src="js/mui.min.js"></script>
@@ -246,7 +239,39 @@
 		<script type="text/javascript" src="js/common.js"></script>
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/jquery.SuperSlide.2.1.1.js"></script>
-		<script src="js/home.js"></script>
+		<script type="text/javascript">
+			//初始化
+			mui.init({
+				swipeBack: false, //关闭右滑关闭功能
+				// 预加载详情页
+				preloadPages: [{
+					id: LS_P_LOGIN,
+					url: LS_P_LOGIN
+				}, {
+					id: LS_P_SUBMIT_ORDER,
+					url: LS_P_SUBMIT_ORDER
+				}, {
+					/*51集市*/
+					id: LS_P_MAIN_MALL,
+					url: LS_P_MAIN_MALL
+				}, {
+					/*行情*/
+					id: LS_P_MAIN_PRICE,
+					url: LS_P_MAIN_PRICE
+				}, {
+					/*我的*/
+					id: LS_P_MAIN_MY,
+					url: LS_P_MAIN_MY
+				}],
+				statusBarBackground: '#f7f7f7'
+			});
+			//获得slider插件对象
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+				interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+
+		</script>
 	</body>
 
 </html>

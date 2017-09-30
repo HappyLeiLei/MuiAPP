@@ -51,6 +51,7 @@ const C_M_GOODS_DETAIL = C_MOBILE + '/buyer/goods_detail';
 const C_M_GOODS_SUBMIT_ORDER = C_MOBILE + '/buyer/create_order';
 const C_M_USER_GROUP = C_MOBILE + '/account/user_id_group';
 const C_M_GET_SWIPER = C_MOBILE + '/get_banner';//获取banner图地址
+const C_M_GET_NEWWORDER = C_MOBILE + '/getneworder';//获取最新成交数据
 /*手机app登陆页面*/
 const C_M_LOGIN = C_MOBILE + "/login";
 /*手机注册页面*/
