@@ -60,28 +60,22 @@
 		<div class="mui-inner-wrap">
 			<div class="mui-container">
 				<div class="information-box">
-					<div class="txtScroll-top">
+					<span class="date">2017-07-09</span>
+					<div class="txtMarquee-top">
 						<div class="bd">
-							<ul class="infoList">
-								<li class="infoList-items1">
-									<div class="date-cont">
-										中国打破了世界软件巨头规则中国打破了世界软件巨头规则中国打<span class="date">2011-11-11</span>
-									</div>
-								</li>
-								<li class="infoList-items2"><span class="date">2011-11-11</span>
-									<div class="date-cont">口语：会说中文就能说英语！</div>
-								</li>
-								<li class="infoList-items3"><span class="date">2011-11-11</span>
-									<div class="date-cont">农场摘菜不如在线学外语好玩</div>
-								</li>
-								<li class="infoList-items4"><span class="date">2011-11-11</span>
-									<div class="date-cont">数理化老师竟也看学习资料？</div>
-								</li>
-							</ul>
+							<!-- 高度不固定的无缝滚动思路在于：整个ul滚动！所以添加ul外层“.listWrap”，并且设置mainCell为“.bd .listWrap”而不是“.bd ul” -->
+							<div class="listWrap">
+								<ul class="list">
+									<li class="information-items">
+										关于基层农技人员定向培养招生考试的培养招生考考试的公告告 
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 			<div class="home-nva-box">
 				<a href="index.html" class="home-nav-items home-nav-items1">
 					<span class="home-nav-icon"><img src="./images/btn-jishi@2x.png" alt="集市"></span>
@@ -129,18 +123,21 @@
 
 						<div class="mui-slider-item">
 							<dl class="data-list data-list1">
+								<span class="data-itmes data-itme-up"></span>
 								<dt class="data-title">长江现货-1#铜9-30</dt>
 								<dd class="data-content">最新价</dd>
 								<dd class="data-content data-content-jia">4</dd>
 								<dd class="data-content upordown"><span>涨跌：-500</span></dd>
 							</dl>
 							<dl class="data-list data-list2">
+								<span class="data-itmes data-itme-up"></span>
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
 								<dd class="data-content data-content-jia">5</dd>
 								<dd class="data-content upordown"><span>涨跌：500</span></dd>
 							</dl>
 							<dl class="data-list data-list3">
+								<span class="data-itmes data-itme-down"></span>
 								<dt class="data-title">沪铝1709</dt>
 								<dd class="data-content">最新价</dd>
 								<dd class="data-content data-content-jia">6</dd>
@@ -223,24 +220,12 @@
 				<div class="picScroll-top">
 					<div class="bd">
 						<ul class="picList">
-							<li class="">
-								<div class="deal-title">
-									<span class="deal-title-time">
-											2017-9-11
-										</span> 1铜杆-铜线 楚江 TR <span>1.35mm</span>
-								</div>
-								<div class="deal-content">
-									<span class="deal-content-note">无为 | 1.8吨</span>
-									<strong>48300元</strong><span> / 吨</span>
-								</div>
-							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
+		</div>
 
-		</div>
-		</div>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/constant.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>

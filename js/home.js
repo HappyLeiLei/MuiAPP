@@ -66,50 +66,29 @@ jQuery.ajax({
 });
 
 //获得slider插件对象
-var gallery = mui('.mui-slider');
+var gallery = mui('.top-mui-slider .mui-slider');
 gallery.slider({
 	interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
 });
 
+var gallery1 = mui('.data-slider .mui-slider');
+gallery1.slider({
+	interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+});
+
+
 //快讯滚动
-//jQuery(".information-box .txtScroll-top").slide({
-//	mainCell: ".bd ul",
-//	autoPage: true,
-//	effect: "topLoop",
-//	autoPlay: true,
-//	vis: 1,
-//	interTime:4000
-//});
-//setInterval(function() {
-	var data_width1 = $(".infoList-items2").width();
-	var li_width = $(".infoList li").width();
-	var data_width = $(".infoList li .date").width()
-	var new_width = li_width - data_width;
-	jQuery(".information-box .txtScroll-top").slide({
-		mainCell: ".bd ul",
-		autoPage: true,
-		effect: "topLoop",
+//设置vis为1，即可视高度为整个ul高度，这样就能实现里面li高度不固定时的无缝滚动
+var information_height = jQuery(".information-items").height();
+if ( information_height > 24) {
+		jQuery(".txtMarquee-top").slide({
+		mainCell: ".bd .listWrap",
 		autoPlay: true,
+		effect: "topMarquee",
 		vis: 1,
-		interTime: 4000
+		interTime: 90
 	});
-	if(data_width1 > new_width) {
-		setTimeout(function() {
-			$('.date-cont').addClass("date-txt");
-		}, 1000);
-	}
-	//即时成交
-	jQuery(".picScroll-top").slide({
-		mainCell: ".bd ul",
-		autoPage: true,
-		effect: "topLoop",
-		autoPlay: true,
-		scroll: 1,
-		vis: 4,
-		delayTime: 1000,
-		interTime: 4000
-	})
-//}, 4000);
+}
 
 //选项卡点击事件
 mui('.footer_fixed').on('tap', 'a', function(e) {
@@ -125,84 +104,93 @@ mui('.footer_fixed').on('tap', 'a', function(e) {
 
 //行情价格接口
 jQuery.ajax({
-		type: "GET",
-		contentType: "application/x-www-form-urlencoded; charset=utf-8",
-		url: C_URL + C_M_LAST_PRICE,
-		data: {
-			"type": 'cu'
-		},
-		dataType: "json",
-		timeout: C_TIMEOUT,
-		success: function(response) {
-			var hqdata = response.data[0];
-			$(".data-list1 .data-title").html(hqdata.name);
-			$(".data-list1 .data-content-jia").html(hqdata.CONTPRICE);
-			$(".data-list1 .upordown span").html("涨跌："+hqdata.UPORDOWN);
-			$(".data-list11 .data-title").html(hqdata.name);
-			$(".data-list11 .data-content-jia").html(hqdata.CONTPRICE);
-			$(".data-list11 .upordown span").html("涨跌："+hqdata.UPORDOWN);
-			if(hqdata.UPORDOWN >= 0){
-				$(".data-list1 .upordown").addClass("up");
-				$(".data-list11 .upordown").addClass("up");
-			}else{
-				$(".data-list1 .upordown").addClass("down");
-				$(".data-list11 .upordown").addClass("down");
-			}
-		},
-		error: function(xhr, type, errorThrown) {
+	type: "GET",
+	contentType: "application/x-www-form-urlencoded; charset=utf-8",
+	url: C_URL + C_M_LAST_PRICE,
+	data: {
+		"type": 'cu'
+	},
+	dataType: "json",
+	timeout: C_TIMEOUT,
+	success: function(response) {
+		var hqdata = response.data[0];
+		$(".data-list1 .data-title").html(hqdata.name);
+		$(".data-list1 .data-content-jia").html(hqdata.CONTPRICE);
+		$(".data-list1 .upordown span").html("涨跌：" + hqdata.UPORDOWN);
+		$(".data-list11 .data-title").html(hqdata.name);
+		$(".data-list11 .data-content-jia").html(hqdata.CONTPRICE);
+		$(".data-list11 .upordown span").html("涨跌：" + hqdata.UPORDOWN);
+		if(hqdata.UPORDOWN >= 0) {
+			$(".data-list1 .upordown").addClass("up");
+			$(".data-list11 .upordown").addClass("up");
+		} else {
+			$(".data-list1 .upordown").addClass("down");
+			$(".data-list11 .upordown").addClass("down");
 		}
-	});
-	jQuery.ajax({
-		type: "GET",
-		contentType: "application/x-www-form-urlencoded; charset=utf-8",
-		url: C_URL + C_M_LAST_PRICE,
-		data: {
-			"type": 'al'
-		},
-		dataType: "json",
-		timeout: C_TIMEOUT,
-		success: function(response) {
-			var hqdata = response.data[0];
-			$(".data-list2 .data-title").html(hqdata.name);
-			$(".data-list2 .data-content-jia").html(hqdata.CONTPRICE);
-			$(".data-list2 .upordown span").html("涨跌："+hqdata.UPORDOWN);
-			$(".data-list12 .data-title").html(hqdata.name);
-			$(".data-list12 .data-content-jia").html(hqdata.CONTPRICE);
-			$(".data-list12 .upordown span").html("涨跌："+hqdata.UPORDOWN);
-			if(hqdata.UPORDOWN >= 0){
-				$(".data-list2 .upordown").addClass("up");
-				$(".data-list12 .upordown").addClass("up");
-			}else{
-				$(".data-list2 .upordown").addClass("down");
-				$(".data-list12 .upordown").addClass("down");
-			}
-		},
-		error: function(xhr, type, errorThrown) {
-		}
-	});
-	//获取最新成交数据
+	},
+	error: function(xhr, type, errorThrown) {}
+});
 jQuery.ajax({
-		type: "GET",
-		contentType: "application/x-www-form-urlencoded; charset=utf-8",
-		url: C_URL + C_M_GET_NEWWORDER,
-		data: {
-			"type": 'al'
-		},
-		dataType: "json",
-		timeout: C_TIMEOUT,
-		success: function(response) {
-			console.log(response);
-			var listall = '';
-			mui.each(response, function(idx, item) {
-				var aa = item.goodsSku;
-				var bb = aa.split("-");
-//				var cc = bb.split("_");
-				listall += '<li><div class="deal-title"><span class="deal-title-time">'+item.expireTime.substring(0,10) +'</span>'+item.name+idx+' 测试 TR <span>1.35mm</span></div>'+
-				'<div class="deal-content"><span class="deal-content-note">无为 | 1.8吨</span><strong>'+item.SgoodsPrice+'元</strong><span> / 吨</span></div></li>';
-//				console.log(time);
-			});
-			$(".picList").html(listall);
-		},
-		error: function(xhr, type, errorThrown) {
+	type: "GET",
+	contentType: "application/x-www-form-urlencoded; charset=utf-8",
+	url: C_URL + C_M_LAST_PRICE,
+	data: {
+		"type": 'al'
+	},
+	dataType: "json",
+	timeout: C_TIMEOUT,
+	success: function(response) {
+		var hqdata = response.data[0];
+		$(".data-list2 .data-title").html(hqdata.name);
+		$(".data-list2 .data-content-jia").html(hqdata.CONTPRICE);
+		$(".data-list2 .upordown span").html("涨跌：" + hqdata.UPORDOWN);
+		$(".data-list12 .data-title").html(hqdata.name);
+		$(".data-list12 .data-content-jia").html(hqdata.CONTPRICE);
+		$(".data-list12 .upordown span").html("涨跌：" + hqdata.UPORDOWN);
+		if(hqdata.UPORDOWN >= 0) {
+			$(".data-list2 .upordown").addClass("up");
+			$(".data-list12 .upordown").addClass("up");
+		} else {
+			$(".data-list2 .upordown").addClass("down");
+			$(".data-list12 .upordown").addClass("down");
 		}
-	});
+	},
+	error: function(xhr, type, errorThrown) {}
+});
+
+//获取最新成交数据
+jQuery.ajax({
+	type: "GET",
+	contentType: "application/x-www-form-urlencoded; charset=utf-8",
+	url: C_URL + C_M_GET_NEWWORDER,
+	data: {
+		"type": 'al'
+	},
+	dataType: "json",
+	timeout: C_TIMEOUT,
+	success: function(response) {
+		console.log(response);
+		var listall = '';
+		mui.each(response, function(idx, item) {
+			var aa = item.goodsSku;
+			var bb = aa.split("-");
+			//				var cc = bb.split("_");
+			listall += '<li><div class="deal-title"><span class="deal-title-time">' + item.expireTime.substring(0, 10) + '</span>' + item.name + idx + ' 测试 TR <span>1.35mm</span></div>' +
+				'<div class="deal-content"><span class="deal-content-note">无为 | 1.8吨</span><strong>' + item.SgoodsPrice + '元</strong><span> / 吨</span></div></li>';
+			//				console.log(time);
+		});
+		$(".picList").html(listall);
+		//即时成交
+		jQuery(".instant-deal .picScroll-top").slide({
+			mainCell: ".bd ul",
+			autoPage: true,
+			scroll:2,
+			effect: "topLoop",
+			autoPlay: true,
+			vis: 4,
+			interTime:4000
+		});
+	},
+	error: function(xhr, type, errorThrown) {}
+});
+
