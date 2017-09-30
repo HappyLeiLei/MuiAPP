@@ -35,18 +35,27 @@
 .information-box {
 	margin-bottom: 1px;
 	background: #fff;
+	height: 24px;
+	line-height: 24px;
+	overflow: hidden;
+	padding-left: 20px;
+	background: url('../images/icon-kauixun@2x.png') no-repeat left center;
+	background-size: 14px 16px;
+}
+.information-box .infoList {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 .information-box .txtScroll-top {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-	background: url('../images/icon-kauixun@2x.png') no-repeat left center;
-	background-size: 14px 16px;
 }
 
 .information-box .txtScroll-top .bd {
-	padding: 5px 0px 5px 20px;
+	padding: 0;
 }
 
 .information-box .txtScroll-top .infoList li {
@@ -54,32 +63,10 @@
 	line-height: 24px;
 }
 
-.date-txt {
-	width: auto;
-	float: left;
-	white-space: nowrap;
-	overflow: hidden;
-	height: 24px;
-	position: absolute;
-	left: -90px;
-	top: 24px;
-	animation:textShow 2s ease-out;
-}
-
-@keyframes textShow {
-	0% {
-		left: 10px;
-	}
-	100% {
-		left: -90px;
-	}
-}
-
 .information-box .txtScroll-top .infoList li .date {
 	float: right;
 	color: #bbb;
 }
-
 
 /* 首页导航 */
 
@@ -115,7 +102,6 @@
 
 
 /*行情-滚动*/
-
 .data-slider {
 	background: #fff;
 	margin-bottom: 7px;
@@ -142,6 +128,7 @@
 }
 
 .data-list {
+	position: relative;
 	display: inline-block;
 	width: 28%;
 	margin-top: 10px;
@@ -152,7 +139,8 @@
 	text-align: center;
 	color: #ff6724;
 	border: 1px solid #fbded3;
-	background: #fcf7f7;
+	background: #fcf7f7 url('../images/bg@3x.png') no-repeat 0 0;
+	background-size: 100% 100%;
 }
 
 .data-list:last-child {
