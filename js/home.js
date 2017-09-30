@@ -85,7 +85,7 @@ gallery.slider({
 	var li_width = $(".infoList li").width();
 	var data_width = $(".infoList li .date").width()
 	var new_width = li_width - data_width;
-	$(".information-box .txtScroll-top").slide({
+	jQuery(".information-box .txtScroll-top").slide({
 		mainCell: ".bd ul",
 		autoPage: true,
 		effect: "topLoop",
@@ -122,3 +122,51 @@ mui('.footer_fixed').on('tap', 'a', function(e) {
 	}
 
 }, false);
+
+//行情价格接口
+jQuery.ajax({
+		type: "GET",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		url: C_URL + C_M_LAST_PRICE,
+		data: {
+			"type": 'cu'
+		},
+		dataType: "json",
+		timeout: C_TIMEOUT,
+		success: function(response) {
+			var hqdata = response.data[0];
+			$(".data-list1 .data-title").html(hqdata.name);
+			$(".data-list1 .data-content-jia").html(hqdata.CONTPRICE);
+			$(".data-list1 .upordown span").html("涨跌："+hqdata.UPORDOWN);
+			if(hqdata.UPORDOWN >= 0){
+				$(".data-list1 .upordown").addClass("up");
+			}else{
+				$(".data-list1 .upordown").addClass("down");
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+		}
+	});
+	jQuery.ajax({
+		type: "GET",
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		url: C_URL + C_M_LAST_PRICE,
+		data: {
+			"type": 'al'
+		},
+		dataType: "json",
+		timeout: C_TIMEOUT,
+		success: function(response) {
+			var hqdata = response.data[0];
+			$(".data-list2 .data-title").html(hqdata.name);
+			$(".data-list2 .data-content-jia").html(hqdata.CONTPRICE);
+			$(".data-list2 .upordown span").html("涨跌："+hqdata.UPORDOWN);
+			if(hqdata.UPORDOWN >= 0){
+				$(".data-list2 .upordown").addClass("up");
+			}else{
+				$(".data-list2 .upordown").addClass("down");
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+		}
+	});
