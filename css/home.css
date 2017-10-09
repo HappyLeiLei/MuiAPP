@@ -67,7 +67,7 @@
 /* 首页导航 */
 
 .home-nva-box {
-	padding: 7px 0;
+	padding: 7px 0 3px 0;
 	background: #fff;
 	margin-bottom: 7px;
 }
@@ -143,16 +143,35 @@
 .data-list:last-child {
 	margin-right: 0;
 }
-.data-itme-up {
+.data-itme-junjia {
 	display: inline-block;
 	position: absolute;
 	right: -3px;
-	top: 6px;
+	top: 3px;
 	background: #fcf7f7 url('../images/lable-junjia@2x.png') no-repeat 0 0;
 	background-size: 100% 100%;
 	height: 15px;
 	width: 32.5px;
-	
+}
+.data-itme-zuixin {
+	display: inline-block;
+	position: absolute;
+	right: -3px;
+	top: 6px;
+	background: #fcf7f7 url('../images/lable-zuixinjia@2x.png') no-repeat 0 0;
+	background-size: 100% 100%;
+	height: 15px;
+	width: 32.5px;
+}
+.data-itme-more {
+	display: inline-block;
+	position: absolute;
+	right: 35px;
+	top: 1px;
+	height: 15px;
+	/*width: 32.5px;*/
+	color: #BBBBBB;
+	font-size: 12px;
 }
 .data-list dt,
 .data-list dd {
@@ -166,9 +185,11 @@
 }
 
 .data-list .data-title {
-	height: 28px;
+	height: 40px;
+	line-height: 150%;
 	font-size: 11px;
 	color: #4d4d4d;
+	padding: 0 15px;
 }
 
 .data-list .data-content-jia {

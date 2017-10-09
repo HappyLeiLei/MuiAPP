@@ -81,13 +81,15 @@ gallery1.slider({
 //设置vis为1，即可视高度为整个ul高度，这样就能实现里面li高度不固定时的无缝滚动
 var information_height = jQuery(".information-items").height();
 if ( information_height > 24) {
-		jQuery(".txtMarquee-top").slide({
-		mainCell: ".bd .listWrap",
-		autoPlay: true,
-		effect: "topMarquee",
-		vis: 1,
-		interTime: 90
-	});
+		setTimeout(function(){
+			jQuery(".txtMarquee-top").slide({
+			mainCell: ".bd .listWrap",
+			autoPlay: true,
+			effect: "topMarquee",
+			vis: 1,
+			interTime: 90
+		})
+	},2000);
 }
 
 //选项卡点击事件
