@@ -10,87 +10,9 @@
 		<link rel="stylesheet" href="css/mui.min.css" />
 		<link rel="stylesheet" href="css/all-css.css" />
 		<link rel="stylesheet" href="css/index-with-mall-popovers.css">
+		<link rel="stylesheet" href="css/index.css">
 		<style>
-			.mui-table-view:before,
-			.mui-table-view:after {
-				height: 0;
-			}
-			/*顶部增加45像素DIV*/
-			/*高度在all-css.css里*/
-			
-			.qyn-top {
-				background: #fa6c3a;
-				position: initial;
-			}
-			.mui-popover{ 
-				width:35%;
-				/*height: 150px;*/
-				padding: 5px 5px;
-			}
-			.mui-popover .sel-item{
-		    border-bottom: 1px solid #F5F5F5;
-            line-height: 41px;
-            font-size: 14px;
-			}
-			.mui-popover .sel-item:last-child{
-		    border-bottom: 0 solid #F5F5F5;
-            line-height: 42px;
-			}
-			/*  .mui-table-view-cell:after {
-    	border-top: 2px solid #f5f5f5;
-    	background-color: white;
-    	height: 0;
-    	right: 15px;
-    }*/
-			/*.sel-item:after{
-				border-top: 2px solid #f5f5f5;
-    	        background-color: white;
-    	        height: 0;
-    	        right: 15px;
-			}*/
-			.mui-popover,#div_sel_type_item,#div_sel_sort_item{
-				background-color: #FFFFFF;
-			}
-			.mui-popover{
-				border: 1px solid #E7E7E7;
-			}
-			.mui-backdrop{
-				background-color:transparent;
-			}
-			.mui-popover .mui-popover-arrow:after{
-				border: 1px solid #E7E7E7;
-				background-color: #FFFFFF;
-			}
-			.mui-popover{
-				border-radius: 3px;
-			}
-			#div_sel_type{
-				height: auto;
-				position: absolute;
-				top: 155px !important;
-				left: 2.4% !important;
-			}
-			.mui-popover .mui-popover-arrow.mui-bottom{
-				top: -25px;
-				left: 17% !important;
-			}
-			.mui-popover .mui-popover-arrow{
-				top: -26px;
-				left: 43% !important;
-			}
-			.mui-popover .mui-popover-arrow.mui-bottom:after{
-				top: 20px !important;
-			}
-			#div_sel_sort{
-				height: auto;
-				position: absolute;
-				top: 157px !important;
-				left: 54% !important;
-			}
-			.mui-scroll{
-				position: static;
-			}
-			
+
 		</style>
 	</head>
 
@@ -137,12 +59,12 @@
 			<aside id="order_search_canva" style="background: #f8f8f8;" class="mui-off-canvas-right">
 				<div class="mui-scroll-wrapper" style="height: calc(100% - 44px);">
 					<div style="padding-bottom: 20px;">
-					<div id="div_search_item_top" class="mui-scroll scroll-main">
+						<div id="div_search_item_top" class="mui-scroll scroll-main">
 
-					</div>
-					<div id="div_search_item" class="mui-scroll scroll-main-two">
+						</div>
+						<div id="div_search_item" class="mui-scroll scroll-main-two">
 
-					</div>
+						</div>
 					</div>
 				</div>
 				<div class="mui-bar-footer">
@@ -161,12 +83,14 @@
 
 						<div id="segmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative">
 
-							<div class="mui-scroll" style="width: 100%;">
-								<span class="Gradient">51集市</span>
-								<a class="mui-control-item mui-active organe1" href="#cc_copper_rod" id="sc_copper_rod" style="width: 55px;">铜杆</a>
-								<a class="mui-control-item" href="#cc_electrolytic_copper" id="sc_electrolytic_copper" style="width: 60px;">电解铜</a>
-								<a class="mui-control-item" href="#cc_aluminum_rod" id="sc_aluminum_rod" style="width: 45px;">铝杆</a>
-								<a class="mui-control-item" href="#cc_aluminum_ingot" id="sc_aluminum_ingot" style="width: 45px;">铝锭</a>
+							<div class="mui-scroll top-nav" style="width: 100%;">
+								<!--<span class="Gradient">51集市</span>-->
+								<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+								<a class="mui-control-item mui-active organe1" href="#cc_copper_rod" id="sc_copper_rod"><span class="top-nav-icon-items"></span>铜杆</a>
+								<a class="mui-control-item" href="#cc_electrolytic_copper" id="sc_electrolytic_copper"><span class="top-nav-icon-items"></span>电解铜</a>
+								<a class="mui-control-item" href="#cc_aluminum_rod" id="sc_aluminum_rod"><span class="top-nav-icon-items"></span>铝杆</a>
+								<a class="mui-control-item" href="#cc_aluminum_ingot" id="sc_aluminum_ingot"><span class="top-nav-icon-items"></span>铝锭</a>
 							</div>
 						</div>
 
@@ -180,11 +104,20 @@
 							<span class="sp-price-item">买价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_buyPrice" class="green">--</span></span>
 							</span>
 							</span>
-							<span class="price-img"><img src="images/triangle_priceX3.png"></span>
-					    </div>
+							<!--<span class="price-img"><img src="images/triangle_priceX3.png"></span>-->
+						</div>
+
+						<!--一口价&可议价筛选 start-->
+						<div class="screen-main-btn">
+							<a href="" class="screen-btn-items mui-active"><span class="screen-btn-icon screen-btn-icon1"></span>一口价</a>
+							<a href="" class="screen-btn-items "><span class="screen-btn-icon screen-btn-icon2"></span>可议价</a>
+						</div>
+						<!--一口价&可议价筛选 end-->
+						
+						
 						<div class="sel-sort">
 							<div id="a_sel_type" class="sel-name" selVal=""></div>
-							<div style="width: 11%;display: inline;float: left;content: "";">&nbsp;</div>
+							<div style="width: 11%;display: inline;float: left;content: " ";">&nbsp;</div>
 							<div id="a_sel_sort" class="tselect select-ico" selVal="1">综合排序</div>
 							<div style="width: 1px; height: 17px;background: #E7E7E7;position: absolute;top: 12px;right: 16%;"></div>
 							<div style="float: right; position: relative; width: 15%;  margin-top: 13px;height: 16px; ">
@@ -199,82 +132,82 @@
 							<div id="cc_copper_rod" class="mui-slider-item mui-control-content mui-active">
 								<div class="mui-scroll-wrapper">
 									<div id="pullrefresh1">
-									<div class="mui-scroll">
-										<ul class="mui-table-view" id="listdata1">
+										<div class="mui-scroll">
+											<ul class="mui-table-view" id="listdata1">
 
-										</ul>
-									</div>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div id="cc_electrolytic_copper" class="mui-slider-item mui-control-content">
-								<div class="mui-scroll-wrapper" >
+								<div class="mui-scroll-wrapper">
 									<div id="pullrefresh2">
-									<div class="mui-scroll">
-										<ul class="mui-table-view" id="listdata2">
+										<div class="mui-scroll">
+											<ul class="mui-table-view" id="listdata2">
 
-										</ul>
-									</div>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div id="cc_aluminum_rod" class="mui-slider-item mui-control-content">
-								<div class="mui-scroll-wrapper" >
+								<div class="mui-scroll-wrapper">
 									<div id="pullrefresh3">
-									<div class="mui-scroll">
-										<ul class="mui-table-view" id="listdata3">
+										<div class="mui-scroll">
+											<ul class="mui-table-view" id="listdata3">
 
-										</ul>
-									</div>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div id="cc_aluminum_ingot" class="mui-slider-item mui-control-content">
-								<div class="mui-scroll-wrapper" >
-									<div  id="pullrefresh4">
-									<div class="mui-scroll">
-										<ul class="mui-table-view" id="listdata4">
+								<div class="mui-scroll-wrapper">
+									<div id="pullrefresh4">
+										<div class="mui-scroll">
+											<ul class="mui-table-view" id="listdata4">
 
-										</ul>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<!-- off-canvas backdrop -->
+					<div class="mui-off-canvas-backdrop"></div>
 				</div>
-				<!-- off-canvas backdrop -->
-				<div class="mui-off-canvas-backdrop"></div>
 			</div>
-		</div>
 
-		<div id="div_sel_type" class="mui-popover">
-			<div class="mui-popover-arrow"></div>
-			<ul id="div_sel_type_item" class="mui-table-view">
-			</ul>
-		</div>
+			<div id="div_sel_type" class="mui-popover">
+				<div class="mui-popover-arrow"></div>
+				<ul id="div_sel_type_item" class="mui-table-view">
+				</ul>
+			</div>
 
-		<div id="div_sel_sort" class="mui-popover">
-			<div class="mui-popover-arrow"></div>
-			<ul id="div_sel_sort_item" class="mui-table-view">
-				<li dataid="1" class="sel-item selected-item"><span >综合排序</span><span selimg="" style="float: right;"><img src="images/duigou.png" style="height: 18px;margin-top: 8px;"/></span></li>
-				<li dataid="4" class="sel-item"><span >价格由低到高</span></li>
-				<li dataid="5" class="sel-item"><span >价格由高到低</span></li>
-				<li dataid="2" class="sel-item"><span >重量由低到高</span></li>
-				<li dataid="3" class="sel-item"><span >重量由高到低</span></li>
-			</ul>
-		</div>
-		<script type="text/javascript" src="js/mui.min.js"></script>
-		<!--<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+			<div id="div_sel_sort" class="mui-popover">
+				<div class="mui-popover-arrow"></div>
+				<ul id="div_sel_sort_item" class="mui-table-view">
+					<li dataid="1" class="sel-item selected-item"><span>综合排序</span><span selimg="" style="float: right;"><img src="images/duigou.png" style="height: 18px;margin-top: 8px;"/></span></li>
+					<li dataid="4" class="sel-item"><span>价格由低到高</span></li>
+					<li dataid="5" class="sel-item"><span>价格由高到低</span></li>
+					<li dataid="2" class="sel-item"><span>重量由低到高</span></li>
+					<li dataid="3" class="sel-item"><span>重量由高到低</span></li>
+				</ul>
+			</div>
+			<script type="text/javascript" src="js/mui.min.js"></script>
+			<!--<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
 		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>-->
-		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="js/json2.min.js"></script>
-		<script type="text/javascript" src="js/constant.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
-		<script type="text/javascript" src="js/utils.js"></script>
-		<script type="text/javascript" src="js/utils-orders.js"></script>
-		<script type="text/javascript" src="js/pulltorefresh.skin.default.js"></script>
-	    <script type="text/javascript" src="js/demo_pullRefresh_multi_skin.js" ></script>
-	     <script type="text/javascript" src="js/index.js" ></script>
+			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+			<script type="text/javascript" src="js/json2.min.js"></script>
+			<script type="text/javascript" src="js/constant.js"></script>
+			<script type="text/javascript" src="js/common.js"></script>
+			<script type="text/javascript" src="js/utils.js"></script>
+			<script type="text/javascript" src="js/utils-orders.js"></script>
+			<script type="text/javascript" src="js/pulltorefresh.skin.default.js"></script>
+			<script type="text/javascript" src="js/demo_pullRefresh_multi_skin.js"></script>
+			<script type="text/javascript" src="js/index.js"></script>
 	</body>
 
 </html>

@@ -1,0 +1,226 @@
+/*
+ * @Author: PangLei 
+ * @Date: 2017-10-09 10:27:11 
+ * @Last Modified by:   PangLei 
+ * @Last Modified time: 2017-10-09 10:27:11 
+ */
+
+
+/*原页面内嵌样式抽取*/
+
+.mui-table-view:before,
+.mui-table-view:after {
+	height: 0;
+}
+
+
+/*顶部增加45像素DIV*/
+
+
+/*高度在all-css.css里*/
+
+.qyn-top {
+	background: #fa6c3a;
+	position: initial;
+}
+
+.mui-popover {
+	width: 35%;
+	/*height: 150px;*/
+	padding: 5px 5px;
+}
+
+.mui-popover .sel-item {
+	border-bottom: 1px solid #F5F5F5;
+	line-height: 41px;
+	font-size: 14px;
+}
+
+.mui-popover .sel-item:last-child {
+	border-bottom: 0 solid #F5F5F5;
+	line-height: 42px;
+}
+
+
+/*  .mui-table-view-cell:after {
+    	border-top: 2px solid #f5f5f5;
+    	background-color: white;
+    	height: 0;
+    	right: 15px;
+    }*/
+
+
+/*.sel-item:after{
+				border-top: 2px solid #f5f5f5;
+    	        background-color: white;
+    	        height: 0;
+    	        right: 15px;
+			}*/
+
+.mui-popover,
+#div_sel_type_item,
+#div_sel_sort_item {
+	background-color: #FFFFFF;
+}
+
+.mui-popover {
+	border: 1px solid #E7E7E7;
+}
+
+.mui-backdrop {
+	background-color: transparent;
+}
+
+.mui-popover .mui-popover-arrow:after {
+	border: 1px solid #E7E7E7;
+	background-color: #FFFFFF;
+}
+
+.mui-popover {
+	border-radius: 3px;
+}
+
+#div_sel_type {
+	height: auto;
+	position: absolute;
+	top: 155px !important;
+	left: 2.4% !important;
+}
+
+.mui-popover .mui-popover-arrow.mui-bottom {
+	top: -25px;
+	left: 17% !important;
+}
+
+.mui-popover .mui-popover-arrow {
+	top: -26px;
+	left: 43% !important;
+}
+
+.mui-popover .mui-popover-arrow.mui-bottom:after {
+	top: 20px !important;
+}
+
+#div_sel_sort {
+	height: auto;
+	position: absolute;
+	top: 157px !important;
+	left: 54% !important;
+}
+
+.mui-scroll {
+	position: static;
+}
+
+/*重置返回键样式*/
+
+.mui-slider-indicator .mui-icon {
+	border: none;
+	color: #fff;
+}
+
+/*顶部产品导航样式重构*/
+.top-nav {
+	text-align: left;
+	height: 42px !important;
+}
+.top-nav .mui-icon {
+	height: 42px;
+	line-height: 42px;
+	font-size: 32px;
+}
+.top-nav .mui-active {
+	font-size: 15px !important;
+}
+.mui-active .top-nav-icon-items {
+	background-position: 0 0 !important;
+}
+.top-nav .mui-control-item {
+	position: relative;
+	padding-left: 20px !important;
+	margin-right: 20px;
+}
+.top-nav .mui-control-item:last-child {
+	margin-right: 0;
+}
+.top-nav .top-nav-icon-items {
+	position: absolute;
+	left: 0;
+	top: 11px;
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+}
+
+#sc_aluminum_rod .top-nav-icon-items {
+	background: url(../images/icon-lvgan@2x.png) no-repeat 0 0;
+	background-size: 100%;
+}
+
+#sc_aluminum_ingot .top-nav-icon-items {
+	background: url(../images/icon-lvding@2x.png) no-repeat 0 0;
+	background-size: 100%;
+}
+#sc_aluminum_ingot .mui-active {
+	background-position: 0 -16px;
+	background-size: 100%;
+}
+
+#sc_electrolytic_copper .top-nav-icon-items {
+	background: url(../images/icondianjietong@2x.png) no-repeat 0 0;
+	background-size: 100%;
+}
+#sc_electrolytic_copper .mui-active {
+	background-position: 0 -16px;
+	background-size: 100%;
+}
+
+#sc_copper_rod .top-nav-icon-items {
+	background: url(../images/icon-tonggan@2x.png) no-repeat 0 0;
+	background-size: 100%;
+}
+#sc_copper_rod .mui-active {
+	background-position: 0 -16px;
+	background-size: 100%;
+}
+
+/*一口价&可议价筛选*/
+.screen-main-btn {
+	height: 62px;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 15px;
+	border-bottom: 6px solid #f5f5f5;
+	text-align: center;
+	line-height: 31px;
+}
+.screen-main-btn .screen-btn-items {
+	display: inline-block;
+	border-right: 2px solid #f5f5f5;
+	height: 32px;
+	width: 45%;
+	color: #808080;
+	position: relative;
+	padding-left: 35px;
+	/*color: #fe642f;*/
+}
+.screen-main-btn .screen-btn-items .screen-btn-icon {
+	display: inline-block;
+	position: absolute;
+	left: 40px;
+	width: 30px;
+	height: 30px;
+	background-size: 100%;
+}
+.screen-btn-icon1 {
+	background:url(../images/icon-yikoujia@2x.png)no-repeat 0 0;
+}
+.screen-btn-icon2 {
+	background:url(../images/icon-keyijia-@2x.png)no-repeat 0 0;
+}
+.mui-active .screen-btn-icon {
+	background-position: 0 -30px;
+}
+.screen-main-btn .screen-btn-items:last-child{
+	border: none;
+}
