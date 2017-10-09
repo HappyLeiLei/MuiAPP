@@ -222,6 +222,9 @@
 .screen-btn-icon2 {
 	background:url(../images/icon-keyijia-@2x.png)no-repeat 0 0;
 }
+.screen-main-btn .mui-active {
+	color: #fe642f !important;
+}
 .mui-active .screen-btn-icon {
 	background-position: 0 -30px;
 }
