@@ -1,0 +1,22 @@
+/*
+ * @Author: PangLei 
+ * @Date: 2017-10-09 10:27:11 
+ * @Last Modified by:   PangLei 
+ * @Last Modified time: 2017-10-09 10:27:11 
+ */
+
+/*重置返回键样式*/
+.mui-bar-nav {
+	position: static;
+	margin-top: 25px;
+}
+.mui-bar .mui-icon {
+	border: none;
+	color: #FD612B;
+}
+
+.jinfu-box {
+	height: 666px;
+	background: url(../images/jixiangjinfu.jpg) no-repeat top center;
+	background-size: 100% 100%;
+}
