@@ -217,11 +217,11 @@
 			
 			.search-in {
 				font-size: 14px;
-				color: #4D4D4D;
+				color: #999999;
 				line-height: 14px;
 				height: 14px;
 				/*margin-top: 16px;*/
-				    margin-left: -40px;
+				    /*margin-left: -40px;*/
 				/*padding: 0px 0px 0px 0px;*/
 				/*float: left;*/
 			}
@@ -495,7 +495,12 @@
 			}
 			
 			.sel-name {
-				appearance: none;
+				width: 32%;
+				display: inline-block;
+				text-align: center;
+				margin: 9px 0;
+				border-right: 1px solid #dedede;
+				/*appearance: none;
 				-moz-appearance: none;
 				-webkit-appearance: none;
 				-moz-appearance: none;
@@ -511,7 +516,7 @@
 				background-size: 8px 8px;
 				float: left;
 				border-radius: 3px;
-				color: #4D4D4D;
+				color: #4D4D4D;*/
 			}
 			
 			.select-ico {
@@ -792,5 +797,5 @@
 				font-family: "微软雅黑";
 			}
             .mui-popover .mui-popover-arrow:after{
-            	top: 22px;
+            	top: 40px;
             }

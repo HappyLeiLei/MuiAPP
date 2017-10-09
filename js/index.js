@@ -63,72 +63,8 @@ function initPage() {
 		deceleration: deceleration
 	});
 
-	//				jQuery.ajax({
-	//					type: "GET",
-	//					contentType: "application/x-www-form-urlencoded; charset=utf-8",
-	//					url: C_URL + C_M_APP_VERSION,
-	//					//async: false,
-	//					data: {},
-	//					dataType: "json",
-	//					timeout: C_TIMEOUT,
-	//					success: function(response) {
-	//						if(response != null && response.version != null) {
-	//							/*plus.runtime.version*/
-	//							var cvs = C_VERSION.split('.');
-	//							var svs = response.version.toString().split('.');
-	//							for(var i = 0; i < cvs.length; i++) {
-	//								if(i >= svs.length) break;
-	//								if(parseInt(svs[i]) < parseInt(cvs[i])) break;
-	//								if(parseInt(svs[i]) > parseInt(cvs[i])) {
-	//									document.getElementById("backgroun").style.display = "block";
-	//									document.getElementById("alertversion").style.display = "block";
-	//									break;
-	//								}
-	//							}
-	//						}
-	//					},
-	//					error: function(xhr, type, errorThrown) {
-	//						//ShowToast(MSG_DATA_ERROR);
-	//					}
-	//				});
-
 	//循环初始化所有下拉刷新，上拉加载。
 	tabIdx = 0;
-	//				mui.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
-	//					mui(pullRefreshEl).pullToRefresh({
-	//						down: {
-	//							callback: function() {
-	//								var self = this;
-	//								var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
-	//								if(tip) {
-	//									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_PULL_LOAD;
-	//									tip.style.display = "block";
-	//								}
-	//								//console.info("[" + LS_P_MAIN + " pullToRefresh] down");
-	//								ShowData(true, true);
-	//								self.endPullDownToRefresh();
-	//								self.refresh(true);
-	//							}
-	//						},
-	//						up: {
-	//							callback: function() {
-	//								var self = this;
-	//								//console.info("[" + LS_P_MAIN + " pullToRefresh] up");
-	//								if(IsEndOfData()) {
-	//									self.endPullUpToRefresh(true);
-	//									var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
-	//									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
-	//									setTimeout(function() {
-	//										tip.style.display = "none";
-	//									}, C_TIME_WAIT);
-	//								} else {
-	//									self.endPullUpToRefresh();
-	//									GetCurrentPageData(false);
-	//								}
-	//							}
-	//						}
-	//					});
-	//				});
 	//监听左右拖动事件
 	document.getElementById('slider').addEventListener('slide', function(e) {
 		if(tabIdx !== e.detail.slideNumber) {
@@ -290,13 +226,13 @@ function initPage() {
 
 function ChangeFilterIcon(hasFilter) {
 	var icon = document.getElementById("span_search_icon");
-	if(hasFilter) {
-		icon.classList.remove('search-info');
-		icon.classList.add('search-info-two');
-	} else {
-		icon.classList.remove('search-info-two');
-		icon.classList.add('search-info');
-	}
+//	if(hasFilter) {
+//		icon.classList.remove('search-info');
+//		icon.classList.add('search-info-two');
+//	} else {
+//		icon.classList.remove('search-info-two');
+//		icon.classList.add('search-info');
+//	}
 }
 
 function ChangeFilterIconBySlide() {
@@ -456,7 +392,8 @@ function ShowData(isInitCurrentPage, isInitSort) {
 	var param; //商品详情发送内容
 	if(isFirst || pPid[tabIdx] === "-1") {
 		param = {
-			"change": mType
+			"change": mType,
+//			"processCost":1
 		};
 	} else if(pSpecId[tabIdx].length === 0 && hasclass) {
 		pVid[tabIdx] = "";
@@ -588,7 +525,7 @@ function bingData(response, targetID, isInitCurrentPage) {
 					selObj.innerText = item.cname;
 					selObj.setAttribute("selVal", item.cid);
 				} else if(hasclass) {
-					selObj.innerText = "全部";
+					selObj.innerText = "品名";
 					selObj.setAttribute("selVal", "");
 					itemHtml += '<li dataid="' + item.cid + '" class="sel-item">'
 					itemHtml += '<span>' + item.cname + '</span>';

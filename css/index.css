@@ -72,8 +72,8 @@
 }
 
 .mui-popover .mui-popover-arrow:after {
-	border: 1px solid #E7E7E7;
-	background-color: #FFFFFF;
+	/*border: 1px solid #E7E7E7;
+	background-color: #FFFFFF;*/
 }
 
 .mui-popover {
@@ -104,8 +104,9 @@
 #div_sel_sort {
 	height: auto;
 	position: absolute;
-	top: 157px !important;
-	left: 54% !important;
+	width: 100%;
+	top: 196px !important;
+	left: 0 !important;
 }
 
 .mui-scroll {
@@ -225,4 +226,7 @@
 }
 .screen-main-btn .screen-btn-items:last-child{
 	border: none;
+}
+.mui-icon{
+	font-size: 10px;
 }
