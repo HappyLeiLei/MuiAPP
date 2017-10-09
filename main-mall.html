@@ -10,95 +10,7 @@
 		<link rel="stylesheet" href="css/mui.min.css" />
 		<link rel="stylesheet" href="css/all-css.css" />
 		<link rel="stylesheet" href="css/index-with-mall-popovers.css">
-		<style>
-			.mui-segmented-control-negative.mui-segmented-control-inverted .mui-control-item.mui-active {
-				color: #ff6724;
-			}
-			
-			.mui-segmented-control.mui-scroll-wrapper .mui-control-item {
-				color: #4D4D4D;
-				padding: 0 2px;
-			}
-			
-			#segmentedControl {
-				background-color: #F5F5F5;
-			}
-			
-			.mui-slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-				border-bottom: 2px solid #ff6724;
-			}
-			
-			.Gradient {
-				background-color: rgba(250, 108, 58, 0.65);
-				color: #FFFFFF;
-			}
-			
-			.mui-table-view:before,
-			.mui-table-view:after {
-				height: 0;
-			}
-			.mui-popover .sel-item{
-		    border-bottom: 1px solid #F5F5F5;
-            line-height: 41px;
-            font-size: 14px;
-			}
-			.mui-popover .sel-item:last-child{
-		    border-bottom: 0 solid #F5F5F5;
-            line-height: 30px;
-			}
-			/*顶部增加45像素DIV*/
-			/*高度在all-css.css里*/
-			
-			.qyn-top {
-				background: #f5f5f5;
-				position: initial;
-			}
-			.mui-popover,#div_sel_type_item,#div_sel_sort_item{
-				background-color: #FFFFFF;
-			}
-			.mui-popover{
-				border: 1px solid #E7E7E7;
-				width:35%;
-				/*height: 150px;*/
-				padding: 5px 5px;
-			}
-			.mui-backdrop{
-				background-color:transparent;
-			}
-			.mui-popover .mui-popover-arrow:after{
-				border: 1px solid #E7E7E7;
-				background-color: #FFFFFF;
-			}
-			.mui-popover{
-				border-radius: 3px;
-			}
-			#div_sel_type{
-				height: auto;
-				position: absolute;
-				top: 155px !important;
-				left: 2.4% !important;
-			}
-			.mui-popover .mui-popover-arrow.mui-bottom{
-				top: -25px;
-				left: 17%;
-			}
-			.mui-popover .mui-popover-arrow{
-				top: -26px;
-				left: 43% !important;
-			}
-			.mui-popover .mui-popover-arrow.mui-bottom:after{
-				top: 22px !important;
-			}
-			#div_sel_sort{
-				height: auto;
-				position: absolute;
-				top: 155px !important;
-				left: 54% !important;
-			}
-			.mui-scroll{
-				position: static;
-			}
-		</style>
+		<link rel="stylesheet" href="css/main-mall.css">
 	</head>
 
 	<body>
@@ -156,12 +68,14 @@
 					<div id="slider" class="mui-slider mui-fullscreen">
 						<div id="segmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative">
 
-							<div class="mui-scroll" style="width: 100%;">
-								<span class="Gradient">51商城</span>
-								<a class="mui-control-item mui-active organe1" href="#cc_aluminum_rod" id="sc_aluminum_rod" style="width: 45px;">铝杆</a>
-								<a class="mui-control-item" href="#cc_aluminum_ingot" id="sc_aluminum_ingot" style="width: 45px;">铝锭</a>
-								<a class="mui-control-item" href="#cc_electrolytic_copper" id="sc_electrolytic_copper" style="width: 60px;">电解铜</a>
-								<a class="mui-control-item " href="#cc_copper_rod" id="sc_copper_rod" style="width: 55px;">铜杆</a>
+							<div class="mui-scroll top-nav" style="width: 100%;">
+								<!--<span class="Gradient">51商城</span>-->
+								<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+								
+								<a class="mui-control-item mui-active organe1" href="#cc_aluminum_rod" id="sc_aluminum_rod"><span class="top-nav-icon-items"></span>铝杆</a>
+								<a class="mui-control-item" href="#cc_aluminum_ingot" id="sc_aluminum_ingot"><span class="top-nav-icon-items"></span>铝锭</a>
+								<a class="mui-control-item" href="#cc_electrolytic_copper" id="sc_electrolytic_copper"><span class="top-nav-icon-items"></span>电解铜</a>
+								<a class="mui-control-item " href="#cc_copper_rod" id="sc_copper_rod"><span class="top-nav-icon-items"></span>铜杆</a>
 							</div>
 						</div>
 
@@ -175,8 +89,15 @@
 							<span class="sp-price-item">买价<span><span style="font-family:Arial;" class="green">&yen;</span><span id="sp_buyPrice" class="green">--</span></span>
 							</span>
 							</span>
-							<span class="price-img"><img src="images/triangle_priceX3.png"></span>
+							<!--<span class="price-img"><img src="images/triangle_priceX3.png"></span>-->
 						</div>
+						
+						<!--一口价&可议价筛选 start-->
+						<div class="screen-main-btn">
+							<a href="" class="screen-btn-items mui-active"><span class="screen-btn-icon screen-btn-icon1"></span>一口价</a>
+							<a href="" class="screen-btn-items "><span class="screen-btn-icon screen-btn-icon2"></span>可议价</a>
+						</div>
+						<!--一口价&可议价筛选 end-->
 
 						<div class="sel-sort">
 							<div id="a_sel_type" class="sel-name" selVal=""></div>

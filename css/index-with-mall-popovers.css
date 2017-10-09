@@ -460,8 +460,10 @@
 			}
 			
 			.div-price {
-				border-bottom: 1px solid #f5f5f5;
+				/*border-bottom: 1px solid #f5f5f5;*/
 				padding: 10px;
+				background: #f5f5f5;
+				text-align: center;
 			}
 			
 			.price-img img {
