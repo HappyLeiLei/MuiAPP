@@ -6,6 +6,10 @@
  */
 
 /*重置返回键样式*/
+*{
+	margin: 0;
+	padding: 0;
+}
 .mui-bar-nav {
 	position: static;
 	margin-top: 25px;
@@ -15,8 +19,16 @@
 	color: #FD612B;
 }
 
-.jinfu-box {
-	height: 666px;
-	background: url(../images/jixiangjinfu.jpg) no-repeat top center;
-	background-size: 100% 100%;
+.jinfu-box li {
+	list-style: none;
+	width: 100%;
+	float: left;
+}
+.jinfu-box li a {
+	display: block;
+}
+.jinfu-box li img {
+	width: 100%;
+	display: block;
+	vertical-align: top;
 }

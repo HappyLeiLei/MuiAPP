@@ -19,9 +19,39 @@
 			<h1 class="mui-title">吉象金服</h1>
 		</header>
 		<div class="jinfu-box">
-			
+			<ul>
+				<li><img src="images/jinfu/jinfu_01.jpg"/></li>
+				<li><img src="images/jinfu/jinfu_02.jpg"/></li>
+				<li><img src="images/jinfu/jinfu_03.jpg"/></li>
+				<li><img src="images/jinfu/jinfu_04.jpg"/></li>
+				<li><img src="images/jinfu/jinfu_05.jpg"/></li>
+				<li><img src="images/jinfu/jinfu_06.jpg"/></li>
+				<li><img src="images/jinfu/jinfu_07.jpg"/></li>
+				<li><a  href="#alert" id="call"><img src="images/jinfu/jinfu_08.jpg"/></a></li>
+			</ul>
+			<div class="mui-popup mui-popup-in" id="alert" style="display: none;">
+			<div class="mui-popup-inner">
+				<div class="mui-popup-text">
+					<p class="pone" style="margin: 0;font-size: 20px; color: #000000;">立即申请白条</p>
+					<p class="ptwo" style="margin: 0;font-size: 16px;margin-top: 10px; color: #000000;">联系电话 18902074455</p>
+				</div>
+			</div>
+			<div class="mui-popup-buttons" style="height: 44px;">
+				<span class="mui-popup-button" id="quet">取消</span>
+				<span class="mui-popup-button mui-popup-button-bold calll"><a  href="tel:18902074455 ">确认</a></span>
+			</div>
+		</div>
 		</div>
 		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$("#call").click(function() {
+				$("#alert").show();
+			});
+			$("#quet, .calll").click(function() {
+				$("#alert").hide();
+			});
+		</script>
 	</body>
 
 </html>
