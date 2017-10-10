@@ -286,6 +286,7 @@ function IsEndOfData() {
 	return stopFlag;
 }
 
+//交货地、发货地、仓库筛选条件
 function GetCurrentPageData(isInitPage) {
 	var param;
 	if(pSpecId[tabIdx].length === 0) {
@@ -561,13 +562,14 @@ function bingData(response, targetID, isInitCurrentPage) {
 				//筛选项
 				if(hasclass) {
 					BindSearchItempProductName(response["1"], response["7"]);
-					BindDataToLocalSelect(response["10"])
+					BindDataToLocalSelect(response["10"]);
 					//数据
 					BindDataToPage(response["4"], table, response["8"].pageNum);
 					BindTapEventToBuyButton();
 					BindTapEventToSearchProduct();
 				} else {
 					BindSearchItem(response["2"], response["7"], response["1"]);
+					BindDataToLocalSelect(response["10"]);
 					//数据
 					BindDataToPage(response["4"], table, response["8"].pageNum);
 					BindTapEventToBuyButton();
@@ -580,11 +582,11 @@ function bingData(response, targetID, isInitCurrentPage) {
 
 //绑定数据到交货的筛选菜单中
 function BindDataToLocalSelect(dataList){
-	var localselect = '';
+	var localselect = '<li id="div_sel_sort_item_list" dataid="1" class="sel-item selected-item"><span>全部</span><span selimg="" style="float: right;"><img src="images/duigou.png" style="height: 18px;margin-top: 8px;"/></span></li>';
 	mui.each(dataList,function(index,item){
 		localselect += '<li dataid='+item+' class="sel-item"><span>'+item+'</span></li>';
 	});
-	$("#div_sel_sort_item").append(localselect);
+	$("#div_sel_sort_item").html(localselect);
 }
 //pageNum 临时修改“筛选”样式问题。20170803-李健
 //绑定页面数据
@@ -650,7 +652,7 @@ function BindDataToPage(dataList, table, filter) {
 		$(".search-in").css("color", "#999999");
 		$(".search").attr('href', 'javascript:void(0)');
 	} else if(filter == 1 && parambb == true) {
-		$(".search-in").css("color", "#4D4D4D");
+//		$(".search-in").css("color", "#4D4D4D");
 		$(".search").attr('href', '#order_search_canva');
 	}
 }
