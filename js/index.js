@@ -1,3 +1,5 @@
+
+
 var hasclass = true;
 var mType = "true";
 var cPages = [1, 1, 1, 1];
@@ -79,7 +81,7 @@ function initPage() {
 					break;
 			}
 			hasclass = true;
-			ChangeFilterIconBySlide();
+//			ChangeFilterIconBySlide();
 			ReloadPriceAutoData();
 			ShowData(true, true);
 			localStorage.removeItem("showproduct");
@@ -89,7 +91,7 @@ function initPage() {
 	document.getElementById('sc_copper_rod').addEventListener('tap', function(e) {
 		tabIdx = 0;
 		hasclass = true;
-		ChangeFilterIconBySlide();
+//		ChangeFilterIconBySlide();
 		ReloadPriceAutoData();
 		ShowData(true, true);
 		localStorage.removeItem("showproduct");
@@ -97,7 +99,7 @@ function initPage() {
 	document.getElementById('sc_electrolytic_copper').addEventListener('tap', function(e) {
 		tabIdx = 1;
 		hasclass = true;
-		ChangeFilterIconBySlide();
+//		ChangeFilterIconBySlide();
 		ReloadPriceAutoData();
 		ShowData(true, true);
 		localStorage.removeItem("showproduct");
@@ -105,7 +107,7 @@ function initPage() {
 	document.getElementById('sc_aluminum_rod').addEventListener('tap', function(e) {
 		tabIdx = 2;
 		hasclass = true;
-		ChangeFilterIconBySlide();
+//		ChangeFilterIconBySlide();
 		ReloadPriceAutoData();
 		ShowData(true, true);
 		localStorage.removeItem("showproduct");
@@ -113,7 +115,7 @@ function initPage() {
 	document.getElementById('sc_aluminum_ingot').addEventListener('tap', function(e) {
 		tabIdx = 3;
 		hasclass = true;
-		ChangeFilterIconBySlide()
+//		ChangeFilterIconBySlide()
 		ReloadPriceAutoData();;
 		ShowData(true, true);
 		localStorage.removeItem("showproduct");
@@ -290,6 +292,8 @@ function GetCurrentPageData(isInitPage) {
 		pVid[tabIdx] = "";
 		if(hasclass) {
 			param = {
+				"processCost":'',
+			    "goodsPriceFlag":1,
 				"vid": [pPid[tabIdx], ""],
 				"change": mType,
 				"sortNum": pSortNum[tabIdx],
@@ -297,6 +301,8 @@ function GetCurrentPageData(isInitPage) {
 			};
 		} else {
 			param = {
+				"processCost":'',
+			    "goodsPriceFlag":1,
 				"vid": [pPid[tabIdx], pCid[tabIdx]],
 				"change": mType,
 				"sortNum": pSortNum[tabIdx],
@@ -305,6 +311,8 @@ function GetCurrentPageData(isInitPage) {
 		}
 	} else {
 		param = {
+			"processCost":'',
+			"goodsPriceFlag":1,
 			"specId": pSpecId[tabIdx].split(","),
 			"vid": pVid[tabIdx].split(","),
 			"change": mType,
@@ -392,24 +400,32 @@ function ShowData(isInitCurrentPage, isInitSort) {
 	var param; //商品详情发送内容
 	if(isFirst || pPid[tabIdx] === "-1") {
 		param = {
-			"change": mType,
-//			"processCost":1
+			"processCost":'',
+			"goodsPriceFlag":1,
+			"change": mType
+			
 		};
 	} else if(pSpecId[tabIdx].length === 0 && hasclass) {
 		pVid[tabIdx] = "";
 		param = {
+			"processCost":'',
+			"goodsPriceFlag":1,
 			"pid": pPid[tabIdx],
 			"change": mType
 		};
 	} else if(pSpecId[tabIdx].length === 0) {
 		pVid[tabIdx] = "";
 		param = {
+			"processCost":'',
+			"goodsPriceFlag":1,
 			"pid": pPid[tabIdx],
 			"cid": pCid[tabIdx],
 			"change": mType
 		};
 	} else {
 		param = {
+			"processCost":'',
+			"goodsPriceFlag":1,
 			"specId": pSpecId[tabIdx],
 			"vid": pVid[tabIdx],
 			"change": mType
@@ -483,7 +499,7 @@ function bingData(response, targetID, isInitCurrentPage) {
 	document.getElementById("div_search_item").innerHTML = "";
 	var selObj = document.getElementById("a_sel_type"); //document.getElementById("sel_type_name");
 	var selItemDiv = document.getElementById("div_sel_type_item");
-	selObj.innerText = "";
+//	selObjName.innerHTML = "";
 	if(hasclass) {
 		selItemDiv.innerHTML = '<li dataid="" class="sel-item selected-item"><span class="" style="font-size:14px;">' + '全部' + '</span><span selimg="" style="float: right;height: 30px;"><img src="images/duigou.png" style="height:18px;margin-top:8px;"/></span>';
 	} else {
@@ -522,10 +538,10 @@ function bingData(response, targetID, isInitCurrentPage) {
 					itemHtml += '<li dataid="' + item.cid + '" class="sel-item selected-item">'
 					itemHtml += '<span class="" style="font-size:14px;">' + item.cname + '</span>';
 					itemHtml += '<span selimg="" style="float: right;height: 30px;"><img src="images/duigou.png" style="height:18px;margin-top:8px;"/></span>';
-					selObj.innerText = item.cname;
+					selObj.innerHTML = item.cname+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
 					selObj.setAttribute("selVal", item.cid);
 				} else if(hasclass) {
-					selObj.innerText = "品名";
+					selObj.innerHTML = '品名'+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
 					selObj.setAttribute("selVal", "");
 					itemHtml += '<li dataid="' + item.cid + '" class="sel-item">'
 					itemHtml += '<span>' + item.cname + '</span>';
@@ -545,6 +561,7 @@ function bingData(response, targetID, isInitCurrentPage) {
 				//筛选项
 				if(hasclass) {
 					BindSearchItempProductName(response["1"], response["7"]);
+					BindDataToLocalSelect(response["10"])
 					//数据
 					BindDataToPage(response["4"], table, response["8"].pageNum);
 					BindTapEventToBuyButton();
@@ -561,6 +578,14 @@ function bingData(response, targetID, isInitCurrentPage) {
 	}
 }
 
+//绑定数据到交货的筛选菜单中
+function BindDataToLocalSelect(dataList){
+	var localselect = '';
+	mui.each(dataList,function(index,item){
+		localselect += '<li dataid='+item+' class="sel-item"><span>'+item+'</span></li>';
+	});
+	$("#div_sel_sort_item").append(localselect);
+}
 //pageNum 临时修改“筛选”样式问题。20170803-李健
 //绑定页面数据
 function BindDataToPage(dataList, table, filter) {
@@ -835,8 +860,8 @@ function BindTapEventToBuyButton() {
 	});
 
 }
-
-function BindTapEventToSearchItem() { //展开筛选条件点击事件
+//展开筛选条件点击事件
+function BindTapEventToSearchItem() { 
 	mui('#div_search_item').off('tap', '.search-icon-collapse');
 	mui('#div_search_item').on('tap', '.search-icon-collapse', function() {
 		var scid = this.getAttribute("scid");
@@ -874,8 +899,8 @@ function BindTapEventToSearchItem() { //展开筛选条件点击事件
 	});
 }
 
-function BindTapEventToSearchProduct() { //展开筛选条件点击事件
-	//展开筛选条件点击事件
+//展开筛选条件点击事件
+function BindTapEventToSearchProduct() { 
 	mui('#div_search_item_top').off('tap', 'button');
 	mui('#div_search_item_top').on('tap', 'button', function() {
 		//					document.getElementById('mui-off-canvas-backdrop').addEventListener('tap', function(e) {
@@ -963,24 +988,20 @@ function ShowPriceData() {
 					document.getElementById("sp_buyPrice").innerText = parseInt(item.BUYERPRICE);
 				}
 			}
-			/*document.getElementById("sp_priceName").innerText = perPrices[pIdx].priceName;
-			document.getElementById("sp_newPrice").innerText = perPrices[pIdx].newPrice;
-			document.getElementById("sp_sellPrice").innerText = perPrices[pIdx].sellPrice;
-			document.getElementById("sp_buyPrice").innerText = perPrices[pIdx].buyPrice;*/
 		},
 		error: function(xhr, type, errorThrown) {
 			//ShowToast(MSG_DATA_ERROR);
 		}
 	});
 }
-
+//品名选择
 function BindTapEventToTypeSelectDiv() {
-	//品名选择
 	mui('#div_sel_type_item').off('tap', 'li');
 	mui('#div_sel_type_item').on('tap', 'li', function(e) {
 		var selItem = this;
 		var selDiv = document.getElementById("div_sel_type_item");
 		var selA = document.getElementById("a_sel_type");
+		var selAName = document.getElementById("a_sel_type_span");
 		var oVal = selA.getAttribute("selVal");
 		var nVal = selItem.getAttribute("dataid");
 		localStorage.removeItem("showproduct");
@@ -994,7 +1015,11 @@ function BindTapEventToTypeSelectDiv() {
 			selItem.innerHTML += '<span selimg="" style="float: right;height: 30px;"><img src="images/duigou.png" /></span>';
 			selItem.classList.add("selected-item");
 			selA.setAttribute("selVal", nVal);
-			selA.innerText = selItem.innerText;
+			if(selItem.innerText == "全部"){
+				selA.innerHTML = '品名'+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
+			}else{
+				selA.innerHTML = selItem.innerText+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
+			}
 			//缓存参数执行查询
 			hasclass = false;
 			pSpecId[tabIdx] = "";
@@ -1007,6 +1032,11 @@ function BindTapEventToTypeSelectDiv() {
 		mui('#div_sel_type').popover('hide');
 	});
 	document.getElementById('a_sel_type').addEventListener('tap', function(e) {
+//		var a_sel_type_html = $("#a_sel_type").html();
+//		if(a_sel_type_html != "品名"){
+//			hasclass = true;
+//		}
+//		console.log(hasclass);
 		mui('#div_sel_type').popover('show', document.getElementById('a_sel_type'));
 	});
 }
@@ -1032,7 +1062,7 @@ function BindTapEventToSortSelectDiv() {
 				selItem.innerHTML += '<span selimg="" style="float: right;height: 30px;"><img src="images/duigou.png" style="height:18px;margin-top:8px;"/></span>';
 				selItem.classList.add("selected-item");
 				selA.setAttribute("selVal", nVal);
-				selA.innerText = selItem.innerText;
+				selA.innerHTML = selItem.innerText+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
 			}
 			//缓存参数执行查询
 			pSortNum[tabIdx] = selItem.getAttribute("dataid");

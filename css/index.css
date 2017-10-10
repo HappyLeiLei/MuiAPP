@@ -82,9 +82,10 @@
 
 #div_sel_type {
 	height: auto;
+	width: 100%;
 	position: absolute;
-	top: 155px !important;
-	left: 2.4% !important;
+	top: 196px !important;
+	left: 0 !important;
 }
 
 .mui-popover .mui-popover-arrow.mui-bottom {
