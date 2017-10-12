@@ -1073,7 +1073,11 @@ function BindTapEventToSortSelectDiv() {
 				selItem.innerHTML += '<span selimg="" style="float: right;height: 30px;"><img src="images/duigou.png" style="height:18px;margin-top:8px;"/></span>';
 				selItem.classList.add("selected-item");
 				selA.setAttribute("selVal", nVal);
-				selA.innerHTML = selItem.innerText+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
+				if(selItem.innerText == "全部"){
+					selA.innerHTML = "交货地"+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
+				}else{
+					selA.innerHTML = selItem.innerText+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
+				}
 			}
 			//缓存参数执行查询
 			if(selItem.innerText == "全部"){
