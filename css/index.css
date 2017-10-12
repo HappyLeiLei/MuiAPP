@@ -231,3 +231,7 @@
 .mui-icon{
 	font-size: 10px;
 }
+.mui-popover .mui-table-view{
+	height: 300px !important;
+	max-height: 500px !important;
+}
