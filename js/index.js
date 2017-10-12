@@ -154,6 +154,7 @@ function initPage() {
 		}
 
 	});
+	
 	document.getElementById('btn_order_search').addEventListener('tap', function() {
 		if(pSpecId[tabIdx].length > 0 && pSpecId[tabIdx] !== "nonumber,nonumber,nonumber,nonumber") {
 			ChangeFilterIcon(true);
