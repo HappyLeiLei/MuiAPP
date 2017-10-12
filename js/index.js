@@ -396,9 +396,10 @@ function ShowData(isInitCurrentPage, isInitSort) {
 //		}
 //	}
 	var param; //商品详情发送内容
-	if(isFirst || pPid[tabIdx] === "-1") {
-		var loacaltype = document.getElementById("a_sel_sort_span");
+	var loacaltype = document.getElementById("a_sel_sort_span");
+		console.log(loacaltype.innerText);
 		localStorage.setItem("localtype",loacaltype.innerText);
+	if(isFirst || pPid[tabIdx] === "-1") {
 		param = {
 			"processCost":'',
 			"goodsPriceFlag":1,
@@ -566,14 +567,14 @@ function bingData(response, targetID, isInitCurrentPage) {
 				//筛选项
 				if(hasclass) {
 					BindSearchItempProductName(response["1"], response["7"]);
-					BindDataToLocalSelect(response["10"]);
+					BindDataToLocalSelect(response["13"]);
 					//数据
 					BindDataToPage(response["4"], table, response["8"].pageNum);
 					BindTapEventToBuyButton();
 					BindTapEventToSearchProduct();
 				} else {
 					BindSearchItem(response["2"], response["7"], response["1"]);
-					BindDataToLocalSelect(response["10"]);
+					BindDataToLocalSelect(response["13"]);
 					//数据
 					BindDataToPage(response["4"], table, response["8"].pageNum);
 					BindTapEventToBuyButton();
@@ -586,8 +587,9 @@ function bingData(response, targetID, isInitCurrentPage) {
 
 //绑定数据到交货的筛选菜单中
 function BindDataToLocalSelect(dataList){
+	var dataListall = dataList.deliveryPlace;
 	var localselect = '<li id="div_sel_sort_item_list" dataid="1" class="sel-item selected-item"><span>全部</span><span selimg="" style="float: right;"><img src="images/duigou.png" style="height: 18px;margin-top: 8px;"/></span></li>';
-	mui.each(dataList,function(index,item){
+	mui.each(dataListall,function(index,item){
 		localselect += '<li dataid='+item+' class="sel-item"><span>'+item+'</span></li>';
 	});
 	$("#div_sel_sort_item").html(localselect);
@@ -1074,13 +1076,10 @@ function BindTapEventToSortSelectDiv() {
 				selItem.innerHTML += '<span selimg="" style="float: right;height: 30px;"><img src="images/duigou.png" style="height:18px;margin-top:8px;"/></span>';
 				selItem.classList.add("selected-item");
 				selA.setAttribute("selVal", nVal);
-				if(selItem.innerText == "全部"){
-					selA.innerHTML = "交货地"+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
-				}else{
-					selA.innerHTML = selItem.innerText+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
-				}
+				selA.innerHTML = '<span id=a_sel_sort_span>交货地</span>'+selItem.innerText+' <span class="mui-icon mui-icon mui-icon-arrowdown">'+'</span>';
 			}
 			//缓存参数执行查询
+			console.log(selItem.innerText);
 			if(selItem.innerText == "全部"){
 				localStorage.setItem("localname","");
 			}else{
