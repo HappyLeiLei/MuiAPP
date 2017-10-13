@@ -63,6 +63,9 @@
   padding : 0;
   list-style : none;
 }
+.information-box .txtMarquee-top .list .information-items a {
+  color: #414141;
+}
 
 /* 首页导航 */
 

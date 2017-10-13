@@ -1,238 +1,300 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>1</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<link rel="stylesheet" href="css/mui.min.css" />
-		<link rel="stylesheet" href="css/all-css.css" />
-		<link rel="stylesheet" href="css/index-with-mall-popovers.css">
-		<link rel="stylesheet" href="css/home.css" />
-	</head>
+<head>
+	<meta charset="utf-8">
+	<title>51集市</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="stylesheet" href="css/mui.min.css" />
+	<link rel="stylesheet" href="css/all-css.css" />
+	<link rel="stylesheet" href="css/index-with-mall-popovers.css">
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+	</style>
+</head>
 
-	<body style="position: relative;">
-		<!--顶部增加DIV-->
-		<!--<div class="qyn-top"></div>-->
-		<!--底导航-->
-		<div class="footer_fixed">
-			<a id="main_market" class="mui-tab-item" href="index.html">
-				<span class="mui-icon"><img src="images/nav-nor-jishi@2x.png" iSort="0" /></span>
-				<span class="mui-tab-label">51集市</span>
-			</a>
-			<a id="main_mall" class="mui-tab-item nav-select" href="main-mall.html">
-				<span class="mui-icon"><img src="images/nav-nor-shangcheng@2x.png" iSort="1" /></span>
-				<span class="mui-tab-label">51商城</span>
-			</a>
-			<a id="main_my" class="mui-tab-item" href="main-my.html">
-				<span class="mui-icon"><img src="images/nav-nor-wode@2x.png" iSort="3" /></span>
-				<span class="mui-tab-label">我的</span>
-			</a>
-			<a id="main_price" class="mui-tab-item" href="main-price.html">
-				<span class="mui-icon"><img src="images/nav-nor-zixun@2x.png" iSort="2" /></span>
-				<span class="mui-tab-label">行情</span>
-			</a>
-			<a id="main_information" class="mui-tab-item" href="main-information.html">
-				<span class="mui-icon"><img src="images/nav-nor-hangqing@2x.png" iSort="4" /></span>
-				<span class="mui-tab-label">资讯</span>
-			</a>
+<body>
+	<!--顶部增加DIV-->
+	<div class="qyn-top"></div>
+	<!--底导航-->
+	<div class="footer_fixed">
+		<a id="main_market" class="mui-tab-item nav-select" href="index.html">
+			<span class="mui-icon">
+				<img src="images/nav-sel-jishi@2x.png" iSort="0" />
+			</span>
+			<span class="mui-tab-label">51集市</span>
+		</a>
+		<a id="main_mall" class="mui-tab-item" href="main-mall.html">
+			<span class="mui-icon">
+				<img src="images/nav-nor-shangcheng@2x.png" iSort="1" />
+			</span>
+			<span class="mui-tab-label">51商城</span>
+		</a>
+		<a id="main_my" class="mui-tab-item" href="main-my.html">
+			<span class="mui-icon">
+				<img src="images/nav-nor-wode@2x.png" iSort="3" />
+			</span>
+			<span class="mui-tab-label">我的</span>
+		</a>
+		<a id="main_price" class="mui-tab-item" href="main-price.html">
+			<span class="mui-icon">
+				<img src="images/nav-nor-zixun@2x.png" iSort="2" />
+			</span>
+			<span class="mui-tab-label">行情</span>
+		</a>
+		<a id="main_information" class="mui-tab-item" href="main-information.html">
+			<span class="mui-icon">
+				<img src="images/nav-nor-hangqing@2x.png" iSort="4" />
+			</span>
+			<span class="mui-tab-label">资讯</span>
+		</a>
+	</div>
+	<!--底导航-->
+	<!--底导航-->
+	<!--版本升级-->
+	<div class="mui-popup mui-popup-in" id="alertversion" style="display: none;">
+		<div class="mui-popup-inner">
+			<img src="images/version.png" style="width: 90%;text-align: center;" />
+			<span style="font-weight: normal;" class="mui-popup-button mui-popup-button-bold upgrade">
+				<a id="shengji">立即升级</a>
+			</span>
 		</div>
-		<!--底导航-->
-		<!--版本升级-->
-		<div class="mui-popup mui-popup-in" id="alertversion" style="display: none;">
-			<div class="mui-popup-inner">
-				<img src="images/version.png" style="width: 90%;text-align: center;" />
-				<span style="font-weight: normal;" class="mui-popup-button mui-popup-button-bold upgrade"><a id="shengji">立即升级</a></span>
-			</div>
-		</div>
-		<div class="top-mui-slider">
-			<div class="mui-slider">
-				<div class="mui-slider-group mui-slider-loop" id="bannerslider">
-					<div class="mui-slider-item mui-slider-item-duplicate">
+	</div>
+	<div class="mui-popup-backdrop mui-active" id="backgroun" style="display: none;">
+	</div>
+	<!-- 侧滑导航根容器 -->
+	<div id="Order_offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-slide-in" style="z-index: inherit;">
+		<!-- 菜单容器 -->
+		<aside id="order_search_canva" style="background: #f8f8f8;" class="mui-off-canvas-right">
+			<div class="mui-scroll-wrapper" style="height: calc(100% - 44px);">
+				<div style="padding-bottom: 20px;">
+					<div id="div_search_item_top" class="mui-scroll scroll-main">
+
+					</div>
+					<div id="div_search_item" class="mui-scroll scroll-main-two">
+
 					</div>
 				</div>
-				<div class="mui-slider-indicator" id="bannersliderpoint">
-				</div>
 			</div>
-		</div>
-		<div class="mui-inner-wrap">
-			<div class="mui-container">
-				<div class="information-box">
-					<span class="date">2017-07-09</span>
-					<div class="txtMarquee-top">
-						<div class="bd">
-							<!-- 高度不固定的无缝滚动思路在于：整个ul滚动！所以添加ul外层“.listWrap”，并且设置mainCell为“.bd .listWrap”而不是“.bd ul” -->
-							<div class="listWrap">
-								<ul class="list">
-									<li class="information-items">
-										关于基层农技人员定向培养招生考试的培养招生考考试的公告告 
-									</li>
-								</ul>
+			<div class="mui-bar-footer">
+				<button id="btn_order_resetSearch" type="button" class="mui-btn chongzhi mui-col-xs-6">重置</button>
+				<button id="btn_order_search" type="button" class="mui-btn btn-warning wancheng mui-col-xs-6">完成</button>
+			</div>
+
+		</aside>
+		<!-- 主页面容器 -->
+		<div class="mui-inner-wrap" style="z-index: inherit;">
+
+			<div class="mui-content mui-scroll-wrapper" style="height: calc(100% - 76px);">
+				<!--<div class="mui-scroll">-->
+
+				<div id="slider" class="mui-slider mui-fullscreen">
+
+					<div id="segmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative">
+
+						<div class="mui-scroll top-nav" style="width: 100%;">
+							<!--<span class="Gradient">51集市</span>-->
+							<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+							<a class="mui-control-item mui-active organe1" href="#cc_copper_rod" id="sc_copper_rod">
+								<span class="top-nav-icon-items"></span>铜杆</a>
+							<a class="mui-control-item" href="#cc_electrolytic_copper" id="sc_electrolytic_copper">
+								<span class="top-nav-icon-items"></span>电解铜</a>
+							<a class="mui-control-item" href="#cc_aluminum_rod" id="sc_aluminum_rod">
+								<span class="top-nav-icon-items"></span>铝杆</a>
+							<a class="mui-control-item" href="#cc_aluminum_ingot" id="sc_aluminum_ingot">
+								<span class="top-nav-icon-items"></span>铝锭</a>
+						</div>
+					</div>
+
+					<div id="div_price" class="div-price">
+						<span id="sp_price" class="sp-price">
+							<span id="sp_priceName" class="sp-price-item"></span>
+							<span class="sp-price-item">最新价
+								<span>
+									<span style="font-family:Arial;" class="green">&yen;</span>
+									<span id="sp_newPrice" class="green">--</span>
+								</span>
+							</span>
+							<span class="sp-price-item">卖价
+								<span>
+									<span style="font-family:Arial; " class="green">&yen;</span>
+									<span id="sp_sellPrice" class="green">--</span>
+								</span>
+							</span>
+							<span class="sp-price-item">买价
+								<span>
+									<span style="font-family:Arial; " class="green">&yen;</span>
+									<span id="sp_buyPrice" class="green">--</span>
+								</span>
+							</span>
+						</span>
+						<!--<span class="price-img"><img src="images/triangle_priceX3.png"></span>-->
+					</div>
+
+					<!--一口价&可议价筛选 start-->
+					<div class="screen-main-btn">
+						<a href="" class="screen-btn-items mui-active">
+							<span class="screen-btn-icon screen-btn-icon1"></span>一口价</a>
+						<a href="" class="screen-btn-items ">
+							<span class="screen-btn-icon screen-btn-icon2"></span>可议价</a>
+					</div>
+					<!--一口价&可议价筛选 end-->
+
+					<!-- 新下拉筛选菜单 start -->
+					<div class="select-box">
+						<strong class="sel-items sel-item1" id="sel1" onclick="alert(1)">品名
+							<span class="mui-icon mui-icon mui-icon-arrowdown"></span>
+						</strong>
+						<div class="sel-slide1 sel-slide">
+							<p>1111111111111111111111111111111111111111</p>
+							<p>1111111111111111111111111111111111111111</p>
+							<p>1111111111111111111111111111111111111111</p>
+							<p>1111111111111111111111111111111111111111</p>
+							<p>1111111111111111111111111111111111111111</p>
+							<p>1111111111111111111111111111111111111111</p>
+							<p>1111111111111111111111111111111111111111</p>
+							<p>1111111111111111111111111111111111111111</p>
+							<p>1111111111111111111111111111111111111111</p>
+						</div>
+						<strong class="sel-items sel-item2">交货地
+							<span class="mui-icon mui-icon mui-icon-arrowdown"></span>
+						</strong>
+						<div class="sel-slide2 sel-slide">
+							<p>2222222222222222222222222222222222222222</p>
+							<p>2222222222222222222222222222222222222222</p>
+							<p>2222222222222222222222222222222222222222</p>
+							<p>2222222222222222222222222222222222222222</p>
+							<p>2222222222222222222222222222222222222222</p>
+							<p>2222222222222222222222222222222222222222</p>
+							<p>2222222222222222222222222222222222222222</p>
+							<p>2222222222222222222222222222222222222222</p>
+							<p>2222222222222222222222222222222222222222</p>
+						</div>
+						<strong class="sel-items sel-item3">筛选</strong>
+					</div>
+					<!-- 新下拉筛选菜单 end -->
+
+					<div class="sel-sort">
+						<div id="a_sel_type" class="sel-name" selVal="">
+							<span id="a_sel_type_span">品名</span>
+							<span class="mui-icon mui-icon mui-icon-arrowdown"></span>
+						</div>
+						<div id="a_sel_sort" class="sel-name" selVal="1">
+							<span id=a_sel_sort_span>交货地</span>
+							<span class="mui-icon mui-icon mui-icon-arrowdown"></span>
+						</div>
+						<div class="sel-name" style="border-color: white;">
+							<a class="search" href="#order_search_canva" style="line-height: 16px;">
+								<span class="search-in" style="line-height: 16px;">筛选</span>
+								<span id="span_search_icon" class="search-insfo" style="position: absolute;right:10px;"></span>
+							</a>
+						</div>
+
+					</div>
+					<div class="mui-slider-group">
+						<div id="cc_copper_rod" class="mui-slider-item mui-control-content mui-active">
+							<div class="mui-scroll-wrapper">
+								<div id="pullrefresh1">
+									<div class="mui-scroll">
+										<ul class="mui-table-view" id="listdata1">
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="cc_electrolytic_copper" class="mui-slider-item mui-control-content">
+							<div class="mui-scroll-wrapper">
+								<div id="pullrefresh2">
+									<div class="mui-scroll">
+										<ul class="mui-table-view" id="listdata2">
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="cc_aluminum_rod" class="mui-slider-item mui-control-content">
+							<div class="mui-scroll-wrapper">
+								<div id="pullrefresh3">
+									<div class="mui-scroll">
+										<ul class="mui-table-view" id="listdata3">
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="cc_aluminum_ingot" class="mui-slider-item mui-control-content">
+							<div class="mui-scroll-wrapper">
+								<div id="pullrefresh4">
+									<div class="mui-scroll">
+										<ul class="mui-table-view" id="listdata4">
+
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="home-nva-box">
-				<a href="index.html" class="home-nav-items home-nav-items1">
-					<span class="home-nav-icon"><img src="./images/btn-jishi@2x.png" alt="集市"></span>
-					<span class="home-nva-txt">集市</span>
-				</a>
-				<a href="main-mall.html" class="home-nav-items home-nav-items2">
-					<span class="home-nav-icon"><img src="./images/btn-shangcheng@2x.png" alt="商城"></span>
-					<span class="home-nva-txt">商城</span>
-				</a>
-				<a href="main-information.html" class="home-nav-items home-nav-items3">
-					<span class="home-nav-icon"><img src="./images/btn-zixun@2x.png" alt="资讯"></span>
-					<span class="home-nva-txt">资讯</span>
-				</a>
-				<a href="jixiangjinfu.html" class="home-nav-items home-nav-items4">
-					<span class="home-nav-icon"><img src="./images/btn-jixiangjinfu@2x.png" alt="吉象金服"></span>
-					<span class="home-nva-txt">吉象金服</span>
-				</a>
-			</div>
-                <ul id="div_sel_sort_item" class="mui-table-view" style="    position: absolute;
-    top: 100px;
-    left: 0;
-    right: 0;
-    height: 100px;
-    z-index: 111;
-    overflow: auto;">
-					<li id="div_sel_sort_item_list" dataid="1" class="sel-item selected-item"><span>全部</span><span selimg="" style="float: right;"><img src="images/duigou.png" style="height: 18px;margin-top: 8px;"/></span></li>
-				</ul>
-			<div class="data-slider">
-				<h1>最新行情 <span>滑动了解更多行情信息</span></h1>
-				<div class="mui-slider">
-					<div class="mui-slider-group mui-slider-loop">
-						<!--支持循环，需要重复节点4-->
-						<div class="mui-slider-item mui-slider-item-duplicate">
-							<dl class="data-list data-list3">
-								<dt class="data-title">沪铜1710</dt>
-								<dd class="data-content data-content-jia">1</dd>
-								<dd class="data-content down upordown"><span>涨跌：-500</span></dd>
-							</dl>
-							<dl class="data-list data-list38">
-								<dt class="data-title">沪铝1710</dt>
-								<dd class="data-content data-content-jia">2</dd>
-								<dd class="data-content up upordown"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list39">
-								<dt class="data-title">沪铝1709</dt>
-								<dd class="data-content data-content-jia">3</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
-							</dl>
-						</div>
-
-						<div class="mui-slider-item">
-							<dl class="data-list data-list0 data-list-map">
-								<span class="data-itmes data-itme-baojia"></span>
-								<dt class="data-title">价格地图</dt>
-								<dd class="data-content data-content-map"><img src="images/icon-jiageditu@2x.png" alt="价格地图"/></dd>
-								<dd class="data-content upordown"><span>查看价格地图</span></dd>
-							</dl>
-							<dl class="data-list data-list2">
-								<span class="data-itmes data-itme-junjia"></span>
-								<span class="data-itmes data-itme-more">9-30</span>
-								<dt class="data-title">长江现货-1#铜</dt>
-								<dd class="data-content data-content-jia">4</dd>
-								<dd class="data-content upordown"><span>涨跌：-500</span></dd>
-							</dl>
-							<dl class="data-list data-list3">
-								<span class="data-itmes data-itme-zuixin"></span>
-								<dt class="data-title">沪铝1709</dt>
-								<dd class="data-content data-content-jia down">5</dd>
-								<dd class="data-content upordown down"><span>涨跌：500</span></dd>
-							</dl>
-						</div>
-						<div class="mui-slider-item">
-							<dl class="data-list data-list4">
-								<dt class="data-title">沪铝1709</dt>
-								
-								<dd class="data-content data-content-jia">7</dd>
-								<dd class="data-content"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list5">
-								<dt class="data-title">沪铝1709</dt>
-								
-								<dd class="data-content data-content-jia">8</dd>
-								<dd class="data-content"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list6">
-								<dt class="data-title">沪铝1709</dt>
-								
-								<dd class="data-content data-content-jia">9</dd>
-								<dd class="data-content"><span>涨跌：500</span></dd>
-							</dl>
-						</div>
-						<div class="mui-slider-item">
-							<dl class="data-list data-list7">
-								<dt class="data-title">沪铝1709</dt>
-								
-								<dd class="data-content data-content-jia">10</dd>
-								<dd class="data-content"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list8">
-								<dt class="data-title">沪铝1709</dt>
-								
-								<dd class="data-content data-content-jia">12</dd>
-								<dd class="data-content"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list9">
-								<dt class="data-title">沪铝1709</dt>
-								
-								<dd class="data-content data-content-jia">13</dd>
-								<dd class="data-content"><span>涨跌：500</span></dd>
-							</dl>
-						</div>
-
-						<!--支持循环，需要重复节点1-->
-						<div class="mui-slider-item mui-slider-item-duplicate">
-							<dl class="data-list data-list11">
-								<dt class="data-title">沪铝1709</dt>
-								
-								<dd class="data-content data-content-jia">1</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list12">
-								<dt class="data-title">沪铝1709</dt>
-								<dd class="data-content data-content-jia">2</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
-							</dl>
-							<dl class="data-list data-list13">
-								<dt class="data-title">沪铝1709</dt>
-								<dd class="data-content data-content-jia">3</dd>
-								<dd class="data-content upordown"><span>涨跌：500</span></dd>
-							</dl>
-						</div>
-					</div>
-					<div class="mui-slider-indicator">
-						<div class="mui-indicator mui-active"></div>
-						<div class="mui-indicator"></div>
-						<div class="mui-indicator"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="instant-deal">
-				<h1 class="instant-deal-title">即时成交</h1>
-				<div class="picScroll-top">
-					<div class="bd">
-						<ul class="picList">
-						</ul>
-					</div>
-				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
 
-		<script src="js/mui.min.js"></script>
-		<script type="text/javascript" src="js/constant.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/jquery.SuperSlide.2.1.1.js"></script>
-		<script src="js/home.js"></script>
-	</body>
+		<div id="div_sel_type" class="mui-popover">
+			<ul id="div_sel_type_item" class="mui-table-view">
+			</ul>
+		</div>
+
+		<div id="div_sel_sort" class="mui-popover">
+			<div class="sel-item">
+				<span>交货地</span>
+				<span>发货地</span>
+				<span>回复默认</span>
+			</div>
+			<ul id="div_sel_sort_item" class="mui-table-view">
+				<li id="div_sel_sort_item_list" dataid="1" class="sel-item selected-item">
+					<span>全部</span>
+					<span selimg="" style="float: right;">
+						<img src="images/duigou.png" style="height: 18px;margin-top: 8px;" />
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<!--<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/json2.min.js"></script>
+	<script type="text/javascript" src="js/constant.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/utils-orders.js"></script>
+	<script type="text/javascript" src="js/pulltorefresh.skin.default.js"></script>
+	<script type="text/javascript" src="js/demo_pullRefresh_multi_skin.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script>
+		// 新下拉筛选菜单
+		(function ($) {
+				$(document).ready(function () {
+					// jquery相关代码
+					$(".sel-item1").click(function () {
+						$(".sel-slide2").hide(100);
+						$(this).next(".sel-slide").slideToggle(100);
+					});
+					$(".sel-item2").click(function () {
+						$(".sel-slide1").hide(100);
+						$(this).next(".sel-slide").slideToggle(100);
+					});
+				});
+			})(jQuery);
+	</script>
+</body>
 
 </html>

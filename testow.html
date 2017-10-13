@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>51集市</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" href="css/mui.min.css" />
+  <link rel="stylesheet" href="css/all-css.css" />
+  <link rel="stylesheet" href="css/index-with-mall-popovers.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+  </style>
+</head>
+
+<body>
+  <!-- 新下拉筛选菜单 start -->
+  <div class="select-box">
+    <strong class="sel-items sel-item1">品名
+      <span class="mui-icon mui-icon mui-icon-arrowdown"></span>
+    </strong>
+    <div class="sel-slide1 sel-slide">
+      <p>1111111111111111111111111111111111111111</p>
+      <p>1111111111111111111111111111111111111111</p>
+      <p>1111111111111111111111111111111111111111</p>
+      <p>1111111111111111111111111111111111111111</p>
+      <p>1111111111111111111111111111111111111111</p>
+      <p>1111111111111111111111111111111111111111</p>
+      <p>1111111111111111111111111111111111111111</p>
+      <p>1111111111111111111111111111111111111111</p>
+      <p>1111111111111111111111111111111111111111</p>
+    </div>
+    <strong class="sel-items sel-item2">交货地
+      <span class="mui-icon mui-icon mui-icon-arrowdown"></span>
+    </strong>
+    <div class="sel-slide2 sel-slide">
+      <p>2222222222222222222222222222222222222222</p>
+      <p>2222222222222222222222222222222222222222</p>
+      <p>2222222222222222222222222222222222222222</p>
+      <p>2222222222222222222222222222222222222222</p>
+      <p>2222222222222222222222222222222222222222</p>
+      <p>2222222222222222222222222222222222222222</p>
+      <p>2222222222222222222222222222222222222222</p>
+      <p>2222222222222222222222222222222222222222</p>
+      <p>2222222222222222222222222222222222222222</p>
+    </div>
+    <strong class="sel-items sel-item3">筛选</strong>
+  </div>
+  <!-- 新下拉筛选菜单 end -->
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <!--<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>-->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <!-- <script type="text/javascript" src="js/json2.min.js"></script>
+			<script type="text/javascript" src="js/constant.js"></script>
+			<script type="text/javascript" src="js/common.js"></script>
+			<script type="text/javascript" src="js/utils.js"></script>
+			<script type="text/javascript" src="js/utils-orders.js"></script>
+			<script type="text/javascript" src="js/pulltorefresh.skin.default.js"></script>
+			<script type="text/javascript" src="js/demo_pullRefresh_multi_skin.js"></script>
+    <script type="text/javascript" src="js/index.js"></script> -->
+    <script>
+    
+      // 新下拉筛选菜单
+        $(".sel-item1").click(function () {
+          $(".sel-slide2").hide(100);
+          $(this).next(".sel-slide").slideToggle(100);
+        });
+        $(".sel-item2").click(function () {
+          $(".sel-slide1").hide(100);
+          $(this).next(".sel-slide").slideToggle(100);
+        });
+      </script>
+</body>
+
+</html>

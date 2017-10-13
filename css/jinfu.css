@@ -1,8 +1,8 @@
 /*
  * @Author: PangLei 
  * @Date: 2017-10-09 10:27:11 
- * @Last Modified by:   PangLei 
- * @Last Modified time: 2017-10-09 10:27:11 
+ * @Last Modified by: PangLei
+ * @Last Modified time: 2017-10-13 13:37:31
  */
 
 /*重置返回键样式*/
@@ -12,13 +12,18 @@
 }
 .mui-bar-nav {
 	position: static;
-	margin-top: 25px;
+	background: #fff;
+	box-shadow: none;
+	/* margin-top: 25px; */
 }
 .mui-bar .mui-icon {
 	border: none;
 	color: #FD612B;
 }
-
+.qyn-top {
+  height: 25px;
+  background: #Ffff;
+}
 .jinfu-box li {
 	list-style: none;
 	width: 100%;
