@@ -279,14 +279,6 @@
 				/*padding-top: 8px;*/
 			}
 			
-			.mui-fullscreen .mui-segmented-control~.mui-slider-group {
-				position: absolute;
-				top: 200px;
-				bottom: 0;
-				width: 100%;
-				height: auto;
-			}
-			
 			.mui-table-view-cell:after {
 				position: absolute;
 				right: 0;
@@ -464,6 +456,7 @@
 				padding: 10px;
 				background: #f5f5f5;
 				text-align: center;
+				padding-top: 20px;
 			}
 			
 			.price-img img {
