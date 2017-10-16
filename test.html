@@ -98,38 +98,9 @@
 							<div id="cc_copper_rod" class="mui-slider-item mui-control-content mui-active">
 								<div class="mui-scroll-wrapper">
 									<div id="pullrefresh1">
-										
 										<div class="mui-scroll">
-											<div id="div_price" class="div-price">
-							<span id="sp_price" class="sp-price">
-								<span id="sp_priceName" class="sp-price-item"></span>
-							<span class="sp-price-item">最新价<span><span style="font-family:Arial;" class="green">&yen;</span><span id="sp_newPrice" class="green">--</span></span>
-							</span>
-							<span class="sp-price-item">卖价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_sellPrice" class="green">--</span></span>
-							</span>
-							<span class="sp-price-item">买价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_buyPrice" class="green">--</span></span>
-							</span>
-							</span>
-							<!--<span class="price-img"><img src="images/triangle_priceX3.png"></span>-->
-						</div>
-
-						<!--一口价&可议价筛选 start-->
-						<div class="screen-main-btn">
-							<a href="" class="screen-btn-items mui-active"><span class="screen-btn-icon screen-btn-icon1"></span>一口价</a>
-							<a href="" class="screen-btn-items "><span class="screen-btn-icon screen-btn-icon2"></span>可议价</a>
-						</div>
-						<!--一口价&可议价筛选 end-->
-						<div class="sel-sort">
-							<div id="a_sel_type" class="sel-name" selVal=""><span id="a_sel_type_span">品名</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span></div>
-							<div id="a_sel_sort" class="sel-name" selVal="1"><span id=a_sel_sort_span>交货地</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span></div>
-							<div class="sel-name" style="border-color: white;">
-								<a class="search" href="#order_search_canva" style="line-height: 16px;">
-									<span class="search-in" style="line-height: 16px;">筛选</span>
-									<span id="span_search_icon" class="search-insfo" style="position: absolute;right:10px;"></span>
-								</a>
-							</div>
-						</div>
-						<ul class="mui-table-view" id="listdata1">
+											<div id="tonggandata"></div>
+											<ul class="mui-table-view" id="listdata1">
 
 											</ul>
 										</div>
@@ -140,6 +111,7 @@
 								<div class="mui-scroll-wrapper">
 									<div id="pullrefresh2">
 										<div class="mui-scroll">
+											<div id="dianjietongdata"></div>
 											<ul class="mui-table-view" id="listdata2">
 
 											</ul>
@@ -151,6 +123,7 @@
 								<div class="mui-scroll-wrapper">
 									<div id="pullrefresh3">
 										<div class="mui-scroll">
+											<div id="lvgandata"></div>
 											<ul class="mui-table-view" id="listdata3">
 
 											</ul>
@@ -162,6 +135,7 @@
 								<div class="mui-scroll-wrapper">
 									<div id="pullrefresh4">
 										<div class="mui-scroll">
+											<div id="lvdingdata"></div>
 											<ul class="mui-table-view" id="listdata4">
 
 											</ul>
@@ -175,18 +149,50 @@
 					<div class="mui-off-canvas-backdrop"></div>
 				</div>
 			</div>
-
+			<!--品类选择块-->
 			<div id="div_sel_type" class="mui-popover">
 				<ul id="div_sel_type_item" class="mui-table-view">
 				</ul>
 			</div>
-
+			<!--交货地、发货地选择块-->
 			<div id="div_sel_sort" class="mui-popover">
 				<div class="sel-item"><span class="loacaltype active-now">交货地</span>&nbsp;<span class="loacaltype">发货地</span><span class="backalltype">恢复默认</span></div>
 				<ul id="div_sel_sort_item" class="mui-table-view">
 					<li id="div_sel_sort_item_list" dataid="1" class="sel-item selected-item"><span>全部</span><span selimg="" style="float: right;"><img src="images/duigou.png" style="height: 18px;margin-top: 8px;"/></span></li>
 				</ul>
 			</div>
+
+			<!--页面接口代码块-->
+			<!--行情价格-->
+			<!--<div id="div_price" class="div-price">
+				<span id="sp_price" class="sp-price">
+								                    <span id="sp_priceName" class="sp-price-item">
+								                    </span>
+				<span class="sp-price-item">最新价<span><span style="font-family:Arial;" class="green">&yen;</span><span id="sp_newPrice" class="green">--</span></span>
+				</span>
+				<span class="sp-price-item">卖价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_sellPrice" class="green">--</span></span>
+				</span>
+				<span class="sp-price-item">买价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_buyPrice" class="green">--</span></span>
+				</span>
+				</span>
+			</div>-->
+			<!--一口价&可议价筛选 start-->
+			<!--<div class="screen-main-btn" id="yikou_keyi">
+				<a href="" class="screen-btn-items mui-active"><span class="screen-btn-icon screen-btn-icon1"></span>一口价</a>
+				<a href="" class="screen-btn-items "><span class="screen-btn-icon screen-btn-icon2"></span>可议价</a>
+			</div>-->
+			<!--一口价&可议价筛选 end-->
+			<!--<div class="sel-sort">
+				<div id="a_sel_type" class="sel-name" selVal=""><span id="a_sel_type_span">品名</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span></div>
+				<div id="a_sel_sort" class="sel-name" selVal="1"><span id="a_sel_sort_span">交货地</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span></div>
+				<div class="sel-name" style="border-color: white;">
+					<a class="search" href="#order_search_canva" style="line-height: 16px;">
+						<span class="search-in" style="line-height: 16px;">筛选</span>
+						<span id="span_search_icon" class="search-insfo" style="position: absolute;right:10px;"></span>
+					</a>
+				</div>
+			</div>-->
+
 			<script type="text/javascript" src="js/mui.min.js"></script>
 			<!--<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
 		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>-->
