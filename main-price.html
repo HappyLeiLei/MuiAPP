@@ -153,12 +153,279 @@
             #cc_aluminum{
             	border-top: 1px solid #DEDEDE;
             }
+			/*新添加的样式覆盖框架样式*/
+			.new_tab{
+				font-size: 0;
+				-webkit-text-size-adjust:none;
+				background-color:#ff6724;
+			}
+			.new_control_item{
+				line-height: 26px!important;
+				border-left:2px solid #ffffff!important;
+				border-top:2px solid #ffffff!important;
+				border-bottom:2px solid #ffffff!important;
+				background-color: #ffffff;
+
+				color:#ff6724!important;
+				font-size:16px!important;
+
+			}
+			.no_right_border{
+				border-right:none!important;
+				border-top-left-radius:4px!important;
+				border-bottom-left-radius:4px!important;
+			}
+			.no_left_border{
+				border-left:none!important;
+				border-top-right-radius: 4px!important;
+				border-bottom-right-radius: 4px!important;
+			}
+			.no_right_border.mui-active{
+				background-color: #ff6724!important;
+				color: #ffffff!important;
+				border-left:2px solid #ffffff!important;
+				border-top:2px solid #ffffff!important;
+				border-bottom:2px solid #ffffff!important;
+			}
+			.no_left_border.mui-active{
+				background-color: #ff6724!important;
+				color: #ffffff!important;
+				border-right:2px solid #ffffff!important;                                                                                                                                                                                              3t  :2px solid #ffffff!important;
+				border-top:2px solid #ffffff!important;
+				border-bottom:2px solid #ffffff!important;
+			}
+			.new_qyn_top{
+				background-color:#ff6724!important;
+			}
+			.new_table_view{
+				display: flex;
+				display: -webkit-flex;
+				padding:15px 0;
+				background-color: #ffffff;
+				border-bottom:none;
+			}
+			.new_table_view a{
+				flex:1;
+				-webkit-flex:1;
+				text-align: center;
+				color:#808080;
+				font-size:14px;
+				display: block;
+				line-height: 32px;
+				height:32px;
+			}
+			.new_table_view a:first-child{
+				border-right:1px solid #c8c7cc;
+			}
+			.spot{
+				width:30px;
+				height:30px;
+				display: inline-block;
+				vertical-align: middle;
+				margin-top:-1%;
+				margin-right:10px;
+				color:#808080;
+			}
+			.spot_icon1{
+				background: url("images/icon-nor-xianhuohuo@2x.png") no-repeat;
+				background-size: cover;
+			}
+			.spot_icon2{
+				background: url("images/icon-nor-qihuo-nor@2x.png") no-repeat;
+				background-size: cover;
+			}
+			#sc_spot a.active{
+				color:#FD612B!important;
+			}
+			#sc_spot a.active .spot_icon1{
+				background: url("images/icon-sel-xianhuo@2x.png") no-repeat;
+				background-size: cover;
+
+			}
+			#sc_spot a.active .spot_icon2{
+				background: url("images/icon-sel-qihuohuo@2x.png") no-repeat;
+				background-size: cover;
+
+			}
+			.spot_content{
+				line-height: 42px;
+				background-color:#F5F5F5;
+				color:#808080;
+				display: flex;
+				display: -webkit-flex;
+				width:100%;
+				padding:0 14px;
+
+			}
+			.spot_item1{
+				text-align: left;
+				font-weight: normal;
+				flex: 5;
+				-webkit-flex:5
+
+			}
+			.spot_item2{
+				text-align: right;
+				font-weight: normal;
+				flex:2.8;
+				-webkit-flex:2.8
+			}
+			.spot_item3{
+				text-align: right;
+				font-weight: normal;
+				flex:2.2;
+				-webkit-flex:2.2
+			}
+			.tr_down{
+				width: 0;
+				height: 0;
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-top: 11px solid #F65823;
+				display: inline-block;
+				margin-left:5px;
+			}
+			.tr_down1{
+				width: 0;
+				height: 0;
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-top: 11px solid #808080;
+				display: inline-block;
+				margin-left:5px;
+			}
+			.new_scroll_bg{
+				background-color: #ffffff!important;
+			}
+			.spot_brand{
+				line-height:29.5px;
+				height:29.5px;
+				padding:0 14px!important;
+				border-bottom: 1px solid #E5E5E5;
+				font-size: 13px;
+				color: #F65823;
+				font-weight:bold;
+			}
+			.spot_list{
+				list-style: none;
+			}
+			.brand_content{
+				display: flex;
+				display: -webkit-flex;
+				padding:0 14px;
+				height: 64px;
+				border-bottom:1px solid #e5e5e5;
+			}
+			.brand_item1{
+				flex: 5;
+				-webkit-flex:5;
+				line-height: 64px;
+			}
+			.brand_item2{
+				flex:2.8;
+				-webkit-flex:2.8;
+				line-height: 64px;
+				text-align: center;
+			}
+			.brand_item3{
+				flex: 2.2;
+				-webkit-flex:2.2;
+				text-align: right;
+				display: flex;
+				display: -webkit-flex;
+				justify-content: center;
+				-webkit-justify-content: center;
+				align-items: center;
+				-webkit-align-items: center;
+			}
+			.price_change{
+				width:45px;
+				height:22.5px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				text-align: center;
+				color: #ffffff;
+				line-height: 22.5px;
+				border-radius: 3px;
+				-webkit-border-radius: 3px;
+				padding:0 3px;
+			}
+			.item_box{
+				text-align: right;
+			}
+			.change1{
+				background-color:#F65823;
+			}
+			.change2{
+				background-color:#62AF20;
+			}
+			.clearfix:after {
+				display: table;
+				content: " ";
+				clear: both;
+			}
+			.fl{
+				float:left;
+			}
+			.fr{
+				float:right;
+			}
+			.spot_time{
+				font-size: 12px;
+				color: #bbbbbb;
+			}
+			.forward_content{
+				height:42px;
+				line-height: 42px;
+				display: flex;
+				display: -webkit-flex;
+				padding:0 14px;
+				font-size: 13px;
+				background: #F5F5F5;
+			}
+			.forward_item{
+				flex:1;
+				-webkit-flex:1;
+				text-align: center;
+			}
+			.for_l{
+				text-align: left!important;
+			}
+			.for_r{
+				text-align: right!important;
+			}
+			.forward_list li{
+				display: flex;
+				display: -webkit-flex;
+				height: 62px;
+				line-height: 62px;
+				padding:0 14px;
+				font-size: 15px;
+				font-weight: bold;
+			}
+			.forward_list li>div{
+				flex:1;
+				-webkit-flex:1;
+				text-align: center;
+			}
+			.for_right{
+				display: flex;
+				display: -webkit-flex;
+				justify-content: flex-end;
+				-webkit-justify-content: flex-end;
+				align-items: center;
+				-webkit-align-items: center;
+			}
+			.for_color{
+				color: #F65823;
+			}
 		</style>
 	</head>
 
 	<body>
 		<!--顶部增加DIV-->
-		<div class="qyn-top"></div>
+		<div class="qyn-top new_qyn_top"></div>
 		<!--底导航-->
 		<div class="footer_fixed">
 			<a id="main_market" class="mui-tab-item" href="index.html">
@@ -189,50 +456,169 @@
 			<!--行情-->
 			<div id="slider" class="mui-slider mui-fullscreen">
 				<div id="segmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative" style="height: 40px; margin-top: 25px;">
-					<div class="mui-scroll" style="width: 100%;">
-						<span id="sp_back" class="mui-icon mui-icon-left-nav mui-pull-left" style="color: #4D4D4D;"></span>
-						<a id="sc_copper" class="mui-control-item mui-active" href="#cc_copper" style="width: 20%; margin-right: 10%; margin-left: -10%;">沪铜</a>
-						<a id="sc_aluminum" class="mui-control-item" href="#cc_aluminum" style="width: 20%;">沪铝</a>
+					<div class="mui-scroll new_tab" style="width: 100%;">
+						<span id="sp_back" class="mui-icon mui-icon-left-nav mui-pull-left" style="color: #ffffff;"></span>
+						<a id=" " class="mui-control-item new_control_item no_right_border mui-active" href="#cc_copper" style="width: 20%;  margin-left: -10%;">铜行情</a>
+						<a id="sc_aluminum" class="mui-control-item new_control_item no_left_border" href="#cc_aluminum" style="width: 20%;">铝行情</a>
 					</div>
 
 				</div>
 				<div class="mui-slider-group">
 					<div id="cc_copper" class="mui-slider-item mui-control-content mui-active">
 						<div class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<!--<li>
-										<div class="black-price top-price">
-											<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>
+							<div class="mui-scroll new_scroll_bg">
+								<div class="new_table_view " id="sc_spot">
+
+										<a  href="javascript:void(0)" class="active"> <i class="spot spot_icon1 "></i>现货</a>
+
+
+										<a  href="javascript:void(0)"  class="foward"><i class="spot spot_icon2"></i>期货</a>
+
+									<!--<li>-->
+										<!--<div class="black-price top-price">-->
+											<!--<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>-->
+										<!--</div>-->
+									<!--</li>-->
+									<!--<li class="price-main">-->
+										<!--<span class="black-price" style="width: 20%;display:inline-block">沪铜1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>-->
+									<!--</li>-->
+								</div>
+								<div class="mui-slider-group" id="spot_content">
+									<div id="spot" class="mui-slider-item mui-control-content active">
+										<div class="spot_content">
+											<div class="spot_item1">品名/价格范围(元/吨)</div>
+											<div class="spot_item2">价格范围 <i class="tr_down"></i></div>
+											<div class="spot_item3">涨跌<i class="tr_down1"></i></div>
 										</div>
-									</li>
-									<li class="price-main">
-										<span class="black-price" style="width: 20%;display:inline-block">沪铜1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>
-									</li>-->
-								</ul>
+										<ul class="spot_list">
+											<li>
+												<div class="spot_brand">长江现货</div>
+												<div class="brand_content">
+													<div class="brand_item1">1#铜</div>
+													<div class="brand_item2">49555-50100</div>
+													<div class="brand_item3">
+														<div class="item_box clearfix">
+															<div class="price_change change1 fr">330</div>
+															<div class="spot_time fr">09-05 12:32</div>
+														</div>
+
+													</div>
+												</div>
+												<div class="brand_content">
+													<div class="brand_item1">铜 升贴水</div>
+													<div class="brand_item2">
+														贴10
+													</div>
+													<div class="brand_item3">
+														<div class="item_box clearfix">
+															<div class="price_change change2 fr">-10</div>
+															<div class="spot_time fr">09-05 13:32</div>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<div id="forward" class="mui-slider-item mui-control-content">
+										<div class="forward_content">
+											<div class="forward_item for_l">名称</div>
+											<div class="forward_item">最新</div>
+											<div class="forward_item">买价</div>
+											<div class="forward_item">卖价</div>
+											<div class="forward_item for_r">涨跌</div>
+										</div>
+										<ul class="forward_list">
+											<li>
+												<div class="for_l">沪铜1708</div>
+												<div class="for_color">50110</div>
+												<div>50100</div>
+												<div>50120</div>
+												<div class="for_right clearfix">
+														<div class="price_change change1">+20</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div id="cc_aluminum" class="mui-slider-item mui-control-content">
 						<div class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<!--<li>
-										<div class="black-price top-price">
-											<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>
+							<div class="mui-scroll new_scroll_bg">
+								<div class="new_table_view " id="sc_spot">
+
+									<a  href="javascript:void(0)" class="active"> <i class="spot spot_icon1 "></i>现货</a>
+
+
+									<a  href="javascript:void(0)"  class="foward"><i class="spot spot_icon2"></i>期货</a>
+
+									<!--<li>-->
+									<!--<div class="black-price top-price">-->
+									<!--<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>-->
+									<!--</div>-->
+									<!--</li>-->
+									<!--<li class="price-main">-->
+									<!--<span class="black-price" style="width: 20%;display:inline-block">沪铜1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>-->
+									<!--</li>-->
+								</div>
+								<div class="mui-slider-group" id="spot_content">
+									<div id="spot" class="mui-slider-item mui-control-content active">
+										<div class="spot_content">
+											<div class="spot_item1">品名/价格范围(元/吨)</div>
+											<div class="spot_item2">价格范围 <i class="tr_down"></i></div>
+											<div class="spot_item3">涨跌<i class="tr_down1"></i></div>
 										</div>
-									</li>
-									<li class="price-main">
-										<div>
-											<span class="black-price" style="width: 20%; display:inline-block">沪铝1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>
+										<ul class="spot_list">
+											<li>
+												<div class="spot_brand">长江现货</div>
+												<div class="brand_content">
+													<div class="brand_item1">1#铜</div>
+													<div class="brand_item2">49555-50100</div>
+													<div class="brand_item3">
+														<div class="item_box clearfix">
+															<div class="price_change change1 fr">330</div>
+															<div class="spot_time fr">09-05 12:32</div>
+														</div>
+
+													</div>
+												</div>
+												<div class="brand_content">
+													<div class="brand_item1">铜 升贴水</div>
+													<div class="brand_item2">
+														贴10
+													</div>
+													<div class="brand_item3">
+														<div class="item_box clearfix">
+															<div class="price_change change2 fr">-10</div>
+															<div class="spot_time fr">09-05 13:32</div>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<div id="forward" class="mui-slider-item mui-control-content">
+										<div class="forward_content">
+											<div class="forward_item for_l">名称</div>
+											<div class="forward_item">最新</div>
+											<div class="forward_item">买价</div>
+											<div class="forward_item">卖价</div>
+											<div class="forward_item for_r">涨跌</div>
 										</div>
-									</li>
-									<li class="price-main">
-										<div>
-											<span class="black-price" style="width: 20%; display:inline-block">沪铝1611</span><span class="green-price" style="width: 80%; "><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>
-										</div>
-									</li>-->
-								</ul>
+										<ul class="forward_list">
+											<li>
+												<div class="for_l">沪铜1708</div>
+												<div class="for_color">50110</div>
+												<div>50100</div>
+												<div>50120</div>
+												<div class="for_right clearfix">
+													<div class="price_change change1">+20</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -474,7 +860,17 @@
 				}
 			}
 
-			/*<!--判断行情页-->*/
+			$("#sc_spot a").on('click',function(){
+				var oIndex = $(this).index();
+				$(this).addClass('active').siblings().removeClass('active')
+				$("#spot_content>div").eq(oIndex).show().siblings().hide();
+				if(oIndex == 0){
+					console.log(1)
+				}else if(oIndex == 1){
+					console.log(2)
+				}
+
+			})
 		</script>
 
 	</body>
