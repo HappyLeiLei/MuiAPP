@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/all-css.css" />\
+		<link rel="stylesheet" href="css/detail.css">
+		<title>行情</title>
+
+	</head>
+
+	<body>
+		<!--顶部增加DIV-->
+		<div class="qyn-top new_qyn_top"></div>
+		<!--底导航-->
+
+		<!--底导航-->
+
+		<div class="mui-content mui-scroll-wrapper">
+
+			<!--行情-->
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="segmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative" style="height: 40px; margin-top: 25px;">
+					<div class="mui-scroll new_tab" style="width: 100%;">
+						<span id="sp_back" class="mui-icon mui-icon-left-nav mui-pull-left" style="color: #ffffff;"></span>
+
+					</div>
+					<div class="de_title">
+						<div class="de_name">长江现货1#铜</div>
+						<div class="de_time">2017-10-02</div>
+					</div>
+
+				</div>
+				<div class="de_content">
+					<div class="de_item">
+						<div class="de_lh mb6">价格范围</div>
+						<div class="de_size1">55000-56000</div>
+					</div>
+					<div class="de_item">
+						<div class="de_lh">均价</div>
+						<div class="de_size2">55000</div>
+					</div>
+					<div class="de_item">
+						<div class="de_lh">涨跌</div>
+						<div class="de_size3">+300</div>
+					</div>
+				</div>
+				<div class="mt9 high_box">
+					<div class="de_month" id="de_month">
+						<a href="javascript:void(0)" class="month_item active">一个月</a>
+						<a href="javascript:void(0)" class="month_item">三个月</a>
+						<a href="javascript:void(0)" class="month_item">六个月</a>
+					</div>
+					<div id="container">
+
+					</div>
+					<div class="de_data">
+						<div class="data_item1">
+							日期
+						</div>
+						<div class="data_item2">
+							均价
+						</div>
+						<div class="data_item1">
+							涨跌
+						</div>
+					</div>
+					<ul class="data_list">
+						<li >
+							<div class="li_item1">9月30日</div>
+							<div class="li_item2">35500</div>
+							<div class="li_item1 item_cen">
+								<div class="price_change change1">+330</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<!-- off-canvas backdrop -->
+
+		</div>
+
+		<script type="text/javascript " src="js/mui.min.js "></script>
+		<script type="text/javascript " src="js/mui.pullToRefresh.js "></script>
+		<script type="text/javascript " src="js/mui.pullToRefresh.material.js "></script>
+		<script type="text/javascript " src="js/jquery-1.11.1.min.js "></script>
+		<script type="text/javascript " src="js/json2.min.js "></script>
+		<script type="text/javascript " src="js/constant.js "></script>
+		<script type="text/javascript " src="js/common.js "></script>
+
+		<script type="text/javascript" charset="utf-8">
+			var dataDivId = ["cc_copper", "cc_aluminum"];
+			var priceType = ["cu", "al"];
+			var cWebView;
+			var tabIdx = 0;
+			var timerID;
+			mui.init({
+				swipeBack: false,
+				// 预加载详情页
+				preloadPages: [{
+					/*主界面*/
+					id: LS_P_MAIN,
+					url: LS_P_MAIN
+				}, {
+					/*51商城*/
+					id: LS_P_MAIN_MALL,
+					url: LS_P_MAIN_MALL
+				}, {
+					/*我的*/
+					id: LS_P_MAIN_MY,
+					url: LS_P_MAIN_MY
+				}]
+			});
+			/*<!--判断行情页-->*/
+
+			function initPage() {
+
+				//阻尼系数
+				var deceleration = mui.os.ios ? 0.003 : 0.0009;
+				mui('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration: deceleration
+				});
+				//循环初始化所有下拉刷新，上拉加载。
+				tabIdx = 0;
+				/*mui.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+					mui(pullRefreshEl).pullToRefresh({
+						down: {
+							callback: function() {
+								var self = this;
+								var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+								if(tip) {
+									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE; //MSG_DATA_PULL_LOAD;
+									//tip.style.display = "block";
+									setTimeout(function() {
+										tip.style.display = "none";
+									}, C_TIME_WAIT);
+								}
+								ShowData();
+								self.endPullDownToRefresh();
+								self.refresh(true);
+							}
+						},
+						up: {
+							callback: function() {
+								var self = this;
+								self.endPullUpToRefresh(true);
+								var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+								if(tip) {
+									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
+									setTimeout(function() {
+										tip.style.display = "none";
+									}, C_TIME_WAIT);
+								}
+							}
+						}
+					});
+				});*/
+				//监听左右拖动事件
+				document.getElementById('slider').addEventListener('slide', function(e) {
+					tabIdx = e.detail.slideNumber;
+					//ShowData();
+					ReloadAutoData();
+				});
+				//监听选项卡点击事件
+				document.getElementById('sc_copper').addEventListener('tap', function(e) {
+					tabIdx = 0;
+					//ShowData();
+					ReloadAutoData();
+				});
+				document.getElementById('sc_aluminum').addEventListener('tap', function(e) {
+					tabIdx = 1;
+					//ShowData();
+					ReloadAutoData();
+				});
+
+				document.getElementById("sp_back").addEventListener('tap', function(e) {
+					mui.back();
+				});
+
+				//选项卡点击事件
+				mui('.footer_fixed ').on('tap', 'a', function(e) {
+					var targetTab = this.getAttribute('href');
+					if(targetTab != LS_P_MAIN_PRICE) {
+						if(targetTab === LS_P_MAIN_MY)
+							OpenPage(targetTab, "my_check_login");
+						else
+							OpenPage(targetTab);
+					}
+
+				}, false);
+
+			}
+
+//			mui.ready(function() {
+//					initPage();
+//					AutoLoadData();
+//			});
+
+			mui.plusReady(function() {
+				//plus.navigator.getStatusbarHeight();//获取状态栏高度
+				//plus.screen.lockOrientation("portrait-primary ");
+				initPage();
+				window.addEventListener('price_showlist', function(event) {
+					tabIdx = event.detail.priceTypeIdx || 0;
+					if(tabIdx !== 1) tabIdx = 0;
+					SelectSlider(tabIdx);
+					ReloadAutoData();
+				});
+				AutoLoadData();
+				//绘制顶部图标
+				cWebView = plus.webview.currentWebview();
+				//开启回弹
+				cWebView.setStyle({
+					bounce: "vertical",
+					bounceBackground: "#efeff4"
+				});
+			});
+
+			function SelectSlider(idx) {
+				var gallery = mui('.mui-slider');
+				gallery.slider().gotoItem(idx);
+			}
+
+			function AutoLoadData() {
+				ShowData();
+				timerID = setTimeout(AutoLoadData, 2000);
+			}
+			
+			function ReloadAutoData(){
+				if(timerID) clearTimeout(timerID);
+				AutoLoadData();
+			}
+
+			/*刷新页面，初始化排序和*/
+			function ShowData() {
+				var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+				if(tip) {
+					tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
+					//setTimeout(function() {
+					tip.style.display = "none";
+					//}, C_TIME_WAIT);
+				}
+
+				//var wd = plus.nativeUI.showWaiting();
+				jQuery.ajax({
+					type: "GET",
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url: C_URL + C_M_LAST_PRICE,
+					data: {
+						"type": priceType[tabIdx]
+					},
+					dataType: "json",
+					timeout: C_TIMEOUT,
+					success: function(response) {
+//						console.log(response);
+						/*var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
+						if(tip) {
+							tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
+							setTimeout(function() {
+								tip.style.display = "none";
+							}, C_TIME_WAIT);
+						}*/
+						bindData(response, dataDivId[tabIdx]);
+					},
+					error: function(xhr, type, errorThrown) {
+						//ShowToast(MSG_DATA_ERROR);
+					}
+				});
+			}
+
+			function bindData(response, targetID) {
+				if(response != null) {
+					var dataList = response.data || [];
+//					console.log(dataList.length);
+					if(dataList.length > 0 && dataList[0].CIRCLENO != null) {
+						if((tabIdx === 0 && dataList[0].CIRCLENO.indexOf("CU") >= 0) ||
+							(tabIdx === 1 && dataList[0].CIRCLENO.indexOf("AL") >= 0)) {
+								
+							var table = document.body.querySelector('#' + targetID + ' ul');
+							table.innerHTML = '';
+							var templateHtml = '';
+							templateHtml += '<li>';
+							templateHtml += '<div class="black-price top-price">';
+							templateHtml += '<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>';
+							templateHtml += '</div>';
+							templateHtml += '</li>';
+							table.innerHTML = templateHtml;
+							mui.each(dataList, function(index, item) {
+								var li = document.createElement('li');
+								li.className = 'price-main';
+
+								templateHtml = '';
+								templateHtml += '<span class="black-price" style="width: 20%; display:inline-block">' + item.CIRCLENO.replace("CU", "沪铜").replace("AL", "沪铝") + '</span>';
+								var upDown = parseInt(item.UPORDOWN);
+								if(upDown === 0) templateHtml += '<span class="black-price" style="width: 80%;">';
+								else if(upDown > 0) templateHtml += '<span class="red-price" style="width: 80%;">';
+								else templateHtml += '<span class="green-price"  style="width: 80%;">';
+								templateHtml += '<span class="top-price-width0">' + parseInt(item.CONTPRICE) + '</span>';
+								templateHtml += '<span class="top-price-width0">' + (upDown > 0 ? '+' : '') + upDown + '</span>';
+								templateHtml += '<span class="top-price-width0">' + parseInt(item.BUYERPRICE) + '</span>';
+								templateHtml += '<span class="top-price-width0">' + parseInt(item.SELLERPRICE) + '</span>';
+								templateHtml += '</span>';
+								li.innerHTML = templateHtml;
+
+								table.appendChild(li);
+							});
+						}
+					}
+				}
+			}
+
+			$("#sc_spot a").on('click',function(){
+				var oIndex = $(this).index();
+				$(this).addClass('active').siblings().removeClass('active')
+				$("#spot_content>div").eq(oIndex).show().siblings().hide();
+				if(oIndex == 0){
+					console.log(1)
+				}else if(oIndex == 1){
+					console.log(2)
+				}
+
+			})
+		</script>
+		<script src="js/highchart.js"></script>
+		<!--<script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>-->
+		<script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+		<script>
+			$(function () {
+				$.getJSON('https://data.jianshukeji.com/jsonp?filename=json/usdeur.json&callback=?', function (data) {
+					$('#container').highcharts({
+						chart: {
+							zoomType: 'x'
+						},
+						title: {
+							text: '美元兑欧元汇率走势图'
+						},
+						subtitle: {
+							text: document.ontouchstart === undefined ?
+									'鼠标拖动可以进行缩放' : '手势操作进行缩放'
+						},
+						xAxis: {
+							type: 'datetime',
+							dateTimeLabelFormats: {
+								millisecond: '%H:%M:%S.%L',
+								second: '%H:%M:%S',
+								minute: '%H:%M',
+								hour: '%H:%M',
+								day: '%m-%d',
+								week: '%m-%d',
+								month: '%Y-%m',
+								year: '%Y'
+							}
+						},
+						tooltip: {
+							dateTimeLabelFormats: {
+								millisecond: '%H:%M:%S.%L',
+								second: '%H:%M:%S',
+								minute: '%H:%M',
+								hour: '%H:%M',
+								day: '%Y-%m-%d',
+								week: '%m-%d',
+								month: '%Y-%m',
+								year: '%Y'
+							}
+						},
+						yAxis: {
+							title: {
+								text: ''
+							},
+							type: 'column',
+						},
+						plotOptions: {
+							area: {
+								fillColor: {
+									linearGradient: {
+										x1: 0,
+										y1: 0,
+										x2: 0,
+										y2: 1
+									},
+									stops: [
+										[0, Highcharts.getOptions().colors[0]],
+										[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+									]
+								},
+								marker: {
+									radius: 2
+								},
+								lineWidth: 1,
+								states: {
+									hover: {
+										lineWidth: 1
+									}
+								},
+								threshold: null
+							}
+						},
+						series: [{
+							type: 'area',
+							name: '',
+							data: data
+						}]
+					});
+				});
+			});
+		</script>
+		<script>
+			$(function(){
+				$("#de_month a").on('click',function(){
+					$(this).addClass('active').siblings().removeClass('active')
+				})
+			})
+		</script>
+	</body>
+
+</html>
