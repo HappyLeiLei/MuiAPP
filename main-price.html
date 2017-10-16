@@ -265,7 +265,7 @@
 
 			}
 			.spot_item2{
-				text-align: right;
+				text-align: center;
 				font-weight: normal;
 				flex:2.8;
 				-webkit-flex:2.8
@@ -325,7 +325,7 @@
 				flex:2.8;
 				-webkit-flex:2.8;
 				line-height: 64px;
-				text-align: center;
+				text-align:center;
 			}
 			.brand_item3{
 				flex: 2.2;
@@ -333,8 +333,8 @@
 				text-align: right;
 				display: flex;
 				display: -webkit-flex;
-				justify-content: center;
-				-webkit-justify-content: center;
+				justify-content:flex-end;
+				-webkit-justify-content: flex-end;
 				align-items: center;
 				-webkit-align-items: center;
 			}
@@ -483,8 +483,8 @@
 										<!--<span class="black-price" style="width: 20%;display:inline-block">沪铜1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>-->
 									<!--</li>-->
 								</div>
-								<div class="mui-slider-group" id="spot_content">
-									<div id="spot" class="mui-slider-item mui-control-content active">
+								<div class="mui-slider-group" id="spot_content2">
+									<div id="spot2" class="mui-slider-item mui-control-content active">
 										<div class="spot_content">
 											<div class="spot_item1">品名/价格范围(元/吨)</div>
 											<div class="spot_item2">价格范围 <i class="tr_down"></i></div>
@@ -497,9 +497,14 @@
 													<div class="brand_item1">1#铜</div>
 													<div class="brand_item2">49555-50100</div>
 													<div class="brand_item3">
-														<div class="item_box clearfix">
-															<div class="price_change change1 fr">330</div>
-															<div class="spot_time fr">09-05 12:32</div>
+														<div class="item_box">
+															<div class="clearfix">
+																<div class="price_change change1 fr">330</div>
+															</div>
+															<div class="clearfix">
+																<div class="spot_time fr">09-05 12:32</div>
+															</div>
+
 														</div>
 
 													</div>
@@ -510,16 +515,21 @@
 														贴10
 													</div>
 													<div class="brand_item3">
-														<div class="item_box clearfix">
-															<div class="price_change change2 fr">-10</div>
-															<div class="spot_time fr">09-05 13:32</div>
+														<div class="item_box">
+															<div class="clearfix">
+																<div class="price_change change2 fr">-10</div>
+															</div>
+															<div class="clearfix">
+																<div class="spot_time fr">09-05 13:32</div>
+															</div>
+
 														</div>
 													</div>
 												</div>
 											</li>
 										</ul>
 									</div>
-									<div id="forward" class="mui-slider-item mui-control-content">
+									<div id="forward2" class="mui-slider-item mui-control-content">
 										<div class="forward_content">
 											<div class="forward_item for_l">名称</div>
 											<div class="forward_item">最新</div>
@@ -546,7 +556,7 @@
 					<div id="cc_aluminum" class="mui-slider-item mui-control-content">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll new_scroll_bg">
-								<div class="new_table_view " id="sc_spot">
+								<div class="new_table_view " id="sc_spot2">
 
 									<a  href="javascript:void(0)" class="active"> <i class="spot spot_icon1 "></i>现货</a>
 
@@ -660,7 +670,6 @@
 					url: LS_P_MAIN_MY
 				}]
 			});
-			/*<!--判断行情页-->*/
 
 			function initPage() {
 
@@ -872,7 +881,21 @@
 
 			})
 		</script>
+		<script>
+			load()
+			function load(){
+				jQuery.ajax({
+					type:'GET',
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url: C_URL + C_M_MARKET_LIST ,
+					dataType:'json',
+					success:function(response){
+						console.log(response)
+					}
 
+				})
+			}
+		</script>
 	</body>
 
 </html>
