@@ -90,6 +90,7 @@ function initPage() {
 	//监听选项卡点击事件
 	document.getElementById('sc_copper_rod').addEventListener('tap', function(e) {
 		tabIdx = 0;
+		ExchangeHtml();
 		hasclass = true;
 //		ChangeFilterIconBySlide();
 		ReloadPriceAutoData();
@@ -98,6 +99,7 @@ function initPage() {
 	});
 	document.getElementById('sc_electrolytic_copper').addEventListener('tap', function(e) {
 		tabIdx = 1;
+		ExchangeHtml();
 		hasclass = true;
 //		ChangeFilterIconBySlide();
 		ReloadPriceAutoData();
@@ -106,6 +108,7 @@ function initPage() {
 	});
 	document.getElementById('sc_aluminum_rod').addEventListener('tap', function(e) {
 		tabIdx = 2;
+		ExchangeHtml();
 		hasclass = true;
 //		ChangeFilterIconBySlide();
 		ReloadPriceAutoData();
@@ -114,6 +117,7 @@ function initPage() {
 	});
 	document.getElementById('sc_aluminum_ingot').addEventListener('tap', function(e) {
 		tabIdx = 3;
+		ExchangeHtml();
 		hasclass = true;
 //		ChangeFilterIconBySlide()
 		ReloadPriceAutoData();;
@@ -135,6 +139,7 @@ function initPage() {
 			});
 		});
 	}
+	//重置筛选设置
 	document.getElementById('btn_order_resetSearch').addEventListener('tap', function() {
 		if(localStorage.getItem("showproduct") == "" || localStorage.getItem("showproduct") == null) {
 			ChangeFilterIcon(false);
@@ -154,7 +159,7 @@ function initPage() {
 		}
 
 	});
-	
+	//筛选
 	document.getElementById('btn_order_search').addEventListener('tap', function() {
 		if(pSpecId[tabIdx].length > 0 && pSpecId[tabIdx] !== "nonumber,nonumber,nonumber,nonumber") {
 			ChangeFilterIcon(true);
@@ -168,20 +173,6 @@ function initPage() {
 		ShowData(true, true);
 	});
 
-	/*document.getElementById("sel_type_name").addEventListener("change", function() {
-		pSpecId[tabIdx] = "";
-		pVid[tabIdx] = "";
-		ChangeFilterIcon(false);
-		cPages[tabIdx] = 1;
-		pCid[tabIdx] = this.value;
-		ShowData(true, true);
-	}, false);*/
-
-	/*document.getElementById("sel_orderby").addEventListener("change", function() {
-		pSortNum[tabIdx] = this.value;
-		cPages[tabIdx] = 1;
-		GetCurrentPageData(true);
-	}, false);*/
 	BindTapEventToTypeSelectDiv();
 
 	BindTapEventToSortSelectDiv();
@@ -248,7 +239,8 @@ function ChangeFilterIconBySlide() {
 
 mui.ready(function() {
 	localStorage.removeItem("localname");
-	initPage();
+	ExchangeHtml();
+//	AutoLoadPriceData();
 	ShowData(true, true);
 	demoPullToRefresh.init(PullToRefreshTools.skin.defaults);
 });
@@ -397,7 +389,7 @@ function ShowData(isInitCurrentPage, isInitSort) {
 //	}
 	var param; //商品详情发送内容
 	var loacaltype = document.getElementById("a_sel_sort_span");
-		console.log(loacaltype.innerText);
+//		console.log(loacaltype.innerText);
 		localStorage.setItem("localtype",loacaltype.innerText);
 	if(isFirst || pPid[tabIdx] === "-1") {
 		param = {
@@ -442,6 +434,7 @@ function ShowData(isInitCurrentPage, isInitSort) {
 	for(p in param) {
 		console.info("[" + LS_P_MAIN + " ShowData] param." + p + " is:" + param[p]);
 	}*/
+	console.log(param);
 	jQuery.ajax({
 		type: "GET",
 		contentType: "application/x-www-form-urlencoded; charset=utf-8",
@@ -500,7 +493,7 @@ function HaveData(data, table) {
 }
 
 function bingData(response, targetID, isInitCurrentPage) {
-	//				console.log(response);
+//					console.log(response);
 	var table = document.body.querySelector('#' + targetID + ' ul');
 	document.getElementById("div_search_item").innerHTML = "";
 	var selObj = document.getElementById("a_sel_type"); //document.getElementById("sel_type_name");
@@ -903,7 +896,7 @@ function BindTapEventToSearchItem() {
 		BindParam(document.querySelectorAll("#div_search_item button[nati].search-item-button-select"));
 		pVid[tabIdx] = pPid[tabIdx] + "," + pCid[tabIdx] + pVid[tabIdx];
 		if(pSpecId[tabIdx].length > 0) pSpecId[tabIdx] = pSpecId[tabIdx].substr(1);
-		ShowData(true, true);
+//		ShowData(true, true);
 	});
 }
 
@@ -931,7 +924,7 @@ function BindTapEventToSearchProduct() {
 		pSpecId = ["", "", "", ""];
 		pCid[tabIdx] = this.getAttribute("ccid");
 		localStorage.setItem("showproduct", pCid[tabIdx]);
-		ShowData(true, true);
+//		ShowData(true, true);
 	});
 }
 
@@ -960,47 +953,48 @@ function ReloadPriceAutoData() {
 }
 //行情价格
 function ShowPriceData() {
+	
 	var pIdx = 0;
 	if(tabIdx === 2 || tabIdx === 3) pIdx = 1;
-	jQuery.ajax({
-		type: "GET",
-		contentType: "application/x-www-form-urlencoded; charset=utf-8",
-		url: C_URL + C_M_LAST_PRICE,
-		data: {
-			"type": priceType[pIdx]
-		},
-		dataType: "json",
-		timeout: C_TIMEOUT,
-		success: function(response) {
-			if(response != null) {
-				var item = response.data[0] || {};
-				if((pIdx === 0 && item.CIRCLENO.indexOf("CU") >= 0) ||
-					(pIdx === 1 && item.CIRCLENO.indexOf("AL") >= 0)) {
-					if(item.CIRCLENO.indexOf("CU") >= 0) {
-						perPrices[pIdx].priceName = item.name;
-						document.getElementById("sp_priceName").innerText = item.name;
-					} else if(item.CIRCLENO.indexOf("AL") >= 0) {
-						perPrices[pIdx].priceName = item.name;
-						document.getElementById("sp_priceName").innerText = item.name;
-					}
-					if(item.UPORDOWN >= 0) {
-						$(".green").css("color", "#FF3131");
-					} else {
-						$(".green").css("color", "#66AB1C");
-					}
-					perPrices[pIdx].newPrice = parseInt(item.CONTPRICE);
-					perPrices[pIdx].sellPrice = parseInt(item.SELLERPRICE);
-					perPrices[pIdx].buyPrice = parseInt(item.BUYERPRICE);
-					document.getElementById("sp_newPrice").innerText = parseInt(item.CONTPRICE);
-					document.getElementById("sp_sellPrice").innerText = parseInt(item.SELLERPRICE);
-					document.getElementById("sp_buyPrice").innerText = parseInt(item.BUYERPRICE);
-				}
-			}
-		},
-		error: function(xhr, type, errorThrown) {
-			//ShowToast(MSG_DATA_ERROR);
-		}
-	});
+//	jQuery.ajax({
+//		type: "GET",
+//		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+//		url: C_URL + C_M_LAST_PRICE,
+//		data: {
+//			"type": priceType[pIdx]
+//		},
+//		dataType: "json",
+//		timeout: C_TIMEOUT,
+//		success: function(response) {
+//			if(response != null) {
+//				var item = response.data[0] || {};
+//				if((pIdx === 0 && item.CIRCLENO.indexOf("CU") >= 0) ||
+//					(pIdx === 1 && item.CIRCLENO.indexOf("AL") >= 0)) {
+//					if(item.CIRCLENO.indexOf("CU") >= 0) {
+//						perPrices[pIdx].priceName = item.name;
+//						document.getElementById("sp_priceName").innerText = item.name;
+//					} else if(item.CIRCLENO.indexOf("AL") >= 0) {
+//						perPrices[pIdx].priceName = item.name;
+//						document.getElementById("sp_priceName").innerText = item.name;
+//					}
+//					if(item.UPORDOWN >= 0) {
+//						$(".green").css("color", "#FF3131");
+//					} else {
+//						$(".green").css("color", "#66AB1C");
+//					}
+//					perPrices[pIdx].newPrice = parseInt(item.CONTPRICE);
+//					perPrices[pIdx].sellPrice = parseInt(item.SELLERPRICE);
+//					perPrices[pIdx].buyPrice = parseInt(item.BUYERPRICE);
+//					document.getElementById("sp_newPrice").innerText = parseInt(item.CONTPRICE);
+//					document.getElementById("sp_sellPrice").innerText = parseInt(item.SELLERPRICE);
+//					document.getElementById("sp_buyPrice").innerText = parseInt(item.BUYERPRICE);
+//				}
+//			}
+//		},
+//		error: function(xhr, type, errorThrown) {
+//			//ShowToast(MSG_DATA_ERROR);
+//		}
+//	});
 }
 //品名选择
 function BindTapEventToTypeSelectDiv() {
@@ -1035,7 +1029,7 @@ function BindTapEventToTypeSelectDiv() {
 			ChangeFilterIcon(false);
 			cPages[tabIdx] = 1;
 			pCid[tabIdx] = selItem.getAttribute("dataid");
-			ShowData(true, true);
+//			ShowData(true, true);
 		}
 		mui('#div_sel_type').popover('hide');
 	});
@@ -1047,7 +1041,7 @@ function BindTapEventToTypeSelectDiv() {
 //交货地发货地仓库点击动作
 function BindTapEventToSortSelectDiv() {
 	document.getElementById('a_sel_sort').addEventListener('tap', function(e) {
-		console.log(localStorage.getItem("localname"));
+//		console.log(localStorage.getItem("localname"));
 		//调整
 		if(localStorage.getItem("localname") == "" ||localStorage.getItem("localname") == null){
 			$("li[dataid=1]").html('<span>全部</span><span selimg="" style="float: right;"><img src="images/duigou.png" style="height: 18px;margin-top: 8px;"/></span>')
@@ -1114,4 +1108,65 @@ function reloadpage() {
 	document.getElementById('reloadpage' + tabIdx).addEventListener('tap', function(e) {
 		location.reload();
 	});
+}
+
+//改变页面
+function ExchangeHtml(){
+	if(tabIdx == 0){
+		$("#dianjietongdata").html("");
+		$("#lvdingdata").html("");
+		var htmldata = '<div id="div_price" class="div-price"><span id="sp_price" class="sp-price">'
+		+'<span id="sp_priceName" class="sp-price-item"></span><span class="sp-price-item">最新价<span>'
+		+'<span style="font-family:Arial;" class="green">&yen;</span><span id="sp_newPrice" class="green">--</span></span></span>'
+	    +'<span class="sp-price-item">卖价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_sellPrice" class="green">--</span></span></span>'
+		+'<span class="sp-price-item">买价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_buyPrice" class="green">--</span></span></span></span></div>'
+		+'<div class="screen-main-btn" id="yikou_keyi"><a href="" class="screen-btn-items mui-active">'
+		+'<span class="screen-btn-icon screen-btn-icon1"></span>一口价</a><a href="" class="screen-btn-items "><span class="screen-btn-icon screen-btn-icon2"></span>可议价</a></div>'
+		+'<div class="sel-sort"><div id="a_sel_type" class="sel-name" selVal=""><span id="a_sel_type_span">品名</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span>'
+		+'</div><div id="a_sel_sort" class="sel-name" selVal="1"><span id="a_sel_sort_span">交货地</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span></div><div class="sel-name" style="border-color: white;">'
+		+'<a class="search" href="#order_search_canva" style="line-height: 16px;"><span class="search-in" style="line-height: 16px;">筛选</span><span id="span_search_icon" class="search-insfo" style="position: absolute;right:10px;"></span></a></div></div>';
+		$("#tonggandata").html(htmldata);
+	}else if(tabIdx == 1){
+		$("#tonggandata").html("");
+		$("#lvdingdata").html("");
+		$("#lvgandata").html("");
+		var htmldata = '<div id="div_price" class="div-price"><span id="sp_price" class="sp-price">'
+		+'<span id="sp_priceName" class="sp-price-item"></span><span class="sp-price-item">最新价<span>'
+		+'<span style="font-family:Arial;" class="green">&yen;</span><span id="sp_newPrice" class="green">--</span></span></span>'
+	    +'<span class="sp-price-item">卖价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_sellPrice" class="green">--</span></span></span>'
+		+'<span class="sp-price-item">买价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_buyPrice" class="green">--</span></span></span></span></div>'
+		+'<div class="screen-main-btn" id="yikou_keyi"><a href="" class="screen-btn-items mui-active">'
+		+'<span class="screen-btn-icon screen-btn-icon1"></span>一口价</a><a href="" class="screen-btn-items "><span class="screen-btn-icon screen-btn-icon2">'
+		+'</span>可议价</a></div>'+'<div class="sel-sort"><div id="a_sel_type" class="sel-name" selVal=""><span id="a_sel_type_span">品名</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span>'
+		+'</div><div id="a_sel_sort" class="sel-name" selVal="1"><span id="a_sel_sort_span">交货地</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span></div><div class="sel-name" style="border-color: white;">'
+		+'<a class="search" href="#order_search_canva" style="line-height: 16px;"><span class="search-in" style="line-height: 16px;">筛选</span><span id="span_search_icon" class="search-insfo" style="position: absolute;right:10px;"></span></a></div></div>';
+		$("#dianjietongdata").html(htmldata);
+	}else if(tabIdx == 2){
+		$("#tonggandata").html("");
+		$("#dianjietongdata").html("");
+		$("#lvdingdata").html("");
+		var htmldata = '<div id="div_price" class="div-price"><span id="sp_price" class="sp-price">'
+		+'<span id="sp_priceName" class="sp-price-item"></span><span class="sp-price-item">最新价<span>'
+		+'<span style="font-family:Arial;" class="green">&yen;</span><span id="sp_newPrice" class="green">--</span></span></span>'
+	    +'<span class="sp-price-item">卖价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_sellPrice" class="green">--</span></span></span>'
+	    +'<span class="sp-price-item">买价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_buyPrice" class="green">--</span></span></span></span>'
+		+'<span style="display: block;">长江现货铝<span class="sp-price-item">均价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="" class="green">--</span></span></span></span></div>'+'<div class="sel-sort"><div id="a_sel_type" class="sel-name" selVal=""><span id="a_sel_type_span">品名</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span>'
+		+'</div><div id="a_sel_sort" class="sel-name" selVal="1"><span id="a_sel_sort_span">交货地</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span></div><div class="sel-name" style="border-color: white;">'
+		+'<a class="search" href="#order_search_canva" style="line-height: 16px;"><span class="search-in" style="line-height: 16px;">筛选</span><span id="span_search_icon" class="search-insfo" style="position: absolute;right:10px;"></span></a></div></div>';
+		$("#lvgandata").html(htmldata);
+	}else if(tabIdx == 3){
+		$("#tonggandata").html("");
+		$("#dianjietongdata").html("");
+		$("#lvgandata").html("");
+		var htmldata = '<div id="div_price" class="div-price"><span id="sp_price" class="sp-price">'
+		+'<span id="sp_priceName" class="sp-price-item"></span><span class="sp-price-item">最新价<span>'
+		+'<span style="font-family:Arial;" class="green">&yen;</span><span id="sp_newPrice" class="green">--</span></span></span>'
+	    +'<span class="sp-price-item">卖价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_sellPrice" class="green">--</span></span></span>'
+	    +'<span class="sp-price-item">买价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="sp_buyPrice" class="green">--</span></span></span></span>'
+		+'<span style="display: block;">长江现货铝<span class="sp-price-item">均价<span><span style="font-family:Arial; " class="green">&yen;</span><span id="" class="green">--</span></span></span></span></div>'+'<div class="sel-sort"><div id="a_sel_type" class="sel-name" selVal=""><span id="a_sel_type_span">品名</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span>'
+		+'</div><div id="a_sel_sort" class="sel-name" selVal="1"><span id="a_sel_sort_span">交货地</span> <span class="mui-icon mui-icon mui-icon-arrowdown"></span></div><div class="sel-name" style="border-color: white;">'
+		+'<a class="search" href="#order_search_canva" style="line-height: 16px;"><span class="search-in" style="line-height: 16px;">筛选</span><span id="span_search_icon" class="search-insfo" style="position: absolute;right:10px;"></span></a></div></div>';
+		$("#lvdingdata").html(htmldata);
+	}
+	initPage();
 }
