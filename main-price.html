@@ -247,6 +247,19 @@
 				background-size: cover;
 
 			}
+			#sc_spot2 a.active{
+				color:#FD612B!important;
+			}
+			#sc_spot2 a.active .spot_icon1{
+				background: url("images/icon-sel-xianhuo@2x.png") no-repeat;
+				background-size: cover;
+
+			}
+			#sc_spot2 a.active .spot_icon2{
+				background: url("images/icon-sel-qihuohuo@2x.png") no-repeat;
+				background-size: cover;
+
+			}
 			.spot_content{
 				line-height: 42px;
 				background-color:#F5F5F5;
@@ -284,6 +297,8 @@
 				border-top: 11px solid #F65823;
 				display: inline-block;
 				margin-left:5px;
+				transition:all 0.5s linear;
+				-webkit-transition:all 0.5s linear;
 			}
 			.tr_down1{
 				width: 0;
@@ -293,6 +308,10 @@
 				border-top: 11px solid #808080;
 				display: inline-block;
 				margin-left:5px;
+			}
+			.tr_up{
+				transform:rotate(-180deg);
+				-webkit-transform:rotate(-180deg);
 			}
 			.new_scroll_bg{
 				background-color: #ffffff!important;
@@ -339,7 +358,7 @@
 				-webkit-align-items: center;
 			}
 			.price_change{
-				width:45px;
+				width:50px;
 				height:22.5px;
 				white-space: nowrap;
 				overflow: hidden;
@@ -469,10 +488,10 @@
 							<div class="mui-scroll new_scroll_bg">
 								<div class="new_table_view " id="sc_spot">
 
-										<a  href="javascript:void(0)" class="active"> <i class="spot spot_icon1 "></i>现货</a>
+										<a  href="javascript:void(0)" class="cu_s active"> <i class="spot spot_icon1 "></i>现货</a>
 
 
-										<a  href="javascript:void(0)"  class="foward"><i class="spot spot_icon2"></i>期货</a>
+										<a  href="javascript:void(0)"  class="cu_s foward"><i class="spot spot_icon2"></i>期货</a>
 
 									<!--<li>-->
 										<!--<div class="black-price top-price">-->
@@ -483,50 +502,50 @@
 										<!--<span class="black-price" style="width: 20%;display:inline-block">沪铜1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>-->
 									<!--</li>-->
 								</div>
-								<div class="mui-slider-group" id="spot_content2">
+								<div class="mui-slider-group" id="spot_content">
 									<div id="spot2" class="mui-slider-item mui-control-content active">
 										<div class="spot_content">
 											<div class="spot_item1">品名/价格范围(元/吨)</div>
-											<div class="spot_item2">价格范围 <i class="tr_down"></i></div>
+											<div class="spot_item2">价格范围 <i class="tr_down" id="cu_down"></i></div>
 											<div class="spot_item3">涨跌<i class="tr_down1"></i></div>
 										</div>
-										<ul class="spot_list">
-											<li>
-												<div class="spot_brand">长江现货</div>
-												<div class="brand_content">
-													<div class="brand_item1">1#铜</div>
-													<div class="brand_item2">49555-50100</div>
-													<div class="brand_item3">
-														<div class="item_box">
-															<div class="clearfix">
-																<div class="price_change change1 fr">330</div>
-															</div>
-															<div class="clearfix">
-																<div class="spot_time fr">09-05 12:32</div>
-															</div>
+										<ul class="spot_list" id="cu_Ary">
+											<!--<li>-->
+												<!--<div class="spot_brand">长江现货</div>-->
+												<!--<div class="brand_content">-->
+													<!--<div class="brand_item1">1#铜</div>-->
+													<!--<div class="brand_item2">49555-50100</div>-->
+													<!--<div class="brand_item3">-->
+														<!--<div class="item_box">-->
+															<!--<div class="clearfix">-->
+																<!--<div class="price_change change1 fr">330</div>-->
+															<!--</div>-->
+															<!--<div class="clearfix">-->
+																<!--<div class="spot_time fr">09-05 12:32</div>-->
+															<!--</div>-->
 
-														</div>
+														<!--</div>-->
 
-													</div>
-												</div>
-												<div class="brand_content">
-													<div class="brand_item1">铜 升贴水</div>
-													<div class="brand_item2">
-														贴10
-													</div>
-													<div class="brand_item3">
-														<div class="item_box">
-															<div class="clearfix">
-																<div class="price_change change2 fr">-10</div>
-															</div>
-															<div class="clearfix">
-																<div class="spot_time fr">09-05 13:32</div>
-															</div>
+													<!--</div>-->
+												<!--</div>-->
+												<!--<div class="brand_content">-->
+													<!--<div class="brand_item1">铜 升贴水</div>-->
+													<!--<div class="brand_item2">-->
+														<!--贴10-->
+													<!--</div>-->
+													<!--<div class="brand_item3">-->
+														<!--<div class="item_box">-->
+															<!--<div class="clearfix">-->
+																<!--<div class="price_change change2 fr">-10</div>-->
+															<!--</div>-->
+															<!--<div class="clearfix">-->
+																<!--<div class="spot_time fr">09-05 13:32</div>-->
+															<!--</div>-->
 
-														</div>
-													</div>
-												</div>
-											</li>
+														<!--</div>-->
+													<!--</div>-->
+												<!--</div>-->
+											<!--</li>-->
 										</ul>
 									</div>
 									<div id="forward2" class="mui-slider-item mui-control-content">
@@ -537,16 +556,16 @@
 											<div class="forward_item">卖价</div>
 											<div class="forward_item for_r">涨跌</div>
 										</div>
-										<ul class="forward_list">
-											<li>
-												<div class="for_l">沪铜1708</div>
-												<div class="for_color">50110</div>
-												<div>50100</div>
-												<div>50120</div>
-												<div class="for_right clearfix">
-														<div class="price_change change1">+20</div>
-												</div>
-											</li>
+										<ul class="forward_list" id="cu_Ary2">
+											<!--<li>-->
+												<!--<div class="for_l">沪铜1708</div>-->
+												<!--<div class="for_color">50110</div>-->
+												<!--<div>50100</div>-->
+												<!--<div>50120</div>-->
+												<!--<div class="for_right clearfix">-->
+														<!--<div class="price_change change1">+20</div>-->
+												<!--</div>-->
+											<!--</li>-->
 										</ul>
 									</div>
 								</div>
@@ -558,10 +577,10 @@
 							<div class="mui-scroll new_scroll_bg">
 								<div class="new_table_view " id="sc_spot2">
 
-									<a  href="javascript:void(0)" class="active"> <i class="spot spot_icon1 "></i>现货</a>
+									<a  href="javascript:void(0)" class="ai_s active"> <i class="spot spot_icon1 "></i>现货</a>
 
 
-									<a  href="javascript:void(0)"  class="foward"><i class="spot spot_icon2"></i>期货</a>
+									<a  href="javascript:void(0)"  class="ai_s foward"><i class="spot spot_icon2"></i>期货</a>
 
 									<!--<li>-->
 									<!--<div class="black-price top-price">-->
@@ -572,40 +591,40 @@
 									<!--<span class="black-price" style="width: 20%;display:inline-block">沪铜1611</span><span class="red-price" style="width: 80%;"><span class="top-price-width0">11111</span><span class="top-price-width0">1020</span><span class="top-price-width0">15415</span><span class="top-price-width0">11546</span></span>-->
 									<!--</li>-->
 								</div>
-								<div class="mui-slider-group" id="spot_content">
+								<div class="mui-slider-group" id="spot_content2">
 									<div id="spot" class="mui-slider-item mui-control-content active">
 										<div class="spot_content">
 											<div class="spot_item1">品名/价格范围(元/吨)</div>
-											<div class="spot_item2">价格范围 <i class="tr_down"></i></div>
+											<div class="spot_item2">价格范围 <i class="tr_down" id="ai_down"></i></div>
 											<div class="spot_item3">涨跌<i class="tr_down1"></i></div>
 										</div>
-										<ul class="spot_list">
-											<li>
-												<div class="spot_brand">长江现货</div>
-												<div class="brand_content">
-													<div class="brand_item1">1#铜</div>
-													<div class="brand_item2">49555-50100</div>
-													<div class="brand_item3">
-														<div class="item_box clearfix">
-															<div class="price_change change1 fr">330</div>
-															<div class="spot_time fr">09-05 12:32</div>
-														</div>
+										<ul class="spot_list" id="ai_Ary">
+											<!--<li>-->
+												<!--<div class="spot_brand">长江现货</div>-->
+												<!--<div class="brand_content">-->
+													<!--<div class="brand_item1">1#铜</div>-->
+													<!--<div class="brand_item2">49555-50100</div>-->
+													<!--<div class="brand_item3">-->
+														<!--<div class="item_box clearfix">-->
+															<!--<div class="price_change change1 fr">330</div>-->
+															<!--<div class="spot_time fr">09-05 12:32</div>-->
+														<!--</div>-->
 
-													</div>
-												</div>
-												<div class="brand_content">
-													<div class="brand_item1">铜 升贴水</div>
-													<div class="brand_item2">
-														贴10
-													</div>
-													<div class="brand_item3">
-														<div class="item_box clearfix">
-															<div class="price_change change2 fr">-10</div>
-															<div class="spot_time fr">09-05 13:32</div>
-														</div>
-													</div>
-												</div>
-											</li>
+													<!--</div>-->
+												<!--</div>-->
+												<!--<div class="brand_content">-->
+													<!--<div class="brand_item1">铜 升贴水</div>-->
+													<!--<div class="brand_item2">-->
+														<!--贴10-->
+													<!--</div>-->
+													<!--<div class="brand_item3">-->
+														<!--<div class="item_box clearfix">-->
+															<!--<div class="price_change change2 fr">-10</div>-->
+															<!--<div class="spot_time fr">09-05 13:32</div>-->
+														<!--</div>-->
+													<!--</div>-->
+												<!--</div>-->
+											<!--</li>-->
 										</ul>
 									</div>
 									<div id="forward" class="mui-slider-item mui-control-content">
@@ -647,254 +666,557 @@
 		<script type="text/javascript " src="js/constant.js "></script>
 		<script type="text/javascript " src="js/common.js "></script>
 
-		<script type="text/javascript" charset="utf-8">
-			var dataDivId = ["cc_copper", "cc_aluminum"];
-			var priceType = ["cu", "al"];
-			var cWebView;
-			var tabIdx = 0;
-			var timerID;
+		<!--<script type="text/javascript" charset="utf-8">-->
+			<!--var dataDivId = ["cc_copper", "cc_aluminum"];-->
+			<!--var priceType = ["cu", "al"];-->
+			<!--var cWebView;-->
+			<!--var tabIdx = 0;-->
+			<!--var timerID;-->
+			<!--mui.init({-->
+				<!--swipeBack: false,-->
+				<!--// 预加载详情页-->
+				<!--preloadPages: [{-->
+					<!--/*主界面*/-->
+					<!--id: LS_P_MAIN,-->
+					<!--url: LS_P_MAIN-->
+				<!--}, {-->
+					<!--/*51商城*/-->
+					<!--id: LS_P_MAIN_MALL,-->
+					<!--url: LS_P_MAIN_MALL-->
+				<!--}, {-->
+					<!--/*我的*/-->
+					<!--id: LS_P_MAIN_MY,-->
+					<!--url: LS_P_MAIN_MY-->
+				<!--}]-->
+			<!--});-->
+
+			<!--function initPage() {-->
+
+				<!--//阻尼系数-->
+				<!--var deceleration = mui.os.ios ? 0.003 : 0.0009;-->
+				<!--mui('.mui-scroll-wrapper').scroll({-->
+					<!--bounce: false,-->
+					<!--indicators: true, //是否显示滚动条-->
+					<!--deceleration: deceleration-->
+				<!--});-->
+				<!--//循环初始化所有下拉刷新，上拉加载。-->
+				<!--tabIdx = 0;-->
+				<!--/*mui.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {-->
+					<!--mui(pullRefreshEl).pullToRefresh({-->
+						<!--down: {-->
+							<!--callback: function() {-->
+								<!--var self = this;-->
+								<!--var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");-->
+								<!--if(tip) {-->
+									<!--tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE; //MSG_DATA_PULL_LOAD;-->
+									<!--//tip.style.display = "block";-->
+									<!--setTimeout(function() {-->
+										<!--tip.style.display = "none";-->
+									<!--}, C_TIME_WAIT);-->
+								<!--}-->
+								<!--ShowData();-->
+								<!--self.endPullDownToRefresh();-->
+								<!--self.refresh(true);-->
+							<!--}-->
+						<!--},-->
+						<!--up: {-->
+							<!--callback: function() {-->
+								<!--var self = this;-->
+								<!--self.endPullUpToRefresh(true);-->
+								<!--var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");-->
+								<!--if(tip) {-->
+									<!--tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;-->
+									<!--setTimeout(function() {-->
+										<!--tip.style.display = "none";-->
+									<!--}, C_TIME_WAIT);-->
+								<!--}-->
+							<!--}-->
+						<!--}-->
+					<!--});-->
+				<!--});*/-->
+				<!--//监听左右拖动事件-->
+				<!--document.getElementById('slider').addEventListener('slide', function(e) {-->
+					<!--tabIdx = e.detail.slideNumber;-->
+					<!--//ShowData();-->
+					<!--ReloadAutoData();-->
+				<!--});-->
+				<!--//监听选项卡点击事件-->
+				<!--document.getElementById('sc_copper').addEventListener('tap', function(e) {-->
+					<!--tabIdx = 0;-->
+					<!--//ShowData();-->
+					<!--ReloadAutoData();-->
+				<!--});-->
+				<!--document.getElementById('sc_aluminum').addEventListener('tap', function(e) {-->
+					<!--tabIdx = 1;-->
+					<!--//ShowData();-->
+					<!--ReloadAutoData();-->
+				<!--});-->
+
+				<!--document.getElementById("sp_back").addEventListener('tap', function(e) {-->
+					<!--mui.back();-->
+				<!--});-->
+
+				<!--//选项卡点击事件-->
+				<!--mui('.footer_fixed ').on('tap', 'a', function(e) {-->
+					<!--var targetTab = this.getAttribute('href');-->
+					<!--if(targetTab != LS_P_MAIN_PRICE) {-->
+						<!--if(targetTab === LS_P_MAIN_MY)-->
+							<!--OpenPage(targetTab, "my_check_login");-->
+						<!--else-->
+							<!--OpenPage(targetTab);-->
+					<!--}-->
+
+				<!--}, false);-->
+
+			<!--}-->
+
+<!--//			mui.ready(function() {-->
+<!--//					initPage();-->
+<!--//					AutoLoadData();-->
+<!--//			});-->
+
+			<!--mui.plusReady(function() {-->
+				<!--//plus.navigator.getStatusbarHeight();//获取状态栏高度-->
+				<!--//plus.screen.lockOrientation("portrait-primary ");-->
+				<!--initPage();-->
+				<!--window.addEventListener('price_showlist', function(event) {-->
+					<!--tabIdx = event.detail.priceTypeIdx || 0;-->
+					<!--if(tabIdx !== 1) tabIdx = 0;-->
+					<!--SelectSlider(tabIdx);-->
+					<!--ReloadAutoData();-->
+				<!--});-->
+				<!--AutoLoadData();-->
+				<!--//绘制顶部图标-->
+				<!--cWebView = plus.webview.currentWebview();-->
+				<!--//开启回弹-->
+				<!--cWebView.setStyle({-->
+					<!--bounce: "vertical",-->
+					<!--bounceBackground: "#efeff4"-->
+				<!--});-->
+			<!--});-->
+
+			<!--function SelectSlider(idx) {-->
+				<!--var gallery = mui('.mui-slider');-->
+				<!--gallery.slider().gotoItem(idx);-->
+			<!--}-->
+
+			<!--function AutoLoadData() {-->
+				<!--ShowData();-->
+				<!--timerID = setTimeout(AutoLoadData, 2000);-->
+			<!--}-->
+			<!---->
+			<!--function ReloadAutoData(){-->
+				<!--if(timerID) clearTimeout(timerID);-->
+				<!--AutoLoadData();-->
+			<!--}-->
+
+			<!--/*刷新页面，初始化排序和*/-->
+			<!--function ShowData() {-->
+				<!--var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");-->
+				<!--if(tip) {-->
+					<!--tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;-->
+					<!--//setTimeout(function() {-->
+					<!--tip.style.display = "none";-->
+					<!--//}, C_TIME_WAIT);-->
+				<!--}-->
+
+				<!--//var wd = plus.nativeUI.showWaiting();-->
+				<!--jQuery.ajax({-->
+					<!--type: "GET",-->
+					<!--contentType: "application/x-www-form-urlencoded; charset=utf-8",-->
+					<!--url: C_URL + C_M_LAST_PRICE,-->
+					<!--data: {-->
+						<!--"type": priceType[tabIdx]-->
+					<!--},-->
+					<!--dataType: "json",-->
+					<!--timeout: C_TIMEOUT,-->
+					<!--success: function(response) {-->
+<!--//						console.log(response);-->
+						<!--/*var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");-->
+						<!--if(tip) {-->
+							<!--tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;-->
+							<!--setTimeout(function() {-->
+								<!--tip.style.display = "none";-->
+							<!--}, C_TIME_WAIT);-->
+						<!--}*/-->
+						<!--bindData(response, dataDivId[tabIdx]);-->
+					<!--},-->
+					<!--error: function(xhr, type, errorThrown) {-->
+						<!--//ShowToast(MSG_DATA_ERROR);-->
+					<!--}-->
+				<!--});-->
+			<!--}-->
+
+			<!--function bindData(response, targetID) {-->
+				<!--if(response != null) {-->
+					<!--var dataList = response.data || [];-->
+<!--//					console.log(dataList.length);-->
+					<!--if(dataList.length > 0 && dataList[0].CIRCLENO != null) {-->
+						<!--if((tabIdx === 0 && dataList[0].CIRCLENO.indexOf("CU") >= 0) ||-->
+							<!--(tabIdx === 1 && dataList[0].CIRCLENO.indexOf("AL") >= 0)) {-->
+								<!---->
+							<!--var table = document.body.querySelector('#' + targetID + ' ul');-->
+							<!--table.innerHTML = '';-->
+							<!--var templateHtml = '';-->
+							<!--templateHtml += '<li>';-->
+							<!--templateHtml += '<div class="black-price top-price">';-->
+							<!--templateHtml += '<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>';-->
+							<!--templateHtml += '</div>';-->
+							<!--templateHtml += '</li>';-->
+							<!--table.innerHTML = templateHtml;-->
+							<!--mui.each(dataList, function(index, item) {-->
+								<!--var li = document.createElement('li');-->
+								<!--li.className = 'price-main';-->
+
+								<!--templateHtml = '';-->
+								<!--templateHtml += '<span class="black-price" style="width: 20%; display:inline-block">' + item.CIRCLENO.replace("CU", "沪铜").replace("AL", "沪铝") + '</span>';-->
+								<!--var upDown = parseInt(item.UPORDOWN);-->
+								<!--if(upDown === 0) templateHtml += '<span class="black-price" style="width: 80%;">';-->
+								<!--else if(upDown > 0) templateHtml += '<span class="red-price" style="width: 80%;">';-->
+								<!--else templateHtml += '<span class="green-price"  style="width: 80%;">';-->
+								<!--templateHtml += '<span class="top-price-width0">' + parseInt(item.CONTPRICE) + '</span>';-->
+								<!--templateHtml += '<span class="top-price-width0">' + (upDown > 0 ? '+' : '') + upDown + '</span>';-->
+								<!--templateHtml += '<span class="top-price-width0">' + parseInt(item.BUYERPRICE) + '</span>';-->
+								<!--templateHtml += '<span class="top-price-width0">' + parseInt(item.SELLERPRICE) + '</span>';-->
+								<!--templateHtml += '</span>';-->
+								<!--li.innerHTML = templateHtml;-->
+
+								<!--table.appendChild(li);-->
+							<!--});-->
+						<!--}-->
+					<!--}-->
+				<!--}-->
+			<!--}-->
+
+		<!---->
+		<!--&lt;!&ndash;</script>-->
+		<script>
 			mui.init({
-				swipeBack: false,
-				// 预加载详情页
-				preloadPages: [{
-					/*主界面*/
-					id: LS_P_MAIN,
-					url: LS_P_MAIN
-				}, {
-					/*51商城*/
-					id: LS_P_MAIN_MALL,
-					url: LS_P_MAIN_MALL
-				}, {
-					/*我的*/
-					id: LS_P_MAIN_MY,
-					url: LS_P_MAIN_MY
-				}]
-			});
-
-			function initPage() {
-
-				//阻尼系数
-				var deceleration = mui.os.ios ? 0.003 : 0.0009;
-				mui('.mui-scroll-wrapper').scroll({
-					bounce: false,
-					indicators: true, //是否显示滚动条
-					deceleration: deceleration
-				});
-				//循环初始化所有下拉刷新，上拉加载。
-				tabIdx = 0;
-				/*mui.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
-					mui(pullRefreshEl).pullToRefresh({
-						down: {
-							callback: function() {
-								var self = this;
-								var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
-								if(tip) {
-									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE; //MSG_DATA_PULL_LOAD;
-									//tip.style.display = "block";
-									setTimeout(function() {
-										tip.style.display = "none";
-									}, C_TIME_WAIT);
-								}
-								ShowData();
-								self.endPullDownToRefresh();
-								self.refresh(true);
-							}
-						},
-						up: {
-							callback: function() {
-								var self = this;
-								self.endPullUpToRefresh(true);
-								var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
-								if(tip) {
-									tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
-									setTimeout(function() {
-										tip.style.display = "none";
-									}, C_TIME_WAIT);
-								}
-							}
-						}
-					});
-				});*/
-				//监听左右拖动事件
-				document.getElementById('slider').addEventListener('slide', function(e) {
-					tabIdx = e.detail.slideNumber;
-					//ShowData();
-					ReloadAutoData();
-				});
-				//监听选项卡点击事件
-				document.getElementById('sc_copper').addEventListener('tap', function(e) {
-					tabIdx = 0;
-					//ShowData();
-					ReloadAutoData();
-				});
-				document.getElementById('sc_aluminum').addEventListener('tap', function(e) {
-					tabIdx = 1;
-					//ShowData();
-					ReloadAutoData();
-				});
-
-				document.getElementById("sp_back").addEventListener('tap', function(e) {
-					mui.back();
-				});
-
-				//选项卡点击事件
-				mui('.footer_fixed ').on('tap', 'a', function(e) {
-					var targetTab = this.getAttribute('href');
-					if(targetTab != LS_P_MAIN_PRICE) {
-						if(targetTab === LS_P_MAIN_MY)
-							OpenPage(targetTab, "my_check_login");
-						else
-							OpenPage(targetTab);
+				pullRefresh : {
+					container:"#cc_copper",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+					down : {
+						style:'circle',//必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+						color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+						height:'50px',//可选,默认50px.下拉刷新控件的高度,
+						range:'100px', //可选 默认100px,控件可下拉拖拽的范围
+						offset:'0px', //可选 默认0px,下拉刷新控件的起始位置
+						auto: true,//可选,默认false.首次加载自动上拉刷新一次
+						callback :function(){
+							load1();
+						} //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
 					}
-
-				}, false);
-
-			}
-
-//			mui.ready(function() {
-//					initPage();
-//					AutoLoadData();
-//			});
-
-			mui.plusReady(function() {
-				//plus.navigator.getStatusbarHeight();//获取状态栏高度
-				//plus.screen.lockOrientation("portrait-primary ");
-				initPage();
-				window.addEventListener('price_showlist', function(event) {
-					tabIdx = event.detail.priceTypeIdx || 0;
-					if(tabIdx !== 1) tabIdx = 0;
-					SelectSlider(tabIdx);
-					ReloadAutoData();
-				});
-				AutoLoadData();
-				//绘制顶部图标
-				cWebView = plus.webview.currentWebview();
-				//开启回弹
-				cWebView.setStyle({
-					bounce: "vertical",
-					bounceBackground: "#efeff4"
-				});
-			});
-
-			function SelectSlider(idx) {
-				var gallery = mui('.mui-slider');
-				gallery.slider().gotoItem(idx);
-			}
-
-			function AutoLoadData() {
-				ShowData();
-				timerID = setTimeout(AutoLoadData, 2000);
-			}
-			
-			function ReloadAutoData(){
-				if(timerID) clearTimeout(timerID);
-				AutoLoadData();
-			}
-
-			/*刷新页面，初始化排序和*/
-			function ShowData() {
-				var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
-				if(tip) {
-					tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
-					//setTimeout(function() {
-					tip.style.display = "none";
-					//}, C_TIME_WAIT);
 				}
-
-				//var wd = plus.nativeUI.showWaiting();
+			});
+			load1();
+			load2();
+			function load1(){
 				jQuery.ajax({
-					type: "GET",
+					type: 'GET',
 					contentType: "application/x-www-form-urlencoded; charset=utf-8",
-					url: C_URL + C_M_LAST_PRICE,
-					data: {
-						"type": priceType[tabIdx]
-					},
-					dataType: "json",
-					timeout: C_TIMEOUT,
-					success: function(response) {
-//						console.log(response);
-						/*var tip = document.querySelector("#" + dataDivId[tabIdx] + " .mui-pull-bottom-tips");
-						if(tip) {
-							tip.querySelector(".mui-pull-loading").innerHTML = MSG_DATA_NOMORE;
-							setTimeout(function() {
-								tip.style.display = "none";
-							}, C_TIME_WAIT);
-						}*/
-						bindData(response, dataDivId[tabIdx]);
-					},
-					error: function(xhr, type, errorThrown) {
-						//ShowToast(MSG_DATA_ERROR);
-					}
-				});
-			}
+					url: C_URL + C_M_MARKET_LIST,
+					dataType: 'json',
+					success: function (response) {
+						console.log(response)
+						var len = response.length;
+						var cuAry = [];
+						var str = ''
+						for (var i = 0; i < len; i++) {
+							if ((i & 1) === 0) {
+								cuAry.push(response[i])
+							}
+						}
+						var len1 = cuAry.length;
+						var cuycontent = []
+						for (var j = 0; j < len1; j++) {
+							str += '<li> <div class="spot_brand" id=cuy'+j+'></div>'
+							var cuyId = 'cuy'+j
+							for (var k = 0; k < cuAry[j].length; k++) {
 
-			function bindData(response, targetID) {
-				if(response != null) {
-					var dataList = response.data || [];
-//					console.log(dataList.length);
-					if(dataList.length > 0 && dataList[0].CIRCLENO != null) {
-						if((tabIdx === 0 && dataList[0].CIRCLENO.indexOf("CU") >= 0) ||
-							(tabIdx === 1 && dataList[0].CIRCLENO.indexOf("AL") >= 0)) {
-								
-							var table = document.body.querySelector('#' + targetID + ' ul');
-							table.innerHTML = '';
-							var templateHtml = '';
-							templateHtml += '<li>';
-							templateHtml += '<div class="black-price top-price">';
-							templateHtml += '<span class="top-price-width">名称</span><span style="color: #E7E7E7;">|</span><span class="top-price-width">最新</span><span class="top-price-width">涨跌</span><span class="top-price-width">买价</span><span class="top-price-width">卖价</span>';
-							templateHtml += '</div>';
-							templateHtml += '</li>';
-							table.innerHTML = templateHtml;
-							mui.each(dataList, function(index, item) {
-								var li = document.createElement('li');
-								li.className = 'price-main';
 
-								templateHtml = '';
-								templateHtml += '<span class="black-price" style="width: 20%; display:inline-block">' + item.CIRCLENO.replace("CU", "沪铜").replace("AL", "沪铝") + '</span>';
-								var upDown = parseInt(item.UPORDOWN);
-								if(upDown === 0) templateHtml += '<span class="black-price" style="width: 80%;">';
-								else if(upDown > 0) templateHtml += '<span class="red-price" style="width: 80%;">';
-								else templateHtml += '<span class="green-price"  style="width: 80%;">';
-								templateHtml += '<span class="top-price-width0">' + parseInt(item.CONTPRICE) + '</span>';
-								templateHtml += '<span class="top-price-width0">' + (upDown > 0 ? '+' : '') + upDown + '</span>';
-								templateHtml += '<span class="top-price-width0">' + parseInt(item.BUYERPRICE) + '</span>';
-								templateHtml += '<span class="top-price-width0">' + parseInt(item.SELLERPRICE) + '</span>';
-								templateHtml += '</span>';
-								li.innerHTML = templateHtml;
+								str += '<div class="brand_content">'
+								str += '<div class="brand_item1">'+cuAry[j][k].pName+'</div>'
+								str += '<div class="brand_item2">'+cuAry[j][k].priceInterval+'</div>'
+								str += '<div class="brand_item3">'
+								str += '<div class="item_box">'
+								str += '<div class="clearfix">'
+								if(Number(cuAry[j][k].priceChange) >= 0){
+									str += '<div class="price_change change1 fr">+'+ cuAry[j][k].priceChange +'</div>'
+								}else{
+									str += '<div class="price_change change2 fr">-'+cuAry[j][k].priceChange+'</div>'
+								}
 
-								table.appendChild(li);
-							});
+								str += '</div>'
+								str += '<div class="clearfix">'
+								str += '<div class="spot_time fr">'+ getTime(cuAry[j][k].createTime)+'</div>'
+								str += '</div>'
+								str += '</div>'
+								str += '</div>'
+								str += '</div>'
+							}
+							str += '</li>'
+							sessionStorage.setItem(cuyId,cuAry[j][0].categoryname)
+							cuycontent.push(sessionStorage.getItem('cuy'+j))
+						}
+
+						$("#cu_Ary").append(str)
+						for(var z = 0;z<cuycontent.length;z++){
+							console.log($("#cuy"+z))
+							$("#cuy"+z).html(cuycontent[z])
 						}
 					}
-				}
+
+
+				})
+			}
+			function load11(){
+				jQuery.ajax({
+					type: 'GET',
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url: C_URL + C_M_MARKET_LIST,
+					dataType: 'json',
+					success: function (response) {
+						console.log(response)
+						var len = response.length;
+						var cuAry = [];
+						var str = ''
+						for (var i = 0; i < len; i++) {
+							if ((i & 1) === 0) {
+								cuAry.push(response[i])
+							}
+						}
+						var len1 = cuAry.length;
+						var cuycontent = []
+						for (var j = 0; j < len1; j++) {
+							str += '<li> <div class="spot_brand" id=cuy'+j+'></div>'
+							var cuyId = 'cuy'+j
+							for (var k = 0; k < cuAry[j].length; k++) {
+
+
+								str += '<div class="brand_content">'
+								str += '<div class="brand_item1">'+cuAry[j][k].pName+'</div>'
+								str += '<div class="brand_item2">'+cuAry[j][k].averagePrice+'</div>'
+								str += '<div class="brand_item3">'
+								str += '<div class="item_box">'
+								str += '<div class="clearfix">'
+								if(Number(cuAry[j][k].priceChange) >= 0){
+									str += '<div class="price_change change1 fr">+'+ cuAry[j][k].priceChange +'</div>'
+								}else{
+									str += '<div class="price_change change2 fr">-'+cuAry[j][k].priceChange+'</div>'
+								}
+
+								str += '</div>'
+								str += '<div class="clearfix">'
+								str += '<div class="spot_time fr">'+ getTime(cuAry[j][k].createTime)+'</div>'
+								str += '</div>'
+								str += '</div>'
+								str += '</div>'
+								str += '</div>'
+							}
+							str += '</li>'
+							sessionStorage.setItem(cuyId,cuAry[j][0].categoryname)
+							cuycontent.push(sessionStorage.getItem('cuy'+j))
+						}
+
+						$("#cu_Ary").append(str)
+						for(var z = 0;z<cuycontent.length;z++){
+							console.log($("#cuy"+z))
+							$("#cuy"+z).html(cuycontent[z])
+						}
+					}
+
+
+				})
+			}
+			function load2(){
+				jQuery.ajax({
+					type: 'GET',
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url: C_URL + C_M_MARKET_LIST,
+					dataType: 'json',
+					success: function (response) {
+						console.log(response)
+						var len = response.length;
+						var cuAry = [];
+						var str = ''
+						for (var i = 0; i < len; i++) {
+							if ((i & 1) === 0) {
+								continue
+							}else{
+								cuAry.push(response[i])
+							}
+						}
+						var len1 = cuAry.length;
+						var cuycontent = []
+						for (var j = 0; j < len1; j++) {
+							str += '<li> <div class="spot_brand" id=cuy'+j+'></div>'
+							var cuyId = 'cuy'+j
+							for (var k = 0; k < cuAry[j].length; k++) {
+
+
+								str += '<div class="brand_content">'
+								str += '<div class="brand_item1">'+cuAry[j][k].pName+'</div>'
+								str += '<div class="brand_item2">'+cuAry[j][k].priceInterval+'</div>'
+								str += '<div class="brand_item3">'
+								str += '<div class="item_box">'
+								str += '<div class="clearfix">'
+								if(Number(cuAry[j][k].priceChange) >= 0){
+									str += '<div class="price_change change1 fr">+'+ cuAry[j][k].priceChange +'</div>'
+								}else{
+									str += '<div class="price_change change2 fr">-'+cuAry[j][k].priceChange+'</div>'
+								}
+
+								str += '</div>'
+								str += '<div class="clearfix">'
+								str += '<div class="spot_time fr">'+ getTime(cuAry[j][k].createTime)+'</div>'
+								str += '</div>'
+								str += '</div>'
+								str += '</div>'
+								str += '</div>'
+							}
+							str += '</li>'
+							sessionStorage.setItem(cuyId,cuAry[j][0].categoryname)
+							cuycontent.push(sessionStorage.getItem('cuy'+j))
+						}
+
+						$("#ai_Ary").append(str)
+						for(var z = 0;z<cuycontent.length;z++){
+							console.log($("#cuy"+z))
+							$("#cuy"+z).html(cuycontent[z])
+						}
+					}
+
+
+				})
 			}
 
-			$("#sc_spot a").on('click',function(){
+			function load22(){
+				jQuery.ajax({
+					type: 'GET',
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url: C_URL + C_M_MARKET_LIST,
+					dataType: 'json',
+					success: function (response) {
+						console.log(response)
+						var len = response.length;
+						var cuAry = [];
+						var str = ''
+						for (var i = 0; i < len; i++) {
+							if ((i & 1) === 0) {
+								continue
+							}else{
+								cuAry.push(response[i])
+							}
+						}
+						var len1 = cuAry.length;
+						var cuycontent = []
+						for (var j = 0; j < len1; j++) {
+							str += '<li> <div class="spot_brand" id=cuy'+j+'></div>'
+							var cuyId = 'cuy'+j
+							for (var k = 0; k < cuAry[j].length; k++) {
+
+
+								str += '<div class="brand_content">'
+								str += '<div class="brand_item1">'+cuAry[j][k].pName+'</div>'
+								str += '<div class="brand_item2">'+cuAry[j][k].averagePrice+'</div>'
+								str += '<div class="brand_item3">'
+								str += '<div class="item_box">'
+								str += '<div class="clearfix">'
+								if(Number(cuAry[j][k].priceChange) >= 0){
+									str += '<div class="price_change change1 fr">+'+ cuAry[j][k].priceChange +'</div>'
+								}else{
+									str += '<div class="price_change change2 fr">-'+cuAry[j][k].priceChange+'</div>'
+								}
+
+								str += '</div>'
+								str += '<div class="clearfix">'
+								str += '<div class="spot_time fr">'+ getTime(cuAry[j][k].createTime)+'</div>'
+								str += '</div>'
+								str += '</div>'
+								str += '</div>'
+								str += '</div>'
+							}
+							str += '</li>'
+							sessionStorage.setItem(cuyId,cuAry[j][0].categoryname)
+							cuycontent.push(sessionStorage.getItem('cuy'+j))
+						}
+
+						$("#ai_Ary").append(str)
+						for(var z = 0;z<cuycontent.length;z++){
+							console.log($("#cuy"+z))
+							$("#cuy"+z).html(cuycontent[z])
+						}
+					}
+
+
+				})
+			}
+//			function load2(){
+//				jQuery.ajax({
+//					type:'GET',
+//					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+//					url:'http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQFuturesData?page=1&num=40&sort=symbol&asc=1&node=tong_qh&_s_r_a=auto',
+//					dataType:'jsonp',
+//					jsonp: 'jsonCallback',
+//					success:function(response){
+//						console.log(response)
+//					}
+//
+//				})
+//			}
+
+			function getTime(str){
+				var oIndex = str.indexOf('-');
+				return str.slice(oIndex+1)
+			}
+
+			document.getElementById("cu_down").addEventListener('tap', function(e) {
+				var self = $(this)
+				var hasCl = $(this).hasClass('tr_up')
+				if(hasCl){
+					self.removeClass('tr_up')
+					$("#cu_Ary").empty()
+					load1()
+				}else{
+					self.addClass('tr_up')
+					$("#cu_Ary").empty()
+					load11()
+				}
+			});
+
+			document.getElementById("ai_down").addEventListener('tap', function(e) {
+				var self = $(this)
+				var hasCl = $(this).hasClass('tr_up')
+				if(hasCl){
+					self.removeClass('tr_up')
+					$("#ai_Ary").empty()
+					load2()
+				}else{
+					self.addClass('tr_up')
+					$("#ai_Ary").empty()
+					load22()
+				}
+			});
+
+			mui("#sc_spot").on('tap','a.cu_s',function(){
 				var oIndex = $(this).index();
 				$(this).addClass('active').siblings().removeClass('active')
 				$("#spot_content>div").eq(oIndex).show().siblings().hide();
 				if(oIndex == 0){
-					console.log(1)
+					load1()
 				}else if(oIndex == 1){
 					console.log(2)
 				}
-
 			})
-		</script>
-		<script>
-			load()
-			function load(){
-				jQuery.ajax({
-					type:'GET',
-					contentType: "application/x-www-form-urlencoded; charset=utf-8",
-					url: C_URL + C_M_MARKET_LIST ,
-					dataType:'json',
-					success:function(response){
-						console.log(response)
-					}
-
-				})
-			}
+			mui("#sc_spot2").on('tap','a.ai_s',function(){
+				var oIndex = $(this).index();
+				$(this).addClass('active').siblings().removeClass('active')
+				$("#spot_content2>div").eq(oIndex).show().siblings().hide();
+				if(oIndex == 0){
+					load2()
+				}else if(oIndex == 1){
+					console.log(2)
+				}
+			})
 		</script>
 	</body>
 
