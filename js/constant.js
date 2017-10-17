@@ -70,7 +70,7 @@ const C_M_APP_VERSION = C_MOBILE + "/get_app_version";
 const C_M_LAST_PRICE = C_MOBILE + "/get_market_list";
 const C_M_PRICE_LIST = C_MOBILE + "/get_latest_waipan";
 const C_M_MARKET_LIST = C_MOBILE + "/get_marketlist";
-const C_M_WAIPAN = C_MOBILE + '/get_latest_waipan'
+const C_M_WAIPAN = C_MOBILE + "/get_latest_waipan"
 /*手机打开主界面*/
 /*顶导航对应id*/
 const M_M_SMALL = "tabbar-with-sliderSegmentedControl";

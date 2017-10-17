@@ -909,6 +909,7 @@
 			});
 			load1();
 			load2();
+			loadT()
 			function load1(){
 				jQuery.ajax({
 					type: 'GET',
@@ -1150,19 +1151,18 @@
 
 				})
 			}
-//			function load2(){
-//				jQuery.ajax({
-//					type:'GET',
-//					contentType: "application/x-www-form-urlencoded; charset=utf-8",
-//					url:'http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQFuturesData?page=1&num=40&sort=symbol&asc=1&node=tong_qh&_s_r_a=auto',
-//					dataType:'jsonp',
-//					jsonp: 'jsonCallback',
-//					success:function(response){
-//						console.log(response)
-//					}
-//
-//				})
-//			}
+			function loadT(){
+				jQuery.ajax({
+					type:'GET',
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url:'C_URL + C_M_WAIPAN',
+					dataType:'json',
+					success:function(response){
+						console.log(response)
+					}
+
+				})
+			}
 
 			function getTime(str){
 				var oIndex = str.indexOf('-');
