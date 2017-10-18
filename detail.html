@@ -37,50 +37,53 @@
 				</div>
 				<div id="high_data" class="mui-content mui-scroll-wrapper mui-slider-group" style="top:60px;">
 					<div class="mui-scroll">
-						<div class="de_content">
-							<div class="de_item">
-								<div class="de_lh mb6">价格范围</div>
-								<div class="de_size1" id="priceinterval">55000-56000</div>
+						<div class="detail" style="height: 100%">
+							<div class="de_content">
+								<div class="de_item">
+									<div class="de_lh mb6">价格范围</div>
+									<div class="de_size1" id="priceinterval">55000-56000</div>
+								</div>
+								<div class="de_item">
+									<div class="de_lh">均价</div>
+									<div class="de_size2" id="averageprice">55000</div>
+								</div>
+								<div class="de_item">
+									<div class="de_lh">涨跌</div>
+									<div class="de_size3" id="pricechange">+300</div>
+								</div>
 							</div>
-							<div class="de_item">
-								<div class="de_lh">均价</div>
-								<div class="de_size2" id="averageprice">55000</div>
-							</div>
-							<div class="de_item">
-								<div class="de_lh">涨跌</div>
-								<div class="de_size3" id="pricechange">+300</div>
-							</div>
-						</div>
-						<div class="mt9 high_box">
-							<div class="de_month" id="de_month">
-								<a href="javascript:void(0)" class="month_item active">一个月</a>
-								<a href="javascript:void(0)" class="month_item">三个月</a>
-								<a href="javascript:void(0)" class="month_item">六个月</a>
-							</div>
-							<div id="container">
+							<div class="mt9 high_box">
+								<div class="de_month" id="de_month">
+									<a href="javascript:void(0)" class="month_item active">一个月</a>
+									<a href="javascript:void(0)" class="month_item">三个月</a>
+									<a href="javascript:void(0)" class="month_item">六个月</a>
+								</div>
+								<div id="container">
 
+								</div>
+								<div class="de_data">
+									<div class="data_item1">
+										日期
+									</div>
+									<div class="data_item2">
+										均价
+									</div>
+									<div class="data_item1">
+										涨跌
+									</div>
+								</div>
+								<ul class="data_list" id="data_list">
+									<!--<li >-->
+									<!--<div class="li_item1">9月30日</div>-->
+									<!--<div class="li_item2">35500</div>-->
+									<!--<div class="li_item1 item_cen">-->
+									<!--<div class="price_change change1">+330</div>-->
+									<!--</div>-->
+									<!--</li>-->
+								</ul>
 							</div>
-							<div class="de_data">
-								<div class="data_item1">
-									日期
-								</div>
-								<div class="data_item2">
-									均价
-								</div>
-								<div class="data_item1">
-									涨跌
-								</div>
-							</div>
-							<ul class="data_list" id="data_list">
-								<!--<li >-->
-								<!--<div class="li_item1">9月30日</div>-->
-								<!--<div class="li_item2">35500</div>-->
-								<!--<div class="li_item1 item_cen">-->
-								<!--<div class="price_change change1">+330</div>-->
-								<!--</div>-->
-								<!--</li>-->
-							</ul>
 						</div>
+
 					</div>
 				</div>
 
@@ -279,6 +282,7 @@
 							var self = this
 							setTimeout(function(){
 								mui('#high_data').pullRefresh().endPullupToRefresh();
+								mui('#high_data').pullRefresh().disablePullupToRefresh();
 							},1000)
 
 //							this.endPullupToRefresh(true);
