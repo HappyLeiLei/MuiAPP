@@ -164,9 +164,10 @@
 				border-left:2px solid #ffffff!important;
 				border-top:2px solid #ffffff!important;
 				border-bottom:2px solid #ffffff!important;
-				background-color: #ffffff;
+				border-right:2px solid #ffffff!important;
+				background-color: #ff6724;
 
-				color:#ff6724!important;
+				color:#ffffff!important;
 				font-size:16px!important;
 
 			}
@@ -181,15 +182,15 @@
 				border-bottom-right-radius: 4px!important;
 			}
 			.no_right_border.mui-active{
-				background-color: #ff6724!important;
-				color: #ffffff!important;
+				background-color: #ffffff!important;
+				color: #ff6724!important;
 				border-left:2px solid #ffffff!important;
 				border-top:2px solid #ffffff!important;
 				border-bottom:2px solid #ffffff!important;
 			}
 			.no_left_border.mui-active{
-				background-color: #ff6724!important;
-				color: #ffffff!important;
+				background-color: #ffffff!important;
+				color: #ff6724!important;
 				border-right:2px solid #ffffff!important;                                                                                                                                                                                              3t  :2px solid #ffffff!important;
 				border-top:2px solid #ffffff!important;
 				border-bottom:2px solid #ffffff!important;
@@ -200,7 +201,6 @@
 			.new_table_view{
 				display: flex;
 				display: -webkit-flex;
-				padding:15px 0;
 				background-color: #ffffff;
 				border-bottom:none;
 			}
@@ -212,7 +212,7 @@
 				font-size:14px;
 				display: block;
 				line-height: 32px;
-				height:32px;
+				padding:15px 0;
 			}
 			.new_table_view a:first-child{
 				border-right:1px solid #c8c7cc;
@@ -334,6 +334,8 @@
 				padding:0 14px;
 				height: 64px;
 				border-bottom:1px solid #e5e5e5;
+				color:#000000;
+				font-size:14px;
 			}
 			.brand_item1{
 				flex: 5;
@@ -470,21 +472,21 @@
 		</div>
 		<!--底导航-->
 
-		<div class="mui-content mui-scroll-wrapper">
+
 
 			<!--行情-->
 			<div id="slider" class="mui-slider mui-fullscreen">
 				<div id="segmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative" style="height: 40px; margin-top: 25px;">
 					<div class="mui-scroll new_tab" style="width: 100%;">
 						<span id="sp_back" class="mui-icon mui-icon-left-nav mui-pull-left" style="color: #ffffff;"></span>
-						<a id=" " class="mui-control-item new_control_item no_right_border mui-active" href="#cc_copper" style="width: 20%;  margin-left: -10%;">铜行情</a>
+						<a id="sc_copper" class="mui-control-item new_control_item no_right_border mui-active" href="#cc_copper" style="width: 20%;  margin-left: -10%;">铜行情</a>
 						<a id="sc_aluminum" class="mui-control-item new_control_item no_left_border" href="#cc_aluminum" style="width: 20%;">铝行情</a>
 					</div>
 
 				</div>
 				<div class="mui-slider-group">
-					<div id="cc_copper" class="mui-slider-item mui-control-content mui-active">
-						<div class="mui-scroll-wrapper">
+					<div id="cc_copper" class="mui-slider-item mui-control-content mui-content mui-scroll-wrapper mui-active" style="padding-bottom:50px;">
+
 							<div class="mui-scroll new_scroll_bg">
 								<div class="new_table_view " id="sc_spot">
 
@@ -506,7 +508,7 @@
 									<div id="spot2" class="mui-slider-item mui-control-content active">
 										<div class="spot_content">
 											<div class="spot_item1">品名/价格范围(元/吨)</div>
-											<div class="spot_item2">价格范围 <i class="tr_down" id="cu_down"></i></div>
+											<div class="spot_item2"><span id="cu_ptxt">价格范围</span> <i class="tr_down" id="cu_down"></i></div>
 											<div class="spot_item3">涨跌<i class="tr_down1"></i></div>
 										</div>
 										<ul class="spot_list" id="cu_Ary">
@@ -570,10 +572,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+
 					</div>
-					<div id="cc_aluminum" class="mui-slider-item mui-control-content">
-						<div class="mui-scroll-wrapper">
+					<div id="cc_aluminum" class="mui-slider-item mui-content mui-scroll-wrapper mui-control-content" style="padding-bottom:50px;">
+
 							<div class="mui-scroll new_scroll_bg">
 								<div class="new_table_view " id="sc_spot2">
 
@@ -595,7 +597,7 @@
 									<div id="spot" class="mui-slider-item mui-control-content active">
 										<div class="spot_content">
 											<div class="spot_item1">品名/价格范围(元/吨)</div>
-											<div class="spot_item2">价格范围 <i class="tr_down" id="ai_down"></i></div>
+											<div class="spot_item2"><span id="ai_ptxt">价格范围</span> <i class="tr_down" id="ai_down"></i></div>
 											<div class="spot_item3">涨跌<i class="tr_down1"></i></div>
 										</div>
 										<ul class="spot_list" id="ai_Ary">
@@ -635,7 +637,7 @@
 											<div class="forward_item">卖价</div>
 											<div class="forward_item for_r">涨跌</div>
 										</div>
-										<ul class="forward_list">
+										<ul class="forward_list" id="ai_Ary2">
 											<li>
 												<div class="for_l">沪铜1708</div>
 												<div class="for_color">50110</div>
@@ -649,14 +651,14 @@
 									</div>
 								</div>
 							</div>
-						</div>
+
 					</div>
 				</div>
 
 			</div>
 			<!-- off-canvas backdrop -->
 			<div class="mui-off-canvas-backdrop "></div>
-		</div>
+
 
 		<script type="text/javascript " src="js/mui.min.js "></script>
 		<script type="text/javascript " src="js/mui.pullToRefresh.js "></script>
@@ -757,16 +759,7 @@
 				<!--});-->
 
 				<!--//选项卡点击事件-->
-				<!--mui('.footer_fixed ').on('tap', 'a', function(e) {-->
-					<!--var targetTab = this.getAttribute('href');-->
-					<!--if(targetTab != LS_P_MAIN_PRICE) {-->
-						<!--if(targetTab === LS_P_MAIN_MY)-->
-							<!--OpenPage(targetTab, "my_check_login");-->
-						<!--else-->
-							<!--OpenPage(targetTab);-->
-					<!--}-->
 
-				<!--}, false);-->
 
 			<!--}-->
 
@@ -891,25 +884,91 @@
 		<!---->
 		<!--&lt;!&ndash;</script>-->
 		<script>
+
+			var cc_copper = document.getElementById('cc_copper')
+			var cc_aluminum = document.getElementById('cc_aluminum')
+			var brand_content = document.querySelectorAll('.brand_content')
+
 			mui.init({
 				pullRefresh : {
-					container:"#cc_copper",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+					container:"#cc_copper",
 					down : {
-						style:'circle',//必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
-						color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
-						height:'50px',//可选,默认50px.下拉刷新控件的高度,
-						range:'100px', //可选 默认100px,控件可下拉拖拽的范围
-						offset:'0px', //可选 默认0px,下拉刷新控件的起始位置
-						auto: true,//可选,默认false.首次加载自动上拉刷新一次
+						height:50,
+						auto:false,
+						contentdown : "下拉可以刷新",
+						contentover : "释放立即刷新",
+						contentrefresh : "正在刷新...",
 						callback :function(){
-							load1();
-						} //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+							var self = this
+							setTimeout(function(){
+								var has = $("#sc_spot>a").eq(0).hasClass('active')
+								if(has){
+									console.log(123)
+									load1()
+								}else{
+									loadT()
+								}
+								mui('#cc_copper').pullRefresh().endPulldownToRefresh();
+							},1000)
+						}
 					}
 				}
-			});
-			load1();
-			load2();
-			loadT()
+			},{
+						pullRefresh : {
+							container:"#cc_aluminum",
+							down : {
+								height:50,
+								auto:false,
+								contentdown : "下拉可以刷新",
+								contentover : "释放立即刷新",
+								contentrefresh : "正在刷新...",
+								callback :function(){
+									setTimeout(function(){
+										var has = $("#sc_spot2>a").eq(0).hasClass('active')
+										if(has){
+											load2()
+										}else{
+											loadL()
+										}
+										mui('#cc_aluminum').pullRefresh().endPulldownToRefresh();
+									},1000)
+								}
+							}
+						}
+			}
+
+			);
+			mui('.footer_fixed ').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				if(targetTab != LS_P_MAIN_PRICE) {
+					if(targetTab === LS_P_MAIN_MY)
+						OpenPage(targetTab, "my_check_login");
+					else
+						OpenPage(targetTab);
+				}
+
+			}, false);
+			document.getElementById('slider').addEventListener('slide',function(e){
+				console.log(e.detail)
+				console.log(e.detail.slideNumber)
+				if(e.detail.slideNumber == 0){
+					setTimeout(function(){
+						$("#cu_Ary").empty()
+						load1()
+					},500)
+				}else if(e.detail.slideNumber == 1 ){
+					setTimeout(function(){
+						$("#ai_Ary").empty()
+						load2()
+					},500)
+				}
+			})
+			mui.ready(function(){
+				load1();
+				load2();
+			})
+
+
 			function load1(){
 				jQuery.ajax({
 					type: 'GET',
@@ -934,7 +993,7 @@
 							for (var k = 0; k < cuAry[j].length; k++) {
 
 
-								str += '<div class="brand_content">'
+								str += '<a href="javascript:void(0);" class="brand_content" pName='+cuAry[j][k].pName+' priceInterval='+cuAry[j][k].priceInterval+' averagePrice ='+cuAry[j][k].averagePrice+' priceChange= '+cuAry[j][k].priceChange+' createTime='+cuAry[j][k].createTime+' category='+cuAry[j][k].category+'>'
 								str += '<div class="brand_item1">'+cuAry[j][k].pName+'</div>'
 								str += '<div class="brand_item2">'+cuAry[j][k].priceInterval+'</div>'
 								str += '<div class="brand_item3">'
@@ -943,7 +1002,7 @@
 								if(Number(cuAry[j][k].priceChange) >= 0){
 									str += '<div class="price_change change1 fr">+'+ cuAry[j][k].priceChange +'</div>'
 								}else{
-									str += '<div class="price_change change2 fr">-'+cuAry[j][k].priceChange+'</div>'
+									str += '<div class="price_change change2 fr">'+cuAry[j][k].priceChange+'</div>'
 								}
 
 								str += '</div>'
@@ -952,7 +1011,7 @@
 								str += '</div>'
 								str += '</div>'
 								str += '</div>'
-								str += '</div>'
+								str += '</a>'
 							}
 							str += '</li>'
 							sessionStorage.setItem(cuyId,cuAry[j][0].categoryname)
@@ -961,7 +1020,7 @@
 
 						$("#cu_Ary").append(str)
 						for(var z = 0;z<cuycontent.length;z++){
-							console.log($("#cuy"+z))
+
 							$("#cuy"+z).html(cuycontent[z])
 						}
 					}
@@ -976,7 +1035,7 @@
 					url: C_URL + C_M_MARKET_LIST,
 					dataType: 'json',
 					success: function (response) {
-						console.log(response)
+
 						var len = response.length;
 						var cuAry = [];
 						var str = ''
@@ -993,7 +1052,7 @@
 							for (var k = 0; k < cuAry[j].length; k++) {
 
 
-								str += '<div class="brand_content">'
+								str += '<a href="javascript:void(0);" class="brand_content">'
 								str += '<div class="brand_item1">'+cuAry[j][k].pName+'</div>'
 								str += '<div class="brand_item2">'+cuAry[j][k].averagePrice+'</div>'
 								str += '<div class="brand_item3">'
@@ -1002,7 +1061,7 @@
 								if(Number(cuAry[j][k].priceChange) >= 0){
 									str += '<div class="price_change change1 fr">+'+ cuAry[j][k].priceChange +'</div>'
 								}else{
-									str += '<div class="price_change change2 fr">-'+cuAry[j][k].priceChange+'</div>'
+									str += '<div class="price_change change2 fr">'+cuAry[j][k].priceChange+'</div>'
 								}
 
 								str += '</div>'
@@ -1011,7 +1070,7 @@
 								str += '</div>'
 								str += '</div>'
 								str += '</div>'
-								str += '</div>'
+								str += '</a>'
 							}
 							str += '</li>'
 							sessionStorage.setItem(cuyId,cuAry[j][0].categoryname)
@@ -1020,7 +1079,7 @@
 
 						$("#cu_Ary").append(str)
 						for(var z = 0;z<cuycontent.length;z++){
-							console.log($("#cuy"+z))
+
 							$("#cuy"+z).html(cuycontent[z])
 						}
 					}
@@ -1035,13 +1094,13 @@
 					url: C_URL + C_M_MARKET_LIST,
 					dataType: 'json',
 					success: function (response) {
-						console.log(response)
+
 						var len = response.length;
 						var cuAry = [];
 						var str = ''
 						for (var i = 0; i < len; i++) {
 							if ((i & 1) === 0) {
-								continue
+								console.log(123)
 							}else{
 								cuAry.push(response[i])
 							}
@@ -1049,12 +1108,12 @@
 						var len1 = cuAry.length;
 						var cuycontent = []
 						for (var j = 0; j < len1; j++) {
-							str += '<li> <div class="spot_brand" id=cuy'+j+'></div>'
-							var cuyId = 'cuy'+j
+							str += '<li> <div class="spot_brand" id=cy'+j+'></div>'
+							var cuyId = 'cy'+j
 							for (var k = 0; k < cuAry[j].length; k++) {
 
 
-								str += '<div class="brand_content">'
+								str += '<a href="javascript:void(0)" class="brand_content">'
 								str += '<div class="brand_item1">'+cuAry[j][k].pName+'</div>'
 								str += '<div class="brand_item2">'+cuAry[j][k].priceInterval+'</div>'
 								str += '<div class="brand_item3">'
@@ -1063,7 +1122,7 @@
 								if(Number(cuAry[j][k].priceChange) >= 0){
 									str += '<div class="price_change change1 fr">+'+ cuAry[j][k].priceChange +'</div>'
 								}else{
-									str += '<div class="price_change change2 fr">-'+cuAry[j][k].priceChange+'</div>'
+									str += '<div class="price_change change2 fr">'+cuAry[j][k].priceChange+'</div>'
 								}
 
 								str += '</div>'
@@ -1072,17 +1131,17 @@
 								str += '</div>'
 								str += '</div>'
 								str += '</div>'
-								str += '</div>'
+								str += '</a>'
 							}
 							str += '</li>'
 							sessionStorage.setItem(cuyId,cuAry[j][0].categoryname)
-							cuycontent.push(sessionStorage.getItem('cuy'+j))
+							cuycontent.push(sessionStorage.getItem('cy'+j))
 						}
 
 						$("#ai_Ary").append(str)
 						for(var z = 0;z<cuycontent.length;z++){
-							console.log($("#cuy"+z))
-							$("#cuy"+z).html(cuycontent[z])
+
+							$("#cy"+z).html(cuycontent[z])
 						}
 					}
 
@@ -1097,7 +1156,7 @@
 					url: C_URL + C_M_MARKET_LIST,
 					dataType: 'json',
 					success: function (response) {
-						console.log(response)
+
 						var len = response.length;
 						var cuAry = [];
 						var str = ''
@@ -1111,12 +1170,12 @@
 						var len1 = cuAry.length;
 						var cuycontent = []
 						for (var j = 0; j < len1; j++) {
-							str += '<li> <div class="spot_brand" id=cuy'+j+'></div>'
-							var cuyId = 'cuy'+j
+							str += '<li> <div class="spot_brand" id=cy'+j+'></div>'
+							var cuyId = 'cy'+j
 							for (var k = 0; k < cuAry[j].length; k++) {
 
 
-								str += '<div class="brand_content">'
+								str += '<a href="javascript:void(0)" class="brand_content">'
 								str += '<div class="brand_item1">'+cuAry[j][k].pName+'</div>'
 								str += '<div class="brand_item2">'+cuAry[j][k].averagePrice+'</div>'
 								str += '<div class="brand_item3">'
@@ -1125,7 +1184,7 @@
 								if(Number(cuAry[j][k].priceChange) >= 0){
 									str += '<div class="price_change change1 fr">+'+ cuAry[j][k].priceChange +'</div>'
 								}else{
-									str += '<div class="price_change change2 fr">-'+cuAry[j][k].priceChange+'</div>'
+									str += '<div class="price_change change2 fr">'+cuAry[j][k].priceChange+'</div>'
 								}
 
 								str += '</div>'
@@ -1134,17 +1193,16 @@
 								str += '</div>'
 								str += '</div>'
 								str += '</div>'
-								str += '</div>'
+								str += '</a>'
 							}
 							str += '</li>'
 							sessionStorage.setItem(cuyId,cuAry[j][0].categoryname)
-							cuycontent.push(sessionStorage.getItem('cuy'+j))
+							cuycontent.push(sessionStorage.getItem('cy'+j))
 						}
 
 						$("#ai_Ary").append(str)
 						for(var z = 0;z<cuycontent.length;z++){
-							console.log($("#cuy"+z))
-							$("#cuy"+z).html(cuycontent[z])
+							$("#cy"+z).html(cuycontent[z])
 						}
 					}
 
@@ -1155,10 +1213,63 @@
 				jQuery.ajax({
 					type:'GET',
 					contentType: "application/x-www-form-urlencoded; charset=utf-8",
-					url:'C_URL + C_M_WAIPAN',
+					url:C_URL + C_M_WAIPAN,
 					dataType:'json',
+					data:{type:'hutong'},
 					success:function(response){
 						console.log(response)
+						var len = response.length;
+						var str="";
+						for(var i= 0;i<len;i++){
+							str +='<li>'
+							str +='<div class="for_l">'+response[i].name+'</div>'
+							str +='<div class="for_color">'+response[i].price+'</div>'
+							str +='<div>'+response[i].buyer+'</div>'
+							str +='<div>'+response[i].seller+'</div>'
+							str +='<div class="for_right clearfix">'
+							if(Number(response[i].seller) - Number(response[i].buyer) >= 0){
+								str +='<div class="price_change change1">+20</div>'
+							}else{
+								str +='<div class="price_change change2">+20</div>'
+							}
+
+							str +='</div>'
+							str +='</li>'
+						}
+						$("#cu_Ary2").append(str)
+					}
+
+				})
+			}
+
+			function loadL(){
+				jQuery.ajax({
+					type:'GET',
+					contentType: "application/x-www-form-urlencoded; charset=utf-8",
+					url:C_URL + C_M_WAIPAN,
+					dataType:'json',
+					data:{type:'hulv'},
+					success:function(response){
+						console.log(response)
+						var len = response.length;
+						var str="";
+						for(var i= 0;i<len;i++){
+							str +='<li>'
+							str +='<div class="for_l">'+response[i].name+'</div>'
+							str +='<div class="for_color">'+response[i].price+'</div>'
+							str +='<div>'+response[i].buyer+'</div>'
+							str +='<div>'+response[i].seller+'</div>'
+							str +='<div class="for_right clearfix">'
+							if(Number(response[i].seller) - Number(response[i].buyer) >= 0){
+								str +='<div class="price_change change1">+20</div>'
+							}else{
+								str +='<div class="price_change change2">+20</div>'
+							}
+
+							str +='</div>'
+							str +='</li>'
+						}
+						$("#ai_Ary2").append(str)
 					}
 
 				})
@@ -1174,10 +1285,12 @@
 				var hasCl = $(this).hasClass('tr_up')
 				if(hasCl){
 					self.removeClass('tr_up')
+					$("#cu_ptxt").html('价格范围')
 					$("#cu_Ary").empty()
 					load1()
 				}else{
 					self.addClass('tr_up')
+					$("#cu_ptxt").html('均价')
 					$("#cu_Ary").empty()
 					load11()
 				}
@@ -1188,10 +1301,12 @@
 				var hasCl = $(this).hasClass('tr_up')
 				if(hasCl){
 					self.removeClass('tr_up')
+					$("#ai_ptxt").html('价格范围')
 					$("#ai_Ary").empty()
 					load2()
 				}else{
 					self.addClass('tr_up')
+					$("#ai_ptxt").html('均价')
 					$("#ai_Ary").empty()
 					load22()
 				}
@@ -1202,9 +1317,11 @@
 				$(this).addClass('active').siblings().removeClass('active')
 				$("#spot_content>div").eq(oIndex).show().siblings().hide();
 				if(oIndex == 0){
+					$("#cu_Ary").empty()
 					load1()
 				}else if(oIndex == 1){
-					console.log(2)
+					$("#cu_Ary2").empty()
+					loadT()
 				}
 			})
 			mui("#sc_spot2").on('tap','a.ai_s',function(){
@@ -1212,10 +1329,62 @@
 				$(this).addClass('active').siblings().removeClass('active')
 				$("#spot_content2>div").eq(oIndex).show().siblings().hide();
 				if(oIndex == 0){
+					$("#ai_Ary").empty()
 					load2()
 				}else if(oIndex == 1){
-					console.log(2)
+					$("#ai_Ary2").empty()
+					loadL()
 				}
+			});
+
+			mui("#cu_Ary").on('tap','a.brand_content',function(){
+
+				var pname = $(this).attr("pname")
+				var priceinterval = $(this).attr("priceinterval")
+				var averageprice = $(this).attr("averageprice")
+				var pricechange = $(this).attr("pricechange")
+				var createtime = $(this).attr("createtime")
+				var category = $(this).attr("category")
+				sessionStorage.setItem('pname',pname)
+				sessionStorage.setItem('priceinterval',priceinterval)
+				sessionStorage.setItem('averageprice',averageprice)
+				sessionStorage.setItem('pricechange',pricechange)
+				sessionStorage.setItem('createtime',createtime)
+				sessionStorage.setItem('category',category)
+				 mui.openWindow({
+					url:'detail.html',
+					id:'detail',
+					extras:{
+						name:'mui'
+					}
+				})
+
+
+			})
+
+			mui("#ai_Ary").on('tap','a.brand_content',function(){
+
+				var pname = $(this).attr("pname")
+				var priceinterval = $(this).attr("priceinterval")
+				var averageprice = $(this).attr("averageprice")
+				var pricechange = $(this).attr("pricechange")
+				var createtime = $(this).attr("createtime")
+				var category = $(this).attr("category")
+				sessionStorage.setItem('pname',pname)
+				sessionStorage.setItem('priceinterval',priceinterval)
+				sessionStorage.setItem('averageprice',averageprice)
+				sessionStorage.setItem('pricechange',pricechange)
+				sessionStorage.setItem('createtime',createtime)
+				sessionStorage.setItem('category',category)
+				mui.openWindow({
+					url:'detail.html',
+					id:'detail',
+					extras:{
+						name:'mui'
+					}
+				})
+
+
 			})
 		</script>
 	</body>
